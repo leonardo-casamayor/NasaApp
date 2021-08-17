@@ -15,7 +15,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NASALaunchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="97l-dl-HRN">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NASALaunchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="97l-dl-HRN">
                                 <rect key="frame" x="0.0" y="93.666666666666686" width="414" height="548.66666666666652"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="97l-dl-HRN" secondAttribute="height" multiplier="0.755" id="UH7-ai-4Bv"/>
@@ -37,6 +37,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="NASALaunchScreen" width="7409" height="9799"/>
+        <image name="NASALaunchScreen" width="2469.666748046875" height="3266.333251953125"/>
     </resources>
 </document>
