@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina5_5" orientation="portrait" appearance="light"/>
+    <device id="ipad12_9rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -12,11 +12,11 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NASALaunchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="97l-dl-HRN">
-                                <rect key="frame" x="0.0" y="93.666666666666686" width="414" height="548.66666666666652"/>
+                                <rect key="frame" x="186" y="251" width="652" height="864"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="97l-dl-HRN" secondAttribute="height" multiplier="0.755" id="UH7-ai-4Bv"/>
                                 </constraints>
@@ -26,7 +26,9 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="97l-dl-HRN" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="9SY-Ge-IJa"/>
-                            <constraint firstItem="97l-dl-HRN" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" id="RN3-Lx-kGp"/>
+                            <constraint firstItem="97l-dl-HRN" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" multiplier="0.5" constant="120" id="RN3-Lx-kGp">
+                                <variation key="heightClass=regular-widthClass=regular" constant="140"/>
+                            </constraint>
                             <constraint firstItem="97l-dl-HRN" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="ptu-tJ-Kq6"/>
                         </constraints>
                     </view>
@@ -37,6 +39,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="NASALaunchScreen" width="2469.666748046875" height="3266.333251953125"/>
+        <image name="NASALaunchScreen" width="141.5" height="187.5"/>
     </resources>
 </document>
