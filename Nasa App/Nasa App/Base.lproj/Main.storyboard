@@ -8,33 +8,33 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Nasa_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="Nasa_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ajd-9l-i5N">
-                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WM5-fq-Mfw" userLabel="padding1">
-                                        <rect key="frame" x="0.0" y="0.0" width="390" height="76.666666666666671"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="84.333333333333329"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NASA_logo.svg" translatesAutoresizingMaskIntoConstraints="NO" id="kxc-Ae-JxV" userLabel="logo">
-                                        <rect key="frame" x="97.666666666666686" y="76.666666666666686" width="195" height="195"/>
+                                        <rect key="frame" x="97.666666666666686" y="84.333333333333314" width="195" height="195"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="kxc-Ae-JxV" secondAttribute="height" multiplier="1:1" id="Org-vi-ftW"/>
                                         </constraints>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GJT-pL-Muc" userLabel="padding2">
-                                        <rect key="frame" x="0.0" y="271.66666666666669" width="390" height="30.666666666666686"/>
+                                        <rect key="frame" x="0.0" y="279.33333333333331" width="390" height="33.666666666666686"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XDZ-7N-Hhb" userLabel="fields">
-                                        <rect key="frame" x="11" y="302.33333333333331" width="368" height="110"/>
+                                        <rect key="frame" x="11" y="313" width="368" height="110"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qxo-rC-lQV" userLabel="userField">
                                                 <rect key="frame" x="0.0" y="0.0" width="368" height="44"/>
@@ -105,10 +105,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ywL-GK-b2L" userLabel="containerView">
-                                        <rect key="frame" x="0.0" y="412.33333333333326" width="390" height="353.66666666666674"/>
+                                        <rect key="frame" x="0.0" y="423" width="390" height="421"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EoL-Za-NwQ" userLabel="buttons">
-                                                <rect key="frame" x="117" y="131.66666666666669" width="156" height="90"/>
+                                                <rect key="frame" x="117" y="165.66666666666663" width="156" height="90"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VTQ-Hc-Q8I" userLabel="login">
                                                         <rect key="frame" x="0.0" y="0.0" width="156" height="36"/>
@@ -177,8 +177,8 @@
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ajd-9l-i5N" secondAttribute="trailing" id="Brq-fl-tuh"/>
                             <constraint firstItem="Ajd-9l-i5N" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="CsQ-Z5-2oD"/>
-                            <constraint firstItem="Ajd-9l-i5N" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="jT9-sG-QsV"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Ajd-9l-i5N" secondAttribute="bottom" id="jbu-IU-DlQ"/>
+                            <constraint firstAttribute="bottom" secondItem="Ajd-9l-i5N" secondAttribute="bottom" id="jbu-IU-DlQ"/>
+                            <constraint firstItem="Ajd-9l-i5N" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="sdD-si-ceg"/>
                         </constraints>
                     </view>
                     <connections>
