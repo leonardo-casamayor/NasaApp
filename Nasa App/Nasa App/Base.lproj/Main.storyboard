@@ -27,7 +27,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xag-E9-TIT" userLabel="gradient">
-                                <rect key="frame" x="0.0" y="371" width="414" height="164"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="491"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="wSD-lx-6M5" userLabel="lableStack">
@@ -50,7 +50,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qoQ-R9-CxE">
                                 <rect key="frame" x="10" y="545" width="394" height="317"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <mutableString key="text">Venus, named for the Roman goddess of love, and Mars, the war god's namesake, come together by moonlight in this serene skyview, recorded on July 11 from Lualaba province, Democratic Republic of Congo, planet Earth. Taken in the western twilight sky shortly after sunset the exposure also records earthshine illuminating the otherwise dark surface of the young crescent Moon. Of course the Moon has moved on. Venus still shines in the west though as the evening star, third brightest object in Earth's sky, after the Sun and the Moon itself. Seen here above a brilliant Venus, Mars moved even closer to the brighter planet and by July 13 could be seen only about a Moon's width away. Mars has since slowly wandered away from much brighter Venus in the twilight, but both are sliding toward bright star Regulus. Alpha star of the constellation Leo, Regulus lies off the top of this frame and anticipates a visit from Venus and then Mars in twilight skies of the coming days.</mutableString>
+                                <string key="text">Venus, named for the Roman goddess of love, and Mars, the war god's namesake, come together by moonlight in this serene skyview, recorded on July 11 from Lualaba province, Democratic Republic of Congo, planet Earth. Taken in the western twilight sky shortly after sunset the exposure also records earthshine illuminating the otherwise dark surface of the young crescent Moon. Of course the Moon has moved on. Venus still shines in the west though as the evening star, third brightest object in Earth's sky, after the Sun and the Moon itself. Seen here above a brilliant Venus, Mars moved even closer to the brighter planet and by July 13 could be seen only about a Moon's width away. Mars has since slowly wandered away from much brighter Venus in the twilight, but both are sliding toward bright star Regulus. Alpha star of the constellation Leo, Regulus lies off the top of this frame and anticipates a visit from Venus and then Mars in twilight skies of the coming days.</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -59,6 +59,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Xag-E9-TIT" firstAttribute="leading" secondItem="027-Hb-2dY" secondAttribute="leading" id="2Rz-Xe-80j"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="027-Hb-2dY" secondAttribute="trailing" id="7cE-PC-dXi"/>
                             <constraint firstItem="027-Hb-2dY" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" multiplier="0.6" id="AZ0-v0-GyX"/>
                             <constraint firstItem="qoQ-R9-CxE" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Blr-6g-ZQg"/>
@@ -68,14 +69,13 @@
                             <constraint firstItem="qoQ-R9-CxE" firstAttribute="top" secondItem="027-Hb-2dY" secondAttribute="bottom" constant="10" id="OFf-UV-WzB"/>
                             <constraint firstItem="tih-If-bkK" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="UHz-oM-lDJ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qoQ-R9-CxE" secondAttribute="trailing" constant="10" id="bQH-0J-usn"/>
-                            <constraint firstItem="Xag-E9-TIT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ghA-wF-o1m"/>
+                            <constraint firstItem="Xag-E9-TIT" firstAttribute="height" secondItem="027-Hb-2dY" secondAttribute="height" id="bxq-kx-YEV"/>
                             <constraint firstItem="tih-If-bkK" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" multiplier="0.6" id="gvV-Ax-3dX"/>
                             <constraint firstItem="Xag-E9-TIT" firstAttribute="bottom" secondItem="027-Hb-2dY" secondAttribute="bottom" id="hkq-ro-1Mx"/>
                             <constraint firstItem="qoQ-R9-CxE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="jBI-ub-gz3"/>
                             <constraint firstItem="027-Hb-2dY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="jHt-Nn-Rrf"/>
-                            <constraint firstItem="Xag-E9-TIT" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" multiplier="0.2" id="mOK-SG-O4H"/>
                             <constraint firstItem="wSD-lx-6M5" firstAttribute="leading" secondItem="Xag-E9-TIT" secondAttribute="leading" constant="10" id="o8A-94-GTF"/>
-                            <constraint firstItem="Xag-E9-TIT" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" id="sSO-Kp-GoP"/>
+                            <constraint firstItem="Xag-E9-TIT" firstAttribute="trailing" secondItem="027-Hb-2dY" secondAttribute="trailing" id="sgq-da-BMr"/>
                             <constraint firstItem="tih-If-bkK" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" symbolic="YES" id="tr5-IW-eDh"/>
                         </constraints>
                     </view>

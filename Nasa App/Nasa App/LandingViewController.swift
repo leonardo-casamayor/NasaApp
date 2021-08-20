@@ -15,20 +15,26 @@ class LandingViewController: UIViewController {
     let nasaBlueUI = UIColor(red:0.02, green:0.24, blue:0.58, alpha:1)
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         view.backgroundColor = nasaBlueUI
         textView.backgroundColor = nasaBlueUI
-        makeGradient(gradientView)
         
     }
-    
-    func makeGradient(_ view: UIView) {
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        makeGradient(gradientView)
+
+    }
+    private func makeGradient(_ view: UIView) {
+        
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = view.bounds
         gradientLayer.colors = [UIColor.clear.cgColor, nasaBlueUI.cgColor]
         view.backgroundColor = UIColor.clear
         view.layer.addSublayer(gradientLayer)
+        
     }
-
 }
 
