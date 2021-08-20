@@ -279,14 +279,6 @@
             <point key="canvasLocation" x="1710" y="33"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="5ba-Um-oXI">
-            <size key="intrinsicContentSize" width="73" height="36"/>
-        </designable>
-        <designable name="VTQ-Hc-Q8I">
-            <size key="intrinsicContentSize" width="54" height="36"/>
-        </designable>
-    </designables>
     <inferredMetricsTieBreakers>
         <segue reference="Uge-Pb-Nb0"/>
     </inferredMetricsTieBreakers>

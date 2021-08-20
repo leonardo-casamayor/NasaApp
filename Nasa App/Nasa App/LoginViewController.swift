@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  LoginViewController.swift
 //  Nasa App
 //
 //  Created by David Felipe Lizarazo Velandia on 10/08/21.
@@ -19,6 +19,12 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        viewControllerSetUp()
+    
+    }
+    //MARK: Formatting
+    private func viewControllerSetUp() {
+        
         setBackgroundColor(self.view)
         setBackgroundColor(buttonsView)
         formatButtons(loginButton)
@@ -27,17 +33,13 @@ class LoginViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
-        
     }
-    
-    //MARK: Set Colors
-    
-    func setBackgroundColor (_ view: UIView) {
+    private func setBackgroundColor (_ view: UIView) {
         
         view.backgroundColor = UIColor(red:0.02, green:0.24, blue:0.58, alpha:1)
         
     }
-    func formatButtons(_ view: UIView) {
+    private func formatButtons(_ view: UIView) {
         
         view.backgroundColor = UIColor(red:0.95, green:0.56, blue:0.55, alpha:1)
         view.layer.borderColor = UIColor(red:0.59, green:0.59, blue:0.59, alpha:1).cgColor
@@ -47,7 +49,7 @@ class LoginViewController: UIViewController {
     }
     //MARK: Keyboard Behaviour
     
-    func setupTextFields() {
+    private func setupTextFields() {
         
         let toolbar = UIToolbar()
         let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace,
