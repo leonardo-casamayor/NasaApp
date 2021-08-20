@@ -1,24 +1,98 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Landing View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LandingViewController" customModule="Nasa_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NASALaunchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="027-Hb-2dY" userLabel="image">
+                                <rect key="frame" x="0.0" y="44" width="414" height="491"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Astronomy Picture of the Day" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tih-If-bkK" userLabel="apod">
+                                <rect key="frame" x="155.5" y="54" width="248.5" height="67"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xag-E9-TIT" userLabel="gradient">
+                                <rect key="frame" x="0.0" y="371" width="414" height="164"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="wSD-lx-6M5" userLabel="lableStack">
+                                <rect key="frame" x="10" y="477" width="112" height="50"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O3u-cR-2Tg" userLabel="title">
+                                        <rect key="frame" x="0.0" y="0.0" width="40" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright / Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rSD-WZ-6Ic" userLabel="copyright/Date">
+                                        <rect key="frame" x="0.0" y="32" width="112" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qoQ-R9-CxE">
+                                <rect key="frame" x="10" y="545" width="394" height="317"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <mutableString key="text">Venus, named for the Roman goddess of love, and Mars, the war god's namesake, come together by moonlight in this serene skyview, recorded on July 11 from Lualaba province, Democratic Republic of Congo, planet Earth. Taken in the western twilight sky shortly after sunset the exposure also records earthshine illuminating the otherwise dark surface of the young crescent Moon. Of course the Moon has moved on. Venus still shines in the west though as the evening star, third brightest object in Earth's sky, after the Sun and the Moon itself. Seen here above a brilliant Venus, Mars moved even closer to the brighter planet and by July 13 could be seen only about a Moon's width away. Mars has since slowly wandered away from much brighter Venus in the twilight, but both are sliding toward bright star Regulus. Alpha star of the constellation Leo, Regulus lies off the top of this frame and anticipates a visit from Venus and then Mars in twilight skies of the coming days.</mutableString>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="027-Hb-2dY" secondAttribute="trailing" id="7cE-PC-dXi"/>
+                            <constraint firstItem="027-Hb-2dY" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" multiplier="0.6" id="AZ0-v0-GyX"/>
+                            <constraint firstItem="qoQ-R9-CxE" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Blr-6g-ZQg"/>
+                            <constraint firstItem="Xag-E9-TIT" firstAttribute="bottom" secondItem="wSD-lx-6M5" secondAttribute="bottom" constant="8" id="KOc-bA-oAA"/>
+                            <constraint firstItem="027-Hb-2dY" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Lha-NJ-45a"/>
+                            <constraint firstAttribute="trailing" secondItem="tih-If-bkK" secondAttribute="trailing" constant="10" id="O9w-CA-zzU"/>
+                            <constraint firstItem="qoQ-R9-CxE" firstAttribute="top" secondItem="027-Hb-2dY" secondAttribute="bottom" constant="10" id="OFf-UV-WzB"/>
+                            <constraint firstItem="tih-If-bkK" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="UHz-oM-lDJ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qoQ-R9-CxE" secondAttribute="trailing" constant="10" id="bQH-0J-usn"/>
+                            <constraint firstItem="Xag-E9-TIT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ghA-wF-o1m"/>
+                            <constraint firstItem="tih-If-bkK" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" multiplier="0.6" id="gvV-Ax-3dX"/>
+                            <constraint firstItem="Xag-E9-TIT" firstAttribute="bottom" secondItem="027-Hb-2dY" secondAttribute="bottom" id="hkq-ro-1Mx"/>
+                            <constraint firstItem="qoQ-R9-CxE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="jBI-ub-gz3"/>
+                            <constraint firstItem="027-Hb-2dY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="jHt-Nn-Rrf"/>
+                            <constraint firstItem="Xag-E9-TIT" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" multiplier="0.2" id="mOK-SG-O4H"/>
+                            <constraint firstItem="wSD-lx-6M5" firstAttribute="leading" secondItem="Xag-E9-TIT" secondAttribute="leading" constant="10" id="o8A-94-GTF"/>
+                            <constraint firstItem="Xag-E9-TIT" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" id="sSO-Kp-GoP"/>
+                            <constraint firstItem="tih-If-bkK" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" symbolic="YES" id="tr5-IW-eDh"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="gradientView" destination="Xag-E9-TIT" id="LOk-7M-MZy"/>
+                        <outlet property="textView" destination="qoQ-R9-CxE" id="nll-Ov-KRj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="35" y="68"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="NASALaunchScreen" width="141.5" height="187.5"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
