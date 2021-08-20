@@ -9,11 +9,12 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
-    @IBOutlet weak var loginButton: MyButton!
-    @IBOutlet weak var registerButton: MyButton!
+    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var registerButton: UIButton!
     @IBOutlet weak var buttonsView: UIView!
     @IBOutlet weak var userField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,19 +33,22 @@ class LoginViewController: UIViewController {
     //MARK: Set Colors
     
     func setBackgroundColor (_ view: UIView) {
+        
         view.backgroundColor = UIColor(red:0.02, green:0.24, blue:0.58, alpha:1)
+        
     }
-    
     func formatButtons(_ view: UIView) {
         
         view.backgroundColor = UIColor(red:0.95, green:0.56, blue:0.55, alpha:1)
         view.layer.borderColor = UIColor(red:0.59, green:0.59, blue:0.59, alpha:1).cgColor
+        view.layer.borderWidth = 1
+        view.layer.cornerRadius = 5
         
     }
-    
     //MARK: Keyboard Behaviour
     
     func setupTextFields() {
+        
         let toolbar = UIToolbar()
         let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace,
                                         target: nil, action: nil)
@@ -56,23 +60,30 @@ class LoginViewController: UIViewController {
         
         userField.inputAccessoryView = toolbar
         passwordField.inputAccessoryView = toolbar
+        
     }
-    
     @objc func doneButtonTapped() {
+        
         view.endEditing(true)
+        
     }
-    
     @IBAction func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+        
+        if (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue != nil {
+            
             if self.view.frame.origin.y == 0 {
-                self.view.frame.origin.y -= keyboardSize.height
+                
+                self.view.frame.origin.y -= view.frame.height * 0.2
+                
             }
         }
     }
-    
     @IBAction func keyboardWillHide(notification: NSNotification) {
+        
         if self.view.frame.origin.y != 0 {
+            
             self.view.frame.origin.y = 0
+            
         }
     }
 }
