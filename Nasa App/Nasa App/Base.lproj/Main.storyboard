@@ -58,16 +58,16 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="RLb-Ef-U9d" firstAttribute="leading" secondItem="027-Hb-2dY" secondAttribute="leading" constant="10" id="00x-C4-D5E"/>
+                            <constraint firstItem="RLb-Ef-U9d" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="00x-C4-D5E"/>
                             <constraint firstItem="Xag-E9-TIT" firstAttribute="leading" secondItem="027-Hb-2dY" secondAttribute="leading" id="2Rz-Xe-80j"/>
                             <constraint firstAttribute="trailing" secondItem="027-Hb-2dY" secondAttribute="trailing" id="7cE-PC-dXi"/>
                             <constraint firstItem="027-Hb-2dY" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" multiplier="0.6" id="AZ0-v0-GyX"/>
                             <constraint firstItem="RLb-Ef-U9d" firstAttribute="top" secondItem="027-Hb-2dY" secondAttribute="bottom" constant="10" id="JBu-as-hBI"/>
                             <constraint firstItem="027-Hb-2dY" firstAttribute="bottom" secondItem="wSD-lx-6M5" secondAttribute="bottom" constant="10" id="KOc-bA-oAA"/>
                             <constraint firstItem="027-Hb-2dY" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Lha-NJ-45a"/>
-                            <constraint firstItem="027-Hb-2dY" firstAttribute="trailing" secondItem="tih-If-bkK" secondAttribute="trailing" constant="10" id="O9w-CA-zzU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tih-If-bkK" secondAttribute="trailing" constant="10" id="O9w-CA-zzU"/>
                             <constraint firstItem="tih-If-bkK" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="UHz-oM-lDJ"/>
-                            <constraint firstItem="RLb-Ef-U9d" firstAttribute="trailing" secondItem="027-Hb-2dY" secondAttribute="trailing" constant="-10" id="Wkx-Di-gn4"/>
+                            <constraint firstItem="RLb-Ef-U9d" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-10" id="Wkx-Di-gn4"/>
                             <constraint firstItem="Xag-E9-TIT" firstAttribute="height" secondItem="027-Hb-2dY" secondAttribute="height" id="bxq-kx-YEV"/>
                             <constraint firstItem="tih-If-bkK" firstAttribute="width" secondItem="027-Hb-2dY" secondAttribute="width" multiplier="0.6" id="gvV-Ax-3dX"/>
                             <constraint firstItem="Xag-E9-TIT" firstAttribute="bottom" secondItem="027-Hb-2dY" secondAttribute="bottom" id="hkq-ro-1Mx"/>
