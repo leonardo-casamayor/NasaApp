@@ -12,14 +12,12 @@ class FavoritesTabColCell: UICollectionViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var thumbnail: UIImageView!
     
-    
     override func prepareForReuse() {
         super.prepareForReuse()
         self.thumbnail.image = #imageLiteral(resourceName: "Loading")
         self.descriptionLabel.text = ""
         self.dateLabel.text = ""
     }
-    
 }
 
 extension FavoritesTabColCell {
@@ -40,7 +38,6 @@ extension FavoritesTabColCell {
                             self.thumbnail.layer.cornerRadius = 15
                             self.thumbnail.clipsToBounds = true
                         }
-                        
                     }
                 } catch {
                     self.thumbnail.image = #imageLiteral(resourceName: "Loading")

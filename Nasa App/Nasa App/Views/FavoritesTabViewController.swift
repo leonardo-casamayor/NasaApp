@@ -10,9 +10,7 @@ import UIKit
 class FavoriteTabViewController: UIViewController {
     
     @IBOutlet weak var favoriteCV: UICollectionView!
-    
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         favoriteCV.dataSource = self
