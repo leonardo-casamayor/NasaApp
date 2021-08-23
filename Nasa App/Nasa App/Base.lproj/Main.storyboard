@@ -31,7 +31,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="wSD-lx-6M5" userLabel="labelStack">
-                                <rect key="frame" x="10" y="433" width="112" height="50"/>
+                                <rect key="frame" x="10" y="431" width="112" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O3u-cR-2Tg" userLabel="title">
                                         <rect key="frame" x="0.0" y="0.0" width="40" height="24"/>
@@ -47,32 +47,30 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qoQ-R9-CxE">
-                                <rect key="frame" x="10" y="501" width="394" height="361"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <string key="text">Venus, named for the Roman goddess of love, and Mars, the war god's namesake, come together by moonlight in this serene skyview, recorded on July 11 from Lualaba province, Democratic Republic of Congo, planet Earth. Taken in the western twilight sky shortly after sunset the exposure also records earthshine illuminating the otherwise dark surface of the young crescent Moon. Of course the Moon has moved on. Venus still shines in the west though as the evening star, third brightest object in Earth's sky, after the Sun and the Moon itself. Seen here above a brilliant Venus, Mars moved even closer to the brighter planet and by July 13 could be seen only about a Moon's width away. Mars has since slowly wandered away from much brighter Venus in the twilight, but both are sliding toward bright star Regulus. Alpha star of the constellation Leo, Regulus lies off the top of this frame and anticipates a visit from Venus and then Mars in twilight skies of the coming days.</string>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="explanation" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RLb-Ef-U9d">
+                                <rect key="frame" x="10" y="501" width="394" height="20.5"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="RLb-Ef-U9d" firstAttribute="leading" secondItem="027-Hb-2dY" secondAttribute="leading" constant="10" id="00x-C4-D5E"/>
                             <constraint firstItem="Xag-E9-TIT" firstAttribute="leading" secondItem="027-Hb-2dY" secondAttribute="leading" id="2Rz-Xe-80j"/>
                             <constraint firstAttribute="trailing" secondItem="027-Hb-2dY" secondAttribute="trailing" id="7cE-PC-dXi"/>
                             <constraint firstItem="027-Hb-2dY" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" multiplier="0.6" id="AZ0-v0-GyX"/>
-                            <constraint firstItem="qoQ-R9-CxE" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Blr-6g-ZQg"/>
-                            <constraint firstItem="027-Hb-2dY" firstAttribute="bottom" secondItem="wSD-lx-6M5" secondAttribute="bottom" constant="8" id="KOc-bA-oAA"/>
+                            <constraint firstItem="RLb-Ef-U9d" firstAttribute="top" secondItem="027-Hb-2dY" secondAttribute="bottom" constant="10" id="JBu-as-hBI"/>
+                            <constraint firstItem="027-Hb-2dY" firstAttribute="bottom" secondItem="wSD-lx-6M5" secondAttribute="bottom" constant="10" id="KOc-bA-oAA"/>
                             <constraint firstItem="027-Hb-2dY" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Lha-NJ-45a"/>
                             <constraint firstItem="027-Hb-2dY" firstAttribute="trailing" secondItem="tih-If-bkK" secondAttribute="trailing" constant="10" id="O9w-CA-zzU"/>
-                            <constraint firstItem="qoQ-R9-CxE" firstAttribute="top" secondItem="027-Hb-2dY" secondAttribute="bottom" constant="10" id="OFf-UV-WzB"/>
                             <constraint firstItem="tih-If-bkK" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="UHz-oM-lDJ"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qoQ-R9-CxE" secondAttribute="trailing" constant="10" id="bQH-0J-usn"/>
+                            <constraint firstItem="RLb-Ef-U9d" firstAttribute="trailing" secondItem="027-Hb-2dY" secondAttribute="trailing" constant="-10" id="Wkx-Di-gn4"/>
                             <constraint firstItem="Xag-E9-TIT" firstAttribute="height" secondItem="027-Hb-2dY" secondAttribute="height" id="bxq-kx-YEV"/>
                             <constraint firstItem="tih-If-bkK" firstAttribute="width" secondItem="027-Hb-2dY" secondAttribute="width" multiplier="0.6" id="gvV-Ax-3dX"/>
                             <constraint firstItem="Xag-E9-TIT" firstAttribute="bottom" secondItem="027-Hb-2dY" secondAttribute="bottom" id="hkq-ro-1Mx"/>
-                            <constraint firstItem="qoQ-R9-CxE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="jBI-ub-gz3"/>
                             <constraint firstItem="027-Hb-2dY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="jHt-Nn-Rrf"/>
                             <constraint firstItem="wSD-lx-6M5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="o8A-94-GTF"/>
                             <constraint firstItem="Xag-E9-TIT" firstAttribute="trailing" secondItem="027-Hb-2dY" secondAttribute="trailing" id="sgq-da-BMr"/>
@@ -80,10 +78,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="explanationLabel" destination="RLb-Ef-U9d" id="1Wp-Kc-uc1"/>
                         <outlet property="gradientView" destination="Xag-E9-TIT" id="LOk-7M-MZy"/>
                         <outlet property="image" destination="027-Hb-2dY" id="cjF-fo-klc"/>
                         <outlet property="subtitleLabel" destination="rSD-WZ-6Ic" id="DKb-tD-X5b"/>
-                        <outlet property="textView" destination="qoQ-R9-CxE" id="nll-Ov-KRj"/>
                         <outlet property="titleLabel" destination="O3u-cR-2Tg" id="NZp-2h-jDO"/>
                     </connections>
                 </viewController>
