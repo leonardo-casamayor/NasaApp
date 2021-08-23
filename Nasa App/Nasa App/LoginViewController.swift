@@ -9,22 +9,20 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
-    @IBOutlet weak var loginButton: UIButton!
-    @IBOutlet weak var registerButton: UIButton!
     @IBOutlet weak var buttonsView: UIView!
     @IBOutlet weak var userField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var loginButton: CustomButton!
+    @IBOutlet weak var registerButton: CustomButton!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         viewControllerSetUp()
-    
     }
+    
     //MARK: Formatting
     private func viewControllerSetUp() {
-        
         setBackgroundColor(self.view)
         setBackgroundColor(buttonsView)
         formatButtons(loginButton)
@@ -32,25 +30,21 @@ class LoginViewController: UIViewController {
         setupTextFields()
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-        
     }
+    
     private func setBackgroundColor (_ view: UIView) {
-        
-        view.backgroundColor = UIColor(red:0.02, green:0.24, blue:0.58, alpha:1)
-        
+        view.backgroundColor = nasaBlue
     }
+    
     private func formatButtons(_ view: UIView) {
-        
-        view.backgroundColor = UIColor(red:0.95, green:0.56, blue:0.55, alpha:1)
-        view.layer.borderColor = UIColor(red:0.59, green:0.59, blue:0.59, alpha:1).cgColor
+        view.backgroundColor = buttonColor
+        view.layer.borderColor = buttonBorderColor.cgColor
         view.layer.borderWidth = 1
         view.layer.cornerRadius = 5
-        
     }
-    //MARK: Keyboard Behaviour
     
+    //MARK: Keyboard Behaviour
     private func setupTextFields() {
-        
         let toolbar = UIToolbar()
         let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace,
                                         target: nil, action: nil)
@@ -62,30 +56,23 @@ class LoginViewController: UIViewController {
         
         userField.inputAccessoryView = toolbar
         passwordField.inputAccessoryView = toolbar
-        
     }
+    
     @objc func doneButtonTapped() {
-        
         view.endEditing(true)
-        
     }
+    
     @IBAction func keyboardWillShow(notification: NSNotification) {
-        
         if (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue != nil {
-            
             if self.view.frame.origin.y == 0 {
-                
-                self.view.frame.origin.y -= view.frame.height * 0.2
-                
+                self.view.frame.origin.y -= view.frame.height * 0.3
             }
         }
     }
+    
     @IBAction func keyboardWillHide(notification: NSNotification) {
-        
         if self.view.frame.origin.y != 0 {
-            
             self.view.frame.origin.y = 0
-            
         }
     }
 }

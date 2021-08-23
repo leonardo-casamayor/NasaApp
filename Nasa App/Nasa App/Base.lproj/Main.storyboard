@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -13,23 +13,23 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="Nasa_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NASA_logo.svg" translatesAutoresizingMaskIntoConstraints="NO" id="kxc-Ae-JxV" userLabel="logo">
-                                <rect key="frame" x="93.666666666666671" y="73.999999999999986" width="187.66666666666663" height="187.66666666666663"/>
+                                <rect key="frame" x="107" y="74" width="214" height="214"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="kxc-Ae-JxV" secondAttribute="height" multiplier="1:1" id="Org-vi-ftW"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="a1Y-c4-bhH" userLabel="Fields">
-                                <rect key="frame" x="18.666666666666657" y="291.66666666666669" width="337.66666666666674" height="108"/>
+                                <rect key="frame" x="21.333333333333343" y="318" width="385.33333333333326" height="108"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T37-YC-k7c" userLabel="user">
-                                        <rect key="frame" x="0.0" y="0.0" width="337.66666666666669" height="44"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="385.33333333333331" height="44"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yqQ-ab-Al3" userLabel="userLabel">
-                                                <rect key="frame" x="10" y="11.666666666666627" width="36" height="20.333333333333329"/>
+                                                <rect key="frame" x="10" y="11.999999999999998" width="36" height="20.333333333333329"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -52,16 +52,16 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FJU-xi-XpF" userLabel="password">
-                                        <rect key="frame" x="0.0" y="64" width="337.66666666666669" height="44"/>
+                                        <rect key="frame" x="0.0" y="64" width="385.33333333333331" height="44"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="78q-EK-vTh" userLabel="Password">
-                                                <rect key="frame" x="10" y="11.666666666666627" width="73.333333333333329" height="20.333333333333329"/>
+                                                <rect key="frame" x="10" y="11.999999999999998" width="73.333333333333329" height="20.333333333333329"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your password" textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="6lC-Yo-wwC" userLabel="passwordField">
-                                                <rect key="frame" x="109.99999999999999" y="11.333333333333314" width="155.66666666666663" height="21"/>
+                                                <rect key="frame" x="110.00000000000001" y="11.666666666666686" width="155.66666666666669" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="go" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
                                             </textField>
@@ -88,10 +88,10 @@
                                 </constraints>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iEY-eU-ZKE" userLabel="Buttons">
-                                <rect key="frame" x="112.66666666666669" y="429.66666666666674" width="150" height="348.33333333333326"/>
+                                <rect key="frame" x="128.33333333333331" y="456" width="171.33333333333331" height="436"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VTQ-Hc-Q8I" userLabel="login">
-                                        <rect key="frame" x="0.0" y="95.999999999999943" width="150" height="36"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VTQ-Hc-Q8I" userLabel="login" customClass="CustomButton" customModule="Nasa_App" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="140" width="171.33333333333334" height="36"/>
                                         <color key="backgroundColor" red="0.60392159219999997" green="0.60392159219999997" blue="0.60392159219999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Log In">
@@ -100,18 +100,18 @@
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="1"/>
+                                                <integer key="value" value="1"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="5"/>
+                                                <integer key="value" value="5"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <segue destination="mTJ-I1-JEj" kind="presentation" modalPresentationStyle="fullScreen" id="Uge-Pb-Nb0"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ba-Um-oXI" userLabel="register">
-                                        <rect key="frame" x="0.0" y="151.99999999999994" width="150" height="36"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ba-Um-oXI" userLabel="register" customClass="CustomButton" customModule="Nasa_App" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="196" width="171.33333333333334" height="36"/>
                                         <color key="backgroundColor" red="0.60392159219999997" green="0.60392159219999997" blue="0.60392159219999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Register">
@@ -122,7 +122,7 @@
                                                 <real key="value" value="1"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="5"/>
+                                                <integer key="value" value="5"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
@@ -162,9 +162,9 @@
                     </view>
                     <connections>
                         <outlet property="buttonsView" destination="iEY-eU-ZKE" id="Mle-qU-lge"/>
-                        <outlet property="loginButton" destination="VTQ-Hc-Q8I" id="JVc-WZ-Caj"/>
+                        <outlet property="loginButton" destination="VTQ-Hc-Q8I" id="kdE-1W-jf3"/>
                         <outlet property="passwordField" destination="6lC-Yo-wwC" id="jQv-fd-OgK"/>
-                        <outlet property="registerButton" destination="5ba-Um-oXI" id="VTE-tU-FR1"/>
+                        <outlet property="registerButton" destination="5ba-Um-oXI" id="ODY-vA-wB6"/>
                         <outlet property="userField" destination="KyG-Cn-SwF" id="IcW-T3-7Ob"/>
                     </connections>
                 </viewController>
@@ -177,7 +177,7 @@
             <objects>
                 <viewController id="oFi-gj-Mln" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yXD-oz-wSN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="N6G-eD-mgs"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -193,7 +193,7 @@
             <objects>
                 <viewController id="CP5-LJ-ynp" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6Fn-F7-Iiu">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="Rih-xl-4z9"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -209,7 +209,7 @@
             <objects>
                 <viewController id="GYF-iE-RZG" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bJp-aj-Uei">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="6mh-2U-Jbm"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -247,7 +247,7 @@
                     <tabBarItem key="tabBarItem" title="Favorites" image="heart" catalog="system" id="vB3-aT-KHN"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cSU-e7-2ob">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="428" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -266,7 +266,7 @@
                     <tabBarItem key="tabBarItem" title="Popular" image="folder" catalog="system" id="YLP-tq-19j"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="BW2-QD-yjk">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="428" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -279,6 +279,14 @@
             <point key="canvasLocation" x="1710" y="33"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="5ba-Um-oXI">
+            <size key="intrinsicContentSize" width="73" height="36"/>
+        </designable>
+        <designable name="VTQ-Hc-Q8I">
+            <size key="intrinsicContentSize" width="54" height="36"/>
+        </designable>
+    </designables>
     <inferredMetricsTieBreakers>
         <segue reference="Uge-Pb-Nb0"/>
     </inferredMetricsTieBreakers>
