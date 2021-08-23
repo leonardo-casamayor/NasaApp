@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="027-Hb-2dY" userLabel="image">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NASALaunchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="027-Hb-2dY" userLabel="image">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="491"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
@@ -30,7 +30,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="491"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="wSD-lx-6M5" userLabel="lableStack">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="wSD-lx-6M5" userLabel="labelStack">
                                 <rect key="frame" x="10" y="433" width="112" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O3u-cR-2Tg" userLabel="title">
@@ -60,10 +60,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Xag-E9-TIT" firstAttribute="leading" secondItem="027-Hb-2dY" secondAttribute="leading" id="2Rz-Xe-80j"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="027-Hb-2dY" secondAttribute="trailing" id="7cE-PC-dXi"/>
+                            <constraint firstAttribute="trailing" secondItem="027-Hb-2dY" secondAttribute="trailing" id="7cE-PC-dXi"/>
                             <constraint firstItem="027-Hb-2dY" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" multiplier="0.6" id="AZ0-v0-GyX"/>
                             <constraint firstItem="qoQ-R9-CxE" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Blr-6g-ZQg"/>
-                            <constraint firstItem="Xag-E9-TIT" firstAttribute="bottom" secondItem="wSD-lx-6M5" secondAttribute="bottom" constant="8" id="KOc-bA-oAA"/>
+                            <constraint firstItem="027-Hb-2dY" firstAttribute="bottom" secondItem="wSD-lx-6M5" secondAttribute="bottom" constant="8" id="KOc-bA-oAA"/>
                             <constraint firstItem="027-Hb-2dY" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Lha-NJ-45a"/>
                             <constraint firstItem="027-Hb-2dY" firstAttribute="trailing" secondItem="tih-If-bkK" secondAttribute="trailing" constant="10" id="O9w-CA-zzU"/>
                             <constraint firstItem="qoQ-R9-CxE" firstAttribute="top" secondItem="027-Hb-2dY" secondAttribute="bottom" constant="10" id="OFf-UV-WzB"/>
@@ -73,8 +73,8 @@
                             <constraint firstItem="tih-If-bkK" firstAttribute="width" secondItem="027-Hb-2dY" secondAttribute="width" multiplier="0.6" id="gvV-Ax-3dX"/>
                             <constraint firstItem="Xag-E9-TIT" firstAttribute="bottom" secondItem="027-Hb-2dY" secondAttribute="bottom" id="hkq-ro-1Mx"/>
                             <constraint firstItem="qoQ-R9-CxE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="jBI-ub-gz3"/>
-                            <constraint firstItem="027-Hb-2dY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="jHt-Nn-Rrf"/>
-                            <constraint firstItem="wSD-lx-6M5" firstAttribute="leading" secondItem="Xag-E9-TIT" secondAttribute="leading" constant="10" id="o8A-94-GTF"/>
+                            <constraint firstItem="027-Hb-2dY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="jHt-Nn-Rrf"/>
+                            <constraint firstItem="wSD-lx-6M5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="o8A-94-GTF"/>
                             <constraint firstItem="Xag-E9-TIT" firstAttribute="trailing" secondItem="027-Hb-2dY" secondAttribute="trailing" id="sgq-da-BMr"/>
                             <constraint firstItem="tih-If-bkK" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="027-Hb-2dY" secondAttribute="leading" symbolic="YES" id="tr5-IW-eDh"/>
                         </constraints>
@@ -93,6 +93,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="NASALaunchScreen" width="141.5" height="187.5"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
