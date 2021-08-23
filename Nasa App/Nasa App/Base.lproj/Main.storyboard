@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jWL-Xu-aIj">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="ipad12_9" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -13,11 +13,11 @@
             <objects>
                 <viewController id="jWL-Xu-aIj" customClass="FavoriteTabViewController" customModule="Nasa_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Xhs-c8-Maj">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="smW-Ms-Obf">
-                                <rect key="frame" x="9" y="44" width="396" height="818"/>
+                                <rect key="frame" x="9" y="0.0" width="1006" height="1366"/>
                                 <color key="backgroundColor" red="0.015686274510000001" green="0.23529411759999999" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="h1h-fT-frF">
                                     <size key="itemSize" width="392" height="255"/>
@@ -27,7 +27,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CollectionViewCell" id="o1c-vv-PLL" customClass="FavoritesTabColCell" customModule="Nasa_App" customModuleProvider="target">
-                                        <rect key="frame" x="2" y="0.0" width="392" height="255"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="392" height="255"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sjo-Gs-28N">
                                             <rect key="frame" x="0.0" y="0.0" width="392" height="255"/>
@@ -41,19 +41,26 @@
                                                     <color key="backgroundColor" red="0.066666666669999999" green="0.066666666669999999" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="47f-JV-HB5">
-                                                    <rect key="frame" x="115" y="218.5" width="167" height="20.5"/>
+                                                    <rect key="frame" x="115" y="218" width="167" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=regular-widthClass=regular">
+                                                        <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                                    </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g3F-bs-H7L">
-                                                    <rect key="frame" x="115" y="188" width="162" height="25.5"/>
+                                                    <rect key="frame" x="115" y="187.5" width="162" height="25.5"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=regular-widthClass=regular">
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
+                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="g3F-bs-H7L" firstAttribute="height" secondItem="EcB-Mx-lHq" secondAttribute="height" multiplier="0.31875" id="2aN-tj-3uz"/>
                                                 <constraint firstItem="1NP-AQ-0KU" firstAttribute="centerY" secondItem="sjo-Gs-28N" secondAttribute="centerY" id="371-Hn-2ze"/>
                                                 <constraint firstItem="1NP-AQ-0KU" firstAttribute="width" secondItem="sjo-Gs-28N" secondAttribute="width" id="6NZ-tx-omC">
                                                     <variation key="heightClass=regular-widthClass=regular" constant="-200"/>
@@ -62,15 +69,18 @@
                                                 <constraint firstItem="g3F-bs-H7L" firstAttribute="leading" secondItem="1NP-AQ-0KU" secondAttribute="leading" constant="15" id="8Ik-Ef-9eX"/>
                                                 <constraint firstItem="1NP-AQ-0KU" firstAttribute="centerX" secondItem="sjo-Gs-28N" secondAttribute="centerX" id="GDW-Ec-thK"/>
                                                 <constraint firstItem="1NP-AQ-0KU" firstAttribute="bottom" secondItem="EcB-Mx-lHq" secondAttribute="bottom" id="J5f-r6-4qT"/>
+                                                <constraint firstItem="g3F-bs-H7L" firstAttribute="top" secondItem="EcB-Mx-lHq" secondAttribute="top" multiplier="1.07" id="PeB-Sx-wos"/>
+                                                <constraint firstItem="47f-JV-HB5" firstAttribute="height" secondItem="EcB-Mx-lHq" secondAttribute="height" multiplier="0.25625" id="UJA-iA-PXY"/>
                                                 <constraint firstItem="1NP-AQ-0KU" firstAttribute="trailing" secondItem="g3F-bs-H7L" secondAttribute="trailing" constant="15" id="UvF-xf-Xge"/>
-                                                <constraint firstItem="1NP-AQ-0KU" firstAttribute="bottom" secondItem="47f-JV-HB5" secondAttribute="bottom" constant="16" id="YTo-xH-MLs"/>
                                                 <constraint firstItem="1NP-AQ-0KU" firstAttribute="top" secondItem="sjo-Gs-28N" secondAttribute="top" id="ezo-38-RsY"/>
                                                 <constraint firstItem="47f-JV-HB5" firstAttribute="leading" secondItem="1NP-AQ-0KU" secondAttribute="leading" constant="15" id="ika-EY-zgh"/>
                                                 <constraint firstItem="1NP-AQ-0KU" firstAttribute="height" secondItem="sjo-Gs-28N" secondAttribute="height" id="j2a-yR-LyF"/>
                                                 <constraint firstAttribute="bottom" secondItem="1NP-AQ-0KU" secondAttribute="bottom" id="l13-AB-sg4"/>
                                                 <constraint firstItem="EcB-Mx-lHq" firstAttribute="centerX" secondItem="sjo-Gs-28N" secondAttribute="centerX" id="oge-BU-VFi"/>
                                                 <constraint firstItem="1NP-AQ-0KU" firstAttribute="trailing" secondItem="47f-JV-HB5" secondAttribute="trailing" constant="10" id="sHA-VC-K2p"/>
-                                                <constraint firstItem="EcB-Mx-lHq" firstAttribute="height" secondItem="1NP-AQ-0KU" secondAttribute="height" multiplier="0.313725" id="tsd-B1-FxB"/>
+                                                <constraint firstItem="EcB-Mx-lHq" firstAttribute="height" secondItem="1NP-AQ-0KU" secondAttribute="height" multiplier="0.313725" id="tsd-B1-FxB">
+                                                    <variation key="heightClass=regular-widthClass=regular" constant="0.0"/>
+                                                </constraint>
                                                 <constraint firstItem="EcB-Mx-lHq" firstAttribute="leading" secondItem="1NP-AQ-0KU" secondAttribute="leading" id="x6j-Dd-ZiQ"/>
                                                 <constraint firstItem="1NP-AQ-0KU" firstAttribute="trailing" secondItem="EcB-Mx-lHq" secondAttribute="trailing" id="z1e-dR-nC4"/>
                                             </constraints>
