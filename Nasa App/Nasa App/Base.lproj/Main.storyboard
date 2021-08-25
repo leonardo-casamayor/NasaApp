@@ -20,10 +20,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dkN-rr-hLm" userLabel="contentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1771.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1410"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NASALaunchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="027-Hb-2dY" userLabel="image">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="1063"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="537.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Astronomy Picture of the Day" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tih-If-bkK" userLabel="apod">
@@ -36,11 +36,11 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xag-E9-TIT" userLabel="gradient">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="1063"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="537.5"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="wSD-lx-6M5" userLabel="labelStack">
-                                                <rect key="frame" x="20" y="1023" width="112" height="50"/>
+                                                <rect key="frame" x="20" y="497.5" width="112" height="50"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O3u-cR-2Tg" userLabel="title">
                                                         <rect key="frame" x="0.0" y="0.0" width="40" height="24"/>
@@ -59,7 +59,7 @@
                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RLb-Ef-U9d">
-                                                <rect key="frame" x="20" y="1083" width="374" height="852.5"/>
+                                                <rect key="frame" x="20" y="557.5" width="374" height="852.5"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <string key="text">Venus, named for the Roman goddess of love, and Mars, the war god's namesake, come together by moonlight in this serene skyview, recorded on July 11 from Lualaba province, Democratic Republic of Congo, planet Earth. Taken in the western twilight sky shortly after sunset the exposure also records earthshine illuminating the otherwise dark surface of the young crescent Moon. Of course the Moon has moved on. Venus still shines in the west though as the evening star, third brightest object in Earth's sky, after the Sun and the Moon itself. Seen here above a brilliant Venus, Mars moved even closer to the brighter planet and by July 13 could be seen only about a Moon's width away. Mars has since slowly wandered away from much brighter Venus in the twilight, but both are sliding toward bright star Regulus. Alpha star of the constellation Leo, Regulus lies off the top of this frame and anticipates a visit from Venus and then Mars in twilight skies of the coming days.Venus, named for the Roman goddess of love, and Mars, the war god's namesake, come together by moonlight in this serene skyview, recorded on July 11 from Lualaba province, Democratic Republic of Congo, planet Earth. Taken in the western twilight sky shortly after sunset the exposure also records earthshine illuminating the otherwise dark surface of the young crescent Moon. Of course the Moon has moved on. Venus still shines in the west though as the evening star, third brightest object in Earth's sky, after the Sun and the Moon itself. Seen here above a brilliant Venus, Mars moved even closer to the brighter planet and by July 13 could be seen only about a Moon's width away. Mars has since slowly wandered away from much brighter Venus in the twilight, but both are sliding toward bright star Regulus. Alpha star of the constellation Leo, Regulus lies off the top of this frame and anticipates a visit from Venus and then Mars in twilight skies of the coming days.</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -70,16 +70,15 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="027-Hb-2dY" secondAttribute="trailing" id="3QK-1o-Ag5"/>
-                                            <constraint firstItem="Xag-E9-TIT" firstAttribute="height" secondItem="027-Hb-2dY" secondAttribute="height" id="5KX-Np-dQU"/>
                                             <constraint firstItem="Xag-E9-TIT" firstAttribute="leading" secondItem="027-Hb-2dY" secondAttribute="leading" id="AvU-uz-Zd7"/>
                                             <constraint firstItem="tih-If-bkK" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="dkN-rr-hLm" secondAttribute="leading" id="E3o-ZK-mf0"/>
                                             <constraint firstItem="Xag-E9-TIT" firstAttribute="trailing" secondItem="027-Hb-2dY" secondAttribute="trailing" id="FBD-yc-LrQ"/>
+                                            <constraint firstItem="Xag-E9-TIT" firstAttribute="top" secondItem="027-Hb-2dY" secondAttribute="top" id="Uls-ql-bgk"/>
                                             <constraint firstItem="027-Hb-2dY" firstAttribute="top" secondItem="dkN-rr-hLm" secondAttribute="top" id="ZJY-h8-iD3"/>
                                             <constraint firstItem="Xag-E9-TIT" firstAttribute="bottom" secondItem="027-Hb-2dY" secondAttribute="bottom" id="bQC-2q-drj"/>
                                             <constraint firstItem="tih-If-bkK" firstAttribute="top" secondItem="dkN-rr-hLm" secondAttribute="top" constant="45" id="gbF-Ue-dVk"/>
                                             <constraint firstItem="wSD-lx-6M5" firstAttribute="leading" secondItem="027-Hb-2dY" secondAttribute="leading" constant="20" id="hDJ-PV-QPE"/>
                                             <constraint firstItem="RLb-Ef-U9d" firstAttribute="leading" secondItem="dkN-rr-hLm" secondAttribute="leading" constant="20" id="hkF-xI-99Q"/>
-                                            <constraint firstItem="027-Hb-2dY" firstAttribute="height" secondItem="dkN-rr-hLm" secondAttribute="height" multiplier="0.6" id="o9B-Hz-dRz"/>
                                             <constraint firstItem="RLb-Ef-U9d" firstAttribute="top" secondItem="027-Hb-2dY" secondAttribute="bottom" constant="20" id="oHz-qO-X5m"/>
                                             <constraint firstAttribute="trailing" secondItem="RLb-Ef-U9d" secondAttribute="trailing" constant="20" id="sKk-s5-D0c"/>
                                             <constraint firstItem="wSD-lx-6M5" firstAttribute="bottom" secondItem="027-Hb-2dY" secondAttribute="bottom" constant="10" id="syG-qp-3Mo"/>
@@ -92,7 +91,7 @@
                                     <constraint firstAttribute="bottom" secondItem="dkN-rr-hLm" secondAttribute="bottom" id="3xr-wl-UWp"/>
                                     <constraint firstItem="dkN-rr-hLm" firstAttribute="top" secondItem="ITB-gg-Waz" secondAttribute="top" id="8Xv-Kc-JjN"/>
                                     <constraint firstItem="dkN-rr-hLm" firstAttribute="leading" secondItem="ITB-gg-Waz" secondAttribute="leading" id="epE-xe-PH4"/>
-                                    <constraint firstAttribute="bottom" secondItem="RLb-Ef-U9d" secondAttribute="bottom" constant="-164" id="mhQ-3a-6iL"/>
+                                    <constraint firstAttribute="bottom" secondItem="RLb-Ef-U9d" secondAttribute="bottom" id="mhQ-3a-6iL"/>
                                     <constraint firstAttribute="trailing" secondItem="dkN-rr-hLm" secondAttribute="trailing" id="tj9-jb-sNR"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="B69-p7-KJ8"/>
@@ -107,6 +106,7 @@
                             <constraint firstItem="dkN-rr-hLm" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Hg4-gh-XcS"/>
                             <constraint firstItem="ITB-gg-Waz" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="Ydf-va-5Md"/>
                             <constraint firstAttribute="trailing" secondItem="dkN-rr-hLm" secondAttribute="trailing" id="hkU-tR-3D0"/>
+                            <constraint firstItem="027-Hb-2dY" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.6" id="rXj-vt-Lej"/>
                             <constraint firstAttribute="top" secondItem="ITB-gg-Waz" secondAttribute="top" id="yAu-Lr-MGs"/>
                         </constraints>
                     </view>
