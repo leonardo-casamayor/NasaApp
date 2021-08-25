@@ -14,6 +14,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginButton: CustomButton!
     @IBOutlet weak var registerButton: CustomButton!
     @IBOutlet weak var buttonsView: UIStackView!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     
     override func viewDidLoad() {
@@ -23,11 +24,18 @@ class LoginViewController: UIViewController {
     
     //MARK: Formatting
     private func viewControllerSetUp() {
+        //gesture setup
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+        //colors and formatting
         setBackgroundColor(self.view)
         setBackgroundColor(buttonsView)
         formatButtons(loginButton)
         formatButtons(registerButton)
-        setupTextFields()
+        //delegates
+        userField.delegate = self
+        passwordField.delegate = self
+        //notifications
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
@@ -39,41 +47,45 @@ class LoginViewController: UIViewController {
     private func formatButtons(_ view: UIView) {
         view.backgroundColor = buttonColor
         view.layer.borderColor = buttonBorderColor.cgColor
-        view.layer.borderWidth = 1
-        view.layer.cornerRadius = 5
     }
     
     //MARK: Keyboard Behaviour
-    private func setupTextFields() {
-        let toolbar = UIToolbar()
-        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace,
-                                        target: nil, action: nil)
-        let doneButton = UIBarButtonItem(title: "Done", style: .done,
-                                         target: self, action: #selector(doneButtonTapped))
-        
-        toolbar.setItems([flexSpace, doneButton], animated: true)
-        toolbar.sizeToFit()
-        
-        userField.inputAccessoryView = toolbar
-        passwordField.inputAccessoryView = toolbar
-    }
-    
-    @objc func doneButtonTapped() {
-        view.endEditing(true)
-    }
-    
     @IBAction func keyboardWillShow(notification: NSNotification) {
-        if (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue != nil {
-            if self.view.frame.origin.y == 0 {
-                self.view.frame.origin.y -= view.frame.height * 0.3
-            }
-        }
+        guard let userInfo = notification.userInfo else { return }
+            var keyboardFrame:CGRect = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+            keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+
+            var contentInset:UIEdgeInsets = self.scrollView.contentInset
+            contentInset.bottom = keyboardFrame.size.height + 20
+            scrollView.contentInset = contentInset
     }
     
     @IBAction func keyboardWillHide(notification: NSNotification) {
-        if self.view.frame.origin.y != 0 {
-            self.view.frame.origin.y = 0
-        }
+        let contentInset:UIEdgeInsets = UIEdgeInsets.zero
+            scrollView.contentInset = contentInset
     }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+}
+
+//MARK: Extension - UITextFieldDelegate
+extension LoginViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.switchBasedNextTextField(textField)
+        return true
+    }
+    
+    private func switchBasedNextTextField(_ textField: UITextField) {
+        switch textField {
+        case self.userField:
+            self.passwordField.becomeFirstResponder()
+        default:
+            self.passwordField.resignFirstResponder()
+      }
+    }
+    
 }
 
