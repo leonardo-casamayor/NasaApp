@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_0" orientation="portrait" appearance="light"/>
+    <device id="ipad12_9rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -13,23 +13,23 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="Nasa_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1gI-vT-eSB">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="1346"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NASA_logo.svg" translatesAutoresizingMaskIntoConstraints="NO" id="kxc-Ae-JxV" userLabel="logo">
-                                        <rect key="frame" x="96" y="20" width="128" height="128"/>
+                                        <rect key="frame" x="359" y="50" width="306" height="306"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="kxc-Ae-JxV" secondAttribute="height" multiplier="1:1" id="Org-vi-ftW"/>
                                         </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="equalSpacing" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="a1Y-c4-bhH" userLabel="Fields">
-                                        <rect key="frame" x="20" y="208" width="280" height="114"/>
+                                        <rect key="frame" x="254" y="386" width="516" height="114"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T37-YC-k7c" userLabel="user">
-                                                <rect key="frame" x="0.0" y="0.0" width="280" height="44"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="516" height="44"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yqQ-ab-Al3" userLabel="userLabel">
                                                         <rect key="frame" x="10" y="12" width="36" height="20.5"/>
@@ -55,7 +55,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FJU-xi-XpF" userLabel="password">
-                                                <rect key="frame" x="0.0" y="70" width="280" height="44"/>
+                                                <rect key="frame" x="0.0" y="70" width="516" height="44"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="78q-EK-vTh" userLabel="Password">
                                                         <rect key="frame" x="10" y="12" width="73.5" height="20.5"/>
@@ -64,7 +64,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your password" textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="6lC-Yo-wwC" userLabel="passwordField">
-                                                        <rect key="frame" x="110" y="11.5" width="150" height="21"/>
+                                                        <rect key="frame" x="110" y="11.5" width="156" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits" returnKeyType="go" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
                                                     </textField>
@@ -90,10 +90,10 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ks4-jd-3rc" userLabel="Buttons">
-                                        <rect key="frame" x="76" y="382" width="168" height="92"/>
+                                        <rect key="frame" x="357" y="530" width="310" height="92"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VTQ-Hc-Q8I" userLabel="login" customClass="CustomButton" customModule="Nasa_App" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="168" height="36"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="310" height="36"/>
                                                 <color key="backgroundColor" red="0.60392159219999997" green="0.60392159219999997" blue="0.60392159219999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="36" id="BYN-nc-yED"/>
@@ -116,7 +116,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ba-Um-oXI" userLabel="register" customClass="CustomButton" customModule="Nasa_App" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="56" width="168" height="36"/>
+                                                <rect key="frame" x="0.0" y="56" width="310" height="36"/>
                                                 <color key="backgroundColor" red="0.60392159219999997" green="0.60392159219999997" blue="0.60392159219999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <state key="normal" title="Register">
@@ -142,12 +142,14 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="a1Y-c4-bhH" firstAttribute="top" secondItem="kxc-Ae-JxV" secondAttribute="bottom" constant="30" id="5Ie-vM-PQ0">
-                                        <variation key="heightClass=regular" constant="60"/>
+                                        <variation key="heightClass=compact" constant="30"/>
                                     </constraint>
                                     <constraint firstItem="kxc-Ae-JxV" firstAttribute="centerX" secondItem="1gI-vT-eSB" secondAttribute="centerX" id="A3J-ek-WCV"/>
-                                    <constraint firstItem="kxc-Ae-JxV" firstAttribute="top" secondItem="vsL-gq-Xi6" secondAttribute="top" constant="20" id="N2b-YY-mQM"/>
+                                    <constraint firstItem="kxc-Ae-JxV" firstAttribute="top" secondItem="vsL-gq-Xi6" secondAttribute="top" constant="50" id="N2b-YY-mQM">
+                                        <variation key="heightClass=compact" constant="20"/>
+                                    </constraint>
                                     <constraint firstItem="ks4-jd-3rc" firstAttribute="top" secondItem="a1Y-c4-bhH" secondAttribute="bottom" constant="30" id="Pem-yP-Zuh">
-                                        <variation key="heightClass=regular" constant="60"/>
+                                        <variation key="heightClass=compact" constant="30"/>
                                     </constraint>
                                     <constraint firstItem="ks4-jd-3rc" firstAttribute="centerX" secondItem="a1Y-c4-bhH" secondAttribute="centerX" id="fpz-YP-KFR"/>
                                     <constraint firstItem="a1Y-c4-bhH" firstAttribute="leading" secondItem="vsL-gq-Xi6" secondAttribute="leading" constant="20" id="fwm-ym-d9Z"/>
@@ -210,7 +212,7 @@
             <objects>
                 <viewController id="oFi-gj-Mln" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yXD-oz-wSN">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="N6G-eD-mgs"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -226,7 +228,7 @@
             <objects>
                 <viewController id="CP5-LJ-ynp" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6Fn-F7-Iiu">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="Rih-xl-4z9"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -242,7 +244,7 @@
             <objects>
                 <viewController id="GYF-iE-RZG" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bJp-aj-Uei">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="6mh-2U-Jbm"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -280,7 +282,7 @@
                     <tabBarItem key="tabBarItem" title="Favorites" image="heart" catalog="system" id="vB3-aT-KHN"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cSU-e7-2ob">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="50"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -299,7 +301,7 @@
                     <tabBarItem key="tabBarItem" title="Popular" image="folder" catalog="system" id="YLP-tq-19j"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="BW2-QD-yjk">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="50"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
