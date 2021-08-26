@@ -28,7 +28,9 @@ class LandingViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        gradientLayer?.frame = gradientView.bounds
+        DispatchQueue.main.async {
+                    self.gradientLayer?.frame = self.gradientView.bounds
+                }
     }
     
     private func makeGradient(_ view: UIView) {
