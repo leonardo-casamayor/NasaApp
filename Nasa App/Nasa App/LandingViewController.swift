@@ -21,9 +21,7 @@ class LandingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = nasaBlue
-        explanationLabel.backgroundColor = nasaBlue
-        makeGradient(gradientView)
+        setupViewController()
     }
     
     override func viewDidLayoutSubviews() {
@@ -31,6 +29,13 @@ class LandingViewController: UIViewController {
         DispatchQueue.main.async {
                     self.gradientLayer?.frame = self.gradientView.bounds
                 }
+    }
+    
+    private func setupViewController() {
+        view.backgroundColor = nasaBlue
+        explanationLabel.backgroundColor = nasaBlue
+        scrollView.contentInsetAdjustmentBehavior = .never
+        makeGradient(gradientView)
     }
     
     private func makeGradient(_ view: UIView) {

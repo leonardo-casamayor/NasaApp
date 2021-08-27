@@ -11,7 +11,7 @@
         <!--Landing View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LandingViewController" customModule="Nasa_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="LandingViewController" customModule="Nasa_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -22,15 +22,12 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dkN-rr-hLm" userLabel="contentView">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1410"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NASALaunchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="027-Hb-2dY" userLabel="image">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="apod-example" translatesAutoresizingMaskIntoConstraints="NO" id="027-Hb-2dY" userLabel="image">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="537.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Astronomy Picture of the Day" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tih-If-bkK" userLabel="apod">
-                                                <rect key="frame" x="12" y="45" width="382" height="50"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="due-63-p0N"/>
-                                                </constraints>
+                                                <rect key="frame" x="145.5" y="45" width="248.5" height="67"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -40,11 +37,11 @@
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="wSD-lx-6M5" userLabel="labelStack">
-                                                <rect key="frame" x="20" y="497.5" width="112" height="50"/>
+                                                <rect key="frame" x="20" y="467.5" width="112" height="50"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O3u-cR-2Tg" userLabel="title">
-                                                        <rect key="frame" x="0.0" y="0.0" width="40" height="24"/>
-                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="41.5" height="24"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -71,18 +68,15 @@
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="027-Hb-2dY" secondAttribute="trailing" id="3QK-1o-Ag5"/>
                                             <constraint firstItem="Xag-E9-TIT" firstAttribute="leading" secondItem="027-Hb-2dY" secondAttribute="leading" id="AvU-uz-Zd7"/>
-                                            <constraint firstItem="tih-If-bkK" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="dkN-rr-hLm" secondAttribute="leading" id="E3o-ZK-mf0"/>
                                             <constraint firstItem="Xag-E9-TIT" firstAttribute="trailing" secondItem="027-Hb-2dY" secondAttribute="trailing" id="FBD-yc-LrQ"/>
+                                            <constraint firstItem="tih-If-bkK" firstAttribute="width" secondItem="027-Hb-2dY" secondAttribute="width" multiplier="0.6" id="LUx-hX-CZT"/>
                                             <constraint firstItem="Xag-E9-TIT" firstAttribute="top" secondItem="027-Hb-2dY" secondAttribute="top" id="Uls-ql-bgk"/>
                                             <constraint firstItem="027-Hb-2dY" firstAttribute="top" secondItem="dkN-rr-hLm" secondAttribute="top" id="ZJY-h8-iD3"/>
                                             <constraint firstItem="Xag-E9-TIT" firstAttribute="bottom" secondItem="027-Hb-2dY" secondAttribute="bottom" id="bQC-2q-drj"/>
+                                            <constraint firstItem="tih-If-bkK" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="dkN-rr-hLm" secondAttribute="leading" constant="20" symbolic="YES" id="g4I-z2-FZ3"/>
                                             <constraint firstItem="tih-If-bkK" firstAttribute="top" secondItem="dkN-rr-hLm" secondAttribute="top" constant="45" id="gbF-Ue-dVk"/>
-                                            <constraint firstItem="wSD-lx-6M5" firstAttribute="leading" secondItem="027-Hb-2dY" secondAttribute="leading" constant="20" id="hDJ-PV-QPE"/>
-                                            <constraint firstItem="RLb-Ef-U9d" firstAttribute="leading" secondItem="dkN-rr-hLm" secondAttribute="leading" constant="20" id="hkF-xI-99Q"/>
                                             <constraint firstItem="RLb-Ef-U9d" firstAttribute="top" secondItem="027-Hb-2dY" secondAttribute="bottom" constant="20" id="oHz-qO-X5m"/>
-                                            <constraint firstAttribute="trailing" secondItem="RLb-Ef-U9d" secondAttribute="trailing" constant="20" id="sKk-s5-D0c"/>
-                                            <constraint firstItem="wSD-lx-6M5" firstAttribute="bottom" secondItem="027-Hb-2dY" secondAttribute="bottom" constant="10" id="syG-qp-3Mo"/>
-                                            <constraint firstAttribute="trailing" secondItem="tih-If-bkK" secondAttribute="trailing" constant="20" id="tKa-7I-OqG"/>
+                                            <constraint firstItem="wSD-lx-6M5" firstAttribute="bottom" secondItem="027-Hb-2dY" secondAttribute="bottom" constant="-20" id="syG-qp-3Mo"/>
                                             <constraint firstItem="027-Hb-2dY" firstAttribute="leading" secondItem="dkN-rr-hLm" secondAttribute="leading" id="y1U-33-tlL"/>
                                         </constraints>
                                     </view>
@@ -101,12 +95,16 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="wSD-lx-6M5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="2fp-DH-P6g"/>
                             <constraint firstAttribute="leading" secondItem="ITB-gg-Waz" secondAttribute="leading" id="38B-1A-6BU"/>
                             <constraint firstAttribute="bottom" secondItem="ITB-gg-Waz" secondAttribute="bottom" id="ED7-x9-pH9"/>
                             <constraint firstItem="dkN-rr-hLm" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Hg4-gh-XcS"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="RLb-Ef-U9d" secondAttribute="trailing" constant="20" id="N8b-Rf-2yr"/>
                             <constraint firstItem="ITB-gg-Waz" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="Ydf-va-5Md"/>
                             <constraint firstAttribute="trailing" secondItem="dkN-rr-hLm" secondAttribute="trailing" id="hkU-tR-3D0"/>
+                            <constraint firstItem="RLb-Ef-U9d" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="oAc-ax-fN9"/>
                             <constraint firstItem="027-Hb-2dY" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.6" id="rXj-vt-Lej"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tih-If-bkK" secondAttribute="trailing" constant="20" id="sPH-25-ozq"/>
                             <constraint firstAttribute="top" secondItem="ITB-gg-Waz" secondAttribute="top" id="yAu-Lr-MGs"/>
                         </constraints>
                     </view>
@@ -125,7 +123,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="NASALaunchScreen" width="141.5" height="187.5"/>
+        <image name="apod-example" width="2048" height="1565"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
