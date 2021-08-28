@@ -7,12 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		05BEECCE26DADE2D003DE4E0 /* LandingStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05BEECCD26DADE2D003DE4E0 /* LandingStoryboard.storyboard */; };
+		0521590326DAE77A00B266A9 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0521590226DAE77A00B266A9 /* LandingViewController.swift */; };
 		05874CFF26D3DC34009AB06F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05874CFE26D3DC34009AB06F /* Constants.swift */; };
 		05CE26FD26D04C8B000FF7CA /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CE26FC26D04C8B000FF7CA /* CustomButton.swift */; };
 		0FF8F64F26C31FFB001F228E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF8F64E26C31FFB001F228E /* AppDelegate.swift */; };
 		0FF8F65126C31FFB001F228E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF8F65026C31FFB001F228E /* SceneDelegate.swift */; };
-		0FF8F65326C31FFB001F228E /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF8F65226C31FFB001F228E /* LandingViewController.swift */; };
 		0FF8F65326C31FFB001F228E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF8F65226C31FFB001F228E /* LoginViewController.swift */; };
 		0FF8F65626C31FFB001F228E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FF8F65426C31FFB001F228E /* Main.storyboard */; };
 		0FF8F65826C31FFF001F228E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FF8F65726C31FFF001F228E /* Assets.xcassets */; };
@@ -39,13 +38,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		05BEECCD26DADE2D003DE4E0 /* LandingStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LandingStoryboard.storyboard; sourceTree = "<group>"; };
+		0521590226DAE77A00B266A9 /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		05874CFE26D3DC34009AB06F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		05CE26FC26D04C8B000FF7CA /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		0FF8F64B26C31FFB001F228E /* Nasa App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Nasa App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FF8F64E26C31FFB001F228E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0FF8F65026C31FFB001F228E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0FF8F65226C31FFB001F228E /* LandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		0FF8F65226C31FFB001F228E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		0FF8F65526C31FFB001F228E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0FF8F65726C31FFF001F228E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -109,11 +107,10 @@
 			children = (
 				0FF8F64E26C31FFB001F228E /* AppDelegate.swift */,
 				0FF8F65026C31FFB001F228E /* SceneDelegate.swift */,
-				0FF8F65226C31FFB001F228E /* LandingViewController.swift */,
 				0FF8F65226C31FFB001F228E /* LoginViewController.swift */,
 				05874CFE26D3DC34009AB06F /* Constants.swift */,
 				0FF8F65426C31FFB001F228E /* Main.storyboard */,
-				05BEECCD26DADE2D003DE4E0 /* LandingStoryboard.storyboard */,
+				0521590226DAE77A00B266A9 /* LandingViewController.swift */,
 				05CE26FC26D04C8B000FF7CA /* CustomButton.swift */,
 				0FF8F65726C31FFF001F228E /* Assets.xcassets */,
 				0FF8F65926C31FFF001F228E /* LaunchScreen.storyboard */,
@@ -244,7 +241,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0FF8F65B26C31FFF001F228E /* LaunchScreen.storyboard in Resources */,
-				05BEECCE26DADE2D003DE4E0 /* LandingStoryboard.storyboard in Resources */,
 				0FF8F65826C31FFF001F228E /* Assets.xcassets in Resources */,
 				0FF8F65626C31FFB001F228E /* Main.storyboard in Resources */,
 			);
@@ -271,7 +267,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0FF8F65326C31FFB001F228E /* LandingViewController.swift in Sources */,
+				0FF8F65326C31FFB001F228E /* LoginViewController.swift in Sources */,
+				0521590326DAE77A00B266A9 /* LandingViewController.swift in Sources */,
 				05874CFF26D3DC34009AB06F /* Constants.swift in Sources */,
 				05CE26FD26D04C8B000FF7CA /* CustomButton.swift in Sources */,
 				0FF8F65326C31FFB001F228E /* LoginViewController.swift in Sources */,
