@@ -10,6 +10,7 @@
 		0585899026D7398F002B81D9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0585898F26D7398F002B81D9 /* Constants.swift */; };
 		0585899426D7DEE2002B81D9 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0585899326D7DEE2002B81D9 /* DetailViewController.swift */; };
 		058773A126D5DA6200E91EA1 /* Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058773A026D5DA6200E91EA1 /* Detail.swift */; };
+		059C7FD826DC0D8600F0FC05 /* DetailStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 059C7FD726DC0D8600F0FC05 /* DetailStoryboard.storyboard */; };
 		0FF8F64F26C31FFB001F228E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF8F64E26C31FFB001F228E /* AppDelegate.swift */; };
 		0FF8F65126C31FFB001F228E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF8F65026C31FFB001F228E /* SceneDelegate.swift */; };
 		0FF8F65326C31FFB001F228E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF8F65226C31FFB001F228E /* ViewController.swift */; };
@@ -41,6 +42,7 @@
 		0585898F26D7398F002B81D9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0585899326D7DEE2002B81D9 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		058773A026D5DA6200E91EA1 /* Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Detail.swift; sourceTree = "<group>"; };
+		059C7FD726DC0D8600F0FC05 /* DetailStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailStoryboard.storyboard; sourceTree = "<group>"; };
 		0FF8F64B26C31FFB001F228E /* Nasa App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Nasa App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FF8F64E26C31FFB001F228E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0FF8F65026C31FFB001F228E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				058773A026D5DA6200E91EA1 /* Detail.swift */,
 				0585898F26D7398F002B81D9 /* Constants.swift */,
 				0FF8F65426C31FFB001F228E /* Main.storyboard */,
+				059C7FD726DC0D8600F0FC05 /* DetailStoryboard.storyboard */,
 				0585899326D7DEE2002B81D9 /* DetailViewController.swift */,
 				0FF8F65726C31FFF001F228E /* Assets.xcassets */,
 				0FF8F65926C31FFF001F228E /* LaunchScreen.storyboard */,
@@ -242,6 +245,7 @@
 			files = (
 				0FF8F65B26C31FFF001F228E /* LaunchScreen.storyboard in Resources */,
 				0FF8F65826C31FFF001F228E /* Assets.xcassets in Resources */,
+				059C7FD826DC0D8600F0FC05 /* DetailStoryboard.storyboard in Resources */,
 				0FF8F65626C31FFB001F228E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
