@@ -20,7 +20,7 @@ struct Detail: View {
             ZStack {
                 
                 Spacer()
-                    .background(nasaBlue)
+                    .background(nasaBlueDetail)
                     .edgesIgnoringSafeArea(.bottom)
                     .edgesIgnoringSafeArea(.horizontal)
                 
@@ -39,7 +39,7 @@ struct Detail: View {
                                 .scaledToFit()
                                 .background(Color.clear)
                             if isPortrait {
-                                gradient(color: nasaBlue)
+                                gradient(color: nasaBlueDetail)
                             }
                             VStack {
                                 if isPortrait {
