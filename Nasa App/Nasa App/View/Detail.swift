@@ -39,12 +39,12 @@ struct Detail: View {
                                 .scaledToFit()
                                 .background(Color.clear)
                             if isPortrait {
-                                gradient(color: nasaBlueDetail)
+                                DetailGradient(color: nasaBlueDetail)
                             }
                             VStack {
                                 if isPortrait {
                                     Spacer()
-                                    titleText(screenWidth, withTextFontSize: fontSize.titleFontSize)
+                                    DetailTitleText(withTextFontSize: fontSize.titleFontSize, width: screenWidth)
                                 }
                             }
                             Button{} label: {
@@ -54,7 +54,7 @@ struct Detail: View {
                         .frame(width: screenWidth, height: videoHiehgt, alignment: .center)
                         
                         if isPortrait {
-                            scrollView(screenWidth, withTextFontSize: fontSize.descriptionFontSize)
+                            DetailScrollView(withTextFontSize: fontSize.descriptionFontSize, width: screenWidth)
                         }
                         
                     }
@@ -83,30 +83,4 @@ struct Detail_Previews: PreviewProvider {
     static var previews: some View {
         Detail()
     }
-}
-
-private func scrollView(_ width: CGFloat, withTextFontSize: CGFloat) -> some View {
-    return ScrollView {
-        Text(mock)
-            .font(.system(size: withTextFontSize))
-            .fontWeight(.semibold)
-            .padding(.top)
-            .frame(width: width * 0.9)
-            .foregroundColor(.white)
-        
-    }
-}
-private func titleText(_ width: CGFloat, withTextFontSize: CGFloat) -> some View {
-    return Text("Title / Date")
-        .foregroundColor(.white)
-        .font(.system(size: withTextFontSize))
-        .fontWeight(.bold)
-        .frame(maxWidth: width * 0.93, alignment: .leading)
-}
-
-private func gradient(color: Color) -> some View {
-    return Rectangle()
-        .fill(
-            LinearGradient(gradient: Gradient(colors: [.clear, color]), startPoint: .top, endPoint: .bottom))
-        .padding(.top)
 }

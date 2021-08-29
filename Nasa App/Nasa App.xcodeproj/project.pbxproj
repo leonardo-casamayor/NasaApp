@@ -8,11 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		0585899426D7DEE2002B81D9 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0585899326D7DEE2002B81D9 /* DetailViewController.swift */; };
-		05874CFF26D3DC34009AB06F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05874CFE26D3DC34009AB06F /* Constants.swift */; };
 		058773A126D5DA6200E91EA1 /* Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058773A026D5DA6200E91EA1 /* Detail.swift */; };
 		059C7FD826DC0D8600F0FC05 /* DetailStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 059C7FD726DC0D8600F0FC05 /* DetailStoryboard.storyboard */; };
 		05CE26FD26D04C8B000FF7CA /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CE26FC26D04C8B000FF7CA /* CustomButton.swift */; };
 		05FAA14D26DC12C700460507 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF8F65226C31FFB001F228E /* LoginViewController.swift */; };
+		05FAA14F26DC181B00460507 /* DetailScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FAA14E26DC181B00460507 /* DetailScrollView.swift */; };
+		05FAA15426DC1A3700460507 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FAA15326DC1A3700460507 /* Constants.swift */; };
+		05FAA15626DC1D7F00460507 /* DetailTitleText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FAA15526DC1D7F00460507 /* DetailTitleText.swift */; };
+		05FAA15826DC1DA100460507 /* DetailGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FAA15726DC1DA100460507 /* DetailGradient.swift */; };
 		0FF8F64F26C31FFB001F228E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF8F64E26C31FFB001F228E /* AppDelegate.swift */; };
 		0FF8F65126C31FFB001F228E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF8F65026C31FFB001F228E /* SceneDelegate.swift */; };
 		0FF8F65626C31FFB001F228E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FF8F65426C31FFB001F228E /* Main.storyboard */; };
@@ -40,12 +43,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0585898F26D7398F002B81D9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0585899326D7DEE2002B81D9 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		05874CFE26D3DC34009AB06F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		058773A026D5DA6200E91EA1 /* Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Detail.swift; sourceTree = "<group>"; };
 		059C7FD726DC0D8600F0FC05 /* DetailStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailStoryboard.storyboard; sourceTree = "<group>"; };
 		05CE26FC26D04C8B000FF7CA /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		05FAA14E26DC181B00460507 /* DetailScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScrollView.swift; sourceTree = "<group>"; };
+		05FAA15326DC1A3700460507 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = "Nasa App/Constants.swift"; sourceTree = SOURCE_ROOT; };
+		05FAA15526DC1D7F00460507 /* DetailTitleText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTitleText.swift; sourceTree = "<group>"; };
+		05FAA15726DC1DA100460507 /* DetailGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailGradient.swift; sourceTree = "<group>"; };
 		0FF8F64B26C31FFB001F228E /* Nasa App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Nasa App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FF8F64E26C31FFB001F228E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0FF8F65026C31FFB001F228E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +92,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		05FAA15026DC182400460507 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				058773A026D5DA6200E91EA1 /* Detail.swift */,
+				05FAA15726DC1DA100460507 /* DetailGradient.swift */,
+				05FAA15526DC1D7F00460507 /* DetailTitleText.swift */,
+				05FAA14E26DC181B00460507 /* DetailScrollView.swift */,
+				05CE26FC26D04C8B000FF7CA /* CustomButton.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		05FAA15126DC183100460507 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0FF8F65226C31FFB001F228E /* LoginViewController.swift */,
+				0585899326D7DEE2002B81D9 /* DetailViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		05FAA15226DC188E00460507 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				0FF8F65426C31FFB001F228E /* Main.storyboard */,
+				059C7FD726DC0D8600F0FC05 /* DetailStoryboard.storyboard */,
+				0FF8F65926C31FFF001F228E /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		05FAA15926DC1EF800460507 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		0FF8F64226C31FFB001F228E = {
 			isa = PBXGroup;
 			children = (
@@ -112,16 +155,12 @@
 			children = (
 				0FF8F64E26C31FFB001F228E /* AppDelegate.swift */,
 				0FF8F65026C31FFB001F228E /* SceneDelegate.swift */,
-				058773A026D5DA6200E91EA1 /* Detail.swift */,
-				0585898F26D7398F002B81D9 /* Constants.swift */,
-				0FF8F65226C31FFB001F228E /* LoginViewController.swift */,
-				05874CFE26D3DC34009AB06F /* Constants.swift */,
-				0FF8F65426C31FFB001F228E /* Main.storyboard */,
-				059C7FD726DC0D8600F0FC05 /* DetailStoryboard.storyboard */,
-				0585899326D7DEE2002B81D9 /* DetailViewController.swift */,
-				05CE26FC26D04C8B000FF7CA /* CustomButton.swift */,
+				05FAA15326DC1A3700460507 /* Constants.swift */,
+				05FAA15926DC1EF800460507 /* Model */,
+				05FAA15026DC182400460507 /* View */,
+				05FAA15126DC183100460507 /* Controller */,
+				05FAA15226DC188E00460507 /* Storyboards */,
 				0FF8F65726C31FFF001F228E /* Assets.xcassets */,
-				0FF8F65926C31FFF001F228E /* LaunchScreen.storyboard */,
 				0FF8F65C26C31FFF001F228E /* Info.plist */,
 			);
 			path = "Nasa App";
@@ -277,12 +316,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				05FAA14D26DC12C700460507 /* LoginViewController.swift in Sources */,
-				05874CFF26D3DC34009AB06F /* Constants.swift in Sources */,
 				05CE26FD26D04C8B000FF7CA /* CustomButton.swift in Sources */,
 				0FF8F64F26C31FFB001F228E /* AppDelegate.swift in Sources */,
 				0585899426D7DEE2002B81D9 /* DetailViewController.swift in Sources */,
 				058773A126D5DA6200E91EA1 /* Detail.swift in Sources */,
+				05FAA14F26DC181B00460507 /* DetailScrollView.swift in Sources */,
+				05FAA15826DC1DA100460507 /* DetailGradient.swift in Sources */,
+				05FAA15626DC1D7F00460507 /* DetailTitleText.swift in Sources */,
 				0FF8F65126C31FFB001F228E /* SceneDelegate.swift in Sources */,
+				05FAA15426DC1A3700460507 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
