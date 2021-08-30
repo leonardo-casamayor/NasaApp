@@ -10,6 +10,7 @@ import UIKit
 class FavoriteTabViewController: UIViewController {
     
     @IBOutlet weak var favoriteCV: UICollectionView!
+    let mockData = FavoritesTabConstants()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +37,7 @@ extension FavoriteTabViewController: UICollectionViewDelegate, UICollectionViewD
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as? FavoritesTabColCell else {
             return UICollectionViewCell()
         }
-        cell.configCell(description: mockDescription, date: mockDate, thumbnail: mockUrl)
+        cell.configCell(description: mockData.description, date: mockData.date, thumbnail: mockData.url)
         return cell
     }
     
