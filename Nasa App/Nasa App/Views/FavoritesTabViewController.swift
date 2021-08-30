@@ -12,20 +12,17 @@ class FavoriteTabViewController: UIViewController {
     @IBOutlet weak var navBar: UINavigationItem!
     @IBOutlet weak var favoriteCV: UICollectionView!
     let mockData = FavoritesTabConstants()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         favoriteCV.dataSource = self
         favoriteCV.delegate = self
-        setScrollDirectionOnLoad()
-        
+        configureNavigationBar(largeTitleColor: .black, backgoundColor: .white, tintColor: .white, title: "Favorites", preferredLargeTitle: true)
         
     }
     
-    
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
-        setScrollDirectionOnRotation()
     }
 }
 
@@ -45,26 +42,33 @@ extension FavoriteTabViewController: UICollectionViewDelegate, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let deviceOrientation = UIDevice.current.orientation.isPortrait
+        let deviceSize = UIScreen.main.bounds.size
+        let isPortrait = deviceSize.height > deviceSize.width
         let verticalCellSize = CGSize(width: favoriteCV.frame.width * 0.94, height: favoriteCV.frame.height / 3)
         let horizontalCellSize = CGSize(width: favoriteCV.frame.width, height: favoriteCV.frame.height)
-        return deviceOrientation ? verticalCellSize : horizontalCellSize
+        
+        return isPortrait ? verticalCellSize : horizontalCellSize
     }
 }
-// MARK: - ViewControllerExtensions
-extension FavoriteTabViewController {
-    private func setScrollDirectionOnLoad() {
-        let size = UIScreen.main.bounds.size
-        guard let layout = favoriteCV.collectionViewLayout as? UICollectionViewFlowLayout else { return }
-        if size.width < size.height {
-            layout.scrollDirection = .vertical
-        } else {
-            layout.scrollDirection = .horizontal
-        }
-    }
-    private func setScrollDirectionOnRotation() {
-        let deviceOrientation = UIDevice.current.orientation.isPortrait
-        guard let layout = favoriteCV.collectionViewLayout as? UICollectionViewFlowLayout else { return }
-        layout.scrollDirection = deviceOrientation ? .vertical :  .horizontal
+
+extension UIViewController {
+    func configureNavigationBar(largeTitleColor: UIColor, backgoundColor: UIColor, tintColor: UIColor, title: String, preferredLargeTitle: Bool) {
+        
+        let navBarAppearance = UINavigationBarAppearance()
+        navBarAppearance.configureWithOpaqueBackground()
+        navBarAppearance.largeTitleTextAttributes = [.foregroundColor: largeTitleColor]
+        navBarAppearance.titleTextAttributes = [.foregroundColor: largeTitleColor]
+        navBarAppearance.backgroundColor = backgoundColor
+        
+        navigationController?.navigationBar.standardAppearance = navBarAppearance
+        navigationController?.navigationBar.compactAppearance = navBarAppearance
+        navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
+        
+        navigationController?.navigationBar.prefersLargeTitles = preferredLargeTitle
+        navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.tintColor = tintColor
+        navigationItem.title = title
+        
+        
     }
 }

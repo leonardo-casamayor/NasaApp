@@ -16,6 +16,7 @@
 		0FF8F66626C32000001F228E /* Nasa_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF8F66526C32000001F228E /* Nasa_AppTests.swift */; };
 		0FF8F67126C32000001F228E /* Nasa_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF8F67026C32000001F228E /* Nasa_AppUITests.swift */; };
 		3085B71626D4363000B1EA23 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3085B71526D4363000B1EA23 /* Constants.swift */; };
+		309C145C26DD91140063BD2F /* ImageRetrieveController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309C145B26DD91140063BD2F /* ImageRetrieveController.swift */; };
 		30D19FCC26D0B46D007B7C28 /* FavoritesTabColCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D19FCA26D0B46D007B7C28 /* FavoritesTabColCell.swift */; };
 		30D19FCD26D0B46D007B7C28 /* FavoritesTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D19FCB26D0B46D007B7C28 /* FavoritesTabViewController.swift */; };
 		30D5773C26DD325F007E22A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30D5773A26DD325F007E22A0 /* Main.storyboard */; };
@@ -54,6 +55,7 @@
 		0FF8F67026C32000001F228E /* Nasa_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nasa_AppUITests.swift; sourceTree = "<group>"; };
 		0FF8F67226C32000001F228E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3085B71526D4363000B1EA23 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		309C145B26DD91140063BD2F /* ImageRetrieveController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRetrieveController.swift; sourceTree = "<group>"; };
 		30D19FCA26D0B46D007B7C28 /* FavoritesTabColCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesTabColCell.swift; sourceTree = "<group>"; };
 		30D19FCB26D0B46D007B7C28 /* FavoritesTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesTabViewController.swift; sourceTree = "<group>"; };
 		30D5773B26DD325F007E22A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Nasa App/Base.lproj/Main.storyboard"; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 		0FF8F64D26C31FFB001F228E /* Nasa App */ = {
 			isa = PBXGroup;
 			children = (
+				309C145A26DD90CA0063BD2F /* Controllers */,
 				3085B71726D4363700B1EA23 /* Constants */,
 				30D19FC826D0B46D007B7C28 /* Views */,
 				0FF8F64E26C31FFB001F228E /* AppDelegate.swift */,
@@ -145,6 +148,14 @@
 				3085B71526D4363000B1EA23 /* Constants.swift */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		309C145A26DD90CA0063BD2F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				309C145B26DD91140063BD2F /* ImageRetrieveController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		30D19FC826D0B46D007B7C28 /* Views */ = {
@@ -299,6 +310,7 @@
 				30D19FCC26D0B46D007B7C28 /* FavoritesTabColCell.swift in Sources */,
 				30D19FCD26D0B46D007B7C28 /* FavoritesTabViewController.swift in Sources */,
 				0FF8F64F26C31FFB001F228E /* AppDelegate.swift in Sources */,
+				309C145C26DD91140063BD2F /* ImageRetrieveController.swift in Sources */,
 				0FF8F65126C31FFB001F228E /* SceneDelegate.swift in Sources */,
 				3085B71626D4363000B1EA23 /* Constants.swift in Sources */,
 			);
