@@ -9,6 +9,7 @@ import UIKit
 
 class FavoriteTabViewController: UIViewController {
     
+    @IBOutlet weak var navBar: UINavigationItem!
     @IBOutlet weak var favoriteCV: UICollectionView!
     let mockData = FavoritesTabConstants()
 
@@ -17,6 +18,8 @@ class FavoriteTabViewController: UIViewController {
         favoriteCV.dataSource = self
         favoriteCV.delegate = self
         setScrollDirectionOnLoad()
+        
+        
     }
     
     
@@ -43,7 +46,9 @@ extension FavoriteTabViewController: UICollectionViewDelegate, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let deviceOrientation = UIDevice.current.orientation.isPortrait
-        return deviceOrientation ? CGSize(width: favoriteCV.frame.width, height: favoriteCV.frame.height / 3) : CGSize(width: favoriteCV.frame.width, height: favoriteCV.frame.height)
+        let verticalCellSize = CGSize(width: favoriteCV.frame.width * 0.94, height: favoriteCV.frame.height / 3)
+        let horizontalCellSize = CGSize(width: favoriteCV.frame.width, height: favoriteCV.frame.height)
+        return deviceOrientation ? verticalCellSize : horizontalCellSize
     }
 }
 // MARK: - ViewControllerExtensions
