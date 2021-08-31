@@ -7,7 +7,7 @@
 
 import SwiftUI
 import AVKit
-
+let constants = CellDetailConstants()
 struct CellDetailView: View {
     
     @Environment(\.horizontalSizeClass) var sizeClass
@@ -32,7 +32,7 @@ struct CellDetailView: View {
                                alignment: .center)
                     
                     Rectangle()
-                        .fill(LinearGradient(gradient: Gradient(colors: [topColor, bottomColor]),
+                        .fill(LinearGradient(gradient: Gradient(colors: [constants.topColor, constants.bottomColor]),
                                              startPoint: .top,
                                              endPoint: .bottom))
                         .padding(.top, -screenHeight * 0.16)
@@ -61,7 +61,7 @@ struct CellDetailView: View {
                                 .font(.custom("Helvetica Regular", size: 20))
                             
                             ScrollView {
-                                Text(mockText)
+                                Text(constants.mockText)
                                     .font(.custom("Helvetica Regular", size: 17))
                                     .foregroundColor(.white)
                                     .frame(width: screenWidth * 0.93)
@@ -76,7 +76,7 @@ struct CellDetailView: View {
                                 .font(.custom("Helvetica Regular", size: 26))
                             
                             ScrollView {
-                                Text(mockText)
+                                Text(constants.mockText)
                                     .font(.custom("Helvetica Regular", size: 23))
                                     .foregroundColor(.white) }
                                 .frame(width: screenWidth * 0.93)
