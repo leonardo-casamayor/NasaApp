@@ -15,6 +15,7 @@ class CollectionViewController: UIViewController {
         view.addSubview(collectionView)
         collectionView.register(CollectionCell.self, forCellWithReuseIdentifier: CollectionCell.identifier)
         collectionView.frame = view.bounds
+        collectionView.backgroundColor = nasaBlue
         collectionView.dataSource = self
     }
     
@@ -22,7 +23,7 @@ class CollectionViewController: UIViewController {
         //Item
         let item = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
         //Group
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1/5)),subitem: item,count: 1)
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1/3)),subitem: item,count: 1)
         //Section
         let section = NSCollectionLayoutSection(group: group)
         return UICollectionViewCompositionalLayout(section: section)
