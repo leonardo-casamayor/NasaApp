@@ -8,8 +8,9 @@
 import SwiftUI
 import AVKit
 let constants = CellDetailConstants()
+
 struct CellDetailView: View {
-    
+
     @Environment(\.horizontalSizeClass) var sizeClass
     
     var body: some View {
@@ -17,82 +18,83 @@ struct CellDetailView: View {
             let screenWidth = geometry.size.width
             let screenHeight = geometry.size.height
             let isPortrait = screenHeight > screenWidth
+            
             if isPortrait {
+                //MARK: - Portrait Mode
                 ZStack{
-                    Color(red: 0.02, green: 0.24, blue: 0.58)
+                    Color(constants.backgroundColor)
                         .ignoresSafeArea()
                     
                     VStack{
-                        Image("PlaceholderCellDetails")
+                        Image(uiImage: constants.placeHolderImage)
                             .resizable()
                             .frame(minWidth: screenWidth,
                                    idealWidth: screenWidth,
                                    maxWidth: screenWidth,
-                                   minHeight: screenHeight * 0.39,
-                                   idealHeight: screenHeight * 0.39,
-                                   maxHeight: screenHeight * 0.39,
+                                   minHeight: screenHeight * constants.imageHeightModifier,
+                                   idealHeight: screenHeight * constants.imageHeightModifier,
+                                   maxHeight: screenHeight * constants.imageHeightModifier,
                                    alignment: .center)
                         
                         Rectangle()
-                            .fill(LinearGradient(gradient: Gradient(colors: [constants.topColor, constants.bottomColor]),
+                            .fill(LinearGradient(gradient: Gradient(colors: [constants.topGradientColor, constants.bottomGradientColor]),
                                                  startPoint: .top,
                                                  endPoint: .bottom))
-                            .padding(.top, -screenHeight * 0.16)
-                            .blur(radius: 4)
-                            .shadow(radius: 2)
+                            .padding(.top, -screenHeight * constants.rectPaddingMod)
+                            .blur(radius: constants.rectRadius)
                     }
                     VStack{
-                        Image("PlayButton")
-                            .frame(minWidth: screenWidth * 0.25,
-                                   idealWidth: screenWidth * 0.25,
-                                   maxWidth: screenWidth * 0.25,
-                                   minHeight: screenHeight * 0.15,
-                                   idealHeight: screenHeight * 0.15,
-                                   maxHeight: screenHeight * 0.15,
+                        Image(uiImage: constants.playButton)
+                            .frame(minWidth: screenWidth * constants.playWidthMod,
+                                   idealWidth: screenWidth * constants.playWidthMod,
+                                   maxWidth: screenWidth * constants.playWidthMod,
+                                   minHeight: screenHeight * constants.playHeightMod,
+                                   idealHeight: screenHeight * constants.playHeightMod,
+                                   maxHeight: screenHeight * constants.playHeightMod,
                                    alignment: .center)
                             
-                            .padding(.top, screenHeight * 0.12)
+                            .padding(.top, screenHeight * constants.playPadMod)
                         Spacer()
                         if sizeClass == .compact {
                             //MARK: - Text setup for compact
                             VStack{
-                                Text("Title, and date goes here")
+                                Text(constants.title)
                                     .foregroundColor(.white)
                                     
-                                    .frame(maxWidth: screenWidth * 0.93, alignment: .leading)
-                                    .font(.custom("Helvetica Regular", size: 20))
+                                    .frame(maxWidth: screenWidth * constants.widthConstraint, alignment: .leading)
+                                    .font(constants.fontCompactTitle)
                                 
                                 ScrollView {
                                     Text(constants.mockText)
-                                        .font(.custom("Helvetica Regular", size: 17))
+                                        .font(constants.fontCompactText)
                                         .foregroundColor(.white)
-                                        .frame(width: screenWidth * 0.93)
+                                        .frame(width: screenWidth * constants.widthConstraint)
                                 }
-                            }.padding(.top, screenHeight * 0.12)
+                            }.padding(.top, screenHeight * constants.textTopPadding)
                         } else {
                             //MARK: - Text setup for regular
                             VStack{
-                                Text("Title, and date goes here")
+                                Text(constants.title)
                                     .foregroundColor(.white)
-                                    .frame(maxWidth: screenWidth * 0.93, alignment: .leading)
-                                    .font(.custom("Helvetica Regular", size: 26))
+                                    .frame(maxWidth: screenWidth * constants.widthConstraint, alignment: .leading)
+                                    .font(constants.fontRegularTitle)
                                 
                                 ScrollView {
                                     Text(constants.mockText)
-                                        .font(.custom("Helvetica Regular", size: 23))
+                                        .font(constants.fontRegularText)
                                         .foregroundColor(.white) }
-                                    .frame(width: screenWidth * 0.93)
+                                    .frame(width: screenWidth * constants.widthConstraint)
                             }
-                            .padding(.top, screenHeight * 0.12)
+                            .padding(.top, screenHeight * constants.textTopPadding)
                         }
                     }
                 }
                 //MARK: - Landscape Mode
             } else {
                 ZStack{
-                    Color(red: 0.02, green: 0.24, blue: 0.58)
+                    Color(constants.backgroundColor)
                         .ignoresSafeArea()
-                    Image("PlaceholderCellDetails")
+                    Image(uiImage: constants.placeHolderImage)
                         .resizable()
                         .ignoresSafeArea()
                         .frame(minWidth: screenWidth,
@@ -102,13 +104,13 @@ struct CellDetailView: View {
                                idealHeight: screenHeight,
                                maxHeight: screenHeight,
                                alignment: .center)
-                    Image("PlayButton")
-                        .frame(minWidth: screenWidth * 0.25,
-                               idealWidth: screenWidth * 0.25,
-                               maxWidth: screenWidth * 0.25,
-                               minHeight: screenHeight * 0.15,
-                               idealHeight: screenHeight * 0.15,
-                               maxHeight: screenHeight * 0.15,
+                    Image(uiImage: constants.playButton)
+                        .frame(minWidth: screenWidth * constants.playWidthMod,
+                               idealWidth: screenWidth * constants.playWidthMod,
+                               maxWidth: screenWidth * constants.playWidthMod,
+                               minHeight: screenHeight * constants.playHeightMod,
+                               idealHeight: screenHeight * constants.playHeightMod,
+                               maxHeight: screenHeight * constants.playHeightMod,
                                alignment: .center)
                         
                 }

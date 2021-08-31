@@ -8,18 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		0521590326DAE77A00B266A9 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0521590226DAE77A00B266A9 /* LandingViewController.swift */; };
-		05874CFF26D3DC34009AB06F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05874CFE26D3DC34009AB06F /* Constants.swift */; };
 		059C5F0126DAEBA7006B7C46 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF8F65226C31FFB001F228E /* LoginViewController.swift */; };
 		05CE26FD26D04C8B000FF7CA /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CE26FC26D04C8B000FF7CA /* CustomButton.swift */; };
 		0FF8F64F26C31FFB001F228E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF8F64E26C31FFB001F228E /* AppDelegate.swift */; };
 		0FF8F65126C31FFB001F228E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF8F65026C31FFB001F228E /* SceneDelegate.swift */; };
-		0FF8F65626C31FFB001F228E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FF8F65426C31FFB001F228E /* Main.storyboard */; };
 		0FF8F65326C31FFB001F228E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF8F65226C31FFB001F228E /* LoginViewController.swift */; };
 		0FF8F65826C31FFF001F228E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FF8F65726C31FFF001F228E /* Assets.xcassets */; };
 		0FF8F65B26C31FFF001F228E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FF8F65926C31FFF001F228E /* LaunchScreen.storyboard */; };
 		0FF8F66626C32000001F228E /* Nasa_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF8F66526C32000001F228E /* Nasa_AppTests.swift */; };
 		0FF8F67126C32000001F228E /* Nasa_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF8F67026C32000001F228E /* Nasa_AppUITests.swift */; };
 		30301F1326DE7287007E0F10 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30301F1126DE7287007E0F10 /* Main.storyboard */; };
+		30301F1726DED06A007E0F10 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30301F1626DED06A007E0F10 /* Constants.swift */; };
 		3085B71E26D52D5C00B1EA23 /* CellDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3085B71D26D52D5C00B1EA23 /* CellDetailViewController.swift */; };
 		30BC90A426CF410F00996B29 /* CellDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BC90A326CF410F00996B29 /* CellDetailView.swift */; };
 /* End PBXBuildFile section */
@@ -43,7 +42,6 @@
 
 /* Begin PBXFileReference section */
 		0521590226DAE77A00B266A9 /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
-		05874CFE26D3DC34009AB06F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		05CE26FC26D04C8B000FF7CA /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		0FF8F64B26C31FFB001F228E /* Nasa App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Nasa App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FF8F64E26C31FFB001F228E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +57,7 @@
 		0FF8F67026C32000001F228E /* Nasa_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nasa_AppUITests.swift; sourceTree = "<group>"; };
 		0FF8F67226C32000001F228E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		30301F1226DE7287007E0F10 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		30301F1626DED06A007E0F10 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3085B71D26D52D5C00B1EA23 /* CellDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellDetailViewController.swift; sourceTree = "<group>"; };
 		30BC90A326CF410F00996B29 /* CellDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -117,8 +116,6 @@
 				30301F1126DE7287007E0F10 /* Main.storyboard */,
 				0FF8F65026C31FFB001F228E /* SceneDelegate.swift */,
 				0FF8F65226C31FFB001F228E /* LoginViewController.swift */,
-				05874CFE26D3DC34009AB06F /* Constants.swift */,
-				0FF8F65426C31FFB001F228E /* Main.storyboard */,
 				0521590226DAE77A00B266A9 /* LandingViewController.swift */,
 				05CE26FC26D04C8B000FF7CA /* CustomButton.swift */,
 				0FF8F65726C31FFF001F228E /* Assets.xcassets */,
@@ -149,7 +146,7 @@
 		3085B71826D444FB00B1EA23 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
-				05874CFE26D3DC34009AB06F /* Constants.swift */,
+				30301F1626DED06A007E0F10 /* Constants.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -303,9 +300,9 @@
 			files = (
 				059C5F0126DAEBA7006B7C46 /* LoginViewController.swift in Sources */,
 				0521590326DAE77A00B266A9 /* LandingViewController.swift in Sources */,
-				05874CFF26D3DC34009AB06F /* Constants.swift in Sources */,
 				05CE26FD26D04C8B000FF7CA /* CustomButton.swift in Sources */,
 				0FF8F65326C31FFB001F228E /* LoginViewController.swift in Sources */,
+				30301F1726DED06A007E0F10 /* Constants.swift in Sources */,
 				30BC90A426CF410F00996B29 /* CellDetailView.swift in Sources */,
 				0FF8F64F26C31FFB001F228E /* AppDelegate.swift in Sources */,
 				0FF8F65126C31FFB001F228E /* SceneDelegate.swift in Sources */,
