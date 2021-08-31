@@ -10,10 +10,15 @@ import UIKit
 import SwiftUI
 
 class CellDetailViewController: UIViewController {
-
+    var addCloseButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "xmark"), style: .done, target: self, action: #selector(closeDetail))
+    var addFavButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "suit.heart.fill"), style: .done, target: self, action: #selector(addFavorite))
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         addSwiftUIView()
+        self.navigationItem.title = "VideoTitleGoesHere"
+        self.navigationItem.rightBarButtonItem = self.addFavButton
+        self.navigationItem.leftBarButtonItem = self.addCloseButton
     }
     
     private func addSwiftUIView() {
@@ -48,5 +53,12 @@ extension UIViewController {
 
         // Notify the hosting controller that it has been moved to the current view controller.
         hostingController.didMove(toParent: self)
+    }
+    
+    @objc func addFavorite(sender: AnyObject) {
+        print("Implement Favorite button function here")
+    }
+    @objc func closeDetail(sender: AnyObject) {
+        print("Close the opened segue")
     }
 }
