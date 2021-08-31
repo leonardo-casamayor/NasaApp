@@ -8,10 +8,14 @@
 import UIKit
 import SwiftUI
 
+//MARK: General
 let nasaBlue = UIColor(red:0.02, green:0.24, blue:0.58, alpha:1)
+
+//MARK: Login
 let buttonColor = UIColor(red:0.95, green:0.56, blue:0.55, alpha:1)
 let buttonBorderColor = UIColor(red:0.59, green:0.59, blue:0.59, alpha:1)
 
+//MARK: Detail
 struct FontSize {
     let titleFontSize: CGFloat
     let descriptionFontSize: CGFloat
