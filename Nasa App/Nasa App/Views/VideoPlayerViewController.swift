@@ -18,6 +18,7 @@ class VideoPlayerViewController: UIViewController {
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var currentTimeLabel: UILabel!
     @IBOutlet weak var timeSlider: UISlider!
+    @IBOutlet weak var playPauseButton: UIButton!
     @IBOutlet weak var playToForward: NSLayoutConstraint!
     @IBOutlet weak var playToBackward: NSLayoutConstraint!
     @IBOutlet weak var topViewHeight: NSLayoutConstraint!
@@ -28,6 +29,7 @@ class VideoPlayerViewController: UIViewController {
     var player: AVPlayer!
     var playerLayer: AVPlayerLayer!
     var isVideoPlaying = false
+    var didReachVideoEnd = false
     
     //MARK: - viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
@@ -35,12 +37,13 @@ class VideoPlayerViewController: UIViewController {
         let size = UIScreen.main.bounds.size
         print(size)
         updateConstraints(size: size)
+        
     }
     //MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpVideoPlayer()
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(videoDidEnded), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: player?.currentItem)
         print(size)
         
     }
@@ -61,19 +64,19 @@ class VideoPlayerViewController: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         player.currentItem?.removeObserver(self, forKeyPath: "duration")
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: player?.currentItem)
     }
     
     //MARK: - IBActions
     @IBAction func playPressed(_ sender: UIButton) {
+        if didReachVideoEnd {
+            replayVideo()
+            playVideo(sender: sender)
+        }
         if isVideoPlaying {
-            player.pause()
-            isVideoPlaying = !isVideoPlaying
-            sender.setBackgroundImage(UIImage(systemName: "play.circle.fill"), for: .normal)
-            
+            pauseVideo(sender: sender)
         } else {
-            player.play()
-            isVideoPlaying = !isVideoPlaying
-            sender.setBackgroundImage(UIImage(systemName: "pause.circle.fill"), for: .normal)
+            playVideo(sender: sender)
         }
     }
     
@@ -148,12 +151,37 @@ extension VideoPlayerViewController {
         })
     }
     
+    @objc private func videoDidEnded() {
+        //do something here
+        playPauseButton.setBackgroundImage(UIImage(systemName: "arrow.uturn.left"), for: .normal)
+        didReachVideoEnd = true
+        isVideoPlaying = false
+    }
+    func replayVideo() {
+        let newTime = 0
+        let time : CMTime = CMTimeMake(value: Int64(newTime * 1000), timescale: 1000)
+        player.seek(to: time)
+        didReachVideoEnd = !didReachVideoEnd
+
+    }
+    func pauseVideo(sender: UIButton) {
+        player.pause()
+        isVideoPlaying = !isVideoPlaying
+        sender.setBackgroundImage(UIImage(systemName: "play.circle.fill"), for: .normal)
+    }
+    func playVideo(sender: UIButton) {
+        player.play()
+        isVideoPlaying = !isVideoPlaying
+        sender.setBackgroundImage(UIImage(systemName: "pause.circle.fill"), for: .normal)
+    }
+    
     //MARK: - Observer
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == "duration", let duration = player.currentItem?.duration.seconds, duration > 0.0 {
             self.durationLabel.text = getTimeString(from: player.currentItem!.duration)
         }
     }
+    
     //MARK: - Constraints
     func updateConstraints(size: CGSize) {
         let height = size.height

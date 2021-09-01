@@ -227,6 +227,16 @@
                     <view key="view" contentMode="scaleToFill" id="yXD-oz-wSN">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eZJ-KX-4ix">
+                                <rect key="frame" x="191" y="448" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="abz-L2-i2W" kind="showDetail" id="Nx3-ch-VCg"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="N6G-eD-mgs"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
@@ -578,6 +588,7 @@
                         <outlet property="bottomViewHeight" destination="8AC-HQ-Xyd" id="9ce-Ke-2CQ"/>
                         <outlet property="currentTimeLabel" destination="83w-Fs-E5X" id="Ipj-9e-gj7"/>
                         <outlet property="durationLabel" destination="hpP-8b-jDB" id="xeb-M6-Qwg"/>
+                        <outlet property="playPauseButton" destination="XPE-Kd-jdS" id="sBQ-cV-QGZ"/>
                         <outlet property="playToBackward" destination="wBE-au-9tJ" id="aIE-U8-eTG"/>
                         <outlet property="playToForward" destination="1Dv-Eq-FbG" id="UU2-Ac-m6O"/>
                         <outlet property="timeSlider" destination="ror-fd-gEx" id="Ay7-uH-lUT"/>
