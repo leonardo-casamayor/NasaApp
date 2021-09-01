@@ -29,7 +29,7 @@ class VideoPlayerViewController: UIViewController {
     var player: AVPlayer!
     var playerLayer: AVPlayerLayer!
     var isVideoPlaying = false
-    var didReachVideoEnd = false
+    var didFinishVideo = false
     
     //MARK: - viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
@@ -69,11 +69,10 @@ class VideoPlayerViewController: UIViewController {
     
     //MARK: - IBActions
     @IBAction func playPressed(_ sender: UIButton) {
-        if didReachVideoEnd {
+        if didFinishVideo {
             replayVideo()
             playVideo(sender: sender)
-        }
-        if isVideoPlaying {
+        } else if isVideoPlaying {
             pauseVideo(sender: sender)
         } else {
             playVideo(sender: sender)
@@ -154,14 +153,14 @@ extension VideoPlayerViewController {
     @objc private func videoDidEnded() {
         //do something here
         playPauseButton.setBackgroundImage(UIImage(systemName: "arrow.uturn.left"), for: .normal)
-        didReachVideoEnd = true
+        didFinishVideo = true
         isVideoPlaying = false
     }
     func replayVideo() {
         let newTime = 0
         let time : CMTime = CMTimeMake(value: Int64(newTime * 1000), timescale: 1000)
         player.seek(to: time)
-        didReachVideoEnd = !didReachVideoEnd
+        didFinishVideo = !didFinishVideo
 
     }
     func pauseVideo(sender: UIButton) {

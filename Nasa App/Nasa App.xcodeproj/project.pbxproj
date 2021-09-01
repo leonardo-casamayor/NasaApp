@@ -117,7 +117,6 @@
 				3049C46D26E02946009D1B1E /* Constants.swift */,
 				309C145A26DD90CA0063BD2F /* Controllers */,
 				30D19FC826D0B46D007B7C28 /* Views */,
-				3085B72B26D6945E00B1EA23 /* Views */,
 				0FF8F64E26C31FFB001F228E /* AppDelegate.swift */,
 				30D5773A26DD325F007E22A0 /* Main.storyboard */,
 				0FF8F65026C31FFB001F228E /* SceneDelegate.swift */,
@@ -149,14 +148,6 @@
 			path = "Nasa AppUITests";
 			sourceTree = "<group>";
 		};
-		3085B72B26D6945E00B1EA23 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				300276DD26D6980A005E2372 /* VideoPlayerViewController.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		309C145A26DD90CA0063BD2F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -168,8 +159,9 @@
 		30D19FC826D0B46D007B7C28 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				30D19FC926D0B46D007B7C28 /* cells */,
+				300276DD26D6980A005E2372 /* VideoPlayerViewController.swift */,
 				30D19FCB26D0B46D007B7C28 /* FavoritesTabViewController.swift */,
+				30D19FC926D0B46D007B7C28 /* cells */,
 			);
 			path = Views;
 			sourceTree = "<group>";
