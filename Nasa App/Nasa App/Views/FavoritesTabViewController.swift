@@ -17,11 +17,6 @@ class FavoriteTabViewController: UIViewController {
         favoriteCV.dataSource = self
         favoriteCV.delegate = self
         configureNavigationBar(largeTitleColor: .black, backgoundColor: .white, tintColor: .white, title: "Favorites", preferredLargeTitle: true)
-        
-    }
-    
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransition(to: size, with: coordinator)
     }
 }
 
@@ -50,6 +45,7 @@ extension FavoriteTabViewController: UICollectionViewDelegate, UICollectionViewD
     }
 }
 
+//MARK: - navBar Configuration
 extension UIViewController {
     func configureNavigationBar(largeTitleColor: UIColor, backgoundColor: UIColor, tintColor: UIColor, title: String, preferredLargeTitle: Bool) {
         

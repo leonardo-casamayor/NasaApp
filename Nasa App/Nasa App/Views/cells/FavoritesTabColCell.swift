@@ -11,9 +11,7 @@ class FavoritesTabColCell: UICollectionViewCell {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var thumbnail: UIImageView!
-    
-    let mockData = FavoritesTabConstants()
-    
+        
     override func prepareForReuse() {
         super.prepareForReuse()
         self.descriptionLabel.text = ""
