@@ -14,13 +14,13 @@ struct Detail: View {
     
     var body: some View {
         
-        let fontSize = sizeClass == .compact ? smallFont : largeFont
+        let fontSize = sizeClass == .compact ? DetailConstants.smallFont : DetailConstants.largeFont
         
         NavigationView {
             ZStack {
                 
                 Spacer()
-                    .background(nasaBlueDetail)
+                    .background(DetailConstants.nasaBlueDetail)
                     .edgesIgnoringSafeArea(.bottom)
                     .edgesIgnoringSafeArea(.horizontal)
                 
@@ -29,7 +29,7 @@ struct Detail: View {
                     let screenWidth = geo.size.width
                     let screenHeight = geo.size.height
                     let isPortrait = screenWidth < screenHeight
-                    let videoHiehgt = isPortrait ? (screenWidth * videoAspectRatio) : screenHeight
+                    let videoHiehgt = isPortrait ? (screenWidth * DetailConstants.videoAspectRatio) : screenHeight
                     
                     VStack {
                         
@@ -39,7 +39,7 @@ struct Detail: View {
                                 .scaledToFit()
                                 .background(Color.clear)
                             if isPortrait {
-                                DetailGradient(color: nasaBlueDetail)
+                                DetailGradient(color: DetailConstants.nasaBlueDetail)
                             }
                             VStack {
                                 if isPortrait {
