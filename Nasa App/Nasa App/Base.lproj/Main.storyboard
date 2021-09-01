@@ -222,26 +222,16 @@
         <!--View Controller-->
         <scene sceneID="LkA-ST-muz">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="TNg-5u-sj0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="oFi-gj-Mln" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yXD-oz-wSN">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eZJ-KX-4ix">
-                                <rect key="frame" x="191" y="448" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <segue destination="abz-L2-i2W" kind="showDetail" id="Nx3-ch-VCg"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="N6G-eD-mgs"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="4nh-7j-2GY"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TNg-5u-sj0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2809" y="688"/>
         </scene>
