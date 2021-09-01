@@ -222,6 +222,7 @@
         <!--View Controller-->
         <scene sceneID="LkA-ST-muz">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TNg-5u-sj0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="oFi-gj-Mln" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yXD-oz-wSN">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
@@ -231,7 +232,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="4nh-7j-2GY"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="TNg-5u-sj0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2809" y="688"/>
         </scene>
@@ -426,7 +426,7 @@
         <!--Video Player View Controller-->
         <scene sceneID="DfP-fK-LxP">
             <objects>
-                <viewController id="abz-L2-i2W" customClass="VideoPlayerViewController" customModule="Nasa_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="abz-L2-i2W" customClass="VideoPlayerViewController" customModule="Nasa_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vgp-RL-SCr">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -439,7 +439,7 @@
                                 </constraints>
                             </view>
                             <view alpha="0.64999997615814209" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EAI-Yb-Bkc" userLabel="Bottom View">
-                                <rect key="frame" x="0.0" y="802.33333333333337" width="428" height="89.666666666666629"/>
+                                <rect key="frame" x="0.0" y="836.33333333333337" width="428" height="89.666666666666629"/>
                                 <subviews>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="ror-fd-gEx">
                                         <rect key="frame" x="83.666666666666657" y="40.333333333333258" width="260.66666666666674" height="10"/>
@@ -562,14 +562,17 @@
                             <constraint firstItem="kRt-3v-T5f" firstAttribute="height" secondItem="vgp-RL-SCr" secondAttribute="height" multiplier="0.097" id="RDv-cY-gX0"/>
                             <constraint firstItem="dRh-82-pwY" firstAttribute="centerY" secondItem="vgp-RL-SCr" secondAttribute="centerY" id="RjZ-Ho-Axb"/>
                             <constraint firstItem="dRh-82-pwY" firstAttribute="width" secondItem="vgp-RL-SCr" secondAttribute="width" id="Trm-i4-hIq"/>
-                            <constraint firstItem="EAI-Yb-Bkc" firstAttribute="leading" secondItem="fhE-H2-xWj" secondAttribute="leading" id="Xdm-ST-gTf"/>
+                            <constraint firstItem="EAI-Yb-Bkc" firstAttribute="leading" secondItem="vgp-RL-SCr" secondAttribute="leading" id="Xdm-ST-gTf"/>
                             <constraint firstItem="EAI-Yb-Bkc" firstAttribute="centerX" secondItem="vgp-RL-SCr" secondAttribute="centerX" id="g0f-qF-YiK"/>
-                            <constraint firstItem="kRt-3v-T5f" firstAttribute="trailing" secondItem="fhE-H2-xWj" secondAttribute="trailing" id="i9g-v9-eCt"/>
-                            <constraint firstItem="fhE-H2-xWj" firstAttribute="trailing" secondItem="EAI-Yb-Bkc" secondAttribute="trailing" id="noV-QP-0iA"/>
-                            <constraint firstItem="EAI-Yb-Bkc" firstAttribute="bottom" secondItem="fhE-H2-xWj" secondAttribute="bottom" id="oRL-M4-RY9"/>
-                            <constraint firstItem="kRt-3v-T5f" firstAttribute="leading" secondItem="fhE-H2-xWj" secondAttribute="leading" id="ocr-br-1Es"/>
+                            <constraint firstItem="kRt-3v-T5f" firstAttribute="trailing" secondItem="vgp-RL-SCr" secondAttribute="trailing" id="i9g-v9-eCt"/>
+                            <constraint firstAttribute="trailing" secondItem="EAI-Yb-Bkc" secondAttribute="trailing" id="noV-QP-0iA"/>
+                            <constraint firstItem="EAI-Yb-Bkc" firstAttribute="bottom" secondItem="vgp-RL-SCr" secondAttribute="bottom" id="oRL-M4-RY9"/>
+                            <constraint firstItem="kRt-3v-T5f" firstAttribute="leading" secondItem="vgp-RL-SCr" secondAttribute="leading" id="ocr-br-1Es"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="5bt-Fb-JoS"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="bottomView" destination="EAI-Yb-Bkc" id="Xjw-X9-2mp"/>
                         <outlet property="bottomViewHeight" destination="8AC-HQ-Xyd" id="9ce-Ke-2CQ"/>
@@ -585,7 +588,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5RE-7c-4eT" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3848" y="396"/>
+            <point key="canvasLocation" x="3792" y="687"/>
         </scene>
     </scenes>
     <designables>
