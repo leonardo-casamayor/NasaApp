@@ -113,7 +113,7 @@ extension VideoPlayerViewController {
     
     //MARK: - VideoPlayerSetup
     func setUpVideoPlayer() {
-        let url = URL(string: "https://s3.eu-west-2.amazonaws.com/gymstar-app/7A77786B4870594D7165625046614E74/post_videos/postVideo1582781434.005436.mp4")!
+        let url = URL(string: VideoPlayerConstants.videoUrl)!
         player = AVPlayer(url: url)
         player.currentItem?.addObserver(self, forKeyPath: "duration", options: [.new, .initial], context: nil)
         addTimeObserver()

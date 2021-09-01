@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0521590326DAE77A00B266A9 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0521590226DAE77A00B266A9 /* LandingViewController.swift */; };
+		05874CFF26D3DC34009AB06F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05874CFE26D3DC34009AB06F /* Constants.swift */; };
+		059C5F0126DAEBA7006B7C46 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF8F65226C31FFB001F228E /* LoginViewController.swift */; };
+		05CE26FD26D04C8B000FF7CA /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CE26FC26D04C8B000FF7CA /* CustomButton.swift */; };
 		0FF8F64F26C31FFB001F228E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF8F64E26C31FFB001F228E /* AppDelegate.swift */; };
 		0FF8F65126C31FFB001F228E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF8F65026C31FFB001F228E /* SceneDelegate.swift */; };
 		0FF8F65826C31FFF001F228E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FF8F65726C31FFF001F228E /* Assets.xcassets */; };
@@ -14,7 +18,7 @@
 		0FF8F66626C32000001F228E /* Nasa_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF8F66526C32000001F228E /* Nasa_AppTests.swift */; };
 		0FF8F67126C32000001F228E /* Nasa_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF8F67026C32000001F228E /* Nasa_AppUITests.swift */; };
 		300276DE26D6980A005E2372 /* VideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300276DD26D6980A005E2372 /* VideoPlayerViewController.swift */; };
-		3049C46926DEFF18009D1B1E /* VideoPlayer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3049C46826DEFF18009D1B1E /* VideoPlayer.storyboard */; };
+		3049C46C26DF004C009D1B1E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3049C46A26DF004C009D1B1E /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,9 +39,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0521590226DAE77A00B266A9 /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
+		05874CFE26D3DC34009AB06F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		05CE26FC26D04C8B000FF7CA /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		0FF8F64B26C31FFB001F228E /* Nasa App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Nasa App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FF8F64E26C31FFB001F228E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0FF8F65026C31FFB001F228E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		0FF8F65226C31FFB001F228E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		0FF8F65726C31FFF001F228E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0FF8F65A26C31FFF001F228E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0FF8F65C26C31FFF001F228E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -48,7 +56,7 @@
 		0FF8F67026C32000001F228E /* Nasa_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nasa_AppUITests.swift; sourceTree = "<group>"; };
 		0FF8F67226C32000001F228E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		300276DD26D6980A005E2372 /* VideoPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewController.swift; sourceTree = "<group>"; };
-		3049C46826DEFF18009D1B1E /* VideoPlayer.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VideoPlayer.storyboard; sourceTree = "<group>"; };
+		3049C46B26DF004C009D1B1E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,10 +110,14 @@
 				3085B72B26D6945E00B1EA23 /* Views */,
 				0FF8F64E26C31FFB001F228E /* AppDelegate.swift */,
 				0FF8F65026C31FFB001F228E /* SceneDelegate.swift */,
+				0FF8F65226C31FFB001F228E /* LoginViewController.swift */,
+				05874CFE26D3DC34009AB06F /* Constants.swift */,
+				3049C46A26DF004C009D1B1E /* Main.storyboard */,
+				0521590226DAE77A00B266A9 /* LandingViewController.swift */,
+				05CE26FC26D04C8B000FF7CA /* CustomButton.swift */,
 				0FF8F65726C31FFF001F228E /* Assets.xcassets */,
 				0FF8F65926C31FFF001F228E /* LaunchScreen.storyboard */,
 				0FF8F65C26C31FFF001F228E /* Info.plist */,
-				3049C46826DEFF18009D1B1E /* VideoPlayer.storyboard */,
 			);
 			path = "Nasa App";
 			sourceTree = "<group>";
@@ -240,8 +252,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0FF8F65B26C31FFF001F228E /* LaunchScreen.storyboard in Resources */,
-				3049C46926DEFF18009D1B1E /* VideoPlayer.storyboard in Resources */,
 				0FF8F65826C31FFF001F228E /* Assets.xcassets in Resources */,
+				3049C46C26DF004C009D1B1E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,6 +278,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				059C5F0126DAEBA7006B7C46 /* LoginViewController.swift in Sources */,
+				0521590326DAE77A00B266A9 /* LandingViewController.swift in Sources */,
+				05874CFF26D3DC34009AB06F /* Constants.swift in Sources */,
+				05CE26FD26D04C8B000FF7CA /* CustomButton.swift in Sources */,
 				300276DE26D6980A005E2372 /* VideoPlayerViewController.swift in Sources */,
 				0FF8F64F26C31FFB001F228E /* AppDelegate.swift in Sources */,
 				0FF8F65126C31FFB001F228E /* SceneDelegate.swift in Sources */,
@@ -310,6 +326,14 @@
 				0FF8F65A26C31FFF001F228E /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		3049C46A26DF004C009D1B1E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3049C46B26DF004C009D1B1E /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -437,6 +461,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = AJW34VQTW6;
 				INFOPLIST_FILE = "Nasa App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -455,6 +480,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = AJW34VQTW6;
 				INFOPLIST_FILE = "Nasa App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
