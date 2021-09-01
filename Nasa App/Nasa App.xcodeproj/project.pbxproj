@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		0521590326DAE77A00B266A9 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0521590226DAE77A00B266A9 /* LandingViewController.swift */; };
-		052DA85926DEA6EA0062E252 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05C706A426DEA61D00D9A747 /* Main.storyboard */; };
 		0585899426D7DEE2002B81D9 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0585899326D7DEE2002B81D9 /* DetailViewController.swift */; };
 		058773A126D5DA6200E91EA1 /* Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058773A026D5DA6200E91EA1 /* Detail.swift */; };
 		059C7FD826DC0D8600F0FC05 /* DetailStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 059C7FD726DC0D8600F0FC05 /* DetailStoryboard.storyboard */; };
+		05BF3A4B26DF0A0500F7C1C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05BF3A4A26DF0A0500F7C1C1 /* Main.storyboard */; };
 		05C7069F26DEA4EA00D9A747 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C7069E26DEA4EA00D9A747 /* LoginViewController.swift */; };
 		05C706A126DEA50800D9A747 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C706A026DEA50800D9A747 /* CustomButton.swift */; };
 		05FAA14F26DC181B00460507 /* DetailScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FAA14E26DC181B00460507 /* DetailScrollView.swift */; };
@@ -48,9 +48,9 @@
 		0585899326D7DEE2002B81D9 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		058773A026D5DA6200E91EA1 /* Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Detail.swift; sourceTree = "<group>"; };
 		059C7FD726DC0D8600F0FC05 /* DetailStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailStoryboard.storyboard; sourceTree = "<group>"; };
+		05BF3A4A26DF0A0500F7C1C1 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		05C7069E26DEA4EA00D9A747 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		05C706A026DEA50800D9A747 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
-		05C706A426DEA61D00D9A747 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Main.storyboard; path = "/Users/leonardo.casamayor/repos/Training2021-G2/Nasa App/Nasa App/Storyboards/Main.storyboard"; sourceTree = "<absolute>"; };
 		05FAA14E26DC181B00460507 /* DetailScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScrollView.swift; sourceTree = "<group>"; };
 		05FAA15326DC1A3700460507 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = "Nasa App/Constants.swift"; sourceTree = SOURCE_ROOT; };
 		05FAA15526DC1D7F00460507 /* DetailTitleText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTitleText.swift; sourceTree = "<group>"; };
@@ -119,18 +119,11 @@
 		05FAA15226DC188E00460507 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				05C706A426DEA61D00D9A747 /* Main.storyboard */,
+				05BF3A4A26DF0A0500F7C1C1 /* Main.storyboard */,
 				059C7FD726DC0D8600F0FC05 /* DetailStoryboard.storyboard */,
 				0FF8F65926C31FFF001F228E /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
-			sourceTree = "<group>";
-		};
-		05FAA15926DC1EF800460507 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		0FF8F64226C31FFB001F228E = {
@@ -159,7 +152,6 @@
 				0FF8F64E26C31FFB001F228E /* AppDelegate.swift */,
 				0FF8F65026C31FFB001F228E /* SceneDelegate.swift */,
 				05FAA15326DC1A3700460507 /* Constants.swift */,
-				05FAA15926DC1EF800460507 /* Model */,
 				05FAA15026DC182400460507 /* View */,
 				05FAA15126DC183100460507 /* Controller */,
 				05FAA15226DC188E00460507 /* Storyboards */,
@@ -290,10 +282,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				052DA85926DEA6EA0062E252 /* Main.storyboard in Resources */,
 				0FF8F65B26C31FFF001F228E /* LaunchScreen.storyboard in Resources */,
 				0FF8F65826C31FFF001F228E /* Assets.xcassets in Resources */,
 				059C7FD826DC0D8600F0FC05 /* DetailStoryboard.storyboard in Resources */,
+				05BF3A4B26DF0A0500F7C1C1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
