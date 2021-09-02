@@ -19,6 +19,7 @@
 		0FF8F67126C32000001F228E /* Nasa_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF8F67026C32000001F228E /* Nasa_AppUITests.swift */; };
 		30301F1326DE7287007E0F10 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30301F1126DE7287007E0F10 /* Main.storyboard */; };
 		30301F1726DED06A007E0F10 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30301F1626DED06A007E0F10 /* Constants.swift */; };
+		3049C47026E119E1009D1B1E /* swiftui.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3049C46F26E119E1009D1B1E /* swiftui.storyboard */; };
 		3085B71E26D52D5C00B1EA23 /* CellDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3085B71D26D52D5C00B1EA23 /* CellDetailViewController.swift */; };
 		30BC90A426CF410F00996B29 /* CellDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BC90A326CF410F00996B29 /* CellDetailView.swift */; };
 /* End PBXBuildFile section */
@@ -58,6 +59,7 @@
 		0FF8F67226C32000001F228E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		30301F1226DE7287007E0F10 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		30301F1626DED06A007E0F10 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		3049C46F26E119E1009D1B1E /* swiftui.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = swiftui.storyboard; sourceTree = "<group>"; };
 		3085B71D26D52D5C00B1EA23 /* CellDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellDetailViewController.swift; sourceTree = "<group>"; };
 		30BC90A326CF410F00996B29 /* CellDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -121,6 +123,7 @@
 				0FF8F65726C31FFF001F228E /* Assets.xcassets */,
 				0FF8F65926C31FFF001F228E /* LaunchScreen.storyboard */,
 				0FF8F65C26C31FFF001F228E /* Info.plist */,
+				3049C46F26E119E1009D1B1E /* swiftui.storyboard */,
 			);
 			path = "Nasa App";
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3049C47026E119E1009D1B1E /* swiftui.storyboard in Resources */,
 				30301F1326DE7287007E0F10 /* Main.storyboard in Resources */,
 				0FF8F65B26C31FFF001F228E /* LaunchScreen.storyboard in Resources */,
 				0FF8F65826C31FFF001F228E /* Assets.xcassets in Resources */,
