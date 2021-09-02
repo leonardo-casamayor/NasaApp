@@ -59,6 +59,7 @@ extension UIViewController {
         print("Implement Favorite button function here")
     }
     @objc func closeDetail(sender: AnyObject) {
-        print("Close the opened segue")
+        navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
     }
 }

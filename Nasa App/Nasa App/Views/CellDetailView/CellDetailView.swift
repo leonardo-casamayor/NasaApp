@@ -40,8 +40,9 @@ struct CellDetailView: View {
                             .fill(LinearGradient(gradient: Gradient(colors: [CellDetailConstants.topGradientColor, CellDetailConstants.bottomGradientColor]),
                                                  startPoint: .top,
                                                  endPoint: .bottom))
+                            .ignoresSafeArea()
                             .padding(.top, -screenHeight * CellDetailConstants.rectPaddingMod)
-                            .blur(radius: CellDetailConstants.rectRadius)
+                            
                     }
                     VStack{
                         Image(uiImage: CellDetailConstants.playButton)

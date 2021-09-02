@@ -5,9 +5,16 @@
 //  Created by Leonardo Casamayor on 23/08/2021.
 //
 
+import Foundation
 import UIKit
 import SwiftUI
 
+struct FavoritesTabConstants {
+    static let url = "https://apod.nasa.gov/apod/image/2108/Abell3827Lens_Hubble_960.jpg"
+    static let description = "NASA"
+    static let date = "2018-05-14T00:00:00Z"
+    
+}
 
 let nasaBlue = UIColor(red:0.02, green:0.24, blue:0.58, alpha:1)
 let buttonColor = UIColor(red:0.95, green:0.56, blue:0.55, alpha:1)
