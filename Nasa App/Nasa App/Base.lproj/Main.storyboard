@@ -226,16 +226,6 @@
                     <view key="view" contentMode="scaleToFill" id="yXD-oz-wSN">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VEY-Hb-W2Y">
-                                <rect key="frame" x="191" y="448" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <segue destination="c79-NO-3oA" kind="presentation" id="cl1-VE-ZUV"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="N6G-eD-mgs"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -250,7 +240,7 @@
             <objects>
                 <viewController modalPresentationStyle="pageSheet" id="O3a-Fs-tEQ" customClass="CellDetailViewController" customModule="Nasa_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qqq-3C-dfC">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="Gds-tD-ZaC"/>
                         <color key="backgroundColor" red="0.015686274509803921" green="0.23529411764705882" blue="0.58039215686274503" alpha="1" colorSpace="calibratedRGB"/>
@@ -455,7 +445,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="c79-NO-3oA" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="den-IJ-xY8">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="56"/>
+                        <rect key="frame" x="0.0" y="44" width="428" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
