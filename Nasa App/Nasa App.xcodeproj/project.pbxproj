@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		05874CFF26D3DC34009AB06F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05874CFE26D3DC34009AB06F /* Constants.swift */; };
+		05874CFF26D3DC34009AB06F /* PopularConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05874CFE26D3DC34009AB06F /* PopularConstants.swift */; };
 		05CE26FD26D04C8B000FF7CA /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CE26FC26D04C8B000FF7CA /* CustomButton.swift */; };
 		05FAA15D26DD1CED00460507 /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FAA15C26DD1CED00460507 /* CollectionCell.swift */; };
 		05FAA15F26DD1F2300460507 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FAA15E26DD1F2300460507 /* CollectionViewController.swift */; };
@@ -39,7 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		05874CFE26D3DC34009AB06F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		05874CFE26D3DC34009AB06F /* PopularConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularConstants.swift; sourceTree = "<group>"; };
 		05CE26FC26D04C8B000FF7CA /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		05FAA15C26DD1CED00460507 /* CollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCell.swift; sourceTree = "<group>"; };
 		05FAA15E26DD1F2300460507 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
@@ -110,7 +110,7 @@
 				0FF8F64E26C31FFB001F228E /* AppDelegate.swift */,
 				0FF8F65026C31FFB001F228E /* SceneDelegate.swift */,
 				0FF8F65226C31FFB001F228E /* LoginViewController.swift */,
-				05874CFE26D3DC34009AB06F /* Constants.swift */,
+				05874CFE26D3DC34009AB06F /* PopularConstants.swift */,
 				0FF8F65426C31FFB001F228E /* Main.storyboard */,
 				05FAA15C26DD1CED00460507 /* CollectionCell.swift */,
 				05FAA15E26DD1F2300460507 /* CollectionViewController.swift */,
@@ -270,7 +270,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05874CFF26D3DC34009AB06F /* Constants.swift in Sources */,
+				05874CFF26D3DC34009AB06F /* PopularConstants.swift in Sources */,
 				05CE26FD26D04C8B000FF7CA /* CustomButton.swift in Sources */,
 				0FF8F65326C31FFB001F228E /* LoginViewController.swift in Sources */,
 				0FF8F64F26C31FFB001F228E /* AppDelegate.swift in Sources */,
