@@ -115,7 +115,7 @@ extension VideoPlayerViewController {
     
     //MARK: - VideoPlayerSetup
     func setUpVideoPlayer() {
-        let url = URL(string: VideoPlayerConstants.videoUrl)!
+        guard let url = URL(string: VideoPlayerConstants.videoUrl) else { return }
         player = AVPlayer(url: url)
         player.currentItem?.addObserver(self, forKeyPath: "duration", options: [.new, .initial], context: nil)
         addTimeObserver()
@@ -177,7 +177,7 @@ extension VideoPlayerViewController {
     //MARK: - Observer
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == "duration", let duration = player.currentItem?.duration.seconds, duration > 0.0 {
-            self.durationLabel.text = getTimeString(from: player.currentItem!.duration)
+            self.durationLabel.text = getTimeString(from: player.currentItem?.duration ?? CMTime(seconds: 0, preferredTimescale: 1000))
         }
     }
     
@@ -216,6 +216,6 @@ extension VideoPlayerViewController {
 
 extension NSLayoutConstraint {
     func constraintWithMultiplier(_ multiplier: CGFloat) -> NSLayoutConstraint {
-        return NSLayoutConstraint(item: self.firstItem!, attribute: self.firstAttribute, relatedBy: self.relation, toItem: self.secondItem, attribute: self.secondAttribute, multiplier: multiplier, constant: self.constant)
+        return NSLayoutConstraint(item: self.firstItem as Any, attribute: self.firstAttribute, relatedBy: self.relation, toItem: self.secondItem, attribute: self.secondAttribute, multiplier: multiplier, constant: self.constant)
     }
 }
