@@ -1,11 +1,27 @@
 //
-//  DetailConstants.swift
+//  Constants.swift
 //  Nasa App
 //
-//  Created by Leonardo Casamayor on 01/09/2021.
+//  Created by Leonardo Casamayor on 03/09/2021.
 //
 
+import UIKit
 import SwiftUI
+
+struct GeneralConstants {
+    static let nasaBlue = UIColor(red:0.02, green:0.24, blue:0.58, alpha:1)
+}
+
+struct LoginConstants {
+    static let buttonColor = UIColor(red:0.95, green:0.56, blue:0.55, alpha:1)
+    static let buttonBorderColor = UIColor(red:0.59, green:0.59, blue:0.59, alpha:1)
+}
+
+struct FavoritesTabConstants {
+    static let url = "https://apod.nasa.gov/apod/image/2108/Abell3827Lens_Hubble_960.jpg"
+    static let description = "NASA"
+    static let date = "2018-05-14T00:00:00Z"
+}
 
 struct DetailConstants {
     struct FontSize {

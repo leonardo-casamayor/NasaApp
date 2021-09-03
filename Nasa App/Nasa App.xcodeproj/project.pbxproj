@@ -8,10 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		05200AED26E029D000295A04 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05200AEC26E029D000295A04 /* LandingViewController.swift */; };
-		05200AEF26E02F2E00295A04 /* FavoritesConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05200AEE26E02F2E00295A04 /* FavoritesConstants.swift */; };
-		05200AF126E0348900295A04 /* DetailConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05200AF026E0348900295A04 /* DetailConstants.swift */; };
-		05200AF326E0356700295A04 /* LoginConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05200AF226E0356700295A04 /* LoginConstants.swift */; };
-		05200AF526E0357400295A04 /* GeneralConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05200AF426E0357400295A04 /* GeneralConstants.swift */; };
+		05200AFA26E29D2900295A04 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05200AF926E29D2900295A04 /* Constants.swift */; };
 		0585899426D7DEE2002B81D9 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0585899326D7DEE2002B81D9 /* DetailViewController.swift */; };
 		058773A126D5DA6200E91EA1 /* Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058773A026D5DA6200E91EA1 /* Detail.swift */; };
 		059C7FD826DC0D8600F0FC05 /* DetailStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 059C7FD726DC0D8600F0FC05 /* DetailStoryboard.storyboard */; };
@@ -51,10 +48,7 @@
 
 /* Begin PBXFileReference section */
 		05200AEC26E029D000295A04 /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LandingViewController.swift; path = "Nasa App/Controller/LandingViewController.swift"; sourceTree = SOURCE_ROOT; };
-		05200AEE26E02F2E00295A04 /* FavoritesConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesConstants.swift; sourceTree = "<group>"; };
-		05200AF026E0348900295A04 /* DetailConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailConstants.swift; sourceTree = "<group>"; };
-		05200AF226E0356700295A04 /* LoginConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginConstants.swift; sourceTree = "<group>"; };
-		05200AF426E0357400295A04 /* GeneralConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralConstants.swift; sourceTree = "<group>"; };
+		05200AF926E29D2900295A04 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0585899326D7DEE2002B81D9 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		058773A026D5DA6200E91EA1 /* Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Detail.swift; sourceTree = "<group>"; };
 		059C7FD726DC0D8600F0FC05 /* DetailStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailStoryboard.storyboard; sourceTree = "<group>"; };
@@ -131,15 +125,6 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		05FAA15226DC188E00460507 /* Storyboards */ = {
-			isa = PBXGroup;
-			children = (
-				059C7FD726DC0D8600F0FC05 /* DetailStoryboard.storyboard */,
-				0FF8F65926C31FFF001F228E /* LaunchScreen.storyboard */,
-			);
-			path = Storyboards;
-			sourceTree = "<group>";
-		};
 		0FF8F64226C31FFB001F228E = {
 			isa = PBXGroup;
 			children = (
@@ -163,13 +148,14 @@
 		0FF8F64D26C31FFB001F228E /* Nasa App */ = {
 			isa = PBXGroup;
 			children = (
-				3085B71726D4363700B1EA23 /* Constants */,
 				05FAA15026DC182400460507 /* View */,
 				05FAA15126DC183100460507 /* Controller */,
-				05FAA15226DC188E00460507 /* Storyboards */,
+				05200AF926E29D2900295A04 /* Constants.swift */,
 				0FF8F64E26C31FFB001F228E /* AppDelegate.swift */,
 				0FF8F65026C31FFB001F228E /* SceneDelegate.swift */,
+				059C7FD726DC0D8600F0FC05 /* DetailStoryboard.storyboard */,
 				30D5773A26DD325F007E22A0 /* Main.storyboard */,
+				0FF8F65926C31FFF001F228E /* LaunchScreen.storyboard */,
 				0FF8F65726C31FFF001F228E /* Assets.xcassets */,
 				0FF8F65C26C31FFF001F228E /* Info.plist */,
 			);
@@ -192,17 +178,6 @@
 				0FF8F67226C32000001F228E /* Info.plist */,
 			);
 			path = "Nasa AppUITests";
-			sourceTree = "<group>";
-		};
-		3085B71726D4363700B1EA23 /* Constants */ = {
-			isa = PBXGroup;
-			children = (
-				05200AEE26E02F2E00295A04 /* FavoritesConstants.swift */,
-				05200AF226E0356700295A04 /* LoginConstants.swift */,
-				05200AF426E0357400295A04 /* GeneralConstants.swift */,
-				05200AF026E0348900295A04 /* DetailConstants.swift */,
-			);
-			path = Constants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -341,18 +316,15 @@
 				30D19FCD26D0B46D007B7C28 /* FavoritesTabViewController.swift in Sources */,
 				0FF8F64F26C31FFB001F228E /* AppDelegate.swift in Sources */,
 				0585899426D7DEE2002B81D9 /* DetailViewController.swift in Sources */,
-				05200AF326E0356700295A04 /* LoginConstants.swift in Sources */,
 				058773A126D5DA6200E91EA1 /* Detail.swift in Sources */,
 				05FAA14F26DC181B00460507 /* DetailScrollView.swift in Sources */,
-				05200AF526E0357400295A04 /* GeneralConstants.swift in Sources */,
 				05FAA15826DC1DA100460507 /* DetailGradient.swift in Sources */,
 				05FAA15626DC1D7F00460507 /* DetailTitleText.swift in Sources */,
 				309C145C26DD91140063BD2F /* ImageRetrieveController.swift in Sources */,
-				05200AF126E0348900295A04 /* DetailConstants.swift in Sources */,
 				0FF8F65126C31FFB001F228E /* SceneDelegate.swift in Sources */,
-				05200AEF26E02F2E00295A04 /* FavoritesConstants.swift in Sources */,
 				05C7069F26DEA4EA00D9A747 /* LoginViewController.swift in Sources */,
 				05200AED26E029D000295A04 /* LandingViewController.swift in Sources */,
+				05200AFA26E29D2900295A04 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
