@@ -8,7 +8,8 @@
 import UIKit
 
 class CollectionCell: UICollectionViewCell {
-    static let identifier = "PopularCell"
+    static let PopularIdentifier = "PopularCell"
+    static let Favoriteidentifier = "FavoriteCell"
     private var views:[UIView] = []
     
     //MARK: Views
@@ -64,10 +65,11 @@ class CollectionCell: UICollectionViewCell {
         setupConstraints()
     }
     private func setupSubviews() {
-        imageView.frame = contentView.bounds
-        titleLabel.frame = contentView.bounds
-        transparentView.frame = contentView.bounds
-        dateLabel.frame = contentView.bounds
+        views.forEach { setViewFrameToBounds(view: $0) }
+    }
+    
+    private func setViewFrameToBounds(view: UIView) {
+        view.frame = contentView.bounds
     }
 }
 
