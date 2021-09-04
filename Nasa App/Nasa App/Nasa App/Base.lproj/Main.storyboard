@@ -644,7 +644,7 @@
                                             <constraint firstAttribute="width" secondItem="DI5-xD-6Jg" secondAttribute="height" multiplier="20:22" id="Nm9-nM-Zob"/>
                                         </constraints>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" backgroundImage="volume" catalog="system"/>
+                                        <state key="normal" backgroundImage="volume.fill" catalog="system"/>
                                         <connections>
                                             <action selector="muteVideo:" destination="abz-L2-i2W" eventType="touchUpInside" id="RzK-lB-20t"/>
                                             <action selector="viewsTapped" destination="abz-L2-i2W" eventType="touchUpInside" id="2yY-zF-bMn"/>
@@ -743,7 +743,7 @@
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="network" catalog="system" width="128" height="121"/>
         <image name="play.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="volume" catalog="system" width="128" height="124"/>
+        <image name="volume.fill" catalog="system" width="128" height="128"/>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

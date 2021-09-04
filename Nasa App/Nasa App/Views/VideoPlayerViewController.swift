@@ -41,6 +41,7 @@ class VideoPlayerViewController: UIViewController {
     var isMuted: Bool = false {
         didSet {
             mute(isMuted)
+            muteUnmuteButton(isMuted)
         }
     }
     //MARK: - viewWillAppear
@@ -197,7 +198,7 @@ class VideoPlayerViewController: UIViewController {
     }
     
     @objc private func videoDidEnd() {
-        playPauseButton.setBackgroundImage(UIImage(systemName: "arrow.uturn.left"), for: .normal)
+        playPauseButton.setBackgroundImage(.replay, for: .normal)
         didFinishVideo = true
         isVideoPlaying = false
     }
@@ -213,12 +214,12 @@ class VideoPlayerViewController: UIViewController {
     func pauseVideo(sender: UIButton) {
         player.pause()
         isVideoPlaying = !isVideoPlaying
-        sender.setBackgroundImage(UIImage(systemName: "play.circle.fill"), for: .normal)
+        sender.setBackgroundImage(.play, for: .normal)
     }
     func playVideo(sender: UIButton) {
         player.play()
         isVideoPlaying = !isVideoPlaying
-        sender.setBackgroundImage(UIImage(systemName: "pause.circle.fill"), for: .normal)
+        sender.setBackgroundImage(.pause, for: .normal)
     }
     func mute(_ isMuted: Bool) {
         if isMuted {
@@ -226,6 +227,9 @@ class VideoPlayerViewController: UIViewController {
         } else {
             player.volume = 100
         }
+    }
+    func muteUnmuteButton(_ isMuted: Bool) {
+        muteButton.setBackgroundImage(isMuted ? .muted : .unmuted, for: .normal)
     }
     
     //MARK: - Hide/Show View
