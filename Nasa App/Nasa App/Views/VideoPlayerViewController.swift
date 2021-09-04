@@ -19,23 +19,34 @@ class VideoPlayerViewController: UIViewController {
     @IBOutlet weak var currentTimeLabel: UILabel!
     @IBOutlet weak var timeSlider: UISlider!
     @IBOutlet weak var playPauseButton: UIButton!
+    @IBOutlet weak var muteButton: UIButton!
     @IBOutlet weak var playToForward: NSLayoutConstraint!
     @IBOutlet weak var playToBackward: NSLayoutConstraint!
     @IBOutlet weak var topViewHeight: NSLayoutConstraint!
     @IBOutlet weak var bottomViewHeight: NSLayoutConstraint!
     
     //MARK: - Attributes
-    var areViewsHidden = false
     var player: AVPlayer!
     var playerLayer: AVPlayerLayer!
-    var isVideoPlaying = false
-    var didFinishVideo = false
+    var isVideoPlaying: Bool = false
+    var didFinishVideo: Bool = false
     
+    var controlsTimer: Timer?
+    var isShowingViews: Bool = false {
+        didSet {
+            isShowingViews ? startControlsTimer() : stopControlsTimer()
+            showViews(isShowingViews, animated: true)
+        }
+    }
+    var isMuted: Bool = false {
+        didSet {
+            mute(isMuted)
+        }
+    }
     //MARK: - viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         let size = UIScreen.main.bounds.size
-        print(size)
         updateConstraints(size: size)
         
     }
@@ -43,9 +54,8 @@ class VideoPlayerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpVideoPlayer()
-        NotificationCenter.default.addObserver(self, selector: #selector(videoDidEnded), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: player?.currentItem)
-        print(size)
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(videoDidEnd), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: player?.currentItem)
+        print(player.volume)
     }
     //MARK: - viewWillTransition
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -63,23 +73,28 @@ class VideoPlayerViewController: UIViewController {
     //MARK: - viewDidDisappear
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
+        player.pause()
         player.currentItem?.removeObserver(self, forKeyPath: "duration")
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: player?.currentItem)
     }
     
     //MARK: - IBActions
-    @IBAction func playPressed(_ sender: UIButton) {
+    @IBAction
+    func playPressed(_ sender: UIButton) {
+        ///video finished playing
         if didFinishVideo {
-            replayVideo()
-            playVideo(sender: sender)
+            replayVideo(sender: sender)
+        ///video is playing
         } else if isVideoPlaying {
             pauseVideo(sender: sender)
         } else {
+        ///vide is paused
             playVideo(sender: sender)
         }
     }
     
-    @IBAction func forwardPressed(_ sender: UIButton) {
+    @IBAction
+    func forwardPressed(_ sender: UIButton) {
         guard let duration = player.currentItem?.duration else { return }
         let currentTime = CMTimeGetSeconds(player.currentTime())
         let newTime = currentTime + 10.0
@@ -90,7 +105,8 @@ class VideoPlayerViewController: UIViewController {
         }
     }
     
-    @IBAction func backwardPressed(_ sender: UIButton) {
+    @IBAction
+    func backwardPressed(_ sender: UIButton) {
         let currentTime = CMTimeGetSeconds(player.currentTime())
         var newTime = currentTime - 10.0
         
@@ -100,18 +116,48 @@ class VideoPlayerViewController: UIViewController {
         let time : CMTime = CMTimeMake(value: Int64(newTime * 1000), timescale: 1000)
         player.seek(to: time)
     }
-    @IBAction func backPressed(_ sender: UIButton) {
+    @IBAction
+    func backPressed(_ sender: UIButton) {
         print("We will implement this shortly, keep enjoying the video.")
     }
     
-    @IBAction func sliderValueChanged(_ sender: UISlider) {
+    @IBAction
+    func sliderValueChanged(_ sender: UISlider) {
         player.seek(to: CMTimeMake(value: Int64(sender.value * 1000), timescale: 1000))
     }
-    
-    
+    @IBAction
+    func muteVideo(_ sender: UIButton) {
+        isMuted.toggle()
+    }
+    @IBAction
+    func viewsTapped() {
+        rescheduleTimer()
+    }
+    @IBAction
+    func containerTapped() {
+        isShowingViews.toggle()
+    }
 }
 
-extension VideoPlayerViewController {
+//MARK: - timers
+ extension VideoPlayerViewController {
+    func startControlsTimer() {
+        controlsTimer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(timerAction), userInfo: nil, repeats: false)
+    }
+    func stopControlsTimer() {
+        controlsTimer?.invalidate()
+        controlsTimer = nil
+    }
+    func rescheduleTimer() {
+        stopControlsTimer()
+        startControlsTimer()
+    }
+    @objc func timerAction() {
+        isShowingViews = false
+    }
+}
+
+ extension VideoPlayerViewController {
     
     //MARK: - VideoPlayerSetup
     func setUpVideoPlayer() {
@@ -125,7 +171,7 @@ extension VideoPlayerViewController {
         videoView.layer.addSublayer(playerLayer)
     }
     
-    //MARK: - Helper Methods
+    //MARK: - Video Helper Methods
     func getTimeString(from time: CMTime) -> String {
         let totalSeconds = CMTimeGetSeconds(time)
         let hours = Int(totalSeconds/3600)
@@ -150,18 +196,19 @@ extension VideoPlayerViewController {
         })
     }
     
-    @objc private func videoDidEnded() {
-        //do something here
+    @objc private func videoDidEnd() {
         playPauseButton.setBackgroundImage(UIImage(systemName: "arrow.uturn.left"), for: .normal)
         didFinishVideo = true
         isVideoPlaying = false
     }
-    func replayVideo() {
+    func replayVideo(sender: UIButton) {
         let newTime = 0
         let time : CMTime = CMTimeMake(value: Int64(newTime * 1000), timescale: 1000)
         player.seek(to: time)
         didFinishVideo = !didFinishVideo
-
+        playVideo(sender: sender)
+        
+        
     }
     func pauseVideo(sender: UIButton) {
         player.pause()
@@ -173,6 +220,25 @@ extension VideoPlayerViewController {
         isVideoPlaying = !isVideoPlaying
         sender.setBackgroundImage(UIImage(systemName: "pause.circle.fill"), for: .normal)
     }
+    func mute(_ isMuted: Bool) {
+        if isMuted {
+            player.volume = 0
+        } else {
+            player.volume = 100
+        }
+    }
+    
+    //MARK: - Hide/Show View
+    
+    
+    func showViews(_ option: Bool, animated: Bool) {
+        let views: [UIView] = [topView, bottomView]
+        
+        UIView.animate(withDuration: animated ? 0.50 : 0.0) {
+            views.forEach {$0.alpha = option ? 1 : 0}
+        }
+    }
+    
     
     //MARK: - Observer
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="abz-L2-i2W">
     <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -538,6 +538,9 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="dRh-82-pwY" secondAttribute="height" multiplier="16:9" id="tvR-ML-zxs"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="QbG-JZ-j1Z" appends="YES" id="MGj-PT-9dS"/>
+                                </connections>
                             </view>
                             <view alpha="0.64999997615814209" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EAI-Yb-Bkc" userLabel="Bottom View">
                                 <rect key="frame" x="0.0" y="836.33333333333337" width="428" height="89.666666666666629"/>
@@ -546,6 +549,7 @@
                                         <rect key="frame" x="83.666666666666657" y="40.333333333333258" width="260.66666666666674" height="10"/>
                                         <connections>
                                             <action selector="sliderValueChanged:" destination="abz-L2-i2W" eventType="valueChanged" id="fgv-Mh-sTP"/>
+                                            <action selector="viewsTapped" destination="abz-L2-i2W" eventType="valueChanged" id="FoD-Pk-VT1"/>
                                         </connections>
                                     </slider>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--:--:--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="83w-Fs-E5X">
@@ -596,6 +600,7 @@
                                         </state>
                                         <connections>
                                             <action selector="playPressed:" destination="abz-L2-i2W" eventType="touchUpInside" id="dJ6-8W-X6g"/>
+                                            <action selector="viewsTapped" destination="abz-L2-i2W" eventType="touchUpInside" id="ayi-zt-9SA"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WhS-sD-P6G" userLabel="Backward Button">
@@ -607,6 +612,7 @@
                                         <state key="normal" backgroundImage="gobackward.10" catalog="system"/>
                                         <connections>
                                             <action selector="backwardPressed:" destination="abz-L2-i2W" eventType="touchUpInside" id="KoE-OE-xfg"/>
+                                            <action selector="viewsTapped" destination="abz-L2-i2W" eventType="touchUpInside" id="5D9-Ig-Fkh"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mlC-QO-76k" userLabel="Forward Button">
@@ -618,6 +624,7 @@
                                         <state key="normal" backgroundImage="goforward.10" catalog="system"/>
                                         <connections>
                                             <action selector="forwardPressed:" destination="abz-L2-i2W" eventType="touchUpInside" id="omc-IE-LDw"/>
+                                            <action selector="viewsTapped" destination="abz-L2-i2W" eventType="touchUpInside" id="yC9-0N-5LR"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fKN-3b-uqd" userLabel="Back Button">
@@ -631,6 +638,18 @@
                                             <action selector="backPressed:" destination="abz-L2-i2W" eventType="touchUpInside" id="fMb-rR-Kgd"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DI5-xD-6Jg" userLabel="Mute Button">
+                                        <rect key="frame" x="369" y="22.333333333333325" width="45" height="45.666666666666657"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="DI5-xD-6Jg" secondAttribute="height" multiplier="20:22" id="Nm9-nM-Zob"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" backgroundImage="volume" catalog="system"/>
+                                        <connections>
+                                            <action selector="muteVideo:" destination="abz-L2-i2W" eventType="touchUpInside" id="RzK-lB-20t"/>
+                                            <action selector="viewsTapped" destination="abz-L2-i2W" eventType="touchUpInside" id="2yY-zF-bMn"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -641,13 +660,16 @@
                                     <constraint firstItem="fKN-3b-uqd" firstAttribute="height" secondItem="XPE-Kd-jdS" secondAttribute="height" id="3e2-8V-HBx"/>
                                     <constraint firstItem="fKN-3b-uqd" firstAttribute="leading" secondItem="kRt-3v-T5f" secondAttribute="leading" constant="14" id="7dB-Pg-DVd"/>
                                     <constraint firstItem="XPE-Kd-jdS" firstAttribute="centerY" secondItem="kRt-3v-T5f" secondAttribute="centerY" id="9H6-LH-Jrs"/>
+                                    <constraint firstAttribute="trailing" secondItem="DI5-xD-6Jg" secondAttribute="trailing" constant="14" id="Dcv-GY-AXT"/>
                                     <constraint firstItem="WhS-sD-P6G" firstAttribute="centerY" secondItem="XPE-Kd-jdS" secondAttribute="centerY" id="RIs-5o-3wo"/>
                                     <constraint firstItem="mlC-QO-76k" firstAttribute="centerY" secondItem="XPE-Kd-jdS" secondAttribute="centerY" id="Ukg-Co-3Rv"/>
                                     <constraint firstItem="fKN-3b-uqd" firstAttribute="centerY" secondItem="XPE-Kd-jdS" secondAttribute="centerY" id="kQJ-nE-nXP"/>
+                                    <constraint firstItem="DI5-xD-6Jg" firstAttribute="height" secondItem="XPE-Kd-jdS" secondAttribute="height" id="tiX-G9-xLl"/>
                                     <constraint firstItem="XPE-Kd-jdS" firstAttribute="height" secondItem="kRt-3v-T5f" secondAttribute="height" multiplier="0.55" id="uYz-kd-MLu"/>
                                     <constraint firstItem="XPE-Kd-jdS" firstAttribute="leading" secondItem="WhS-sD-P6G" secondAttribute="trailing" constant="15" id="wBE-au-9tJ">
                                         <variation key="heightClass=regular-widthClass=regular" constant="30"/>
                                     </constraint>
+                                    <constraint firstItem="DI5-xD-6Jg" firstAttribute="centerY" secondItem="XPE-Kd-jdS" secondAttribute="centerY" id="wYN-HM-kpu"/>
                                     <constraint firstItem="XPE-Kd-jdS" firstAttribute="centerX" secondItem="kRt-3v-T5f" secondAttribute="centerX" id="xPL-Qu-FNb"/>
                                     <constraint firstItem="mlC-QO-76k" firstAttribute="height" secondItem="kRt-3v-T5f" secondAttribute="height" multiplier="0.575" id="y2d-85-6RI"/>
                                 </constraints>
@@ -655,6 +677,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fhE-H2-xWj"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="EAI-Yb-Bkc" firstAttribute="height" secondItem="vgp-RL-SCr" secondAttribute="height" multiplier="0.097" id="8AC-HQ-Xyd"/>
                             <constraint firstItem="kRt-3v-T5f" firstAttribute="top" secondItem="fhE-H2-xWj" secondAttribute="top" id="8GG-9O-clT"/>
@@ -679,6 +702,7 @@
                         <outlet property="bottomViewHeight" destination="8AC-HQ-Xyd" id="9ce-Ke-2CQ"/>
                         <outlet property="currentTimeLabel" destination="83w-Fs-E5X" id="Ipj-9e-gj7"/>
                         <outlet property="durationLabel" destination="hpP-8b-jDB" id="xeb-M6-Qwg"/>
+                        <outlet property="muteButton" destination="DI5-xD-6Jg" id="SYC-qj-rU1"/>
                         <outlet property="playPauseButton" destination="XPE-Kd-jdS" id="sBQ-cV-QGZ"/>
                         <outlet property="playToBackward" destination="wBE-au-9tJ" id="aIE-U8-eTG"/>
                         <outlet property="playToForward" destination="1Dv-Eq-FbG" id="UU2-Ac-m6O"/>
@@ -689,6 +713,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5RE-7c-4eT" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="QbG-JZ-j1Z">
+                    <connections>
+                        <action selector="containerTapped" destination="abz-L2-i2W" id="WXJ-bl-hjc"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="4060" y="32"/>
         </scene>
@@ -714,6 +743,7 @@
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="network" catalog="system" width="128" height="121"/>
         <image name="play.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="volume" catalog="system" width="128" height="124"/>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
