@@ -10,13 +10,13 @@ import UIKit
 import SwiftUI
 
 class CellDetailViewController: UIViewController {
-    var addCloseButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "xmark"), style: .done, target: self, action: #selector(closeDetail))
-    var addFavButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "suit.heart.fill"), style: .done, target: self, action: #selector(addFavorite))
+    var addCloseButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(systemName: CellDetailConstants.crossMark), style: .done, target: self, action: #selector(closeDetail))
+    var addFavButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(systemName: CellDetailConstants.favHeart), style: .done, target: self, action: #selector(addFavorite))
     
     override func viewDidLoad() {
         super.viewDidLoad()
         addSwiftUIView()
-        self.navigationItem.title = "VideoTitleGoesHere"
+        self.navigationItem.title = CellDetailConstants.navTitle
         self.navigationItem.rightBarButtonItem = self.addFavButton
         self.navigationItem.leftBarButtonItem = self.addCloseButton
     }

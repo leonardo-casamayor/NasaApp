@@ -466,9 +466,6 @@
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GKu-Zp-Bf9">
                                                     <rect key="frame" x="0.0" y="0.0" width="392" height="255"/>
-                                                    <connections>
-                                                        <segue destination="uQh-Nb-30n" kind="presentation" id="tlP-C4-qBn"/>
-                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -534,41 +531,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pXT-aH-0qR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2808" y="687"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="aQa-ju-FOU">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" hidesBarsWhenVerticallyCompact="YES" id="uQh-Nb-30n" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="DI1-f1-ZUO">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="56"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="epK-c7-hNA" kind="relationship" relationship="rootViewController" id="rxm-uB-12L"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZNc-Ck-uz1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4011" y="687"/>
-        </scene>
-        <!--Cell Detail View Controller-->
-        <scene sceneID="wBK-wh-lZa">
-            <objects>
-                <viewController modalPresentationStyle="pageSheet" id="epK-c7-hNA" customClass="CellDetailViewController" customModule="Nasa_App" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="P27-Vx-2hP">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="816"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="9Zf-TF-A3o"/>
-                        <color key="backgroundColor" red="0.015686274510000001" green="0.23529411759999999" blue="0.58039215690000001" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="o2u-3Q-hPk"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OA7-ZX-Ber" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="5321" y="687"/>
         </scene>
     </scenes>
     <designables>

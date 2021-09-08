@@ -21,6 +21,7 @@
 		3085B71E26D52D5C00B1EA23 /* CellDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3085B71D26D52D5C00B1EA23 /* CellDetailViewController.swift */; };
 		309C145C26DD91140063BD2F /* ImageRetrieveController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309C145B26DD91140063BD2F /* ImageRetrieveController.swift */; };
 		30BC90A426CF410F00996B29 /* CellDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BC90A326CF410F00996B29 /* CellDetailView.swift */; };
+		30C902D426E8FFFA00CBDCB0 /* Detailview.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30C902D326E8FFFA00CBDCB0 /* Detailview.storyboard */; };
 		30D19FCC26D0B46D007B7C28 /* FavoritesTabColCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D19FCA26D0B46D007B7C28 /* FavoritesTabColCell.swift */; };
 		30D19FCD26D0B46D007B7C28 /* FavoritesTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D19FCB26D0B46D007B7C28 /* FavoritesTabViewController.swift */; };
 		30D5773C26DD325F007E22A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30D5773A26DD325F007E22A0 /* Main.storyboard */; };
@@ -63,6 +64,7 @@
 		3085B71D26D52D5C00B1EA23 /* CellDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellDetailViewController.swift; sourceTree = "<group>"; };
 		309C145B26DD91140063BD2F /* ImageRetrieveController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRetrieveController.swift; sourceTree = "<group>"; };
 		30BC90A326CF410F00996B29 /* CellDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellDetailView.swift; sourceTree = "<group>"; };
+		30C902D326E8FFFA00CBDCB0 /* Detailview.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Detailview.storyboard; sourceTree = "<group>"; };
 		30D19FCA26D0B46D007B7C28 /* FavoritesTabColCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesTabColCell.swift; sourceTree = "<group>"; };
 		30D19FCB26D0B46D007B7C28 /* FavoritesTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesTabViewController.swift; sourceTree = "<group>"; };
 		30D5773B26DD325F007E22A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Nasa App/Base.lproj/Main.storyboard"; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				0FF8F65726C31FFF001F228E /* Assets.xcassets */,
 				0FF8F65926C31FFF001F228E /* LaunchScreen.storyboard */,
 				0FF8F65C26C31FFF001F228E /* Info.plist */,
+				30C902D326E8FFFA00CBDCB0 /* Detailview.storyboard */,
 			);
 			path = "Nasa App";
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 			files = (
 				0FF8F65B26C31FFF001F228E /* LaunchScreen.storyboard in Resources */,
 				0FF8F65826C31FFF001F228E /* Assets.xcassets in Resources */,
+				30C902D426E8FFFA00CBDCB0 /* Detailview.storyboard in Resources */,
 				30D5773C26DD325F007E22A0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
