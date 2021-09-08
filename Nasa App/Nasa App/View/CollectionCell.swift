@@ -1,0 +1,104 @@
+//
+//  CollectionCell.swift
+//  Nasa App
+//
+//  Created by Leonardo Casamayor on 30/08/2021.
+//
+
+import UIKit
+
+class CollectionCell: UICollectionViewCell {
+    static let PopularIdentifier = "PopularCell"
+    static let Favoriteidentifier = "FavoriteCell"
+    private var views:[UIView] = []
+    
+    //MARK: Views
+    private let titleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Title"
+        label.textColor = UIColor.white
+        label.font = UIFont.systemFont(ofSize: 28, weight: .semibold)
+        return label
+    }()
+    
+    private let dateLabel: UILabel = {
+        let label = UILabel()
+        label.text = "2021-07-16"
+        label.textColor = UIColor.white
+        label.font = UIFont.systemFont(ofSize: 12, weight: .semibold)
+        return label
+    }()
+    
+    private let transparentView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor(red:0.07, green:0.07, blue:0.07, alpha:0.5)
+        return view
+    }()
+    
+    private let imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.clipsToBounds = true
+        imageView.contentMode = .scaleAspectFill
+        imageView.image = UIImage(named: "popular-example")
+        return imageView
+    }()
+    //MARK: Initialization and setup
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupCell()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError()
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        setupSubviews()
+    }
+    
+    private func setupCell() {
+        views = [imageView, transparentView, titleLabel, dateLabel]
+        views.forEach { contentView.addSubview($0) }
+        contentView.clipsToBounds = true
+        contentView.layer.cornerRadius = 15
+        setupConstraints()
+    }
+    private func setupSubviews() {
+        views.forEach { setViewFrameToBounds(view: $0) }
+    }
+    
+    private func setViewFrameToBounds(view: UIView) {
+        view.frame = contentView.bounds
+    }
+}
+
+//MARK: Constraints
+extension CollectionCell {
+    private func setupConstraints() {
+        self.translatesAutoresizingMaskIntoConstraints = false
+        transparentViewConstraints()
+        titleLabelConstraints()
+        dateLabelConstraints()
+    }
+    
+    private func titleLabelConstraints() {
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.leftAnchor.constraint(equalTo: transparentView.leftAnchor, constant: 10).isActive = true
+        titleLabel.bottomAnchor.constraint(equalTo: transparentView.centerYAnchor, constant: 8).isActive = true
+    }
+    
+    private func dateLabelConstraints() {
+        dateLabel.translatesAutoresizingMaskIntoConstraints = false
+        dateLabel.leftAnchor.constraint(equalTo: transparentView.leftAnchor, constant: 10).isActive = true
+        dateLabel.topAnchor.constraint(equalTo: transparentView.centerYAnchor, constant: 10).isActive = true
+    }
+    
+    private func transparentViewConstraints() {
+        transparentView.translatesAutoresizingMaskIntoConstraints = false
+        transparentView.leftAnchor.constraint(equalTo: imageView.leftAnchor, constant: 0).isActive = true
+        transparentView.rightAnchor.constraint(equalTo: imageView.rightAnchor, constant: 0).isActive = true
+        transparentView.bottomAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 0).isActive = true
+        transparentView.heightAnchor.constraint(equalTo: imageView.heightAnchor, multiplier: 0.3).isActive = true
+    }
+}
