@@ -28,14 +28,9 @@ struct CellDetailView: View {
                     VStack{
                         Image(uiImage: CellDetailConstants.placeHolderImage)
                             .resizable()
-                            .frame(minWidth: screenWidth,
-                                   idealWidth: screenWidth,
-                                   maxWidth: screenWidth,
-                                   minHeight: screenHeight * CellDetailConstants.imageHeightModifier,
-                                   idealHeight: screenHeight * CellDetailConstants.imageHeightModifier,
-                                   maxHeight: screenHeight * CellDetailConstants.imageHeightModifier,
+                            .frame(width: screenWidth,
+                                   height: screenHeight * CellDetailConstants.imageHeightModifier,
                                    alignment: .center)
-                        
                         Rectangle()
                             .fill(LinearGradient(gradient: Gradient(colors: [Color(CellDetailConstants.topGradientColor), Color(CellDetailConstants.bottomGradientColor)]),
                                                  startPoint: .top,
@@ -46,12 +41,8 @@ struct CellDetailView: View {
                     }
                     VStack{
                         Image(uiImage: CellDetailConstants.playButton)
-                            .frame(minWidth: screenWidth * CellDetailConstants.playWidthMod,
-                                   idealWidth: screenWidth * CellDetailConstants.playWidthMod,
-                                   maxWidth: screenWidth * CellDetailConstants.playWidthMod,
-                                   minHeight: screenHeight * CellDetailConstants.playHeightMod,
-                                   idealHeight: screenHeight * CellDetailConstants.playHeightMod,
-                                   maxHeight: screenHeight * CellDetailConstants.playHeightMod,
+                            .frame(width: screenWidth * CellDetailConstants.playWidthMod,
+                                   height: screenHeight * CellDetailConstants.playHeightMod,
                                    alignment: .center)
                             
                             .padding(.top, screenHeight * CellDetailConstants.playPadMod)
@@ -98,22 +89,13 @@ struct CellDetailView: View {
                     Image(uiImage: CellDetailConstants.placeHolderImage)
                         .resizable()
                         .ignoresSafeArea()
-                        .frame(minWidth: screenWidth,
-                               idealWidth: screenWidth,
-                               maxWidth: screenWidth,
-                               minHeight: screenHeight,
-                               idealHeight: screenHeight,
-                               maxHeight: screenHeight,
+                        .frame(width: screenWidth,
+                               height: screenHeight,
                                alignment: .center)
                     Image(uiImage: CellDetailConstants.playButton)
-                        .frame(minWidth: screenWidth * CellDetailConstants.playWidthMod,
-                               idealWidth: screenWidth * CellDetailConstants.playWidthMod,
-                               maxWidth: screenWidth * CellDetailConstants.playWidthMod,
-                               minHeight: screenHeight * CellDetailConstants.playHeightMod,
-                               idealHeight: screenHeight * CellDetailConstants.playHeightMod,
-                               maxHeight: screenHeight * CellDetailConstants.playHeightMod,
+                        .frame(width: screenWidth * CellDetailConstants.playWidthMod,
+                               height: screenHeight * CellDetailConstants.playHeightMod,
                                alignment: .center)
-                        
                 }
             }
         }
