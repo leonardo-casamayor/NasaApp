@@ -10,23 +10,29 @@ import UIKit
 import SwiftUI
 
 class CellDetailViewController: UIViewController {
-    var addCloseButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(systemName: CellDetailConstants.crossMark), style: .done, target: self, action: #selector(closeDetail))
     var addFavButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(systemName: CellDetailConstants.favHeart), style: .done, target: self, action: #selector(addFavorite))
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         addSwiftUIView()
-        self.navigationItem.title = CellDetailConstants.navTitle
-        self.navigationItem.rightBarButtonItem = self.addFavButton
-        self.navigationItem.leftBarButtonItem = self.addCloseButton
+        setupNavButtons()
     }
     
     private func addSwiftUIView() {
         let swiftUIView = CellDetailView()
         addSubSwiftUIView(swiftUIView, to: view)
     }
+    
+    private func setupNavButtons() {
+        self.navigationItem.title = CellDetailConstants.navTitle
+        self.navigationItem.rightBarButtonItem = self.addFavButton
+        self.navigationController?.navigationBar.prefersLargeTitles = false
+        self.navigationItem.rightBarButtonItem?.isEnabled = true
+        let backButton = UIBarButtonItem()
+        backButton.title = ""
+        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
+    }
 }
-
 
 extension UIViewController {
 
@@ -56,10 +62,6 @@ extension UIViewController {
     }
     
     @objc func addFavorite(sender: AnyObject) {
-        print("Implement Favorite button function here")
-    }
-    @objc func closeDetail(sender: AnyObject) {
-        navigationController?.popViewController(animated: true)
-        dismiss(animated: true, completion: nil)
+        print(CellDetailConstants.implementMe)
     }
 }

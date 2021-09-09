@@ -43,12 +43,12 @@ class LoginViewController: UIViewController {
     }
     
     private func setBackgroundColor (_ view: UIView) {
-        view.backgroundColor = nasaBlue
+        view.backgroundColor = GeneralConstants.nasaBlue
     }
     
     private func formatButtons(_ view: UIView) {
-        view.backgroundColor = buttonColor
-        view.layer.borderColor = buttonBorderColor.cgColor
+        view.backgroundColor = LoginConstants.buttonColor
+        view.layer.borderColor = LoginConstants.buttonBorderColor.cgColor
     }
     
     //MARK: Keyboard Behaviour
@@ -104,4 +104,3 @@ extension LoginViewController: UITextFieldDelegate {
     }
     
 }
-
