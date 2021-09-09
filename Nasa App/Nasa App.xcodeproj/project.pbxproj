@@ -20,8 +20,7 @@
 		300276DE26D6980A005E2372 /* VideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300276DD26D6980A005E2372 /* VideoPlayerViewController.swift */; };
 		3049C46E26E02946009D1B1E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3049C46D26E02946009D1B1E /* Constants.swift */; };
 		309C145C26DD91140063BD2F /* ImageRetrieveController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309C145B26DD91140063BD2F /* ImageRetrieveController.swift */; };
-		30D19FCC26D0B46D007B7C28 /* FavoritesTabColCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D19FCA26D0B46D007B7C28 /* FavoritesTabColCell.swift */; };
-		30D19FCD26D0B46D007B7C28 /* FavoritesTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D19FCB26D0B46D007B7C28 /* FavoritesTabViewController.swift */; };
+		30C902DD26EA519B00CBDCB0 /* VideoPlayer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30C902DC26EA519B00CBDCB0 /* VideoPlayer.storyboard */; };
 		30D5773C26DD325F007E22A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30D5773A26DD325F007E22A0 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -61,8 +60,7 @@
 		300276DD26D6980A005E2372 /* VideoPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewController.swift; sourceTree = "<group>"; };
 		3049C46D26E02946009D1B1E /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		309C145B26DD91140063BD2F /* ImageRetrieveController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRetrieveController.swift; sourceTree = "<group>"; };
-		30D19FCA26D0B46D007B7C28 /* FavoritesTabColCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesTabColCell.swift; sourceTree = "<group>"; };
-		30D19FCB26D0B46D007B7C28 /* FavoritesTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesTabViewController.swift; sourceTree = "<group>"; };
+		30C902DC26EA519B00CBDCB0 /* VideoPlayer.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VideoPlayer.storyboard; sourceTree = "<group>"; };
 		30D5773B26DD325F007E22A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Nasa App/Base.lproj/Main.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -114,11 +112,11 @@
 		0FF8F64D26C31FFB001F228E /* Nasa App */ = {
 			isa = PBXGroup;
 			children = (
+				30D5773A26DD325F007E22A0 /* Main.storyboard */,
 				3049C46D26E02946009D1B1E /* Constants.swift */,
 				309C145A26DD90CA0063BD2F /* Controllers */,
 				30D19FC826D0B46D007B7C28 /* Views */,
 				0FF8F64E26C31FFB001F228E /* AppDelegate.swift */,
-				30D5773A26DD325F007E22A0 /* Main.storyboard */,
 				0FF8F65026C31FFB001F228E /* SceneDelegate.swift */,
 				0FF8F65226C31FFB001F228E /* LoginViewController.swift */,
 				0521590226DAE77A00B266A9 /* LandingViewController.swift */,
@@ -126,6 +124,7 @@
 				0FF8F65726C31FFF001F228E /* Assets.xcassets */,
 				0FF8F65926C31FFF001F228E /* LaunchScreen.storyboard */,
 				0FF8F65C26C31FFF001F228E /* Info.plist */,
+				30C902DC26EA519B00CBDCB0 /* VideoPlayer.storyboard */,
 			);
 			path = "Nasa App";
 			sourceTree = "<group>";
@@ -160,18 +159,8 @@
 			isa = PBXGroup;
 			children = (
 				300276DD26D6980A005E2372 /* VideoPlayerViewController.swift */,
-				30D19FCB26D0B46D007B7C28 /* FavoritesTabViewController.swift */,
-				30D19FC926D0B46D007B7C28 /* cells */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		30D19FC926D0B46D007B7C28 /* cells */ = {
-			isa = PBXGroup;
-			children = (
-				30D19FCA26D0B46D007B7C28 /* FavoritesTabColCell.swift */,
-			);
-			path = cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,6 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0FF8F65B26C31FFF001F228E /* LaunchScreen.storyboard in Resources */,
+				30C902DD26EA519B00CBDCB0 /* VideoPlayer.storyboard in Resources */,
 				0FF8F65826C31FFF001F228E /* Assets.xcassets in Resources */,
 				30D5773C26DD325F007E22A0 /* Main.storyboard in Resources */,
 			);
@@ -308,8 +298,6 @@
 				0521590326DAE77A00B266A9 /* LandingViewController.swift in Sources */,
 				05CE26FD26D04C8B000FF7CA /* CustomButton.swift in Sources */,
 				0FF8F65326C31FFB001F228E /* LoginViewController.swift in Sources */,
-				30D19FCC26D0B46D007B7C28 /* FavoritesTabColCell.swift in Sources */,
-				30D19FCD26D0B46D007B7C28 /* FavoritesTabViewController.swift in Sources */,
 				300276DE26D6980A005E2372 /* VideoPlayerViewController.swift in Sources */,
 				0FF8F64F26C31FFB001F228E /* AppDelegate.swift in Sources */,
 				309C145C26DD91140063BD2F /* ImageRetrieveController.swift in Sources */,
