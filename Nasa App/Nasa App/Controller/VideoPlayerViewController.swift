@@ -57,7 +57,6 @@ class VideoPlayerViewController: UIViewController {
         super.viewDidLoad()
         setUpVideoPlayer()
         NotificationCenter.default.addObserver(self, selector: #selector(videoDidEnd), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: player?.currentItem)
-        print(player.volume)
     }
     
     //MARK: - viewWillTransition
@@ -120,7 +119,7 @@ class VideoPlayerViewController: UIViewController {
     }
     @IBAction
     func backPressed(_ sender: UIButton) {
-        print("We will implement this shortly, keep enjoying the video.")
+        self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction
@@ -264,14 +263,14 @@ class VideoPlayerViewController: UIViewController {
         playToForward.constant = width * 0.1
         playToBackward.constant = width * 0.1
         if isIpadVertical || isIpadHorizontalLarge || isPadVerticalSmall {
-            topViewHeight = modifyConstraintMultiplier(constraint: topViewHeight, multiplier: 0.05)
-            bottomViewHeight = modifyConstraintMultiplier(constraint: bottomViewHeight, multiplier: 0.05)
-        } else if isIphoneVertical || isIpadHorizontal {
-            topViewHeight = modifyConstraintMultiplier(constraint: topViewHeight, multiplier: 0.07)
-            bottomViewHeight = modifyConstraintMultiplier(constraint: bottomViewHeight, multiplier: 0.07)
-        } else if isIPhoneHorizontal {
             topViewHeight = modifyConstraintMultiplier(constraint: topViewHeight, multiplier: 0.1)
             bottomViewHeight = modifyConstraintMultiplier(constraint: bottomViewHeight, multiplier: 0.1)
+        } else if isIphoneVertical || isIpadHorizontal {
+            topViewHeight = modifyConstraintMultiplier(constraint: topViewHeight, multiplier: 0.14)
+            bottomViewHeight = modifyConstraintMultiplier(constraint: bottomViewHeight, multiplier: 0.14)
+        } else if isIPhoneHorizontal {
+            topViewHeight = modifyConstraintMultiplier(constraint: topViewHeight, multiplier: 0.14)
+            bottomViewHeight = modifyConstraintMultiplier(constraint: bottomViewHeight, multiplier: 0.14)
         }
     }
     

@@ -14,6 +14,8 @@ class PopularViewController: UIViewController, UISearchControllerDelegate, UISea
     
     override func viewDidLoad() {
         setupCollectionViewController()
+        collectionView.dataSource = self
+        collectionView.delegate = self
     }
     
     private func setupCollectionViewController() {
@@ -41,6 +43,13 @@ class PopularViewController: UIViewController, UISearchControllerDelegate, UISea
         collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
         collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 5).isActive = true
     }
+    
+    private func sendToCellDetails() {
+        // setup here any data we will pass to the next viewcontroller
+        guard let destinationVC = self.storyboard?.instantiateViewController(withIdentifier: "CellDetailViewController") as? CellDetailViewController else { return }
+        self.navigationController?.pushViewController(destinationVC, animated: true)
+    }
+        
 }
 
 //MARK: CollectionViewDataSource
@@ -62,5 +71,11 @@ extension PopularViewController {
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         CollectionViewHelper.traitCollectionDidChange(collectionView: collectionView, traitCollection: traitCollection)
+    }
+}
+
+extension PopularViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        sendToCellDetails()
     }
 }
