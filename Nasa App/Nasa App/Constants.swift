@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SwiftUI
 
 struct GeneralConstants {
     static let nasaBlue = UIColor(red:0.02, green:0.24, blue:0.58, alpha:1)
@@ -32,8 +31,8 @@ struct CollectionViewConstants {
 
 struct CellDetailConstants {
     //MARK: - Colors
-    static let topGradientColor = Color(red: 0.04, green: 0.44, blue: 0.78, opacity: 0.07)
-    static let bottomGradientColor = Color(red: 0.02, green: 0.24, blue: 0.58)
+    static let topGradientColor = UIColor(red: 0.04, green: 0.44, blue: 0.78, alpha: 0.07)
+    static let bottomGradientColor = UIColor(red: 0.02, green: 0.24, blue: 0.58, alpha: 1)
     static let backgroundColor = CGColor(red: 0.02, green: 0.24, blue: 0.58, alpha: 1)
     
     //MARK: - Images
@@ -53,10 +52,11 @@ struct CellDetailConstants {
     static let textTopPadding: CGFloat = 0.12
     
     //MARK: - Fonts
-    static let fontCompactTitle: Font = .custom("Helvetica Regular", size: 20)
-    static let fontCompactText: Font = .custom("Helvetica Regular", size: 17)
-    static let fontRegularTitle: Font = .custom("Helvetica Regular", size: 26)
-    static let fontRegularText: Font = .custom("Helvetica Regular", size: 23)
+    static let fontCompactTitle: UIFont = UIFont (name: "HelveticaNeue-Medium", size: 20)!
+    static let fontCompactText: UIFont = UIFont (name: "HelveticaNeue-Medium", size: 17)!
+    static let fontRegularTitle: UIFont = UIFont (name: "HelveticaNeue-Medium", size: 26)!
+    static let fontRegularText: UIFont = UIFont (name: "HelveticaNeue-Medium", size: 23)!
+    
     
     //MARK: - Strings
     static let navTitle = "VideoTitleGoesHere"

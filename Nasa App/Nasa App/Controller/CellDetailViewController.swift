@@ -32,6 +32,7 @@ class CellDetailViewController: UIViewController {
         backButton.title = ""
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
     }
+    
 }
 
 extension UIViewController {

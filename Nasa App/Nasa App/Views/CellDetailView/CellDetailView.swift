@@ -37,7 +37,7 @@ struct CellDetailView: View {
                                    alignment: .center)
                         
                         Rectangle()
-                            .fill(LinearGradient(gradient: Gradient(colors: [CellDetailConstants.topGradientColor, CellDetailConstants.bottomGradientColor]),
+                            .fill(LinearGradient(gradient: Gradient(colors: [Color(CellDetailConstants.topGradientColor), Color(CellDetailConstants.bottomGradientColor)]),
                                                  startPoint: .top,
                                                  endPoint: .bottom))
                             .ignoresSafeArea()
@@ -63,11 +63,11 @@ struct CellDetailView: View {
                                     .foregroundColor(.white)
                                     
                                     .frame(maxWidth: screenWidth * CellDetailConstants.widthConstraint, alignment: .leading)
-                                    .font(CellDetailConstants.fontCompactTitle)
+                                    .font(Font(CellDetailConstants.fontCompactTitle as CTFont))
                                 
                                 ScrollView {
                                     Text(CellDetailConstants.mockText)
-                                        .font(CellDetailConstants.fontCompactText)
+                                        .font(Font(CellDetailConstants.fontCompactText as CTFont))
                                         .foregroundColor(.white)
                                         .frame(width: screenWidth * CellDetailConstants.widthConstraint)
                                 }
@@ -78,11 +78,11 @@ struct CellDetailView: View {
                                 Text(CellDetailConstants.title)
                                     .foregroundColor(.white)
                                     .frame(maxWidth: screenWidth * CellDetailConstants.widthConstraint, alignment: .leading)
-                                    .font(CellDetailConstants.fontRegularTitle)
+                                    .font(Font(CellDetailConstants.fontRegularTitle as CTFont))
                                 
                                 ScrollView {
                                     Text(CellDetailConstants.mockText)
-                                        .font(CellDetailConstants.fontRegularText)
+                                        .font(Font(CellDetailConstants.fontRegularText as CTFont))
                                         .foregroundColor(.white) }
                                     .frame(width: screenWidth * CellDetailConstants.widthConstraint)
                             }
