@@ -14,26 +14,21 @@ struct ContentView: View {
         GeometryReader { geometry in
             ScrollView {
                 VideoPlayer(player: AVPlayer(url: videoURL))
-                    .frame(height: 200)
+                    .frame(height: geometry.size.height * 0.33)
                 Rectangle()
                     .fill(LinearGradient(gradient: Gradient(colors: [ NASAColors.NASAGradientStop, NASAColors.NASAPrimary]), startPoint: .top, endPoint: .bottom))
-                    .padding(.vertical, -12.0)
+                    .frame(width:.infinity, height: geometry.size.height * 0.33)
+                    .padding(.top, geometry.size.height * -0.010)
                 VStack() {
                     Text(PlaceholderInfo.textContent)
                         .foregroundColor(NASAColors.NASAPrimaryText)
-                        .padding([.leading, .bottom, .trailing], 10.0)
+                        .padding([.leading, .bottom, .trailing], geometry.size.width * 0.035)
                 }
-                .padding(.top, -15.0)
+                .padding(.top, geometry.size.height * -0.32)
             }
         }
+        .ignoresSafeArea()
         .background(NASAColors.NASAPrimary)
-        .frame(
-            minWidth: 0,
-            maxWidth: .infinity,
-            minHeight: 0,
-            maxHeight: .infinity,
-            alignment: .topLeading
-        )
     }
 }
 
