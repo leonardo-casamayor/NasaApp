@@ -224,7 +224,7 @@
             <objects>
                 <viewController id="CP5-LJ-ynp" customClass="PopularViewController" customModule="Nasa_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6Fn-F7-Iiu">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="843"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="755"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="Rih-xl-4z9"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -258,12 +258,12 @@
         <!--Favorites-->
         <scene sceneID="HPs-8H-nz0">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="overFullScreen" hidesBarsWhenVerticallyCompact="YES" id="XxA-UD-cV2" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" hidesBarsWhenVerticallyCompact="YES" id="XxA-UD-cV2" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Favorites" image="heart" catalog="system" id="vB3-aT-KHN"/>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="cSU-e7-2ob">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" backIndicatorImage="xmark" catalog="system" id="cSU-e7-2ob">
                         <rect key="frame" x="0.0" y="44" width="428" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -296,10 +296,11 @@
         <!--Popular-->
         <scene sceneID="2EN-ne-Ge1">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kx9-rW-GrS" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" hidesBarsWhenVerticallyCompact="YES" id="kx9-rW-GrS" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Popular" image="folder" catalog="system" id="YLP-tq-19j"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="BW2-QD-yjk">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" backIndicatorImage="xmark" catalog="system" id="BW2-QD-yjk">
                         <rect key="frame" x="0.0" y="44" width="428" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -426,6 +427,45 @@
             </objects>
             <point key="canvasLocation" x="1709" y="-639"/>
         </scene>
+        <!--Cell Detail View Controller-->
+        <scene sceneID="V97-S8-S3H">
+            <objects>
+                <viewController storyboardIdentifier="CellDetailViewController" modalPresentationStyle="pageSheet" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9up-Sc-OuY" customClass="CellDetailViewController" customModule="Nasa_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kel-aw-ONM">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="838"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="ZUe-bG-SCQ"/>
+                        <color key="backgroundColor" red="0.015686274510000001" green="0.23529411759999999" blue="0.58039215690000001" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="XXt-GK-Vr5"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Hm-BA-ZuS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4747" y="358"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="RoX-mI-WYA">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" hidesBarsWhenVerticallyCompact="YES" id="ikG-Eu-73U" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="rDb-nu-fyc">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="59k-as-VWR"/>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="zqQ-VN-6S6">
+                        <rect key="frame" x="0.0" y="44" width="428" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="9up-Sc-OuY" kind="relationship" relationship="rootViewController" id="JzA-M5-OA2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0h0-iN-wQJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3936" y="358"/>
+        </scene>
     </scenes>
     <designables>
         <designable name="5ba-Um-oXI">
@@ -444,6 +484,7 @@
         <image name="folder" catalog="system" width="128" height="97"/>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="network" catalog="system" width="128" height="121"/>
+        <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
