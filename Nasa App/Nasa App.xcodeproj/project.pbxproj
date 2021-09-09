@@ -20,7 +20,6 @@
 		300276DE26D6980A005E2372 /* VideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300276DD26D6980A005E2372 /* VideoPlayerViewController.swift */; };
 		3049C46E26E02946009D1B1E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3049C46D26E02946009D1B1E /* Constants.swift */; };
 		309C145C26DD91140063BD2F /* ImageRetrieveController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309C145B26DD91140063BD2F /* ImageRetrieveController.swift */; };
-		30C902B226E32D5700CBDCB0 /* UIVideoPlayerImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C902B126E32D5700CBDCB0 /* UIVideoPlayerImageExtensions.swift */; };
 		30D19FCC26D0B46D007B7C28 /* FavoritesTabColCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D19FCA26D0B46D007B7C28 /* FavoritesTabColCell.swift */; };
 		30D19FCD26D0B46D007B7C28 /* FavoritesTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D19FCB26D0B46D007B7C28 /* FavoritesTabViewController.swift */; };
 		30D5773C26DD325F007E22A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30D5773A26DD325F007E22A0 /* Main.storyboard */; };
@@ -62,7 +61,6 @@
 		300276DD26D6980A005E2372 /* VideoPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewController.swift; sourceTree = "<group>"; };
 		3049C46D26E02946009D1B1E /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		309C145B26DD91140063BD2F /* ImageRetrieveController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRetrieveController.swift; sourceTree = "<group>"; };
-		30C902B126E32D5700CBDCB0 /* UIVideoPlayerImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIVideoPlayerImageExtensions.swift; sourceTree = "<group>"; };
 		30D19FCA26D0B46D007B7C28 /* FavoritesTabColCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesTabColCell.swift; sourceTree = "<group>"; };
 		30D19FCB26D0B46D007B7C28 /* FavoritesTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesTabViewController.swift; sourceTree = "<group>"; };
 		30D5773B26DD325F007E22A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Nasa App/Base.lproj/Main.storyboard"; sourceTree = "<group>"; };
@@ -116,7 +114,6 @@
 		0FF8F64D26C31FFB001F228E /* Nasa App */ = {
 			isa = PBXGroup;
 			children = (
-				30C902B026E32D2E00CBDCB0 /* Utilities */,
 				3049C46D26E02946009D1B1E /* Constants.swift */,
 				309C145A26DD90CA0063BD2F /* Controllers */,
 				30D19FC826D0B46D007B7C28 /* Views */,
@@ -157,14 +154,6 @@
 				309C145B26DD91140063BD2F /* ImageRetrieveController.swift */,
 			);
 			path = Controllers;
-			sourceTree = "<group>";
-		};
-		30C902B026E32D2E00CBDCB0 /* Utilities */ = {
-			isa = PBXGroup;
-			children = (
-				30C902B126E32D5700CBDCB0 /* UIVideoPlayerImageExtensions.swift */,
-			);
-			path = Utilities;
 			sourceTree = "<group>";
 		};
 		30D19FC826D0B46D007B7C28 /* Views */ = {
@@ -325,7 +314,6 @@
 				0FF8F64F26C31FFB001F228E /* AppDelegate.swift in Sources */,
 				309C145C26DD91140063BD2F /* ImageRetrieveController.swift in Sources */,
 				0FF8F65126C31FFB001F228E /* SceneDelegate.swift in Sources */,
-				30C902B226E32D5700CBDCB0 /* UIVideoPlayerImageExtensions.swift in Sources */,
 				3049C46E26E02946009D1B1E /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -44,13 +44,14 @@ class VideoPlayerViewController: UIViewController {
             muteUnmuteButton(isMuted)
         }
     }
+    
     //MARK: - viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         let size = UIScreen.main.bounds.size
         updateConstraints(size: size)
-        
     }
+    
     //MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,6 +59,7 @@ class VideoPlayerViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(videoDidEnd), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: player?.currentItem)
         print(player.volume)
     }
+    
     //MARK: - viewWillTransition
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
@@ -69,7 +71,6 @@ class VideoPlayerViewController: UIViewController {
         super.viewDidLayoutSubviews()
         playerLayer.frame = videoView.bounds
     }
-    
     
     //MARK: - viewDidDisappear
     override func viewDidDisappear(_ animated: Bool) {
@@ -168,7 +169,6 @@ class VideoPlayerViewController: UIViewController {
         addTimeObserver()
         playerLayer = AVPlayerLayer(player: player)
         playerLayer.videoGravity = .resize
-        
         videoView.layer.addSublayer(playerLayer)
     }
     
@@ -202,42 +202,42 @@ class VideoPlayerViewController: UIViewController {
         didFinishVideo = true
         isVideoPlaying = false
     }
+    
     func replayVideo(sender: UIButton) {
         let newTime = 0
         let time : CMTime = CMTimeMake(value: Int64(newTime * 1000), timescale: 1000)
         player.seek(to: time)
         didFinishVideo = !didFinishVideo
         playVideo(sender: sender)
-        
-        
     }
+    
     func pauseVideo(sender: UIButton) {
         player.pause()
         isVideoPlaying = !isVideoPlaying
         sender.setBackgroundImage(.play, for: .normal)
     }
+    
     func playVideo(sender: UIButton) {
         player.play()
         isVideoPlaying = !isVideoPlaying
         sender.setBackgroundImage(.pause, for: .normal)
     }
+    
     func mute(_ isMuted: Bool) {
         if isMuted {
             player.volume = 0
         } else {
-            player.volume = 100
+            player.volume = 1
         }
     }
+    
     func muteUnmuteButton(_ isMuted: Bool) {
         muteButton.setBackgroundImage(isMuted ? .muted : .unmuted, for: .normal)
     }
     
     //MARK: - Hide/Show View
-    
-    
     func showViews(_ option: Bool, animated: Bool) {
         let views: [UIView] = [topView, bottomView]
-        
         UIView.animate(withDuration: animated ? 0.50 : 0.0) {
             views.forEach {$0.alpha = option ? 1 : 0}
         }
