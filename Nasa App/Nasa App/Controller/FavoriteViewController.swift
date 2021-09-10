@@ -80,10 +80,8 @@ extension FavoriteViewController {
 }
 //MARK: Collection View Delegate
 extension FavoriteViewController: UICollectionViewDelegate {
-//    override func performSegue(withIdentifier identifier: String, sender: Any?) {
-//        <#code#>
-//    }
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         performSegue(withIdentifier: "FavoriteDetail", sender: nil)
+        
     }
 }

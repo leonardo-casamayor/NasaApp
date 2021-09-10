@@ -14,10 +14,17 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addSwiftUIView()
+        
     }
-    
+//    required init?(coder: NSCoder) {
+//            super.init(coder: coder, rootView: Detail())
+//        rootView.dis = dismiss
+//        }
+    func dismiss() -> Void {
+            dismiss(animated: true, completion: nil)
+        }
     private func addSwiftUIView() {
-        let swiftUIView = Detail()
+        let swiftUIView = Detail(dismissAction: {self.dismiss(animated: true, completion: nil)})
         addSubSwiftUIView(swiftUIView, to: view)
     }
 }

@@ -11,6 +11,7 @@ import AVKit
 struct Detail: View {
     
     @Environment(\.horizontalSizeClass) var sizeClass
+    var dismissAction: (() -> Void)?
     
     var body: some View {
         
@@ -20,7 +21,7 @@ struct Detail: View {
             ZStack {
                 
                 Spacer()
-                    .background(DetailConstants.nasaBlueDetail)
+                    .background(Color (DetailConstants.nasaBlueDetail))
                     .edgesIgnoringSafeArea(.bottom)
                     .edgesIgnoringSafeArea(.horizontal)
                 
@@ -39,7 +40,7 @@ struct Detail: View {
                                 .scaledToFit()
                                 .background(Color.clear)
                             if isPortrait {
-                                DetailGradient(color: DetailConstants.nasaBlueDetail)
+                                DetailGradient(color: Color( DetailConstants.nasaBlueDetail))
                             }
                             VStack {
                                 if isPortrait {
@@ -64,7 +65,9 @@ struct Detail: View {
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItemGroup(placement: .navigationBarLeading) {
-                        Button("Close"){}
+                        Button(action: dismissAction! ) {
+                            Text("Done")
+                        }
                     }
                     ToolbarItemGroup{
                         Button{}
