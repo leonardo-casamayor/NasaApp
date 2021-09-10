@@ -475,11 +475,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aY5-Gk-5Fe">
-                                <rect key="frame" x="0.0" y="342.66666666666669" width="428" height="240.66666666666669"/>
+                                <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="aY5-Gk-5Fe" secondAttribute="height" multiplier="16:9" id="vcy-RR-4Vn"/>
-                                </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="2Yq-4P-QOo" appends="YES" id="C55-3Z-jmm"/>
                                 </connections>
@@ -633,6 +630,7 @@
                             <constraint firstItem="GYy-x1-pkj" firstAttribute="leading" secondItem="uJO-b1-bzE" secondAttribute="leading" id="IfB-Eh-ZBb"/>
                             <constraint firstItem="Y0w-bp-wEQ" firstAttribute="height" secondItem="uJO-b1-bzE" secondAttribute="height" multiplier="0.097" id="JKA-n6-fm9"/>
                             <constraint firstItem="aY5-Gk-5Fe" firstAttribute="width" secondItem="uJO-b1-bzE" secondAttribute="width" id="JwV-oF-hcw"/>
+                            <constraint firstItem="aY5-Gk-5Fe" firstAttribute="height" secondItem="uJO-b1-bzE" secondAttribute="height" id="VgF-FB-Tmj"/>
                             <constraint firstItem="Y0w-bp-wEQ" firstAttribute="top" secondItem="asN-rC-tAS" secondAttribute="top" id="WQT-yk-wWv"/>
                             <constraint firstItem="Y0w-bp-wEQ" firstAttribute="centerX" secondItem="uJO-b1-bzE" secondAttribute="centerX" id="kPZ-sv-S1o"/>
                             <constraint firstItem="aY5-Gk-5Fe" firstAttribute="centerX" secondItem="uJO-b1-bzE" secondAttribute="centerX" id="nS5-ij-ojV"/>

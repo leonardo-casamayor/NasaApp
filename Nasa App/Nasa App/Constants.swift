@@ -17,7 +17,7 @@ struct LoginConstants {
 }
     
 struct VideoPlayerConstants {
-    static let videoUrl = "https://s3.eu-west-2.amazonaws.com/gymstar-app/7A77786B4870594D7165625046614E74/post_videos/postVideo1582781434.005436.mp4"
+    static let videoUrl = "https://images-assets.nasa.gov/video/NHQ_2014_1010_TWAN/NHQ_2014_1010_TWAN~mobile.mp4"
 }
 
 struct FavoritesTabConstants {

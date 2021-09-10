@@ -51,7 +51,7 @@ class VideoPlayerViewController: UIViewController {
         super.viewWillAppear(animated)
         let size = UIScreen.main.bounds.size
         updateConstraints(size: size)
-        hideBackOnPortrait(size: size)
+        adjustVideoView(size: size)
     }
     
     //MARK: - viewDidLoad
@@ -65,7 +65,7 @@ class VideoPlayerViewController: UIViewController {
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         updateConstraints(size: size)
-        hideBackOnPortrait(size: size)
+        adjustVideoView(size: size)
     }
     
     //MARK: - viewDidLayoutSubviews
@@ -170,7 +170,7 @@ class VideoPlayerViewController: UIViewController {
         player.currentItem?.addObserver(self, forKeyPath: "duration", options: [.new, .initial], context: nil)
         addTimeObserver()
         playerLayer = AVPlayerLayer(player: player)
-        playerLayer.videoGravity = .resize
+        playerLayer.videoGravity = .resizeAspectFill
         videoView.layer.addSublayer(playerLayer)
     }
     
@@ -244,9 +244,10 @@ class VideoPlayerViewController: UIViewController {
             views.forEach {$0.alpha = option ? 1 : 0}
         }
     }
-    func hideBackOnPortrait(size: CGSize) {
+    func adjustVideoView(size: CGSize) {
         let isPortrait = size.height > size.width
         backButton.isHidden = isPortrait ? true : false
+        playerLayer.videoGravity = isPortrait ? .resizeAspectFill : .resizeAspect
     }
     
     
