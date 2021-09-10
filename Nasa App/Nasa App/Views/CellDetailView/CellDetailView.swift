@@ -10,7 +10,7 @@ import AVKit
 
 
 struct CellDetailView: View {
-
+    
     @Environment(\.horizontalSizeClass) var sizeClass
     
     var body: some View {
@@ -27,6 +27,7 @@ struct CellDetailView: View {
                     
                     VStack{
                         VideoControllerView()
+                            .cornerRadius(10)
                             .frame(width: screenWidth,
                                    height: screenHeight * CellDetailConstants.imageHeightModifier,
                                    alignment: .center)
@@ -37,22 +38,24 @@ struct CellDetailView: View {
                                                  endPoint: .bottom))
                             .ignoresSafeArea()
                             .padding(.top, -screenHeight * CellDetailConstants.rectPaddingMod)
-                            
+                        
                     }
                     VStack{
                         Spacer()
                         if sizeClass == .compact {
                             //MARK: - Text setup for compact
                             VStack{
-                                Text(CellDetailConstants.title)
-                                    .foregroundColor(.white)
-                                    
-                                    .frame(maxWidth: screenWidth * CellDetailConstants.widthConstraint, alignment: .leading)
-                                    .font(Font(CellDetailConstants.fontCompactTitle as CTFont))
                                 
                                 ScrollView {
+                                    Text(CellDetailConstants.title)
+                                        .foregroundColor(.white)
+                                        
+                                        .frame(maxWidth: screenWidth * CellDetailConstants.widthConstraint, alignment: .leading)
+                                        .font(Font(CellDetailConstants.fontCompactTitle as CTFont))
+                                    
                                     Text(CellDetailConstants.mockText)
                                         .font(Font(CellDetailConstants.fontCompactText as CTFont))
+                                        .padding(.top, CellDetailConstants.textTopPadding)
                                         .foregroundColor(.white)
                                         .frame(width: screenWidth * CellDetailConstants.widthConstraint)
                                 }
@@ -60,18 +63,18 @@ struct CellDetailView: View {
                         } else {
                             //MARK: - Text setup for regular
                             VStack{
-                                Text(CellDetailConstants.title)
-                                    .foregroundColor(.white)
-                                    .frame(maxWidth: screenWidth * CellDetailConstants.widthConstraint, alignment: .leading)
-                                    .font(Font(CellDetailConstants.fontRegularTitle as CTFont))
-                                
                                 ScrollView {
+                                    Text(CellDetailConstants.title)
+                                        .foregroundColor(.white)
+                                        .frame(maxWidth: screenWidth * CellDetailConstants.widthConstraint, alignment: .leading)
+                                        .font(Font(CellDetailConstants.fontRegularTitle as CTFont))
                                     Text(CellDetailConstants.mockText)
                                         .font(Font(CellDetailConstants.fontRegularText as CTFont))
+                                        .padding(.top, CellDetailConstants.textTopPadding)
                                         .foregroundColor(.white) }
                                     .frame(width: screenWidth * CellDetailConstants.widthConstraint)
                             }
-                            .padding(.top, screenHeight * CellDetailConstants.imageHeightModifierPad)
+                            .padding(.top, screenHeight * CellDetailConstants.imageHeightModifier)
                         }
                     }
                 }
@@ -80,7 +83,7 @@ struct CellDetailView: View {
                 ZStack{
                     Color(CellDetailConstants.backgroundColor)
                         .ignoresSafeArea()
-                        VideoControllerView()
+                    VideoControllerView()
                         .ignoresSafeArea()
                         .frame(width: screenWidth,
                                height: screenHeight,

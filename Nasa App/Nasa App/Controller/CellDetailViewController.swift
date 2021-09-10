@@ -20,11 +20,13 @@ class CellDetailViewController: UIViewController {
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
         hideBars(size: size)
     }
    
     override func viewWillDisappear(_ animated: Bool) {
-        showNavBars()
+        super.viewWillDisappear(animated)
+        showBars()
     }
     
     private func addSwiftUIView() {
@@ -50,7 +52,7 @@ class CellDetailViewController: UIViewController {
         navigationController?.setNavigationBarHidden(isLandscape ? true : false, animated: true)
         }
     
-    private func showNavBars() {
+    private func showBars() {
         navigationController?.hidesBarsWhenVerticallyCompact = true
         tabBarController?.tabBar.isHidden = false
         extendedLayoutIncludesOpaqueBars = false
