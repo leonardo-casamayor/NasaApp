@@ -484,7 +484,7 @@
                                     <outletCollection property="gestureRecognizers" destination="2Yq-4P-QOo" appends="YES" id="C55-3Z-jmm"/>
                                 </connections>
                             </view>
-                            <view alpha="0.64999997615814209" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GYy-x1-pkj" userLabel="Bottom View">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GYy-x1-pkj" userLabel="Bottom View">
                                 <rect key="frame" x="0.0" y="836.33333333333337" width="428" height="89.666666666666629"/>
                                 <subviews>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="UuO-pr-vL4">
