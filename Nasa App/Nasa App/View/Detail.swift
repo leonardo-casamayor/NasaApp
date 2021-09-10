@@ -66,7 +66,7 @@ struct Detail: View {
                 .toolbar {
                     ToolbarItemGroup(placement: .navigationBarLeading) {
                         Button(action: dismissAction! ) {
-                            Text("Done")
+                            Text("Close")
                         }
                     }
                     ToolbarItemGroup{

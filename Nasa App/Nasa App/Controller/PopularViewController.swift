@@ -67,7 +67,7 @@ extension PopularViewController {
 
 //MARK: Collection View Delegate
 extension PopularViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         performSegue(withIdentifier: "PopularDetail", sender: nil)
     }
 }
