@@ -17,6 +17,7 @@ class VideoPlayerViewController: UIViewController {
     @IBOutlet weak var bottomView: UIView!
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var currentTimeLabel: UILabel!
+    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var timeSlider: UISlider!
     @IBOutlet weak var playPauseButton: UIButton!
     @IBOutlet weak var muteButton: UIButton!
@@ -50,6 +51,7 @@ class VideoPlayerViewController: UIViewController {
         super.viewWillAppear(animated)
         let size = UIScreen.main.bounds.size
         updateConstraints(size: size)
+        hideBackOnPortrait(size: size)
     }
     
     //MARK: - viewDidLoad
@@ -63,6 +65,7 @@ class VideoPlayerViewController: UIViewController {
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         updateConstraints(size: size)
+        hideBackOnPortrait(size: size)
     }
     
     //MARK: - viewDidLayoutSubviews
@@ -240,6 +243,10 @@ class VideoPlayerViewController: UIViewController {
         UIView.animate(withDuration: animated ? 0.50 : 0.0) {
             views.forEach {$0.alpha = option ? 1 : 0}
         }
+    }
+    func hideBackOnPortrait(size: CGSize) {
+        let isPortrait = size.height > size.width
+        backButton.isHidden = isPortrait ? true : false
     }
     
     

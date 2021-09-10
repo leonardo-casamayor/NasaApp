@@ -439,9 +439,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="XXt-GK-Vr5"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-                    <connections>
-                        <segue destination="Nl8-gO-CkV" kind="show" identifier="detailToVideo" id="GDH-FM-4Zd"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Hm-BA-ZuS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -649,6 +646,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="backButton" destination="yaa-Zn-wuE" id="76E-02-hfd"/>
                         <outlet property="bottomView" destination="GYy-x1-pkj" id="js0-yV-Pm0"/>
                         <outlet property="bottomViewHeight" destination="7zI-W6-hBK" id="mYz-2d-UF4"/>
                         <outlet property="currentTimeLabel" destination="h8A-6g-OSW" id="GFx-0Y-pYx"/>
