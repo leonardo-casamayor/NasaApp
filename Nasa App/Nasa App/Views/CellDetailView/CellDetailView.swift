@@ -103,8 +103,8 @@ struct CellDetailView_Previews: PreviewProvider {
 
 struct VideoControllerView: UIViewControllerRepresentable {
     func makeUIViewController(context: Context) -> some UIViewController {
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        let controller = storyboard.instantiateViewController(identifier: "VideoPlayer")
+        let storyboard = UIStoryboard(name: CellDetailConstants.storyboardID, bundle: Bundle.main)
+        let controller = storyboard.instantiateViewController(identifier: CellDetailConstants.videoPlayerID)
         return controller
     }
     

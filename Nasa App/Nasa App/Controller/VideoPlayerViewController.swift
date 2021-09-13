@@ -78,7 +78,7 @@ class VideoPlayerViewController: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         player.pause()
-        player.currentItem?.removeObserver(self, forKeyPath: "duration")
+        player.currentItem?.removeObserver(self, forKeyPath: VideoPlayerConstants.duration)
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: player?.currentItem)
     }
     
@@ -167,7 +167,7 @@ class VideoPlayerViewController: UIViewController {
     func setUpVideoPlayer() {
         guard let url = URL(string: VideoPlayerConstants.videoUrl) else { return }
         player = AVPlayer(url: url)
-        player.currentItem?.addObserver(self, forKeyPath: "duration", options: [.new, .initial], context: nil)
+        player.currentItem?.addObserver(self, forKeyPath: VideoPlayerConstants.duration, options: [.new, .initial], context: nil)
         addTimeObserver()
         playerLayer = AVPlayerLayer(player: player)
         playerLayer.videoGravity = .resizeAspectFill
@@ -181,9 +181,9 @@ class VideoPlayerViewController: UIViewController {
         let minutes = Int(totalSeconds/60) % 60
         let seconds = Int(totalSeconds.truncatingRemainder(dividingBy: 60))
         if hours > 0 {
-            return String(format: "%i:%02i:%02i", arguments: [hours, minutes, seconds])
+            return String(format: VideoPlayerConstants.hoursFormat, arguments: [hours, minutes, seconds])
         } else {
-            return String(format: "%02i:%02i", arguments: [minutes, seconds])
+            return String(format: VideoPlayerConstants.minutesFormat, arguments: [minutes, seconds])
         }
     }
     
@@ -253,7 +253,7 @@ class VideoPlayerViewController: UIViewController {
     
     //MARK: - Observer
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        if keyPath == "duration", let duration = player.currentItem?.duration.seconds, duration > 0.0 {
+        if keyPath == VideoPlayerConstants.duration, let duration = player.currentItem?.duration.seconds, duration > 0.0 {
             self.durationLabel.text = getTimeString(from: player.currentItem?.duration ?? CMTime(seconds: 0, preferredTimescale: 1000))
         }
     }
@@ -262,23 +262,20 @@ class VideoPlayerViewController: UIViewController {
     func updateConstraints(size: CGSize) {
         let height = size.height
         let width = size.width
-        let isIpadHorizontalLarge = width > height && width > 1200.00
-        let isIpadHorizontal = width > height && width > 1000.00
-        let isIpadVertical = width < height && width > 1000.00
-        let isPadVerticalSmall = width < height && width > 750.00
-        let isIphoneVertical = width < height && height < 897.00
-        let isIPhoneHorizontal = width > height && width < 897
-        playToForward.constant = width * 0.1
-        playToBackward.constant = width * 0.1
+        let isIpadHorizontalLarge = width > height && width > VideoPlayerConstants.bigIpad
+        let isIpadHorizontal = width > height && width > VideoPlayerConstants.mediumIpad
+        let isIpadVertical = width < height && width > VideoPlayerConstants.mediumIpad
+        let isPadVerticalSmall = width < height && width > VideoPlayerConstants.verticalSmallPad
+        let isIphoneVertical = width < height && height < VideoPlayerConstants.bigIhpone
+        let isIPhoneHorizontal = width > height && width < VideoPlayerConstants.bigIhpone
+        playToForward.constant = width * VideoPlayerConstants.distanceToPlay
+        playToBackward.constant = width * VideoPlayerConstants.distanceToPlay
         if isIpadVertical || isIpadHorizontalLarge || isPadVerticalSmall {
-            topViewHeight = modifyConstraintMultiplier(constraint: topViewHeight, multiplier: 0.1)
-            bottomViewHeight = modifyConstraintMultiplier(constraint: bottomViewHeight, multiplier: 0.1)
-        } else if isIphoneVertical || isIpadHorizontal {
-            topViewHeight = modifyConstraintMultiplier(constraint: topViewHeight, multiplier: 0.14)
-            bottomViewHeight = modifyConstraintMultiplier(constraint: bottomViewHeight, multiplier: 0.14)
-        } else if isIPhoneHorizontal {
-            topViewHeight = modifyConstraintMultiplier(constraint: topViewHeight, multiplier: 0.14)
-            bottomViewHeight = modifyConstraintMultiplier(constraint: bottomViewHeight, multiplier: 0.14)
+            topViewHeight = modifyConstraintMultiplier(constraint: topViewHeight, multiplier: VideoPlayerConstants.bigHeightMod)
+            bottomViewHeight = modifyConstraintMultiplier(constraint: bottomViewHeight, multiplier: VideoPlayerConstants.bigHeightMod)
+        } else if isIphoneVertical || isIpadHorizontal || isIPhoneHorizontal {
+            topViewHeight = modifyConstraintMultiplier(constraint: topViewHeight, multiplier: VideoPlayerConstants.smallHeightMod)
+            bottomViewHeight = modifyConstraintMultiplier(constraint: bottomViewHeight, multiplier: VideoPlayerConstants.smallHeightMod)
         }
     }
     

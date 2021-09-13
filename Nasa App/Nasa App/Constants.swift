@@ -18,6 +18,16 @@ struct LoginConstants {
     
 struct VideoPlayerConstants {
     static let videoUrl = "https://images-assets.nasa.gov/video/NHQ_2014_1010_TWAN/NHQ_2014_1010_TWAN~mobile.mp4"
+    static let duration = "duration"
+    static let hoursFormat = "%i:%02i:%02i"
+    static let minutesFormat = "%02i:%02i"
+    static let bigIpad: CGFloat = 1200.00
+    static let mediumIpad: CGFloat = 1000.00
+    static let verticalSmallPad: CGFloat = 750.00
+    static let bigIhpone: CGFloat = 897.00
+    static let distanceToPlay: CGFloat = 0.1
+    static let bigHeightMod: CGFloat = 0.1
+    static let smallHeightMod: CGFloat = 0.14
 }
 
 struct FavoritesTabConstants {
@@ -72,6 +82,8 @@ struct CellDetailConstants {
     
     
     //MARK: - Strings
+    static let storyboardID = "Main"
+    static let videoPlayerID = "VideoPlayer"
     static let navTitle = "VideoTitleGoesHere"
     static let title = "Title, and date goes here"
     static let implementMe = "Implement Favorite button function here"
