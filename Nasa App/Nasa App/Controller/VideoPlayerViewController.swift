@@ -53,7 +53,6 @@ class VideoPlayerViewController: UIViewController {
         updateConstraints(size: size)
         adjustVideoView(size: size)
     }
-    
     //MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,9 +73,9 @@ class VideoPlayerViewController: UIViewController {
         playerLayer.frame = videoView.bounds
     }
     
-    //MARK: - viewDidDisappear
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
+    //MARK: - viewWillDisappear
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         player.pause()
         player.currentItem?.removeObserver(self, forKeyPath: VideoPlayerConstants.duration)
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: player?.currentItem)
