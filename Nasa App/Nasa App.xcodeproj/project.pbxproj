@@ -30,6 +30,7 @@
 		0FF8F67126C32000001F228E /* Nasa_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF8F67026C32000001F228E /* Nasa_AppUITests.swift */; };
 		309C145C26DD91140063BD2F /* ImageRetrieveController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309C145B26DD91140063BD2F /* ImageRetrieveController.swift */; };
 		30C902DB26E9144800CBDCB0 /* CellDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C902D926E9144800CBDCB0 /* CellDetailView.swift */; };
+		30C902E026EA5C8A00CBDCB0 /* VideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C902DF26EA5C8A00CBDCB0 /* VideoPlayerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,8 @@
 		0FF8F67226C32000001F228E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		309C145B26DD91140063BD2F /* ImageRetrieveController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRetrieveController.swift; sourceTree = "<group>"; };
 		30C902D926E9144800CBDCB0 /* CellDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellDetailView.swift; sourceTree = "<group>"; };
+		30C902DF26EA5C8A00CBDCB0 /* VideoPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewController.swift; sourceTree = "<group>"; };
+		30C902E126EA5CE300CBDCB0 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +129,7 @@
 				05200AEC26E029D000295A04 /* LandingViewController.swift */,
 				05C7069E26DEA4EA00D9A747 /* LoginViewController.swift */,
 				0585899326D7DEE2002B81D9 /* DetailViewController.swift */,
+				30C902DF26EA5C8A00CBDCB0 /* VideoPlayerViewController.swift */,
 				05FAA15E26DD1F2300460507 /* PopularViewController.swift */,
 				05200AF726E2917100295A04 /* FavoriteViewController.swift */,
 			);
@@ -160,6 +164,7 @@
 				05200AF926E29D2900295A04 /* Constants.swift */,
 				309C145A26DD90CA0063BD2F /* Utils */,
 				0FF8F64E26C31FFB001F228E /* AppDelegate.swift */,
+				30C902E126EA5CE300CBDCB0 /* Constants.swift */,
 				0FF8F65026C31FFB001F228E /* SceneDelegate.swift */,
 				059C7FD726DC0D8600F0FC05 /* DetailStoryboard.storyboard */,
 				05200AFD26E2A4D200295A04 /* Main.storyboard */,
@@ -351,6 +356,7 @@
 				05C7069F26DEA4EA00D9A747 /* LoginViewController.swift in Sources */,
 				05200AED26E029D000295A04 /* LandingViewController.swift in Sources */,
 				05200AFA26E29D2900295A04 /* Constants.swift in Sources */,
+				30C902E026EA5C8A00CBDCB0 /* VideoPlayerViewController.swift in Sources */,
 				05FAA15D26DD1CED00460507 /* CollectionCell.swift in Sources */,
 				05200B0426E2D56D00295A04 /* CollectionViewHelper.swift in Sources */,
 				30C902DB26E9144800CBDCB0 /* CellDetailView.swift in Sources */,
