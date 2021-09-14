@@ -42,7 +42,6 @@ extension NetworkManager: ApodClient {
         let task = session.dataTask(with: request){ (data, response, error) in
             
             guard let dataUnwrap = data, error == nil else {
-//                print(error.debugDescription)
                 return }
             
             if let httpResponse = response as? HTTPURLResponse {
