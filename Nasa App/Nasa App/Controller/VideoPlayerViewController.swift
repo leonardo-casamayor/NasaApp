@@ -77,8 +77,6 @@ class VideoPlayerViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         player.pause()
-        player.currentItem?.removeObserver(self, forKeyPath: VideoPlayerConstants.duration)
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: player?.currentItem)
     }
     
     //MARK: - IBActions

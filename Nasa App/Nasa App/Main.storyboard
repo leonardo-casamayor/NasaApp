@@ -263,7 +263,7 @@
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" backIndicatorImage="xmark" catalog="system" id="cSU-e7-2ob">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="cSU-e7-2ob">
                         <rect key="frame" x="0.0" y="44" width="428" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -300,7 +300,7 @@
                     <tabBarItem key="tabBarItem" title="Popular" image="folder" catalog="system" id="YLP-tq-19j"/>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" backIndicatorImage="xmark" catalog="system" id="BW2-QD-yjk">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="BW2-QD-yjk">
                         <rect key="frame" x="0.0" y="44" width="428" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -583,7 +583,7 @@
                                             <constraint firstAttribute="width" secondItem="U2t-r1-NMu" secondAttribute="height" multiplier="20:22" id="S70-LY-z09"/>
                                         </constraints>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" backgroundImage="volume.fill" catalog="system"/>
+                                        <state key="normal" backgroundImage="speaker.fill" catalog="system"/>
                                         <connections>
                                             <action selector="muteVideo:" destination="Nl8-gO-CkV" eventType="touchUpInside" id="oCy-M0-9wq"/>
                                             <action selector="viewsTapped" destination="Nl8-gO-CkV" eventType="touchUpInside" id="LCS-Eu-eZn"/>
@@ -690,8 +690,7 @@
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="network" catalog="system" width="128" height="121"/>
         <image name="play.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="volume.fill" catalog="system" width="128" height="128"/>
-        <image name="xmark" catalog="system" width="128" height="113"/>
+        <image name="speaker.fill" catalog="system" width="128" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
