@@ -15,6 +15,20 @@ struct LoginConstants {
     static let buttonColor = UIColor(red:0.95, green:0.56, blue:0.55, alpha:1)
     static let buttonBorderColor = UIColor(red:0.59, green:0.59, blue:0.59, alpha:1)
 }
+    
+struct VideoPlayerConstants {
+    static let videoUrl = "https://images-assets.nasa.gov/video/NHQ_2014_1010_TWAN/NHQ_2014_1010_TWAN~mobile.mp4"
+    static let duration = "duration"
+    static let hoursFormat = "%i:%02i:%02i"
+    static let minutesFormat = "%02i:%02i"
+    static let bigIpad: CGFloat = 1200.00
+    static let mediumIpad: CGFloat = 1000.00
+    static let verticalSmallPad: CGFloat = 750.00
+    static let bigIhpone: CGFloat = 897.00
+    static let distanceToPlay: CGFloat = 0.1
+    static let bigHeightMod: CGFloat = 0.1
+    static let smallHeightMod: CGFloat = 0.14
+}
 
 struct FavoritesTabConstants {
     static let url = "https://apod.nasa.gov/apod/image/2108/Abell3827Lens_Hubble_960.jpg"
@@ -28,6 +42,14 @@ struct CollectionViewConstants {
         let height: CGFloat
     }
 }
+extension UIImage {
+    static let muted: UIImage? = UIImage(systemName: "volume.slash.fill")
+    static let unmuted: UIImage? = UIImage(systemName: "volume.fill")
+    static let play: UIImage? = UIImage(systemName: "play.circle.fill")
+    static let pause: UIImage? = UIImage(systemName: "pause.circle.fill")
+    static let replay: UIImage? = UIImage(systemName: "arrow.uturn.left")
+}
+
 
 struct CellDetailConstants {
     //MARK: - Colors
@@ -42,9 +64,10 @@ struct CellDetailConstants {
     static let favHeart = "suit.heart.fill"
     
     //MARK: - Size Modifiers
-    static let rectPaddingMod: CGFloat = 0.16
+    static let rectPaddingMod: CGFloat = 0.1
     static let rectRadius: CGFloat = 4
     static let imageHeightModifier: CGFloat = 0.39
+    static let imageHeightModifierPad: CGFloat = 0.425
     static let playHeightMod: CGFloat = 0.15
     static let playWidthMod: CGFloat = 0.25
     static let playPadMod: CGFloat = 0.12
@@ -59,6 +82,8 @@ struct CellDetailConstants {
     
     
     //MARK: - Strings
+    static let storyboardID = "Main"
+    static let videoPlayerID = "VideoPlayer"
     static let navTitle = "VideoTitleGoesHere"
     static let title = "Title, and date goes here"
     static let implementMe = "Implement Favorite button function here"

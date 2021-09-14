@@ -16,6 +16,17 @@ class CellDetailViewController: UIViewController {
         super.viewDidLoad()
         addSwiftUIView()
         setupNavButtons()
+        hideBars(size: UIScreen.main.bounds.size)
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        hideBars(size: size)
+    }
+   
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        showBars()
     }
     
     private func addSwiftUIView() {
@@ -33,6 +44,20 @@ class CellDetailViewController: UIViewController {
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
     }
     
+    private func hideBars(size: CGSize){
+        let isLandscape = size.width > size.height
+        navigationController?.hidesBarsWhenVerticallyCompact = false
+        tabBarController?.tabBar.isHidden = isLandscape ? true : false
+        extendedLayoutIncludesOpaqueBars = isLandscape ? true : false
+        navigationController?.setNavigationBarHidden(isLandscape ? true : false, animated: true)
+        }
+    
+    private func showBars() {
+        navigationController?.hidesBarsWhenVerticallyCompact = true
+        tabBarController?.tabBar.isHidden = false
+        extendedLayoutIncludesOpaqueBars = false
+        navigationController?.setNavigationBarHidden(false, animated: true)
+    }
 }
 
 extension UIViewController {
