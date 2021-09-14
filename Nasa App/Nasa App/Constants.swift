@@ -37,11 +37,24 @@ struct FavoritesTabConstants {
 }
 
 struct CollectionViewConstants {
+    static let defaultPopularSearch = ["q":"popular",
+                                       "media_type":"image,video",
+                                       "page":"1",
+                                       "year_start":"2012"]
     struct LayoutSize {
         let columns: Int
         let height: CGFloat
     }
 }
+struct MediaApiConstants {
+    static let mediaAPI: String = "images-api.nasa.gov"
+    static let searchEndpoint: String = "/search"
+    static let assetEndpoint: String = "/asset/"
+    static let metadataEndpoint: String = "/metadata/"
+    static let captionEndpoint: String = "/captions/"
+    static let albumEndpoint: String = "/album/"
+}
+
 extension UIImage {
     static let muted: UIImage? = UIImage(systemName: "volume.slash.fill")
     static let unmuted: UIImage? = UIImage(systemName: "volume.fill")
