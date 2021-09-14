@@ -14,6 +14,8 @@ class PopularViewController: UIViewController, UISearchControllerDelegate, UISea
     
     override func viewDidLoad() {
         setupCollectionViewController()
+        collectionView.dataSource = self
+        collectionView.delegate = self
     }
     
     private func setupCollectionViewController() {

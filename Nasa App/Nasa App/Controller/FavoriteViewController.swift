@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FavoriteViewController: UIViewController, UISearchControllerDelegate, UISearchBarDelegate {
+class FavoriteViewController: UIViewController, UISearchBarDelegate {
     
     private let collectionView = UICollectionView(frame: .zero,collectionViewLayout: CollectionViewHelper.generateLayout(size: CollectionViewConstants.LayoutSize(columns: 2, height: 1/3)))
     
@@ -34,6 +34,7 @@ class FavoriteViewController: UIViewController, UISearchControllerDelegate, UISe
         collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
         collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 5).isActive = true
     }
+    
 }
 
 //MARK: CollectionViewDataSource
@@ -74,14 +75,13 @@ extension FavoriteViewController {
         
         navigationController?.navigationBar.prefersLargeTitles = preferredLargeTitle
         navigationController?.navigationBar.isTranslucent = false
-        navigationController?.navigationBar.tintColor = tintColor
         navigationItem.title = title
     }
 }
+
 //MARK: Collection View Delegate
 extension FavoriteViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         performSegue(withIdentifier: "FavoriteDetail", sender: nil)
-        
     }
 }

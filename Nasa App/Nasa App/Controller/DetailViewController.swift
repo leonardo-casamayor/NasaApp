@@ -16,10 +16,7 @@ class DetailViewController: UIViewController {
         addSwiftUIView()
         
     }
-//    required init?(coder: NSCoder) {
-//            super.init(coder: coder, rootView: Detail())
-//        rootView.dis = dismiss
-//        }
+    
     func dismiss() -> Void {
             dismiss(animated: true, completion: nil)
         }

@@ -45,6 +45,5 @@ class LandingViewController: UIViewController {
         guard let layer = gradientLayer else { return }
         view.layer.addSublayer(layer)
     }
-    
 }
 

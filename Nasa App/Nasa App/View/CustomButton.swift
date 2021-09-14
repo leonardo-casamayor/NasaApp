@@ -18,7 +18,6 @@ class CustomButton: UIButton {
            set {
                layer.borderWidth = newValue
            }
-           
        }
        
        @IBInspectable var cornerRadius: CGFloat = 5 {
@@ -27,5 +26,4 @@ class CustomButton: UIButton {
                layer.masksToBounds = cornerRadius > 0
            }
        }
-
 }

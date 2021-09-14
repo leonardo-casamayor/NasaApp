@@ -224,7 +224,7 @@
             <objects>
                 <viewController id="CP5-LJ-ynp" customClass="PopularViewController" customModule="Nasa_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6Fn-F7-Iiu">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="843"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="755"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="Rih-xl-4z9"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -261,7 +261,7 @@
         <!--Favorites-->
         <scene sceneID="HPs-8H-nz0">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="overFullScreen" hidesBarsWhenVerticallyCompact="YES" id="XxA-UD-cV2" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" hidesBarsWhenVerticallyCompact="YES" id="XxA-UD-cV2" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Favorites" image="heart" catalog="system" id="vB3-aT-KHN"/>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
@@ -302,10 +302,11 @@
         <!--Popular-->
         <scene sceneID="2EN-ne-Ge1">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kx9-rW-GrS" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" hidesBarsWhenVerticallyCompact="YES" id="kx9-rW-GrS" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Popular" image="folder" catalog="system" id="YLP-tq-19j"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="BW2-QD-yjk">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="BW2-QD-yjk">
                         <rect key="frame" x="0.0" y="44" width="428" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

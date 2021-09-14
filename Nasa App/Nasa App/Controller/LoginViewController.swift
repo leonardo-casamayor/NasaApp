@@ -102,6 +102,4 @@ extension LoginViewController: UITextFieldDelegate {
             self.passwordField.resignFirstResponder()
       }
     }
-    
 }
-
