@@ -17,6 +17,8 @@
 		0FF8F67126C32000001F228E /* Nasa_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF8F67026C32000001F228E /* Nasa_AppUITests.swift */; };
 		9C1BCBC526E7A9A300E315C8 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1BCBC426E7A9A300E315C8 /* DetailView.swift */; };
 		9C1BCBC826E7A9D000E315C8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1BCBC726E7A9D000E315C8 /* Constants.swift */; };
+		9C7CD5FB26F0E4BD0059AAE4 /* roverModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7CD5FA26F0E4BD0059AAE4 /* roverModel.swift */; };
+		9C7CD5FE26F0E50A0059AAE4 /* fetchRover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7CD5FD26F0E50A0059AAE4 /* fetchRover.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		0FF8F67226C32000001F228E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9C1BCBC426E7A9A300E315C8 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		9C1BCBC726E7A9D000E315C8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		9C7CD5FA26F0E4BD0059AAE4 /* roverModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = roverModel.swift; sourceTree = "<group>"; };
+		9C7CD5FD26F0E50A0059AAE4 /* fetchRover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fetchRover.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,8 @@
 		0FF8F64D26C31FFB001F228E /* Nasa App */ = {
 			isa = PBXGroup;
 			children = (
+				9C7CD5FC26F0E4EA0059AAE4 /* Services */,
+				9C7CD5F926F0E4AF0059AAE4 /* Models */,
 				9C1BCBC626E7A9C400E315C8 /* Constants */,
 				0FF8F64E26C31FFB001F228E /* AppDelegate.swift */,
 				0FF8F65026C31FFB001F228E /* SceneDelegate.swift */,
@@ -140,6 +146,22 @@
 				9C1BCBC726E7A9D000E315C8 /* Constants.swift */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		9C7CD5F926F0E4AF0059AAE4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9C7CD5FA26F0E4BD0059AAE4 /* roverModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9C7CD5FC26F0E4EA0059AAE4 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				9C7CD5FD26F0E50A0059AAE4 /* fetchRover.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,8 +295,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C1BCBC826E7A9D000E315C8 /* Constants.swift in Sources */,
+				9C7CD5FB26F0E4BD0059AAE4 /* roverModel.swift in Sources */,
 				0FF8F65326C31FFB001F228E /* ViewController.swift in Sources */,
 				9C1BCBC526E7A9A300E315C8 /* DetailView.swift in Sources */,
+				9C7CD5FE26F0E50A0059AAE4 /* fetchRover.swift in Sources */,
 				0FF8F64F26C31FFB001F228E /* AppDelegate.swift in Sources */,
 				0FF8F65126C31FFB001F228E /* SceneDelegate.swift in Sources */,
 			);
