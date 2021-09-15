@@ -23,9 +23,7 @@ class NetworkManager {
 
 extension NetworkManager: ApodClient {
     func retrieveApodData() {
-        let urlString = "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&thumbs=true"
-
-        guard let queryString = NetworkManager.encodeURL(urlString: urlString) else {
+        guard let queryString = NetworkManager.encodeURL(urlString: NetworkManagerConstants.apodAPIURL) else {
             print("Bad URL")
             return
         }

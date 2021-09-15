@@ -13,6 +13,7 @@
 		05200B0426E2D56D00295A04 /* CollectionViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05200B0326E2D56D00295A04 /* CollectionViewHelper.swift */; };
 		0521590326DAE77A00B266A9 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0521590226DAE77A00B266A9 /* LandingViewController.swift */; };
 		059C5F0126DAEBA7006B7C46 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF8F65226C31FFB001F228E /* LoginViewController.swift */; };
+		05A8E80426F23032000FD076 /* NetworkManagerConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A8E80326F23032000FD076 /* NetworkManagerConstants.swift */; };
 		05CE26FD26D04C8B000FF7CA /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CE26FC26D04C8B000FF7CA /* CustomButton.swift */; };
 		05FAA15D26DD1CED00460507 /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FAA15C26DD1CED00460507 /* CollectionCell.swift */; };
 		05FAA15F26DD1F2300460507 /* PopularViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FAA15E26DD1F2300460507 /* PopularViewController.swift */; };
@@ -52,6 +53,7 @@
 		05200AFD26E2A4D200295A04 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		05200B0326E2D56D00295A04 /* CollectionViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewHelper.swift; sourceTree = "<group>"; };
 		0521590226DAE77A00B266A9 /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
+		05A8E80326F23032000FD076 /* NetworkManagerConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerConstants.swift; sourceTree = "<group>"; };
 		05CE26FC26D04C8B000FF7CA /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		05FAA15C26DD1CED00460507 /* CollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCell.swift; sourceTree = "<group>"; };
 		05FAA15E26DD1F2300460507 /* PopularViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularViewController.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 				05200AFD26E2A4D200295A04 /* Main.storyboard */,
 				0FF8F65926C31FFF001F228E /* LaunchScreen.storyboard */,
 				0FF8F65C26C31FFF001F228E /* Info.plist */,
+				05A8E80326F23032000FD076 /* NetworkManagerConstants.swift */,
 			);
 			path = "Nasa App";
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 				309C145C26DD91140063BD2F /* ImageRetrieveController.swift in Sources */,
 				05200AF826E2917100295A04 /* FavoriteViewController.swift in Sources */,
 				0FF8F65126C31FFB001F228E /* SceneDelegate.swift in Sources */,
+				05A8E80426F23032000FD076 /* NetworkManagerConstants.swift in Sources */,
 				30C902E026EA5C8A00CBDCB0 /* VideoPlayerViewController.swift in Sources */,
 				05FAA15D26DD1CED00460507 /* CollectionCell.swift in Sources */,
 				05200B0426E2D56D00295A04 /* CollectionViewHelper.swift in Sources */,
