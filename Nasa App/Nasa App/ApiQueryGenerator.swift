@@ -10,6 +10,7 @@ import Foundation
 
 enum APIadress: String {
     case mediaLibrary
+    case apod
 }
 
 ///setup diferent API here, add cases with the constat/string it will return
@@ -18,12 +19,14 @@ extension APIadress{
         switch self{
         case .mediaLibrary:
             return MediaApiConstants.mediaAPI
+        case .apod:
+            return ApodApiConstants.apodAPI
         }
     }
 }
 
-/// definition of ApiSearch structure
-struct ApiSearch {
+/// definition of Apiquery structure
+struct ApiQuery {
     let queryType : QueryType
     let api: APIadress
     let path: EndpointAdress
@@ -31,7 +34,7 @@ struct ApiSearch {
     let query : String?
 }
 
-extension ApiSearch {
+extension ApiQuery {
     /// setup the url you will use to call the networkmanage
     /// - Parameters:
     ///   - api: 'APIAdress' containing the body of the api's url
@@ -39,16 +42,16 @@ extension ApiSearch {
     ///   - query: 'QueryType' to define the complexity of the query
     ///   - queryDictionary: a dictionary [String:String] representing the key-values to add in the search add if Query is type complex
     ///   - queryString: a 'String' containing the nasa id or album to search add if Query is type simple
-    /// - Returns: ApiSearch: contains the data to form the url by the network manager
+    /// - Returns: ApiQuery: contains the data to form the url by the network manager
     static func generateURL(api: APIadress,
                             endpoint: EndpointAdress,
                             queryType: QueryType,
                             queryDictionary: [String:String]? = nil,
-                            queryString: String? = nil) -> ApiSearch {
+                            queryString: String? = nil) -> ApiQuery {
         /// here setup the usage for a simple query
         switch queryType {
         case .simpleQuery:
-            return ApiSearch (
+            return ApiQuery (
                 queryType: queryType,
                 api: api,
                 path: endpoint,
@@ -57,7 +60,7 @@ extension ApiSearch {
             )
         /// here setup the usage for a complex query with multiple parameters
         case .complexQuery:
-            return ApiSearch (
+            return ApiQuery (
                 queryType: queryType,
                 api: api,
                 path: endpoint,
@@ -67,7 +70,7 @@ extension ApiSearch {
     }
 }
 
-extension ApiSearch {
+extension ApiQuery {
     ///setup the components the service will need for the url.
     var url: URL? {
         var components = URLComponents()
@@ -95,6 +98,7 @@ enum EndpointAdress: String {
     case metadata
     case captions
     case album
+    case apod
 }
 
 ///define the endpoit's path as a string to be used later.
@@ -111,6 +115,8 @@ extension EndpointAdress {
             return MediaApiConstants.captionEndpoint
         case .album:
             return MediaApiConstants.albumEndpoint
+        case .apod:
+            return ApodApiConstants.apodEndpoint
         }
     }
 }

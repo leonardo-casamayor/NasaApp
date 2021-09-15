@@ -37,11 +37,7 @@ struct FavoritesTabConstants {
 }
 
 struct CollectionViewConstants {
-    static let defaultPopularSearch = ["q":"popular",
-                                       "media_type":"image,video",
-                                       "page":"1",
-                                       "year_start":"2012"]
-    struct LayoutSize {
+        struct LayoutSize {
         let columns: Int
         let height: CGFloat
     }
@@ -53,6 +49,15 @@ struct MediaApiConstants {
     static let metadataEndpoint: String = "/metadata/"
     static let captionEndpoint: String = "/captions/"
     static let albumEndpoint: String = "/album/"
+    static let defaultPopularSearch = ["q":"popular",
+                                       "media_type":"image,video",
+                                       "page":"1",
+                                       "year_start":"2012"]
+}
+struct ApodApiConstants {
+    static let apodKey: [String:String] = ["api_key":"11YYA64fHxHGNGEAzR2noyyxRp2SWV2RSCdkOOiA"]
+    static let apodEndpoint: String = "/planetary/apod"
+    static let apodAPI: String = "api.nasa.gov"
 }
 
 extension UIImage {
