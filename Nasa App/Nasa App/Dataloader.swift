@@ -38,8 +38,7 @@ class DataLoader: NetworkingFacade {
             if let response = response as? HTTPURLResponse {
                 switch response.statusCode {
                 case 200...299:
-                        print("should be okay")
-                        return
+                    print("should be okay")
                 case 300...399:
                     print("serverside error")
                 case 400...499:
@@ -52,6 +51,7 @@ class DataLoader: NetworkingFacade {
             }
             if let data = data {
                 let JSON = handle(data: data)
+                print("stuff happened")
                 print("Json:\(JSON.debugDescription)")
             }
         }
