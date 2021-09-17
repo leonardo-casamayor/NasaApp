@@ -31,15 +31,11 @@ extension NetworkManager: ApodClient {
             print("Bad URL")
             return
         }
-
-
         let session = URLSession.shared
-
         let request = URLRequest(url: url)
-        
         let task = session.dataTask(with: request){ (data, response, error) in
             
-            guard let dataUnwrap = data, error == nil else {
+            guard let dataUnwrap = data else {
                 return }
             
             if let httpResponse = response as? HTTPURLResponse {

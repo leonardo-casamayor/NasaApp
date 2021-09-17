@@ -91,5 +91,6 @@ struct CellDetailConstants {
 }
 
 struct NetworkManagerConstants {
-    static let apodAPIURL = "https://api.nasa.gov/planetary/apod?api_key=11YYA64fHxHGNGEAzR2noyyxRp2SWV2RSCdkOOiA&thumbs=true"
+    static let apodKey = "11YYA64fHxHGNGEAzR2noyyxRp2SWV2RSCdkOOiA"
+    static let apodAPIURL = "https://api.nasa.gov/planetary/apod?api_key=\(NetworkManagerConstants.apodKey)&thumbs=true"
 }
