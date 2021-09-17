@@ -7,18 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		051C930B26EA4DFB005D5D25 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051C930A26EA4DFB005D5D25 /* NetworkManager.swift */; };
+		05200AF826E2917100295A04 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05200AF726E2917100295A04 /* FavoriteViewController.swift */; };
+		05200AFE26E2A4D200295A04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05200AFD26E2A4D200295A04 /* Main.storyboard */; };
+		05200B0426E2D56D00295A04 /* CollectionViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05200B0326E2D56D00295A04 /* CollectionViewHelper.swift */; };
+		0521590326DAE77A00B266A9 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0521590226DAE77A00B266A9 /* LandingViewController.swift */; };
+		059C5F0126DAEBA7006B7C46 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF8F65226C31FFB001F228E /* LoginViewController.swift */; };
+		05CE26FD26D04C8B000FF7CA /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CE26FC26D04C8B000FF7CA /* CustomButton.swift */; };
+		05FAA15D26DD1CED00460507 /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FAA15C26DD1CED00460507 /* CollectionCell.swift */; };
+		05FAA15F26DD1F2300460507 /* PopularViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FAA15E26DD1F2300460507 /* PopularViewController.swift */; };
 		0FF8F64F26C31FFB001F228E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF8F64E26C31FFB001F228E /* AppDelegate.swift */; };
 		0FF8F65126C31FFB001F228E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF8F65026C31FFB001F228E /* SceneDelegate.swift */; };
-		0FF8F65326C31FFB001F228E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF8F65226C31FFB001F228E /* ViewController.swift */; };
-		0FF8F65626C31FFB001F228E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FF8F65426C31FFB001F228E /* Main.storyboard */; };
 		0FF8F65826C31FFF001F228E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FF8F65726C31FFF001F228E /* Assets.xcassets */; };
 		0FF8F65B26C31FFF001F228E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FF8F65926C31FFF001F228E /* LaunchScreen.storyboard */; };
 		0FF8F66626C32000001F228E /* Nasa_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF8F66526C32000001F228E /* Nasa_AppTests.swift */; };
 		0FF8F67126C32000001F228E /* Nasa_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF8F67026C32000001F228E /* Nasa_AppUITests.swift */; };
-		9C1BCBC526E7A9A300E315C8 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1BCBC426E7A9A300E315C8 /* DetailView.swift */; };
-		9C1BCBC826E7A9D000E315C8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1BCBC726E7A9D000E315C8 /* Constants.swift */; };
-		9C7CD5FB26F0E4BD0059AAE4 /* RoverModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7CD5FA26F0E4BD0059AAE4 /* RoverModel.swift */; };
-		9C7CD5FE26F0E50A0059AAE4 /* FetchRover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7CD5FD26F0E50A0059AAE4 /* FetchRover.swift */; };
+		309C145C26DD91140063BD2F /* ImageRetrieveController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309C145B26DD91140063BD2F /* ImageRetrieveController.swift */; };
+		30A5773826F38B9600E94C28 /* ApodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A5773726F38B9600E94C28 /* ApodModel.swift */; };
+		30C902DA26E9144800CBDCB0 /* CellDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C902D826E9144800CBDCB0 /* CellDetailViewController.swift */; };
+		30C902DB26E9144800CBDCB0 /* CellDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C902D926E9144800CBDCB0 /* CellDetailView.swift */; };
+		30C902E026EA5C8A00CBDCB0 /* VideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C902DF26EA5C8A00CBDCB0 /* VideoPlayerViewController.swift */; };
+		30C902E226EA5CE300CBDCB0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C902E126EA5CE300CBDCB0 /* Constants.swift */; };
+		30D039E426F1227600AD7CE8 /* ApiQueryGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D039E326F1227600AD7CE8 /* ApiQueryGenerator.swift */; };
+		30D039E626F1228700AD7CE8 /* Dataloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D039E526F1228700AD7CE8 /* Dataloader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,11 +50,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		051F801E26F4D10A009A0811 /* NasaImageVideoLibraryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaImageVideoLibraryModel.swift; sourceTree = "<group>"; };
+		051C930A26EA4DFB005D5D25 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		05200AF726E2917100295A04 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
+		05200AFD26E2A4D200295A04 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		05200B0326E2D56D00295A04 /* CollectionViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewHelper.swift; sourceTree = "<group>"; };
+		0521590226DAE77A00B266A9 /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
+		05CE26FC26D04C8B000FF7CA /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		05FAA15C26DD1CED00460507 /* CollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCell.swift; sourceTree = "<group>"; };
+		05FAA15E26DD1F2300460507 /* PopularViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularViewController.swift; sourceTree = "<group>"; };
 		0FF8F64B26C31FFB001F228E /* Nasa App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Nasa App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FF8F64E26C31FFB001F228E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0FF8F65026C31FFB001F228E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0FF8F65226C31FFB001F228E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		0FF8F65526C31FFB001F228E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		0FF8F65226C31FFB001F228E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		0FF8F65726C31FFF001F228E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0FF8F65A26C31FFF001F228E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0FF8F65C26C31FFF001F228E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -53,10 +72,14 @@
 		0FF8F66C26C32000001F228E /* Nasa AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Nasa AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FF8F67026C32000001F228E /* Nasa_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nasa_AppUITests.swift; sourceTree = "<group>"; };
 		0FF8F67226C32000001F228E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9C1BCBC426E7A9A300E315C8 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
-		9C1BCBC726E7A9D000E315C8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		9C7CD5FA26F0E4BD0059AAE4 /* RoverModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoverModel.swift; sourceTree = "<group>"; };
-		9C7CD5FD26F0E50A0059AAE4 /* FetchRover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchRover.swift; sourceTree = "<group>"; };
+		309C145B26DD91140063BD2F /* ImageRetrieveController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRetrieveController.swift; sourceTree = "<group>"; };
+		30A5773726F38B9600E94C28 /* ApodModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApodModel.swift; sourceTree = "<group>"; };
+		30C902D826E9144800CBDCB0 /* CellDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellDetailViewController.swift; sourceTree = "<group>"; };
+		30C902D926E9144800CBDCB0 /* CellDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellDetailView.swift; sourceTree = "<group>"; };
+		30C902DF26EA5C8A00CBDCB0 /* VideoPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewController.swift; sourceTree = "<group>"; };
+		30C902E126EA5CE300CBDCB0 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		30D039E326F1227600AD7CE8 /* ApiQueryGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiQueryGenerator.swift; sourceTree = "<group>"; };
+		30D039E526F1228700AD7CE8 /* Dataloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dataloader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +107,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		05200AFF26E2A57000295A04 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				30C902D726E9144800CBDCB0 /* CellDetailView */,
+				05FAA15C26DD1CED00460507 /* CollectionCell.swift */,
+				05CE26FC26D04C8B000FF7CA /* CustomButton.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		05200B0026E2A57800295A04 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				30C902D826E9144800CBDCB0 /* CellDetailViewController.swift */,
+				30C902DF26EA5C8A00CBDCB0 /* VideoPlayerViewController.swift */,
+				0FF8F65226C31FFB001F228E /* LoginViewController.swift */,
+				05FAA15E26DD1F2300460507 /* PopularViewController.swift */,
+				0521590226DAE77A00B266A9 /* LandingViewController.swift */,
+				05200AF726E2917100295A04 /* FavoriteViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		0FF8F64226C31FFB001F228E = {
 			isa = PBXGroup;
 			children = (
@@ -107,17 +153,20 @@
 		0FF8F64D26C31FFB001F228E /* Nasa App */ = {
 			isa = PBXGroup;
 			children = (
-				9C7CD5FC26F0E4EA0059AAE4 /* Services */,
-				9C7CD5F926F0E4AF0059AAE4 /* Models */,
-				9C1BCBC626E7A9C400E315C8 /* Constants */,
+				309C145A26DD90CA0063BD2F /* Utils */,
+				05200AFF26E2A57000295A04 /* View */,
+				05200B0026E2A57800295A04 /* Controller */,
 				0FF8F64E26C31FFB001F228E /* AppDelegate.swift */,
+				30D039E526F1228700AD7CE8 /* Dataloader.swift */,
+				30D039E326F1227600AD7CE8 /* ApiQueryGenerator.swift */,
+				30A5773726F38B9600E94C28 /* ApodModel.swift */,
+				30C902E126EA5CE300CBDCB0 /* Constants.swift */,
 				0FF8F65026C31FFB001F228E /* SceneDelegate.swift */,
-				0FF8F65226C31FFB001F228E /* ViewController.swift */,
-				0FF8F65426C31FFB001F228E /* Main.storyboard */,
 				0FF8F65726C31FFF001F228E /* Assets.xcassets */,
+				05200AFD26E2A4D200295A04 /* Main.storyboard */,
 				0FF8F65926C31FFF001F228E /* LaunchScreen.storyboard */,
 				0FF8F65C26C31FFF001F228E /* Info.plist */,
-				9C1BCBC426E7A9A300E315C8 /* DetailView.swift */,
+				051F801E26F4D10A009A0811 /* NasaImageVideoLibraryModel.swift */,
 			);
 			path = "Nasa App";
 			sourceTree = "<group>";
@@ -140,29 +189,24 @@
 			path = "Nasa AppUITests";
 			sourceTree = "<group>";
 		};
-		9C1BCBC626E7A9C400E315C8 /* Constants */ = {
+		309C145A26DD90CA0063BD2F /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				9C1BCBC726E7A9D000E315C8 /* Constants.swift */,
+				309C145B26DD91140063BD2F /* ImageRetrieveController.swift */,
+				05200B0326E2D56D00295A04 /* CollectionViewHelper.swift */,
+				051C930A26EA4DFB005D5D25 /* NetworkManager.swift */,
 			);
-			path = Constants;
+			path = Utils;
 			sourceTree = "<group>";
 		};
-		9C7CD5F926F0E4AF0059AAE4 /* Models */ = {
+		30C902D726E9144800CBDCB0 /* CellDetailView */ = {
 			isa = PBXGroup;
 			children = (
-				9C7CD5FA26F0E4BD0059AAE4 /* RoverModel.swift */,
+				30C902D926E9144800CBDCB0 /* CellDetailView.swift */,
 			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		9C7CD5FC26F0E4EA0059AAE4 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				9C7CD5FD26F0E50A0059AAE4 /* FetchRover.swift */,
-			);
-			path = Services;
-			sourceTree = "<group>";
+			name = CellDetailView;
+			path = "Nasa App/Views/CellDetailView";
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -267,9 +311,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05200AFE26E2A4D200295A04 /* Main.storyboard in Resources */,
 				0FF8F65B26C31FFF001F228E /* LaunchScreen.storyboard in Resources */,
 				0FF8F65826C31FFF001F228E /* Assets.xcassets in Resources */,
-				0FF8F65626C31FFB001F228E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,13 +338,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C1BCBC826E7A9D000E315C8 /* Constants.swift in Sources */,
-				9C7CD5FB26F0E4BD0059AAE4 /* RoverModel.swift in Sources */,
-				0FF8F65326C31FFB001F228E /* ViewController.swift in Sources */,
-				9C1BCBC526E7A9A300E315C8 /* DetailView.swift in Sources */,
-				9C7CD5FE26F0E50A0059AAE4 /* FetchRover.swift in Sources */,
+				051C930B26EA4DFB005D5D25 /* NetworkManager.swift in Sources */,
+				059C5F0126DAEBA7006B7C46 /* LoginViewController.swift in Sources */,
+				0521590326DAE77A00B266A9 /* LandingViewController.swift in Sources */,
+				30C902DA26E9144800CBDCB0 /* CellDetailViewController.swift in Sources */,
+				30A5773826F38B9600E94C28 /* ApodModel.swift in Sources */,
+				05CE26FD26D04C8B000FF7CA /* CustomButton.swift in Sources */,
+				30D039E626F1228700AD7CE8 /* Dataloader.swift in Sources */,
+				30D039E426F1227600AD7CE8 /* ApiQueryGenerator.swift in Sources */,
 				0FF8F64F26C31FFB001F228E /* AppDelegate.swift in Sources */,
+				05FAA15F26DD1F2300460507 /* PopularViewController.swift in Sources */,
+				309C145C26DD91140063BD2F /* ImageRetrieveController.swift in Sources */,
+				05200AF826E2917100295A04 /* FavoriteViewController.swift in Sources */,
 				0FF8F65126C31FFB001F228E /* SceneDelegate.swift in Sources */,
+				30C902E026EA5C8A00CBDCB0 /* VideoPlayerViewController.swift in Sources */,
+				051F801F26F4D10A009A0811 /* NasaImageVideoLibraryModel.swift in Sources */,
+				05FAA15D26DD1CED00460507 /* CollectionCell.swift in Sources */,
+				05200B0426E2D56D00295A04 /* CollectionViewHelper.swift in Sources */,
+				30C902DB26E9144800CBDCB0 /* CellDetailView.swift in Sources */,
+				30C902E226EA5CE300CBDCB0 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,14 +392,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		0FF8F65426C31FFB001F228E /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0FF8F65526C31FFB001F228E /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		0FF8F65926C31FFF001F228E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -477,6 +525,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = AJW34VQTW6;
 				INFOPLIST_FILE = "Nasa App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -485,7 +534,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "FelipeVelandia.Nasa-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -495,6 +544,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = AJW34VQTW6;
 				INFOPLIST_FILE = "Nasa App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -503,7 +553,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "FelipeVelandia.Nasa-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -630,4 +680,3 @@
 	};
 	rootObject = 0FF8F64326C31FFB001F228E /* Project object */;
 }
-            
