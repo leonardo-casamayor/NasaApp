@@ -8,7 +8,7 @@
 import UIKit
 
 class PopularViewController: UIViewController, UISearchControllerDelegate, UISearchBarDelegate {
-    
+    let dataLoader = DataLoader()
     private let collectionView = UICollectionView(frame: .zero,collectionViewLayout: CollectionViewHelper.generateLayout(size: CollectionViewConstants.LayoutSize(columns: 2, height: 1/3)))
     private let searchController = UISearchController(searchResultsController: nil)
     
@@ -16,6 +16,11 @@ class PopularViewController: UIViewController, UISearchControllerDelegate, UISea
         setupCollectionViewController()
         collectionView.dataSource = self
         collectionView.delegate = self
+        
+        dataLoader.request(endpoint: ApiQuery.generateURL(api: APIadress.mediaLibrary,
+                                                           endpoint: EndpointAdress.search,
+                                                           queryType: QueryType.complexQuery,
+                                                           queryDictionary: MediaApiConstants.defaultPopularSearch).url)
     }
     
     private func setupCollectionViewController() {

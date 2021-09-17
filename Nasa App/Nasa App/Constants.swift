@@ -15,7 +15,7 @@ struct LoginConstants {
     static let buttonColor = UIColor(red:0.95, green:0.56, blue:0.55, alpha:1)
     static let buttonBorderColor = UIColor(red:0.59, green:0.59, blue:0.59, alpha:1)
 }
-    
+
 struct VideoPlayerConstants {
     static let videoUrl = "https://images-assets.nasa.gov/video/NHQ_2014_1010_TWAN/NHQ_2014_1010_TWAN~mobile.mp4"
     static let duration = "duration"
@@ -42,6 +42,19 @@ struct CollectionViewConstants {
         let height: CGFloat
     }
 }
+struct MediaApiConstants {
+    static let mediaAPI: String = "images-api.nasa.gov"
+    static let searchEndpoint: String = "/search"
+    static let assetEndpoint: String = "/asset/"
+    static let metadataEndpoint: String = "/metadata/"
+    static let captionEndpoint: String = "/captions/"
+    static let albumEndpoint: String = "/album/"
+    static let defaultPopularSearch = ["q":"popular",
+                                       "media_type":"image,video",
+                                       "page":"1",
+                                       "year_start":"2012"]
+}
+
 extension UIImage {
     static let muted: UIImage? = UIImage(systemName: "volume.slash.fill")
     static let unmuted: UIImage? = UIImage(systemName: "volume.fill")
