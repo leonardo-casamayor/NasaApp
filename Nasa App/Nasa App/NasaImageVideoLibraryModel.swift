@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct NasaCollection: Decodable {
+struct NasaImageVideoLibrary: Decodable {
     var collection: Collection
 }
 
