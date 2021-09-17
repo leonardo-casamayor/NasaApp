@@ -18,10 +18,12 @@ class LandingViewController: UIViewController {
     
     private var gradientLayer: CAGradientLayer?
     let nasaBlue = UIColor(red:0.02, green:0.24, blue:0.58, alpha:1)
+    var networkManager = NetworkManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViewController()
+        networkManager.retrieveApodData()
     }
     
     override func viewDidLayoutSubviews() {
