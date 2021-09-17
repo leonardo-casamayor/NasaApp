@@ -249,6 +249,7 @@
                         <segue destination="yTc-gw-Nqh" kind="relationship" relationship="viewControllers" id="nOe-jd-ggs"/>
                         <segue destination="kx9-rW-GrS" kind="relationship" relationship="viewControllers" id="JtZ-1k-39V"/>
                         <segue destination="XxA-UD-cV2" kind="relationship" relationship="viewControllers" id="gCW-20-KIx"/>
+                        <segue destination="AxV-Z1-Fsq" kind="relationship" relationship="viewControllers" id="ejz-qP-ldp"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dw4-df-XZE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -275,7 +276,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JoR-pe-lzR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1710" y="688"/>
+            <point key="canvasLocation" x="1709" y="712"/>
         </scene>
         <!--Favorite View Controller-->
         <scene sceneID="TjD-5l-qjU">
@@ -312,6 +313,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cyM-c3-EiD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1710" y="33"/>
+        </scene>
+        <!--Rover View Controller-->
+        <scene sceneID="4P4-SH-gTX">
+            <objects>
+                <viewController id="dgR-q4-kQt" customClass="RoverViewController" customModule="Nasa_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vEk-fI-yZJ">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="843"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="UdH-N7-2A2"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Uss-Ju-F6o"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1kZ-uk-dmo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2590.6542056074763" y="-1281.6414686825055"/>
         </scene>
         <!--APOD-->
         <scene sceneID="ac6-Vg-pxj">
@@ -668,6 +685,25 @@
             </objects>
             <point key="canvasLocation" x="5700" y="358"/>
         </scene>
+        <!--Rover-->
+        <scene sceneID="GtL-xZ-9na">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="AxV-Z1-Fsq" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Rover" image="camera.metering.center.weighted" catalog="system" selectedImage="camera.metering.center.weighted" id="bFG-hh-ni9"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zMs-2L-Tp2">
+                        <rect key="frame" x="0.0" y="44" width="428" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="dgR-q4-kQt" kind="relationship" relationship="rootViewController" id="iwf-6N-jRJ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JVS-7g-n5b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1690.6542056074766" y="-1281.6414686825055"/>
+        </scene>
     </scenes>
     <designables>
         <designable name="5ba-Um-oXI">
@@ -683,6 +719,7 @@
     <resources>
         <image name="NASA_logo.svg" width="306" height="256"/>
         <image name="apod-example" width="2048" height="1565"/>
+        <image name="camera.metering.center.weighted" catalog="system" width="128" height="93"/>
         <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <image name="folder" catalog="system" width="128" height="97"/>
         <image name="gobackward.10" catalog="system" width="121" height="128"/>

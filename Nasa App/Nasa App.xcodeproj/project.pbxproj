@@ -26,6 +26,7 @@
 		30C902DB26E9144800CBDCB0 /* CellDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C902D926E9144800CBDCB0 /* CellDetailView.swift */; };
 		30C902E026EA5C8A00CBDCB0 /* VideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C902DF26EA5C8A00CBDCB0 /* VideoPlayerViewController.swift */; };
 		30C902E226EA5CE300CBDCB0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C902E126EA5CE300CBDCB0 /* Constants.swift */; };
+		9C7CD60026F3CD090059AAE4 /* RoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7CD5FF26F3CD090059AAE4 /* RoverViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		30C902D926E9144800CBDCB0 /* CellDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellDetailView.swift; sourceTree = "<group>"; };
 		30C902DF26EA5C8A00CBDCB0 /* VideoPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewController.swift; sourceTree = "<group>"; };
 		30C902E126EA5CE300CBDCB0 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		9C7CD5FF26F3CD090059AAE4 /* RoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoverViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 				30C902D826E9144800CBDCB0 /* CellDetailViewController.swift */,
 				30C902DF26EA5C8A00CBDCB0 /* VideoPlayerViewController.swift */,
 				0FF8F65226C31FFB001F228E /* LoginViewController.swift */,
+				9C7CD5FF26F3CD090059AAE4 /* RoverViewController.swift */,
 				05FAA15E26DD1F2300460507 /* PopularViewController.swift */,
 				0521590226DAE77A00B266A9 /* LandingViewController.swift */,
 				05200AF726E2917100295A04 /* FavoriteViewController.swift */,
@@ -325,6 +328,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				059C5F0126DAEBA7006B7C46 /* LoginViewController.swift in Sources */,
+				9C7CD60026F3CD090059AAE4 /* RoverViewController.swift in Sources */,
 				0521590326DAE77A00B266A9 /* LandingViewController.swift in Sources */,
 				30C902DA26E9144800CBDCB0 /* CellDetailViewController.swift in Sources */,
 				05CE26FD26D04C8B000FF7CA /* CustomButton.swift in Sources */,
