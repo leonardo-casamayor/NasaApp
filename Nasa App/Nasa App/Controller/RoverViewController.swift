@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class RoverViewController: UIViewController, UISearchControllerDelegate, UISearchBarDelegate {
+class RoverViewController: UIViewController {
     
     private let collectionView = UICollectionView(frame: .zero,collectionViewLayout: CollectionViewHelper.generateLayout(size: CollectionViewConstants.LayoutSize(columns: 2, height: 1/3)))
     
@@ -21,26 +21,4 @@ class RoverViewController: UIViewController, UISearchControllerDelegate, UISearc
         view.backgroundColor = GeneralConstants.nasaBlue
         configureNavigationBar(largeTitleColor: .black, backgroundColor: .white, tintColor: .white, title: "Rover", preferredLargeTitle: true)
     }
-    
-}
-
-// MARK: Navigation Controller Configuration
-extension RoverViewController {
-    func configureNavigationBar(largeTitleColor: UIColor, backgroundColor: UIColor, tintColor: UIColor, title: String, preferredLargeTitle: Bool) {
-        
-        let navBarAppearance = UINavigationBarAppearance()
-        navBarAppearance.configureWithOpaqueBackground()
-        navBarAppearance.largeTitleTextAttributes = [.foregroundColor: largeTitleColor]
-        navBarAppearance.titleTextAttributes = [.foregroundColor: largeTitleColor]
-        navBarAppearance.backgroundColor = backgroundColor
-        
-        navigationController?.navigationBar.standardAppearance = navBarAppearance
-        navigationController?.navigationBar.compactAppearance = navBarAppearance
-        navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
-        
-        navigationController?.navigationBar.prefersLargeTitles = preferredLargeTitle
-        navigationController?.navigationBar.isTranslucent = false
-        navigationItem.title = title
-    }
-    
 }
