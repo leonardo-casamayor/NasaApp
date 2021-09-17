@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		051C930B26EA4DFB005D5D25 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051C930A26EA4DFB005D5D25 /* NetworkManager.swift */; };
 		05200AF826E2917100295A04 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05200AF726E2917100295A04 /* FavoriteViewController.swift */; };
 		05200AFE26E2A4D200295A04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05200AFD26E2A4D200295A04 /* Main.storyboard */; };
 		05200B0426E2D56D00295A04 /* CollectionViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05200B0326E2D56D00295A04 /* CollectionViewHelper.swift */; };
@@ -46,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		051C930A26EA4DFB005D5D25 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		05200AF726E2917100295A04 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		05200AFD26E2A4D200295A04 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		05200B0326E2D56D00295A04 /* CollectionViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewHelper.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 			children = (
 				309C145B26DD91140063BD2F /* ImageRetrieveController.swift */,
 				05200B0326E2D56D00295A04 /* CollectionViewHelper.swift */,
+				051C930A26EA4DFB005D5D25 /* NetworkManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				051C930B26EA4DFB005D5D25 /* NetworkManager.swift in Sources */,
 				059C5F0126DAEBA7006B7C46 /* LoginViewController.swift in Sources */,
 				0521590326DAE77A00B266A9 /* LandingViewController.swift in Sources */,
 				30C902DA26E9144800CBDCB0 /* CellDetailViewController.swift in Sources */,
