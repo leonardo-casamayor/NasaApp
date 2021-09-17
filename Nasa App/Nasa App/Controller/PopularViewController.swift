@@ -16,16 +16,11 @@ class PopularViewController: UIViewController, UISearchControllerDelegate, UISea
         setupCollectionViewController()
         collectionView.dataSource = self
         collectionView.delegate = self
-        // Example usage to call mediaLibrary API
+        
         dataLoader.request(endpoint: ApiQuery.generateURL(api: APIadress.mediaLibrary,
                                                            endpoint: EndpointAdress.search,
                                                            queryType: QueryType.complexQuery,
                                                            queryDictionary: MediaApiConstants.defaultPopularSearch).url)
-        // Example usage to call Apod API
-        dataLoader.request(endpoint: ApiQuery.generateURL(api: APIadress.apod,
-                                                          endpoint: EndpointAdress.apod,
-                                                          queryType: QueryType.complexQuery,
-                                                          queryDictionary: ApodApiConstants.apodKey).url)
     }
     
     private func setupCollectionViewController() {

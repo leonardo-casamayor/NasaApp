@@ -15,7 +15,7 @@ struct LoginConstants {
     static let buttonColor = UIColor(red:0.95, green:0.56, blue:0.55, alpha:1)
     static let buttonBorderColor = UIColor(red:0.59, green:0.59, blue:0.59, alpha:1)
 }
-    
+
 struct VideoPlayerConstants {
     static let videoUrl = "https://images-assets.nasa.gov/video/NHQ_2014_1010_TWAN/NHQ_2014_1010_TWAN~mobile.mp4"
     static let duration = "duration"
@@ -37,7 +37,7 @@ struct FavoritesTabConstants {
 }
 
 struct CollectionViewConstants {
-        struct LayoutSize {
+    struct LayoutSize {
         let columns: Int
         let height: CGFloat
     }
@@ -53,11 +53,6 @@ struct MediaApiConstants {
                                        "media_type":"image,video",
                                        "page":"1",
                                        "year_start":"2012"]
-}
-struct ApodApiConstants {
-    static let apodKey: [String:String] = ["api_key":"11YYA64fHxHGNGEAzR2noyyxRp2SWV2RSCdkOOiA"]
-    static let apodEndpoint: String = "/planetary/apod"
-    static let apodAPI: String = "api.nasa.gov"
 }
 
 extension UIImage {

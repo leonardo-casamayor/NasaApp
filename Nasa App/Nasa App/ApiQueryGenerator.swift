@@ -10,7 +10,6 @@ import Foundation
 
 enum APIadress: String {
     case mediaLibrary
-    case apod
 }
 
 ///setup diferent API here, add cases with the constat/string it will return
@@ -19,8 +18,6 @@ extension APIadress{
         switch self{
         case .mediaLibrary:
             return MediaApiConstants.mediaAPI
-        case .apod:
-            return ApodApiConstants.apodAPI
         }
     }
 }
@@ -98,7 +95,6 @@ enum EndpointAdress: String {
     case metadata
     case captions
     case album
-    case apod
 }
 
 ///define the endpoit's path as a string to be used later.
@@ -115,8 +111,6 @@ extension EndpointAdress {
             return MediaApiConstants.captionEndpoint
         case .album:
             return MediaApiConstants.albumEndpoint
-        case .apod:
-            return ApodApiConstants.apodEndpoint
         }
     }
 }
