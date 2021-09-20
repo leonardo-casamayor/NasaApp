@@ -47,8 +47,9 @@ class LandingViewController: UIViewController {
         subtitleLabel.fadeIn(2, delay: 1)
         explanationLabel.fadeIn(2, delay: 2)
         activtyIndicator = NVActivityIndicatorView(frame: image.frame, type: .orbit, color: .white, padding: 200)
-        gradientView.addSubview(activtyIndicator!)
-        activtyIndicator!.startAnimating()
+        guard let activityIndicatorU = self.activtyIndicator else { return }
+        gradientView.addSubview(activityIndicatorU)
+        activityIndicatorU.startAnimating()
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -80,19 +81,20 @@ extension LandingViewController {
         guard let imageUrl = url else {
             return
         }
-            let request = URLRequest(url: URL(string: imageUrl)!)
-            let dataTask = URLSession.shared.dataTask(with: request) { [weak self] (data, _, _) in
-                    guard let data = data else {
-                        return
-                    }
-                    let image = UIImage(data: data)
-                    DispatchQueue.main.async {
-                        // Configure Thumbnail Image View
-                        self?.image.image = image
-                        self?.activtyIndicator!.stopAnimating()
-                    }
-                }
-            dataTask.resume()
+        guard let urlRequest = URL(string: imageUrl) else { return }
+        let request = URLRequest(url: urlRequest)
+        let dataTask = URLSession.shared.dataTask(with: request) { [weak self] (data, _, _) in
+            guard let data = data else {
+                return
+            }
+            let image = UIImage(data: data)
+            DispatchQueue.main.async {
+                self?.image.image = image
+                guard let activtyIndicator = self?.activtyIndicator else { return }
+                activtyIndicator.stopAnimating()
+            }
+        }
+        dataTask.resume()
         titleLabel.text = data.title
         guard let copyright = data.copyright else {
             return
