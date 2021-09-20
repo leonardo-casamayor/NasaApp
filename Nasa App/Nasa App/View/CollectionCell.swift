@@ -13,17 +13,15 @@ class CollectionCell: UICollectionViewCell {
     private var views:[UIView] = []
     
     //MARK: Views
-    private let titleLabel: UILabel = {
+    private var titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Title"
         label.textColor = UIColor.white
         label.font = UIFont.systemFont(ofSize: 28, weight: .semibold)
         return label
     }()
     
-    private let dateLabel: UILabel = {
+    private var dateLabel: UILabel = {
         let label = UILabel()
-        label.text = "2021-07-16"
         label.textColor = UIColor.white
         label.font = UIFont.systemFont(ofSize: 12, weight: .semibold)
         return label
@@ -35,7 +33,7 @@ class CollectionCell: UICollectionViewCell {
         return view
     }()
     
-    private let imageView: UIImageView = {
+    private var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFill
@@ -57,6 +55,12 @@ class CollectionCell: UICollectionViewCell {
         setupSubviews()
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.titleLabel.text = ""
+        self.dateLabel.text = ""
+    }
+    
     private func setupCell() {
         views = [imageView, transparentView, titleLabel, dateLabel]
         views.forEach { contentView.addSubview($0) }
@@ -70,6 +74,11 @@ class CollectionCell: UICollectionViewCell {
     
     private func setViewFrameToBounds(view: UIView) {
         view.frame = contentView.bounds
+    }
+    func configureCellWith(data: [NasaData], image: String) {
+        self.dateLabel.text = DateFormat.formatDate(dateString: data[0].dateCreated)
+        self.titleLabel.text = data[0].title
+        self.imageView.setImageFrom(image)
     }
 }
 

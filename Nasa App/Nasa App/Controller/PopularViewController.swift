@@ -8,19 +8,18 @@
 import UIKit
 
 class PopularViewController: UIViewController, UISearchControllerDelegate, UISearchBarDelegate {
-    let dataLoader = DataLoader()
+    let dataLoader = SearchingController()
     private let collectionView = UICollectionView(frame: .zero,collectionViewLayout: CollectionViewHelper.generateLayout(size: CollectionViewConstants.LayoutSize(columns: 2, height: 1/3)))
     private let searchController = UISearchController(searchResultsController: nil)
+    
     
     override func viewDidLoad() {
         setupCollectionViewController()
         collectionView.dataSource = self
         collectionView.delegate = self
         
-        dataLoader.request(endpoint: ApiQuery.generateURL(api: APIadress.mediaLibrary,
-                                                           endpoint: EndpointAdress.search,
-                                                           queryType: QueryType.complexQuery,
-                                                           queryDictionary: MediaApiConstants.defaultPopularSearch).url)
+        searchController.searchBar.delegate = self
+        populateMedia(queryDictionary: MediaApiConstants.defaultPopularSearch)
     }
     
     private func setupCollectionViewController() {
@@ -54,18 +53,36 @@ class PopularViewController: UIViewController, UISearchControllerDelegate, UISea
         guard let destinationVC = self.storyboard?.instantiateViewController(withIdentifier: "CellDetailViewController") as? CellDetailViewController else { return }
         self.navigationController?.pushViewController(destinationVC, animated: true)
     }
-        
+    
+    func populateMedia(queryDictionary: [String:String]) {
+        dataLoader.retrieveMedia(queryDictionary: queryDictionary) { [weak self] (result) in
+            switch result {
+            case .success(_):
+                DispatchQueue.main.async {
+                    self?.collectionView.reloadData()
+                }
+            case .failure(_):
+                print("error fetching data")
+            }
+        }
+    }
 }
 
 //MARK: CollectionViewDataSource
 extension PopularViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        return dataLoader.media?.collection.items.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionCell.PopularIdentifier, for: indexPath)
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionCell.PopularIdentifier, for: indexPath) as? CollectionCell else { return UICollectionViewCell() }
+        let path = indexPath.row
+        let image = dataLoader.media?.collection.items[path].links[0].href
+        if let content = dataLoader.media?.collection.items[path].data {
+            cell.configureCellWith(data: content,
+                                   image: image ?? "")
+        }
         return cell
     }
     
@@ -82,5 +99,17 @@ extension PopularViewController {
 extension PopularViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         sendToCellDetails()
+    }
+}
+
+extension PopularViewController {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let searchText = searchBar.text else { return }
+        if searchText != "" {
+            let query = ["q":"\(searchText)",
+                         "media_type":"video,image"]
+            populateMedia(queryDictionary: query)
+            searchController.isActive = false
+        }
     }
 }
