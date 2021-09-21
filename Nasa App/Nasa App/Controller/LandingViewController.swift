@@ -44,8 +44,8 @@ class LandingViewController: UIViewController {
     
     private func animations() {
         titleLabel.fadeIn(1, delay: 0)
-        subtitleLabel.fadeIn(1, delay: 1)
-        explanationLabel.fadeIn(1, delay: 2)
+        subtitleLabel.fadeIn(1, delay: 0.5)
+        explanationLabel.fadeIn(1, delay: 1)
         activtyIndicator = NVActivityIndicatorView(frame: image.frame, type: .orbit, color: .white, padding: 200)
         guard let activityIndicatorU = self.activtyIndicator else { return }
         gradientView.addSubview(activityIndicatorU)
