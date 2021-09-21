@@ -56,10 +56,11 @@ class PopularViewController: UIViewController, UISearchControllerDelegate, UISea
     
     func populateMedia(queryDictionary: [String:String]) {
         dataLoader.retrieveMedia(queryDictionary: queryDictionary) { [weak self] (result) in
+            guard let strongSelf = self else { return }
             switch result {
             case .success(_):
                 DispatchQueue.main.async {
-                    self?.collectionView.reloadData()
+                    strongSelf.collectionView.reloadData()
                 }
             case .failure(_):
                 print("error fetching data")
@@ -77,12 +78,18 @@ extension PopularViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionCell.PopularIdentifier, for: indexPath) as? CollectionCell else { return UICollectionViewCell() }
+        
         let path = indexPath.row
-        let image = dataLoader.media?.collection.items[path].links[0].href
-        if let content = dataLoader.media?.collection.items[path].data {
-            cell.configureCellWith(data: content,
-                                   image: image ?? "")
+        if let image = dataLoader.media?.collection.items[path].links[0].href {
+            DispatchQueue.main.async {
+                cell.imageView.loadImages(from: image)
+            }
         }
+        
+        if let content = dataLoader.media?.collection.items[path].data {
+            cell.configureCellWith(data: content)
+        }
+        
         return cell
     }
     

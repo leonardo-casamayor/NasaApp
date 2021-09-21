@@ -33,11 +33,10 @@ class CollectionCell: UICollectionViewCell {
         return view
     }()
     
-    private var imageView: UIImageView = {
-        let imageView = UIImageView()
+    var imageView: MyImageView = {
+        let imageView = MyImageView()
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFill
-        imageView.image = UIImage(named: "popular-example")
         return imageView
     }()
     //MARK: Initialization and setup
@@ -59,6 +58,7 @@ class CollectionCell: UICollectionViewCell {
         super.prepareForReuse()
         self.titleLabel.text = ""
         self.dateLabel.text = ""
+        self.imageView.image = nil
     }
     
     private func setupCell() {
@@ -75,10 +75,10 @@ class CollectionCell: UICollectionViewCell {
     private func setViewFrameToBounds(view: UIView) {
         view.frame = contentView.bounds
     }
-    func configureCellWith(data: [NasaData], image: String) {
+    func configureCellWith(data: [NasaData]) {
         self.dateLabel.text = DateFormat.formatDate(dateString: data[0].dateCreated)
         self.titleLabel.text = data[0].title
-        self.imageView.setImageFrom(image)
+//        self.imageView.setImageFrom(image)
     }
 }
 

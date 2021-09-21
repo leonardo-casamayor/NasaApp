@@ -24,6 +24,7 @@
 		0FF8F67126C32000001F228E /* Nasa_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF8F67026C32000001F228E /* Nasa_AppUITests.swift */; };
 		302B6CFF26F9380C00CDC4CA /* SearchingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302B6CFE26F9380C00CDC4CA /* SearchingController.swift */; };
 		302B6D0026F9381E00CDC4CA /* NasaImageVideoLibraryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051F801E26F4D10A009A0811 /* NasaImageVideoLibraryModel.swift */; };
+		302B6D0726FA606500CDC4CA /* MyImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302B6D0626FA606500CDC4CA /* MyImageView.swift */; };
 		309C145C26DD91140063BD2F /* ImageRetrieveController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309C145B26DD91140063BD2F /* ImageRetrieveController.swift */; };
 		30A5773826F38B9600E94C28 /* ApodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A5773726F38B9600E94C28 /* ApodModel.swift */; };
 		30C902DA26E9144800CBDCB0 /* CellDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C902D826E9144800CBDCB0 /* CellDetailViewController.swift */; };
@@ -75,6 +76,7 @@
 		0FF8F67026C32000001F228E /* Nasa_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nasa_AppUITests.swift; sourceTree = "<group>"; };
 		0FF8F67226C32000001F228E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		302B6CFE26F9380C00CDC4CA /* SearchingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingController.swift; sourceTree = "<group>"; };
+		302B6D0626FA606500CDC4CA /* MyImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyImageView.swift; sourceTree = "<group>"; };
 		309C145B26DD91140063BD2F /* ImageRetrieveController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRetrieveController.swift; sourceTree = "<group>"; };
 		30A5773726F38B9600E94C28 /* ApodModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApodModel.swift; sourceTree = "<group>"; };
 		30C902D826E9144800CBDCB0 /* CellDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellDetailViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				30C902D726E9144800CBDCB0 /* CellDetailView */,
 				05FAA15C26DD1CED00460507 /* CollectionCell.swift */,
 				05CE26FC26D04C8B000FF7CA /* CustomButton.swift */,
+				302B6D0626FA606500CDC4CA /* MyImageView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -350,6 +353,7 @@
 				30A5773826F38B9600E94C28 /* ApodModel.swift in Sources */,
 				05CE26FD26D04C8B000FF7CA /* CustomButton.swift in Sources */,
 				30D039E626F1228700AD7CE8 /* Dataloader.swift in Sources */,
+				302B6D0726FA606500CDC4CA /* MyImageView.swift in Sources */,
 				30D039E426F1227600AD7CE8 /* ApiQueryGenerator.swift in Sources */,
 				0FF8F64F26C31FFB001F228E /* AppDelegate.swift in Sources */,
 				05FAA15F26DD1F2300460507 /* PopularViewController.swift in Sources */,

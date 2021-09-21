@@ -32,10 +32,11 @@ class SearchingController: SearchingFacade {
                                                            queryType: QueryType.complexQuery,
                                                            queryDictionary: queryDictionary).url) {
             [weak self] result in
+            guard let strongSelf = self else { return }
             DispatchQueue.global().async {
                 switch result {
                 case.success(let media):
-                    self?.media = media
+                    strongSelf.media = media
                     completion(result)
                 case .failure(_):
                     print("error")
