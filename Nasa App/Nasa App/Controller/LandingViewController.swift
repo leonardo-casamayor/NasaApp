@@ -83,12 +83,12 @@ extension LandingViewController {
         }
         guard let urlRequest = URL(string: imageUrl) else { return }
         let request = URLRequest(url: urlRequest)
-        let dataTask = URLSession.shared.dataTask(with: request) { [weak self] (data, _, _) in
+        let dataTask = URLSession.shared.dataTask(with: request) {(data, _, _) in
             guard let data = data else {
                 return
             }
             let image = UIImage(data: data)
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { [weak self] in
                 guard let strongSelf = self else { return }
                 strongSelf.image.image = image
                 guard let activtyIndicator = strongSelf.activtyIndicator else { return }
@@ -96,14 +96,20 @@ extension LandingViewController {
             }
         }
         dataTask.resume()
-        titleLabel.text = data.title
+        DispatchQueue.main.async { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.titleLabel.text = data.title
+        }
         guard let copyright = data.copyright else {
             return
         }
         let date = data.date.replacingOccurrences(of: "/", with: "-")
         let subtitle = copyright != "" ? "\(copyright.trunc(length: 25))  / \(date)" : date
-        subtitleLabel.text = subtitle
-        explanationLabel.text = data.explanation
+        DispatchQueue.main.async { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.subtitleLabel.text = subtitle
+            strongSelf.explanationLabel.text = data.explanation
+        }
     }
 }
 
