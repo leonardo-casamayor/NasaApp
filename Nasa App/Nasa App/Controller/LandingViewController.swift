@@ -30,8 +30,8 @@ class LandingViewController: UIViewController {
             switch result {
             case .success(let data):
                 DispatchQueue.main.async {
-                    
-                    self?.loadData(data: data)
+                    guard let strongSelf = self else { return }
+                    strongSelf.loadData(data: data)
                 }
             case .failure(_):
                 return
@@ -43,9 +43,9 @@ class LandingViewController: UIViewController {
     }
     
     private func animations() {
-        titleLabel.fadeIn(2, delay: 0)
-        subtitleLabel.fadeIn(2, delay: 1)
-        explanationLabel.fadeIn(2, delay: 2)
+        titleLabel.fadeIn(1, delay: 0)
+        subtitleLabel.fadeIn(1, delay: 1)
+        explanationLabel.fadeIn(1, delay: 2)
         activtyIndicator = NVActivityIndicatorView(frame: image.frame, type: .orbit, color: .white, padding: 200)
         guard let activityIndicatorU = self.activtyIndicator else { return }
         gradientView.addSubview(activityIndicatorU)
@@ -89,8 +89,9 @@ extension LandingViewController {
             }
             let image = UIImage(data: data)
             DispatchQueue.main.async {
-                self?.image.image = image
-                guard let activtyIndicator = self?.activtyIndicator else { return }
+                guard let strongSelf = self else { return }
+                strongSelf.image.image = image
+                guard let activtyIndicator = strongSelf.activtyIndicator else { return }
                 activtyIndicator.stopAnimating()
             }
         }
