@@ -21,6 +21,7 @@ class LandingViewController: UIViewController {
     let nasaBlue = UIColor(red:0.02, green:0.24, blue:0.58, alpha:1)
     var activtyIndicator: NVActivityIndicatorView?
     var networkManager = NetworkManager()
+    var animate = true
     
     
     override func viewDidLoad() {
@@ -39,7 +40,10 @@ class LandingViewController: UIViewController {
         }
     }
     override func viewDidAppear(_ animated: Bool) {
-        animations()
+        if animate{
+            animations()
+            animate = false
+        }
     }
     
     private func animations() {
