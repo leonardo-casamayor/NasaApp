@@ -37,6 +37,7 @@ class CollectionCell: UICollectionViewCell {
         let imageView = MyImageView()
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFill
+        imageView.image = UIImage(named: "popular-example")
         return imageView
     }()
     //MARK: Initialization and setup
