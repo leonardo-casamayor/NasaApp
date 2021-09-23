@@ -7,8 +7,17 @@
 
 import Foundation
 
+enum NetworkError: Error {
+    case NoDataAvailable
+    case BadURL
+    case BadRequest
+    case InvalidApiKey
+    case ResourceNotFound
+    case ServerError
+    case UnexpectedNetworkError
+}
 protocol ApodClient {
-    func retrieveApodData()
+    func retrieveApodData(completion: @escaping (Result<APODElement, Error>) -> Void)
 }
 
 class NetworkManager {
@@ -16,19 +25,23 @@ class NetworkManager {
         urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
     }
     
-    static func handle(data: Data) -> [String: Any]? {
-        try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+    static func handle(data: Data) -> APODElement? {
+//        let decoder = JSONDecoder()
+        try? JSONDecoder().decode(APODElement.self, from: data)
+//        try? JSONSerialization.jsonObject(with: data, options: []) as? APODElement
     }
 }
 
 extension NetworkManager: ApodClient {
-    func retrieveApodData() {
+    func retrieveApodData(completion: @escaping (Result<APODElement, Error>) -> Void) {
         guard let queryString = NetworkManager.encodeURL(urlString: NetworkManagerConstants.apodAPIURL) else {
             print("Bad URL")
+            completion(.failure(NetworkError.BadURL))
             return
         }
         guard let url = URL(string: queryString) else {
             print("Bad URL")
+            completion(.failure(NetworkError.BadURL))
             return
         }
         let session = URLSession.shared
@@ -36,6 +49,7 @@ extension NetworkManager: ApodClient {
         let task = session.dataTask(with: request){ (data, response, error) in
             
             guard let dataUnwrap = data else {
+                completion(.failure(NetworkError.NoDataAvailable))
                 return }
             
             if let httpResponse = response as? HTTPURLResponse {
@@ -44,20 +58,23 @@ extension NetworkManager: ApodClient {
                 switch stausCode {
                 case 400:
                     print("Bad request")
+                    completion(.failure(NetworkError.BadRequest))
                 case 403:
                     print("Invalid api key")
+                    completion(.failure(NetworkError.InvalidApiKey))
                 case 404:
                     print("Resource Not Found")
+                    completion(.failure(NetworkError.ResourceNotFound))
                 case 200..<300:
-                    if let limitReamining = httpResponse.value(forHTTPHeaderField: "X-RateLimit-Remaining"),
-                       let json = NetworkManager.handle(data: dataUnwrap){
-                        print("X-RateLimit-Remaining: \(limitReamining)")
-                        print("Data: \(json)")
+                    if let json = NetworkManager.handle(data: dataUnwrap){
+                        completion(.success(json))
                     }
                 case 500..<600:
                     print("Server error")
+                    completion(.failure(NetworkError.ServerError))
                 default:
                     print("Unexpected Error")
+                    completion(.failure(NetworkError.UnexpectedNetworkError))
                 }
             }
         }
