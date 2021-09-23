@@ -35,6 +35,7 @@ class FavoriteViewController: UIViewController, UISearchControllerDelegate, UISe
         collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
         collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 5).isActive = true
     }
+    
     private func sendToCellDetails() {
         // setup here any data we will pass to the next viewcontroller
         guard let destinationVC = self.storyboard?.instantiateViewController(withIdentifier: "CellDetailViewController") as? CellDetailViewController else { return }

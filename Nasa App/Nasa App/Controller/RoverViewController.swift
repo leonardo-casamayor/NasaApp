@@ -7,44 +7,44 @@
 
 import Foundation
 import UIKit
+import SwiftUI
 
-class RoverViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class RoverViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    var roverPhotos: NasaRover? = nil
     
     private let collectionView = UICollectionView(
         frame: .zero,
         collectionViewLayout: UICollectionViewFlowLayout()
     )
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.register(RoverCollectionViewCell.self, forCellWithReuseIdentifier: RoverCollectionViewCell.identifier)
-        collectionView.backgroundColor = GeneralConstants.nasaBlue
+        getPhotos {
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
         collectionView.delegate = self
         collectionView.dataSource = self
         setupCollectionViewController()
     }
-
+    
     private func setupCollectionViewController() {
         view.addSubview(collectionView)
-        view.backgroundColor = GeneralConstants.nasaBlue
         configureNavigationBar(largeTitleColor: .black, backgroundColor: .white, tintColor: .white, title: "Rover", preferredLargeTitle: true)
+        collectionView.backgroundColor = GeneralConstants.nasaBlue
+        collectionView.register(RoverCollectionViewCell.self, forCellWithReuseIdentifier: RoverCollectionViewCell.identifier)
     }
-
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         collectionView.frame = view.bounds
-        view.backgroundColor = GeneralConstants.nasaBlue
     }
+}
 
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 30
-    }
-
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RoverCollectionViewCell.identifier, for: indexPath)
-        return cell
-    }
-
+// MARK: CollectionView Setup
+extension RoverViewController {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(
             width: (view.frame.size.width / 2)-2,
@@ -63,13 +63,30 @@ class RoverViewController: UIViewController, UICollectionViewDelegate, UICollect
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 1, left: 1, bottom: 1, right: 1)
     }
-
-}
-
-// MARK: Action on selected Cell
-
-extension RoverViewController {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return roverPhotos?.photos.count ?? 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RoverCollectionViewCell.identifier, for: indexPath) as! RoverCollectionViewCell
+        
+        cell.roverName.text = roverPhotos?.photos[indexPath.row].rover.name
+        cell.dateLabel.text = roverPhotos?.photos[indexPath.row].earthDate
+        
+        let link = roverPhotos?.photos[indexPath.row].imgSrc
+        guard var validLink = link else { return cell }
+        // Turning the links from the response into 'https' instead of 'http'
+        validLink.insert(contentsOf: "s", at: validLink.index(validLink.startIndex, offsetBy: 4))
+        cell.imageView.downloadedFrom(from: validLink)
+        
+        return cell
+    }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("selected", indexPath.row)
     }
 }
+
+
+
