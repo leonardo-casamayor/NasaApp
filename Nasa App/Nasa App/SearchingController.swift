@@ -18,6 +18,7 @@ class SearchingController: SearchingFacade {
     typealias result<NasaImageVideoLibrary> = (Result<NasaImageVideoLibrary, Error>) -> Void
     
     var media: NasaImageVideoLibrary?
+    var error: Error?
     
     /// Retrieve Media
     /// - Parameters:
@@ -38,8 +39,8 @@ class SearchingController: SearchingFacade {
                 case.success(let media):
                     strongSelf.media = media
                     completion(result)
-                case .failure(_):
-                    print("error")
+                case .failure(let error):
+                    strongSelf.error = error
                     completion(result)
                 }
             }

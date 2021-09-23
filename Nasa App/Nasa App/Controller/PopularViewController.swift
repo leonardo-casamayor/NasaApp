@@ -11,6 +11,7 @@ class PopularViewController: UIViewController, UISearchControllerDelegate, UISea
     let dataLoader = SearchingController()
     private let collectionView = UICollectionView(frame: .zero,collectionViewLayout: CollectionViewHelper.generateLayout(size: CollectionViewConstants.LayoutSize(columns: 2, height: 1/3)))
     private let searchController = UISearchController(searchResultsController: nil)
+    private var didSearch: Bool = false
     
     
     override func viewDidLoad() {
@@ -61,9 +62,22 @@ class PopularViewController: UIViewController, UISearchControllerDelegate, UISea
             case .success(_):
                 DispatchQueue.main.async {
                     strongSelf.collectionView.reloadData()
+                    if strongSelf.dataLoader.media?.collection.items.count == 0 && strongSelf.didSearch {
+                        strongSelf.displayAlert(error: CollectionViewConstants.noMatches,
+                                                message: CollectionViewConstants.noResult,
+                                                buttonTitle: CollectionViewConstants.okay,
+                                                action: AlertActions.NoMatches)
+                    }
                 }
             case .failure(_):
-                print("error fetching data")
+                let error = strongSelf.dataLoader.error
+                DispatchQueue.main.async {
+                    strongSelf.displayAlert(error: CollectionViewConstants.error,
+                                            message: "\(error.debugDescription)",
+                                            buttonTitle: CollectionViewConstants.cancel,
+                                            action: AlertActions.ErrorLoadingData)
+                }
+                
             }
         }
     }
@@ -117,6 +131,34 @@ extension PopularViewController {
                          "media_type":"video,image"]
             populateMedia(queryDictionary: query)
             searchController.isActive = false
+            didSearch = true
         }
     }
+}
+// MARK: Alert Messages
+extension PopularViewController {
+    enum AlertActions {
+        case NoMatches
+        case ErrorLoadingData
+    }
+    
+    func displayAlert(error: String,
+                      message: String,
+                      buttonTitle: String,
+                      action: AlertActions) {
+        let alert = UIAlertController(title: error, message: message, preferredStyle: .alert)
+        switch action {
+        case.ErrorLoadingData:
+            alert.addAction(UIAlertAction(title: CollectionViewConstants.retry, style: .destructive, handler: { action in
+                self.populateMedia(queryDictionary: MediaApiConstants.defaultPopularSearch)
+            }))
+            alert.addAction(UIAlertAction(title: buttonTitle, style: .default, handler: nil))
+        
+        case .NoMatches:
+            alert.addAction(UIAlertAction(title: buttonTitle, style: .default, handler: nil))
+        
+        }
+        
+        
+        self.present(alert, animated: true)}
 }

@@ -79,7 +79,6 @@ class CollectionCell: UICollectionViewCell {
     func configureCellWith(data: [NasaData]) {
         self.dateLabel.text = DateFormat.formatDate(dateString: data[0].dateCreated)
         self.titleLabel.text = data[0].title
-//        self.imageView.setImageFrom(image)
     }
 }
 

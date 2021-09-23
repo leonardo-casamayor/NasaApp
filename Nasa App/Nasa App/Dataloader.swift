@@ -6,7 +6,7 @@
 //
 import Foundation
 
-enum NetworkError: Error {
+enum MediaNetworkError: Error {
     case urlError
     case redirectionError
     case clientError
@@ -35,7 +35,7 @@ class DataLoader: NetworkingFacade {
     func request<T>(of type: T.Type, endpoint: URL?, completion: @escaping result<T>) where T : Decodable {
         guard let url = endpoint else {
             // Triggers if url was faulty
-            completion(.failure(NetworkError.urlError))
+            completion(.failure(MediaNetworkError.urlError))
             return
         }
         let session = URLSession.shared
@@ -61,13 +61,13 @@ class DataLoader: NetworkingFacade {
                     print("Success contacting API")
                 //Possible conection errors
                 case 300...399:
-                    completion(.failure(NetworkError.redirectionError))
+                    completion(.failure(MediaNetworkError.redirectionError))
                 case 400...499:
-                    completion(.failure(NetworkError.clientError))
+                    completion(.failure(MediaNetworkError.clientError))
                 case 500...599:
-                    completion(.failure(NetworkError.serverError))
+                    completion(.failure(MediaNetworkError.serverError))
                 default:
-                    completion(.failure(NetworkError.unknown))
+                    completion(.failure(MediaNetworkError.unknown))
                 }
             }
             if let myData = data {
@@ -78,7 +78,7 @@ class DataLoader: NetworkingFacade {
                     let decodedObject = try decoder.decode(T.self, from: myData)
                     completion(.success(decodedObject))
                 } catch {
-                    completion(.failure(NetworkError.parsingError))
+                    completion(.failure(MediaNetworkError.parsingError))
                 }
             }
         }

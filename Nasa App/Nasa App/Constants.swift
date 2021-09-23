@@ -49,6 +49,12 @@ struct FavoritesTabConstants {
 }
 
 struct CollectionViewConstants {
+    static let cancel = "Cancel"
+    static let okay = "Okay"
+    static let error = "Error"
+    static let noMatches = "No matches found"
+    static let noResult = "Your search did not match any result"
+    static let retry = "Retry?"
     struct LayoutSize {
         let columns: Int
         let height: CGFloat
