@@ -12,5 +12,4 @@ struct Users: Codable {
     let password: String
 }
 
-typealias UsersList = [Users]
 
