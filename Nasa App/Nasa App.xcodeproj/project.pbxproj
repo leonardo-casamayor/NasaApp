@@ -3,11 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		051C930B26EA4DFB005D5D25 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051C930A26EA4DFB005D5D25 /* NetworkManager.swift */; };
+		051ECAF926F9336F00D05B17 /* NVActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = 051ECAF826F9336F00D05B17 /* NVActivityIndicatorView */; };
 		05200AF826E2917100295A04 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05200AF726E2917100295A04 /* FavoriteViewController.swift */; };
 		05200AFE26E2A4D200295A04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05200AFD26E2A4D200295A04 /* Main.storyboard */; };
 		05200B0426E2D56D00295A04 /* CollectionViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05200B0326E2D56D00295A04 /* CollectionViewHelper.swift */; };
@@ -50,8 +51,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		051F801E26F4D10A009A0811 /* NasaImageVideoLibraryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaImageVideoLibraryModel.swift; sourceTree = "<group>"; };
 		051C930A26EA4DFB005D5D25 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		051F801E26F4D10A009A0811 /* NasaImageVideoLibraryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaImageVideoLibraryModel.swift; sourceTree = "<group>"; };
 		05200AF726E2917100295A04 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		05200AFD26E2A4D200295A04 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		05200B0326E2D56D00295A04 /* CollectionViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewHelper.swift; sourceTree = "<group>"; };
@@ -87,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				051ECAF926F9336F00D05B17 /* NVActivityIndicatorView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,6 +226,9 @@
 			dependencies = (
 			);
 			name = "Nasa App";
+			packageProductDependencies = (
+				051ECAF826F9336F00D05B17 /* NVActivityIndicatorView */,
+			);
 			productName = "Nasa App";
 			productReference = 0FF8F64B26C31FFB001F228E /* Nasa App.app */;
 			productType = "com.apple.product-type.application";
@@ -295,6 +300,9 @@
 				Base,
 			);
 			mainGroup = 0FF8F64226C31FFB001F228E;
+			packageReferences = (
+				051ECAF726F9336F00D05B17 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */,
+			);
 			productRefGroup = 0FF8F64C26C31FFB001F228E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -352,7 +360,6 @@
 				05200AF826E2917100295A04 /* FavoriteViewController.swift in Sources */,
 				0FF8F65126C31FFB001F228E /* SceneDelegate.swift in Sources */,
 				30C902E026EA5C8A00CBDCB0 /* VideoPlayerViewController.swift in Sources */,
-				051F801F26F4D10A009A0811 /* NasaImageVideoLibraryModel.swift in Sources */,
 				05FAA15D26DD1CED00460507 /* CollectionCell.swift in Sources */,
 				05200B0426E2D56D00295A04 /* CollectionViewHelper.swift in Sources */,
 				30C902DB26E9144800CBDCB0 /* CellDetailView.swift in Sources */,
@@ -677,6 +684,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		051ECAF726F9336F00D05B17 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ninjaprox/NVActivityIndicatorView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		051ECAF826F9336F00D05B17 /* NVActivityIndicatorView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 051ECAF726F9336F00D05B17 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */;
+			productName = NVActivityIndicatorView;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0FF8F64326C31FFB001F228E /* Project object */;
 }
