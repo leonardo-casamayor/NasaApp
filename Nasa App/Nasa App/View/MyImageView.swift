@@ -13,8 +13,13 @@ class MyImageView: UIImageView {
     static var cache = NSCache<AnyObject, UIImage>()
     var url: URL?
     
+    func encodeURL(urlString: String) -> String? {
+        urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+    }
+    
     func loadImages(from stringURL: String) {
-        self.url = URL(string: stringURL)
+        guard let encodedURL = encodeURL(urlString: stringURL) else { return }
+        self.url = URL(string: encodedURL)
         let activityIndicator = self.activityIndicator
         
         if let cachedImage = MyImageView.cache.object(forKey: url as AnyObject) {

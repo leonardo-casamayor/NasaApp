@@ -49,12 +49,10 @@ struct FavoritesTabConstants {
 }
 
 struct CollectionViewConstants {
-    static let cancel = "Cancel"
-    static let okay = "Okay"
-    static let error = "Error"
-    static let noMatches = "No matches found"
-    static let noResult = "Your search did not match any result"
-    static let retry = "Retry?"
+    static let conectionError = "There has been an issue reaching the servers"
+    static let noResult = "Your search did not match any results"
+    static let glass: UIImage? = UIImage(systemName: "magnifyingglass")
+    static let wifi: UIImage? = UIImage(systemName: "wifi.slash")
     struct LayoutSize {
         let columns: Int
         let height: CGFloat

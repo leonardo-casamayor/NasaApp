@@ -8,11 +8,24 @@
 import UIKit
 
 class PopularViewController: UIViewController, UISearchControllerDelegate, UISearchBarDelegate {
+    @IBOutlet weak var errorView: UIView!
+    @IBOutlet weak var errorImage: UIImageView!
+    @IBOutlet weak var errorLabel: UILabel!
     let dataLoader = SearchingController()
     private let collectionView = UICollectionView(frame: .zero,collectionViewLayout: CollectionViewHelper.generateLayout(size: CollectionViewConstants.LayoutSize(columns: 2, height: 1/3)))
     private let searchController = UISearchController(searchResultsController: nil)
     private var didSearch: Bool = false
-    
+    private var isSearchErrorShowing: Bool = false {
+        didSet {
+            showErrorView(image: CollectionViewConstants.glass!, text: CollectionViewConstants.noResult, isSearchErrorShowing)
+        }
+    }
+    private var isConectionErrorShowing: Bool = false {
+        didSet {
+            showErrorView(image: CollectionViewConstants.wifi!, text: CollectionViewConstants.conectionError, isConectionErrorShowing)
+
+        }
+    }
     
     override func viewDidLoad() {
         setupCollectionViewController()
@@ -63,21 +76,17 @@ class PopularViewController: UIViewController, UISearchControllerDelegate, UISea
                 DispatchQueue.main.async {
                     strongSelf.collectionView.reloadData()
                     if strongSelf.dataLoader.media?.collection.items.count == 0 && strongSelf.didSearch {
-                        strongSelf.displayAlert(error: CollectionViewConstants.noMatches,
-                                                message: CollectionViewConstants.noResult,
-                                                buttonTitle: CollectionViewConstants.okay,
-                                                action: AlertActions.NoMatches)
+                        if !strongSelf.isSearchErrorShowing {
+                            strongSelf.isSearchErrorShowing.toggle()
+                        }
                     }
                 }
             case .failure(_):
                 let error = strongSelf.dataLoader.error
+                print("\(String(describing: error))")
                 DispatchQueue.main.async {
-                    strongSelf.displayAlert(error: CollectionViewConstants.error,
-                                            message: "\(error.debugDescription)",
-                                            buttonTitle: CollectionViewConstants.cancel,
-                                            action: AlertActions.ErrorLoadingData)
+                    strongSelf.isConectionErrorShowing.toggle()
                 }
-                
             }
         }
     }
@@ -95,6 +104,7 @@ extension PopularViewController: UICollectionViewDataSource {
         
         let path = indexPath.row
         if let image = dataLoader.media?.collection.items[path].links[0].href {
+            print(image)
             DispatchQueue.main.async {
                 cell.imageView.loadImages(from: image)
             }
@@ -128,37 +138,28 @@ extension PopularViewController {
         guard let searchText = searchBar.text else { return }
         if searchText != "" {
             let query = ["q":"\(searchText)",
-                         "media_type":"video,image"]
+                         "media_type":"image,video"]
             populateMedia(queryDictionary: query)
             searchController.isActive = false
             didSearch = true
+            if isSearchErrorShowing { isSearchErrorShowing.toggle() }
+            if isConectionErrorShowing { isConectionErrorShowing.toggle() }
         }
     }
 }
-// MARK: Alert Messages
+// Error setup
 extension PopularViewController {
-    enum AlertActions {
-        case NoMatches
-        case ErrorLoadingData
-    }
-    
-    func displayAlert(error: String,
-                      message: String,
-                      buttonTitle: String,
-                      action: AlertActions) {
-        let alert = UIAlertController(title: error, message: message, preferredStyle: .alert)
-        switch action {
-        case.ErrorLoadingData:
-            alert.addAction(UIAlertAction(title: CollectionViewConstants.retry, style: .destructive, handler: { action in
-                self.populateMedia(queryDictionary: MediaApiConstants.defaultPopularSearch)
-            }))
-            alert.addAction(UIAlertAction(title: buttonTitle, style: .default, handler: nil))
-        
-        case .NoMatches:
-            alert.addAction(UIAlertAction(title: buttonTitle, style: .default, handler: nil))
-        
+    func showErrorView(image: UIImage, text: String, _ option: Bool) {
+        self.errorImage.image = image
+        self.errorImage.clipsToBounds = true
+        self.errorImage.contentMode = .scaleAspectFit
+        self.errorLabel.text = text
+        self.errorLabel.font = UIFont.systemFont(ofSize: 28, weight: .semibold)
+        self.errorLabel.textColor = UIColor.white
+        UIView.animate(withDuration: 0.5) {
+            self.errorView.backgroundColor = UIColor(red: 0.7, green: 0.7, blue: 0.7, alpha: 0.5)
+            self.errorView.alpha = option ? 1 : 0
+            self.errorView.isHidden = false
         }
-        
-        
-        self.present(alert, animated: true)}
+    }
 }
