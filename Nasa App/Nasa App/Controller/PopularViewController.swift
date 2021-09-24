@@ -104,7 +104,6 @@ extension PopularViewController: UICollectionViewDataSource {
         
         let path = indexPath.row
         if let image = dataLoader.media?.collection.items[path].links[0].href {
-            print(image)
             DispatchQueue.main.async {
                 cell.imageView.loadImages(from: image)
             }
