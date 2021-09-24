@@ -78,8 +78,9 @@ class CollectionCell: UICollectionViewCell {
     }
     func configureCellWith(data: [NasaData]) {
         self.dateLabel.text = DateFormat.formatDate(dateString: data[0].dateCreated)
-        self.titleLabel.text = data[0].title.lowercased().trunc(length: 30).capitalized
-        self.titleLabel.font = (data[0].title.count > 30) ? UIFont.systemFont(ofSize: 22, weight: .semibold) : UIFont.systemFont(ofSize: 28, weight: .semibold)
+        self.titleLabel.text = data[0].title.lowercased().trunc(length: 32).capitalized
+        self.titleLabel.font = (data[0].title.count > 25) ? UIFont.systemFont(ofSize: 22, weight: .semibold) : UIFont.systemFont(ofSize: 28, weight: .semibold)
+        self.titleLabel.adjustsFontSizeToFitWidth = true
     }
 }
 
