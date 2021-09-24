@@ -39,6 +39,17 @@ class LandingViewController: UIViewController {
             }
         }
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        RotationHelper.lockOrientation(.portrait)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        RotationHelper.lockOrientation(.all)
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         if animate{
             animations()
