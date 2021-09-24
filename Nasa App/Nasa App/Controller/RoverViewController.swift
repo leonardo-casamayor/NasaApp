@@ -20,11 +20,11 @@ class RoverViewController: UIViewController, UICollectionViewDataSource, UIColle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getPhotos {
+        getPhotos(completed: {
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
             }
-        }
+        })
         collectionView.delegate = self
         collectionView.dataSource = self
         setupCollectionViewController()
@@ -51,15 +51,15 @@ extension RoverViewController {
             height: (view.frame.size.width / 2)-2
         )
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 1
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt: Int) -> CGFloat {
         return 1
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 1, left: 1, bottom: 1, right: 1)
     }
