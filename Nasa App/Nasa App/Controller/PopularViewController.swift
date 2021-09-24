@@ -31,7 +31,7 @@ class PopularViewController: UIViewController, UISearchControllerDelegate, UISea
         setupCollectionViewController()
         collectionView.dataSource = self
         collectionView.delegate = self
-        
+        initialView()
         searchController.searchBar.delegate = self
         populateMedia(queryDictionary: MediaApiConstants.defaultPopularSearch)
     }
@@ -41,6 +41,16 @@ class PopularViewController: UIViewController, UISearchControllerDelegate, UISea
         view.backgroundColor = GeneralConstants.nasaBlue
         setupSearchBar()
         setupCollectionView()
+        collectionView.alpha = 0
+    }
+    
+    private func initialView() {
+        DispatchQueue.main.async {
+            self.errorView.isHidden = false
+            UIView.animate(withDuration: 1) {
+                self.errorView.alpha = 0
+            }
+        }
     }
     
     private func setupCollectionView() {
@@ -74,6 +84,9 @@ class PopularViewController: UIViewController, UISearchControllerDelegate, UISea
             switch result {
             case .success(_):
                 DispatchQueue.main.async {
+                    UIView.animate(withDuration: 0.5){
+                        strongSelf.collectionView.alpha = 1
+                    }
                     if strongSelf.isSearchErrorShowing { strongSelf.isSearchErrorShowing.toggle() }
                     if strongSelf.isConectionErrorShowing { strongSelf.isConectionErrorShowing.toggle() }
                     strongSelf.collectionView.reloadData()
