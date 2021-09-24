@@ -74,6 +74,8 @@ class PopularViewController: UIViewController, UISearchControllerDelegate, UISea
             switch result {
             case .success(_):
                 DispatchQueue.main.async {
+                    if strongSelf.isSearchErrorShowing { strongSelf.isSearchErrorShowing.toggle() }
+                    if strongSelf.isConectionErrorShowing { strongSelf.isConectionErrorShowing.toggle() }
                     strongSelf.collectionView.reloadData()
                     if strongSelf.dataLoader.media?.collection.items.count == 0 && strongSelf.didSearch {
                         if !strongSelf.isSearchErrorShowing {
@@ -85,7 +87,9 @@ class PopularViewController: UIViewController, UISearchControllerDelegate, UISea
                 let error = strongSelf.dataLoader.error
                 print("\(String(describing: error))")
                 DispatchQueue.main.async {
+                    if !strongSelf.isConectionErrorShowing {
                     strongSelf.isConectionErrorShowing.toggle()
+                    }
                 }
             }
         }
@@ -141,8 +145,6 @@ extension PopularViewController {
             populateMedia(queryDictionary: query)
             searchController.isActive = false
             didSearch = true
-            if isSearchErrorShowing { isSearchErrorShowing.toggle() }
-            if isConectionErrorShowing { isConectionErrorShowing.toggle() }
         }
     }
 }
