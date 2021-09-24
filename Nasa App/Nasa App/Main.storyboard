@@ -239,7 +239,7 @@
                                             <constraint firstAttribute="width" secondItem="ILW-Pf-hVe" secondAttribute="height" multiplier="1:1" id="gkx-6s-AG0"/>
                                         </constraints>
                                     </imageView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qZS-n1-5Rg">
+                                    <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qZS-n1-5Rg">
                                         <rect key="frame" x="25" y="581.66666666666663" width="378" height="143.33333333333337"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h46-4v-gJI">
@@ -295,6 +295,7 @@
                         <outlet property="errorImage" destination="ILW-Pf-hVe" id="EBE-e9-m1U"/>
                         <outlet property="errorLabel" destination="h46-4v-gJI" id="JHY-U1-88f"/>
                         <outlet property="errorView" destination="Mba-5b-idL" id="kka-Cu-qTq"/>
+                        <outlet property="labelContainer" destination="qZS-n1-5Rg" id="8aC-r6-FrF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q8Q-dU-83k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

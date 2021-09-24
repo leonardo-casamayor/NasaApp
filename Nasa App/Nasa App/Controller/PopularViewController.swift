@@ -8,6 +8,7 @@
 import UIKit
 
 class PopularViewController: UIViewController, UISearchControllerDelegate, UISearchBarDelegate {
+    @IBOutlet weak var labelContainer: UIView!
     @IBOutlet weak var errorView: UIView!
     @IBOutlet weak var errorImage: UIImageView!
     @IBOutlet weak var errorLabel: UILabel!
@@ -175,5 +176,6 @@ extension PopularViewController {
             self.errorView.alpha = option ? 1 : 0
             self.errorView.isHidden = false
         }
+        self.labelContainer.alpha = 1
     }
 }
