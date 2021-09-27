@@ -9,15 +9,14 @@ import UIKit
 import SwiftUI
 
 class RoverDetailView: UIViewController {
-    
     private var views:[UIView] = []
+    var receivedData: Photo? = nil
     
     //MARK: Views
     private let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFill
-        imageView.image = UIImage(named: "popular-example")
         return imageView
     }()
     
@@ -29,23 +28,13 @@ class RoverDetailView: UIViewController {
     
     var cameraName: UILabel! = {
         let label = UILabel()
-        label.text = "Camera"
         label.textColor = UIColor.white
         label.font = UIFont.systemFont(ofSize: 14, weight: .medium)
         return label
     }()
     
-    var roverName: UILabel! = {
-        let label = UILabel()
-        label.text = "Name"
-        label.textColor = UIColor.white
-        label.font = UIFont.systemFont(ofSize: 10, weight: .medium)
-        return label
-    }()
-    
     var dateLabel: UILabel! = {
         let label = UILabel()
-        label.text = "Date"
         label.textColor = UIColor.white
         label.font = UIFont.systemFont(ofSize: 10, weight: .medium)
         return label
@@ -53,7 +42,6 @@ class RoverDetailView: UIViewController {
     
     var roverStatus: UILabel! = {
         let label = UILabel()
-        label.text = "Status"
         label.textColor = UIColor.white
         label.font = UIFont.systemFont(ofSize: 10, weight: .medium)
         return label
@@ -62,7 +50,9 @@ class RoverDetailView: UIViewController {
     //MARK: Initialization and setup
     override func loadView() {
         view = UIView()
-        configureNavigationBar(largeTitleColor: .black, backgroundColor: .white, tintColor: .white, title: "title", preferredLargeTitle: true)
+        guard let validData = receivedData else { return }
+        configureNavigationBar(largeTitleColor: .black, backgroundColor: .white, tintColor: .white, title: validData.rover.name, preferredLargeTitle: true)
+        setData(from: validData)
     }
     
     override func viewDidLoad() {
@@ -71,21 +61,29 @@ class RoverDetailView: UIViewController {
     }
     
     private func setupView() {
-        views = [imageView, transparentView, roverName, dateLabel, cameraName, roverStatus]
+        views = [imageView, transparentView, dateLabel, cameraName, roverStatus]
         views.forEach { view.addSubview($0) }
         setupConstraints()
     }
-    
+}
+
+
+extension RoverDetailView {
+    private func setData(from photo: Photo) {
+        let imageURL = RoverViewController().validURL(urlString: photo.imgSrc)
+        imageView.downloadedFrom(from: imageURL)
+        cameraName.text = photo.camera.fullName
+        dateLabel.text = photo.earthDate
+        roverStatus.text = "status: \(photo.rover.status)"
+    }
 }
 
 extension RoverDetailView {
-    
     private func setupConstraints() {
         imageViewContraints()
         transparentViewConstraints()
         cameraNameConstraints()
         dateLabelConstraints()
-        roverNameLabel()
         roverStatusConstraints()
     }
     
@@ -119,15 +117,10 @@ extension RoverDetailView {
         dateLabel.topAnchor.constraint(equalTo: cameraName.topAnchor, constant: 20).isActive = true
     }
     
-    private func roverNameLabel() {
-        roverName.translatesAutoresizingMaskIntoConstraints = false
-        roverName.leftAnchor.constraint(equalTo: transparentView.leftAnchor, constant: 10).isActive = true
-        roverName.topAnchor.constraint(equalTo: dateLabel.topAnchor, constant: 15).isActive = true
-    }
     
     private func roverStatusConstraints() {
         roverStatus.translatesAutoresizingMaskIntoConstraints = false
         roverStatus.leftAnchor.constraint(equalTo: transparentView.leftAnchor, constant: 10).isActive = true
-        roverStatus.topAnchor.constraint(equalTo: roverName.topAnchor, constant: 15).isActive = true
+        roverStatus.topAnchor.constraint(equalTo: dateLabel.topAnchor, constant: 15).isActive = true
     }
 }

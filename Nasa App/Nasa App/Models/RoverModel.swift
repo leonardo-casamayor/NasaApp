@@ -14,12 +14,13 @@ struct NasaRover: Codable {
 
 // MARK: - Photo
 struct Photo: Codable {
-    
+    let camera: Camera
     let imgSrc: String
     let earthDate: String
     let rover: Rover
 
     enum CodingKeys: String, CodingKey {
+        case camera
         case imgSrc = "img_src"
         case earthDate = "earth_date"
         case rover

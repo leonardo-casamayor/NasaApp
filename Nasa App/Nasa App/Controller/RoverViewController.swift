@@ -42,11 +42,10 @@ class RoverViewController: UIViewController, UICollectionViewDataSource, UIColle
         collectionView.frame = view.bounds
     }
     
-    private func sendToCellDetails() {
-        // setup here any data we will pass to the next viewcontroller
-        // guard let destinationVC = self.storyboard?.instantiateViewController(withIdentifier: "RoverDetailView") as? RoverDetailView else { return }
+    private func sendToCellDetails(index :Int) {
         let destinationVC = RoverDetailView()
         self.navigationController?.pushViewController(destinationVC, animated: true)
+        destinationVC.receivedData = roverPhotos?.photos[index]
     }
 }
 
@@ -83,18 +82,27 @@ extension RoverViewController {
         
         let link = roverPhotos?.photos[indexPath.row].imgSrc
         guard var validLink = link else { return cell }
-        // Turning the links from the response into 'https' instead of 'http'
-        validLink.insert(contentsOf: "s", at: validLink.index(validLink.startIndex, offsetBy: 4))
+        
+        validLink = validURL(urlString: validLink)
         cell.imageView.downloadedFrom(from: validLink)
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("selected", indexPath.row)
-        sendToCellDetails()
+        sendToCellDetails(index: indexPath.row)
     }
 }
+
+// MARK: Parse URL from the response turn it into HTTPS
+extension RoverViewController {
+    func validURL(urlString: String) -> String {
+        var validURL = urlString
+        validURL.insert(contentsOf: "s", at: urlString.index(urlString.startIndex, offsetBy: 4))
+        return validURL
+    }
+}
+
 
 
 
