@@ -18,7 +18,7 @@ class CollectionCell: UICollectionViewCell {
         label.textColor = UIColor.white
         label.font = UIFont.systemFont(ofSize: 28, weight: .semibold)
         label.numberOfLines = 2
-        label.minimumScaleFactor = 0.8
+        label.minimumScaleFactor = 0.6
         label.adjustsFontSizeToFitWidth = true
         return label
     }()
