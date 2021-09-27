@@ -39,7 +39,7 @@ class PopularViewController: UIViewController, UISearchControllerDelegate, UISea
         setupCollectionViewController()
         collectionView.dataSource = self
         collectionView.delegate = self
-        initialView()
+        showActivityIndicator()
         searchController.searchBar.delegate = self
         populateMedia(queryDictionary: MediaApiConstants.defaultPopularSearch)
     }
@@ -49,21 +49,12 @@ class PopularViewController: UIViewController, UISearchControllerDelegate, UISea
         view.backgroundColor = GeneralConstants.nasaBlue
         setupSearchBar()
         setupCollectionView()
-        collectionView.alpha = 0
-    }
-    
-    private func initialView() {
-        DispatchQueue.main.async {
-            self.errorView.isHidden = false
-            UIView.animate(withDuration: 1) {
-                self.errorView.alpha = 0
-            }
-        }
     }
     
     private func setupCollectionView() {
         CollectionViewHelper.setupCollectionView(self, collectionView: collectionView, traitCollection: traitCollection, identifier: CollectionCell.PopularIdentifier)
         collectionViewConstraints()
+        collectionView.alpha = 0
     }
     
     private func setupSearchBar() {
@@ -110,6 +101,7 @@ class PopularViewController: UIViewController, UISearchControllerDelegate, UISea
                 let error = strongSelf.dataLoader.error
                 print("\(String(describing: error))")
                 DispatchQueue.main.async {
+                    strongSelf.hideActivityIndicator()
                     if !strongSelf.isConectionErrorShowing {
                     strongSelf.isConectionErrorShowing.toggle()
                     }
@@ -197,12 +189,12 @@ extension PopularViewController {
             self.loadingView = UIView()
             self.loadingView.frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.size.width, height: self.view.frame.size.height)
             self.loadingView.backgroundColor = UIColor.black
-            self.loadingView.alpha = 0.7
+            self.loadingView.alpha = 1
             self.loadingView.clipsToBounds = true
             self.loadingView.layer.cornerRadius = 10
             self.loadingBackground = UIImageView()
             self.loadingBackground.image = #imageLiteral(resourceName: "errorBackground")
-            self.loadingBackground.alpha = 0.7
+            self.loadingBackground.alpha = 1
             self.loadingBackground.frame = self.loadingView.frame
             self.loadingBackground.clipsToBounds = true
             
