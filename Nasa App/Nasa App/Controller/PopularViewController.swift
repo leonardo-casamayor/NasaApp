@@ -18,12 +18,16 @@ class PopularViewController: UIViewController, UISearchControllerDelegate, UISea
     private var didSearch: Bool = false
     private var isSearchErrorShowing: Bool = false {
         didSet {
-            showErrorView(image: CollectionViewConstants.glass!, text: CollectionViewConstants.noResult, isSearchErrorShowing)
+            showErrorView(image: CollectionViewConstants.glass!,
+                          text: CollectionViewConstants.noResult,
+                          isSearchErrorShowing)
         }
     }
     private var isConectionErrorShowing: Bool = false {
         didSet {
-            showErrorView(image: CollectionViewConstants.wifi!, text: CollectionViewConstants.conectionError, isConectionErrorShowing)
+            showErrorView(image: CollectionViewConstants.wifi!,
+                          text: CollectionViewConstants.conectionError,
+                          isConectionErrorShowing)
 
         }
     }
