@@ -97,7 +97,7 @@ extension CollectionCell {
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.leftAnchor.constraint(equalTo: transparentView.leftAnchor, constant: 10).isActive = true
         titleLabel.rightAnchor.constraint(equalTo: transparentView.rightAnchor,constant: -10).isActive = true
-        titleLabel.topAnchor.constraint(equalTo: transparentView.topAnchor,constant: 2).isActive = true
+        titleLabel.topAnchor.constraint(equalTo: transparentView.topAnchor,constant: 8).isActive = true
         titleLabel.bottomAnchor.constraint(equalTo: dateLabel.topAnchor, constant: -2).isActive = true
     }
     
