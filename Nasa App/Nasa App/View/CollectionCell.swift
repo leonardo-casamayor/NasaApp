@@ -18,6 +18,7 @@ class CollectionCell: UICollectionViewCell {
         label.textColor = UIColor.white
         label.font = UIFont.systemFont(ofSize: 28, weight: .semibold)
         label.numberOfLines = 2
+        label.adjustsFontSizeToFitWidth = true
         return label
     }()
     
@@ -79,8 +80,8 @@ class CollectionCell: UICollectionViewCell {
     }
     func configureCellWith(data: [NasaData]) {
         self.dateLabel.text = DateFormat.formatDate(dateString: data[0].dateCreated)
-        self.titleLabel.text = data[0].title.lowercased().trunc(length: 75).capitalized
-        self.titleLabel.font = (data[0].title.count > 25) ? UIFont.systemFont(ofSize: 20, weight: .semibold) : UIFont.systemFont(ofSize: 28, weight: .semibold)
+        self.titleLabel.text = data[0].title.lowercased().trunc(length: 100).capitalized
+        print(titleLabel.frame.size.width)
     }
 }
 
@@ -97,6 +98,8 @@ extension CollectionCell {
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.leftAnchor.constraint(equalTo: transparentView.leftAnchor, constant: 10).isActive = true
         titleLabel.rightAnchor.constraint(equalTo: transparentView.rightAnchor,constant: -10).isActive = true
+        titleLabel.topAnchor.constraint(equalTo: transparentView.topAnchor,constant: 2).isActive = true
+        titleLabel.bottomAnchor.constraint(equalTo: dateLabel.topAnchor, constant: -2).isActive = true
         titleLabel.bottomAnchor.constraint(equalTo: transparentView.centerYAnchor, constant: 8).isActive = true
     }
     
