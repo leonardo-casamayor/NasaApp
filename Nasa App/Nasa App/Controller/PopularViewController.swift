@@ -95,6 +95,8 @@ class PopularViewController: UIViewController, UISearchControllerDelegate, UISea
                     if strongSelf.isSearchErrorShowing { strongSelf.isSearchErrorShowing.toggle() }
                     if strongSelf.isConectionErrorShowing { strongSelf.isConectionErrorShowing.toggle() }
                     strongSelf.collectionView.reloadData()
+                    strongSelf.collectionView.setContentOffset(CGPoint(x:0,y:0), animated: true)
+
                     if strongSelf.dataLoader.media?.collection.items.count == 0 && strongSelf.didSearch {
                         if !strongSelf.isSearchErrorShowing {
                             strongSelf.isSearchErrorShowing.toggle()

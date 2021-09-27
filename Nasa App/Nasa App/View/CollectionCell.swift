@@ -25,7 +25,7 @@ class CollectionCell: UICollectionViewCell {
     private var dateLabel: UILabel = {
         let label = UILabel()
         label.textColor = UIColor.white
-        label.font = UIFont.systemFont(ofSize: 12, weight: .semibold)
+        label.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
         return label
     }()
     
@@ -99,7 +99,6 @@ extension CollectionCell {
         titleLabel.rightAnchor.constraint(equalTo: transparentView.rightAnchor,constant: -10).isActive = true
         titleLabel.topAnchor.constraint(equalTo: transparentView.topAnchor,constant: 2).isActive = true
         titleLabel.bottomAnchor.constraint(equalTo: dateLabel.topAnchor, constant: -2).isActive = true
-        titleLabel.bottomAnchor.constraint(equalTo: transparentView.centerYAnchor, constant: 8).isActive = true
     }
     
     private func dateLabelConstraints() {
