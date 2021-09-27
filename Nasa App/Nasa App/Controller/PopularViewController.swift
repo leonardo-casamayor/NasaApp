@@ -14,6 +14,7 @@ class PopularViewController: UIViewController, UISearchControllerDelegate, UISea
     @IBOutlet weak var errorLabel: UILabel!
     var spinner = UIActivityIndicatorView()
     var loadingView: UIView = UIView()
+    var loadingBackground: UIImageView = UIImageView()
     let dataLoader = SearchingController()
     private let collectionView = UICollectionView(frame: .zero,collectionViewLayout: CollectionViewHelper.generateLayout(size: CollectionViewConstants.LayoutSize(columns: 2, height: 1/3)))
     private let searchController = UISearchController(searchResultsController: nil)
@@ -199,13 +200,20 @@ extension PopularViewController {
             self.loadingView.alpha = 0.7
             self.loadingView.clipsToBounds = true
             self.loadingView.layer.cornerRadius = 10
-
+            self.loadingBackground = UIImageView()
+            self.loadingBackground.image = #imageLiteral(resourceName: "errorBackground")
+            self.loadingBackground.alpha = 0.7
+            self.loadingBackground.frame = self.loadingView.frame
+            self.loadingBackground.clipsToBounds = true
+            
             self.spinner = UIActivityIndicatorView()
+            self.spinner.style = .large
             self.spinner.color = .white
             self.spinner.hidesWhenStopped = true
             self.spinner.frame = CGRect(x: 0.0, y: 0.0, width: 200.0, height: 200.0)
             self.spinner.center = CGPoint(x:self.loadingView.bounds.size.width / 2, y:self.loadingView.bounds.size.height / 2)
-
+            
+            self.loadingView.addSubview(self.loadingBackground)
             self.loadingView.addSubview(self.spinner)
             self.view.addSubview(self.loadingView)
             self.spinner.startAnimating()
