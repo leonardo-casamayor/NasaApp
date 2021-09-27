@@ -41,6 +41,13 @@ class RoverViewController: UIViewController, UICollectionViewDataSource, UIColle
         super.viewDidLayoutSubviews()
         collectionView.frame = view.bounds
     }
+    
+    private func sendToCellDetails() {
+        // setup here any data we will pass to the next viewcontroller
+        // guard let destinationVC = self.storyboard?.instantiateViewController(withIdentifier: "RoverDetailView") as? RoverDetailView else { return }
+        let destinationVC = RoverDetailView()
+        self.navigationController?.pushViewController(destinationVC, animated: true)
+    }
 }
 
 // MARK: CollectionView Setup
@@ -85,6 +92,7 @@ extension RoverViewController {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("selected", indexPath.row)
+        sendToCellDetails()
     }
 }
 

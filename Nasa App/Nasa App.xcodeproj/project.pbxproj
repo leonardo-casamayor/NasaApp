@@ -32,6 +32,7 @@
 		9CE0478C26FBD7F00076D191 /* RoverModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE0478B26FBD7F00076D191 /* RoverModel.swift */; };
 		9CE0478F26FD01620076D191 /* RoverImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE0478E26FD01620076D191 /* RoverImageService.swift */; };
 		9CE0479226FD01D50076D191 /* RoverDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE0479126FD01D50076D191 /* RoverDataService.swift */; };
+		9CE0479526FE6DD70076D191 /* RoverDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE0479426FE6DD70076D191 /* RoverDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		9CE0478B26FBD7F00076D191 /* RoverModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoverModel.swift; sourceTree = "<group>"; };
 		9CE0478E26FD01620076D191 /* RoverImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoverImageService.swift; sourceTree = "<group>"; };
 		9CE0479126FD01D50076D191 /* RoverDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoverDataService.swift; sourceTree = "<group>"; };
+		9CE0479426FE6DD70076D191 /* RoverDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoverDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 		05200AFF26E2A57000295A04 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9CE0479326FE6D750076D191 /* RoverDetailView */,
 				30C902D726E9144800CBDCB0 /* CellDetailView */,
 				05FAA15C26DD1CED00460507 /* CollectionCell.swift */,
 				9C0C2D7C26FA500A00CA40BF /* RoverCollectionViewCell.swift */,
@@ -226,6 +229,14 @@
 				9CE0479126FD01D50076D191 /* RoverDataService.swift */,
 			);
 			path = RoverServices;
+			sourceTree = "<group>";
+		};
+		9CE0479326FE6D750076D191 /* RoverDetailView */ = {
+			isa = PBXGroup;
+			children = (
+				9CE0479426FE6DD70076D191 /* RoverDetailView.swift */,
+			);
+			path = RoverDetailView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -362,6 +373,7 @@
 				059C5F0126DAEBA7006B7C46 /* LoginViewController.swift in Sources */,
 				9CE0479226FD01D50076D191 /* RoverDataService.swift in Sources */,
 				9C7CD60026F3CD090059AAE4 /* RoverViewController.swift in Sources */,
+				9CE0479526FE6DD70076D191 /* RoverDetailView.swift in Sources */,
 				0521590326DAE77A00B266A9 /* LandingViewController.swift in Sources */,
 				30C902DA26E9144800CBDCB0 /* CellDetailViewController.swift in Sources */,
 				05CE26FD26D04C8B000FF7CA /* CustomButton.swift in Sources */,
