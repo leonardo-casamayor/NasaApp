@@ -14,6 +14,7 @@ class RoverViewController: UIViewController {
     
     override func viewDidLoad() {
         setupCollectionViewController()
+        FetchRover().getRoverData()
     }
     
     private func setupCollectionViewController() {
