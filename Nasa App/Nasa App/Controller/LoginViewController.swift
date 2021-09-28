@@ -22,16 +22,6 @@ class LoginViewController: UIViewController {
         viewControllerSetUp()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        RotationHelper.lockOrientation(.portrait)
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        RotationHelper.lockOrientation(.all)
-    }
-    
     //MARK: Formatting
     private func viewControllerSetUp() {
         //gesture setup
