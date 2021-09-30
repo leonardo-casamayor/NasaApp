@@ -28,14 +28,19 @@ class LandingViewController: UIViewController {
         super.viewDidLoad()
         setupViewController()
         networkManager.retrieveApodData { [weak self] result in
+            guard let strongSelf = self else { return }
             switch result {
             case .success(let data):
                 DispatchQueue.main.async {
-                    guard let strongSelf = self else { return }
+                    guard let activtyIndicator = strongSelf.activtyIndicator else { return }
+                    activtyIndicator.startAnimating()
                     strongSelf.loadData(data: data)
                 }
             case .failure(_):
-                return
+                DispatchQueue.main.async {
+                    strongSelf.loadData(data: LandingConstants.apodMock, isMockData: true)
+
+                }
             }
         }
     }
@@ -53,7 +58,6 @@ class LandingViewController: UIViewController {
         activtyIndicator = NVActivityIndicatorView(frame: image.frame, type: .orbit, color: .white, padding: 200)
         guard let activityIndicatorU = self.activtyIndicator else { return }
         gradientView.addSubview(activityIndicatorU)
-        activityIndicatorU.startAnimating()
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -80,7 +84,7 @@ class LandingViewController: UIViewController {
 }
 
 extension LandingViewController {
-    private func loadData(data: APODElement) {
+    private func loadData(data: APODElement, isMockData: Bool = false) {
         let url = data.mediaType == ApodMediaType.image ? data.url : data.thumbnailUrl
         guard let imageUrl = url else {
             return
@@ -91,12 +95,14 @@ extension LandingViewController {
             guard let data = data else {
                 return
             }
+            
             let image = UIImage(data: data)
             DispatchQueue.main.async { [weak self] in
                 guard let strongSelf = self else { return }
                 strongSelf.image.image = image
                 guard let activtyIndicator = strongSelf.activtyIndicator else { return }
                 activtyIndicator.stopAnimating()
+            
             }
         }
         dataTask.resume()
@@ -113,6 +119,9 @@ extension LandingViewController {
             guard let strongSelf = self else { return }
             strongSelf.subtitleLabel.text = subtitle
             strongSelf.explanationLabel.text = data.explanation
+            if isMockData {
+                strongSelf.image.image = #imageLiteral(resourceName: "apod-example")
+            }
         }
     }
 }
