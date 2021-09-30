@@ -10,7 +10,7 @@ import Foundation
 // MARK: Get JSON Data
 extension RoverViewController {
     func getPhotos(completed: @escaping () -> ()) {
-        let url = URL(string: "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2015-6-3&api_key=ezs9fJo4LZbTb4mHX9qdcclsfLNmxxsqJ6dAX2e5")
+        let url = URL(string: DetailPlaceholderInfo.roverUrl)
         guard let validURL = url else { return }
         let task = URLSession.shared.dataTask(with: validURL, completionHandler: { (data, response, error) in
             guard let fetchedData = data else { return }
