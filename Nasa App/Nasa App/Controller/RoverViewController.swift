@@ -22,6 +22,7 @@ class RoverViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         setupCollectionViewController()
+        FetchRover().getRoverData()
     }
 
     private func setupCollectionViewController() {
