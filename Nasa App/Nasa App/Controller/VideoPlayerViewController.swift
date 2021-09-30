@@ -31,7 +31,7 @@ class VideoPlayerViewController: UIViewController {
     var playerLayer: AVPlayerLayer!
     var isVideoPlaying: Bool = false
     var didFinishVideo: Bool = false
-    
+    var videoUrl: String?
     var controlsTimer: Timer?
     var isShowingViews: Bool = false {
         didSet {
@@ -162,7 +162,10 @@ class VideoPlayerViewController: UIViewController {
     
     //MARK: - VideoPlayerSetup
     func setUpVideoPlayer() {
-        guard let url = URL(string: VideoPlayerConstants.videoUrl) else { return }
+        guard let url = videoUrl else {
+            return
+        }
+        guard let url = URL(string: url) else { return }
         player = AVPlayer(url: url)
         player.currentItem?.addObserver(self, forKeyPath: VideoPlayerConstants.duration, options: [.new, .initial], context: nil)
         addTimeObserver()

@@ -14,10 +14,15 @@ enum NetworkError: Error {
     case InvalidApiKey
     case ResourceNotFound
     case ServerError
+    case ParsingError
     case UnexpectedNetworkError
 }
 protocol ApodClient {
     func retrieveApodData(completion: @escaping (Result<APODElement, Error>) -> Void)
+}
+
+protocol AssetRetriever {
+    func retrieveAssets(assetsUrl: String, completion: @escaping (Result<[String], Error>) -> Void)
 }
 
 class NetworkManager {
@@ -26,9 +31,7 @@ class NetworkManager {
     }
     
     static func handle(data: Data) -> APODElement? {
-//        let decoder = JSONDecoder()
         try? JSONDecoder().decode(APODElement.self, from: data)
-//        try? JSONSerialization.jsonObject(with: data, options: []) as? APODElement
     }
 }
 
@@ -82,3 +85,27 @@ extension NetworkManager: ApodClient {
     }
 }
 
+extension NetworkManager: AssetRetriever {
+    func retrieveAssets(assetsUrl: String, completion: @escaping (Result<[String], Error>) -> Void) {
+        guard let url = URL(string: assetsUrl) else {
+            completion(.failure(NetworkError.BadURL))
+            return
+        }
+        let session = URLSession.shared
+        let request = URLRequest(url: url)
+        let task = session.dataTask(with: request){ (data, response, error) in
+            
+            guard let dataUnwrap = data,
+                  error == nil else {
+                completion(.failure(NetworkError.ResourceNotFound))
+                return }
+            do {
+                let assets = try JSONDecoder().decode([String].self, from: dataUnwrap)
+                completion(.success(assets))
+            } catch {
+                completion(.failure(NetworkError.ParsingError))
+            }
+        }
+        task.resume()
+    }
+}

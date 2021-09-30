@@ -75,6 +75,9 @@ class PopularViewController: UIViewController, UISearchControllerDelegate, UISea
         // setup here any data we will pass to the next viewcontroller
         guard let destinationVC = self.storyboard?.instantiateViewController(withIdentifier: "CellDetailViewController") as? CellDetailViewController else { return }
         self.navigationController?.pushViewController(destinationVC, animated: true)
+        let index = collectionView.indexPathsForSelectedItems![0][1]
+        destinationVC.nasaData = dataLoader.media?.collection.items[index].data[0]
+        destinationVC.href = dataLoader.media?.collection.items[index].href
     }
     
     func populateMedia(queryDictionary: [String:String]) {
