@@ -26,6 +26,8 @@
 		30C902DB26E9144800CBDCB0 /* CellDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C902D926E9144800CBDCB0 /* CellDetailView.swift */; };
 		30C902E026EA5C8A00CBDCB0 /* VideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C902DF26EA5C8A00CBDCB0 /* VideoPlayerViewController.swift */; };
 		30C902E226EA5CE300CBDCB0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C902E126EA5CE300CBDCB0 /* Constants.swift */; };
+		9C132E91270387D700309539 /* RoverModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C132E90270387D700309539 /* RoverModel.swift */; };
+		9C132E952703881B00309539 /* FetchRover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C132E942703881B00309539 /* FetchRover.swift */; };
 		9C0C2D7D26FA500A00CA40BF /* RoverCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0C2D7C26FA500A00CA40BF /* RoverCollectionViewCell.swift */; };
 		9C7CD60026F3CD090059AAE4 /* RoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7CD5FF26F3CD090059AAE4 /* RoverViewController.swift */; };
 		9C7CD60226F535BC0059AAE4 /* NavigationControllerConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7CD60126F535BC0059AAE4 /* NavigationControllerConfiguration.swift */; };
@@ -77,6 +79,8 @@
 		30C902D926E9144800CBDCB0 /* CellDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellDetailView.swift; sourceTree = "<group>"; };
 		30C902DF26EA5C8A00CBDCB0 /* VideoPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewController.swift; sourceTree = "<group>"; };
 		30C902E126EA5CE300CBDCB0 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		9C132E90270387D700309539 /* RoverModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoverModel.swift; sourceTree = "<group>"; };
+		9C132E942703881B00309539 /* FetchRover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchRover.swift; sourceTree = "<group>"; };
 		9C0C2D7C26FA500A00CA40BF /* RoverCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoverCollectionViewCell.swift; sourceTree = "<group>"; };
 		9C7CD5FF26F3CD090059AAE4 /* RoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoverViewController.swift; sourceTree = "<group>"; };
 		9C7CD60126F535BC0059AAE4 /* NavigationControllerConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationControllerConfiguration.swift; sourceTree = "<group>"; };
@@ -115,6 +119,7 @@
 			children = (
 				30C902D726E9144800CBDCB0 /* CellDetailView */,
 				05FAA15C26DD1CED00460507 /* CollectionCell.swift */,
+				05CE26FC26D04C8B000FF7CA /* CustomButton.swift */,
 				9C0C2D7C26FA500A00CA40BF /* RoverCollectionViewCell.swift */,
 				05CE26FC26D04C8B000FF7CA /* CustomButton.swift */,
 			);
@@ -159,6 +164,8 @@
 			isa = PBXGroup;
 			children = (
 				9CE0478A26FBD7E00076D191 /* Models */,
+				9C132E932703880F00309539 /* Services */,
+				9C132E8F270387BF00309539 /* Models */,
 				309C145A26DD90CA0063BD2F /* Utils */,
 				05200AFF26E2A57000295A04 /* View */,
 				05200B0026E2A57800295A04 /* Controller */,
@@ -226,6 +233,22 @@
 				9CE0479126FD01D50076D191 /* RoverDataService.swift */,
 			);
 			path = RoverServices;
+			sourceTree = "<group>";
+		};
+		9C132E8F270387BF00309539 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9C132E90270387D700309539 /* RoverModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9C132E932703880F00309539 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				9C132E942703881B00309539 /* FetchRover.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -367,10 +390,12 @@
 				05CE26FD26D04C8B000FF7CA /* CustomButton.swift in Sources */,
 				0FF8F64F26C31FFB001F228E /* AppDelegate.swift in Sources */,
 				05FAA15F26DD1F2300460507 /* PopularViewController.swift in Sources */,
+				9C132E91270387D700309539 /* RoverModel.swift in Sources */,
 				309C145C26DD91140063BD2F /* ImageRetrieveController.swift in Sources */,
 				9C0C2D7D26FA500A00CA40BF /* RoverCollectionViewCell.swift in Sources */,
 				05200AF826E2917100295A04 /* FavoriteViewController.swift in Sources */,
 				0FF8F65126C31FFB001F228E /* SceneDelegate.swift in Sources */,
+				9C132E952703881B00309539 /* FetchRover.swift in Sources */,
 				30C902E026EA5C8A00CBDCB0 /* VideoPlayerViewController.swift in Sources */,
 				9CE0478F26FD01620076D191 /* RoverImageService.swift in Sources */,
 				05FAA15D26DD1CED00460507 /* CollectionCell.swift in Sources */,

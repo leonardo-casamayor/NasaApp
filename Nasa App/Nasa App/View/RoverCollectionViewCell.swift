@@ -60,10 +60,6 @@ class RoverCollectionViewCell: UICollectionViewCell {
         imageView.frame = contentView.bounds
     }
 
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        imageView.image = nil
-    }
 }
 
 //MARK: Constraints
