@@ -9,17 +9,17 @@ import Foundation
 import UIKit
 
 extension UIImageView {
-
+    
     /// Returns activity indicator view centrally aligned inside the UIImageView
-    private var activityIndicator: UIActivityIndicatorView {
+    var activityIndicator: UIActivityIndicatorView {
         let activityIndicator = UIActivityIndicatorView()
         activityIndicator.hidesWhenStopped = true
-        activityIndicator.color = UIColor.black
+        activityIndicator.color = UIColor.white
         self.addSubview(activityIndicator)
         
-
+        
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
-
+        
         let centerX = NSLayoutConstraint(item: self,
                                          attribute: .centerX,
                                          relatedBy: .equal,
@@ -37,18 +37,18 @@ extension UIImageView {
         self.addConstraints([centerX, centerY])
         return activityIndicator
     }
-
+    
     /// Asynchronous downloading and setting the image from the provided urlString
     func setImageFrom(_ urlString: String, completion: (() -> Void)? = nil) {
         guard let url = URL(string: urlString) else { return }
-
+        
         let session = URLSession(configuration: .default)
         let activityIndicator = self.activityIndicator
-
+        
         DispatchQueue.main.async {
             activityIndicator.startAnimating()
         }
-
+        
         let downloadImageTask = session.dataTask(with: url) { (data, response, error) in
             if let error = error {
                 print(error.localizedDescription)

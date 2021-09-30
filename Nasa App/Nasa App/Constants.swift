@@ -6,7 +6,19 @@
 //
 
 import UIKit
-
+struct DateFormat {
+    static func formatDate(dateString: String) -> String {
+        let longDateFormatter = DateFormatter()
+        longDateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        if let date = longDateFormatter.date(from: dateString) {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            return dateFormatter.string(from: date)
+        } else {
+            return dateString
+        }
+    }
+}
 struct GeneralConstants {
     static let nasaBlue = UIColor(red:0.02, green:0.24, blue:0.58, alpha:1)
 }
@@ -37,6 +49,10 @@ struct FavoritesTabConstants {
 }
 
 struct CollectionViewConstants {
+    static let conectionError = "There has been an issue reaching the servers"
+    static let noResult = "Your search did not match any results"
+    static let glass: UIImage? = UIImage(systemName: "magnifyingglass")
+    static let wifi: UIImage? = UIImage(systemName: "wifi.slash")
     struct LayoutSize {
         let columns: Int
         let height: CGFloat
@@ -50,9 +66,7 @@ struct MediaApiConstants {
     static let captionEndpoint: String = "/captions/"
     static let albumEndpoint: String = "/album/"
     static let defaultPopularSearch = ["q":"popular",
-                                       "media_type":"image,video",
-                                       "page":"1",
-                                       "year_start":"2012"]
+                                       "media_type":"image,video"]
 }
 
 extension UIImage {
