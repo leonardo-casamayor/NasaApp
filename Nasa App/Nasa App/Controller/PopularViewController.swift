@@ -23,6 +23,12 @@ class PopularViewController: UIViewController, UISearchControllerDelegate, UISea
                                                            queryDictionary: MediaApiConstants.defaultPopularSearch).url)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        RotationHelper.lockOrientation(.portrait)
+        let value = UIInterfaceOrientation.portrait.rawValue
+        UIDevice.current.setValue(value, forKey: "orientation")
+    }
+    
     private func setupCollectionViewController() {
         view.addSubview(collectionView)
         view.backgroundColor = GeneralConstants.nasaBlue
@@ -82,5 +88,11 @@ extension PopularViewController {
 extension PopularViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         sendToCellDetails()
+    }
+}
+
+extension PopularViewController {
+    func setUIInterfaceOrientation(_ value: UIInterfaceOrientation) {
+        UIDevice.current.setValue(value, forKey: "portrait")
     }
 }
