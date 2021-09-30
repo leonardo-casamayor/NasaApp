@@ -226,10 +226,77 @@
                     <view key="view" contentMode="scaleToFill" id="6Fn-F7-Iiu">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="755"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mba-5b-idL">
+                                <rect key="frame" x="0.0" y="0.0" width="428" height="755"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="errorBackground" translatesAutoresizingMaskIntoConstraints="NO" id="rl4-YR-52C">
+                                        <rect key="frame" x="0.0" y="0.0" width="428" height="755"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ILW-Pf-hVe">
+                                        <rect key="frame" x="20" y="183.66666666666669" width="388" height="388.00000000000006"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="ILW-Pf-hVe" secondAttribute="height" multiplier="1:1" id="gkx-6s-AG0"/>
+                                        </constraints>
+                                    </imageView>
+                                    <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qZS-n1-5Rg">
+                                        <rect key="frame" x="25" y="581.66666666666663" width="378" height="143.33333333333337"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h46-4v-gJI">
+                                                <rect key="frame" x="10" y="9.9999999999999929" width="358" height="123.33333333333331"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.69945157284768211" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="h46-4v-gJI" firstAttribute="top" secondItem="qZS-n1-5Rg" secondAttribute="top" constant="10" id="Fzd-ZL-c4K"/>
+                                            <constraint firstAttribute="bottom" secondItem="h46-4v-gJI" secondAttribute="bottom" constant="10" id="IyR-uO-7VW"/>
+                                            <constraint firstAttribute="trailing" secondItem="h46-4v-gJI" secondAttribute="trailing" constant="10" id="uaN-Wo-NfR"/>
+                                            <constraint firstItem="h46-4v-gJI" firstAttribute="leading" secondItem="qZS-n1-5Rg" secondAttribute="leading" constant="10" id="xbN-pC-7r2"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="25"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="qZS-n1-5Rg" firstAttribute="leading" secondItem="Mba-5b-idL" secondAttribute="leading" constant="25" id="2VU-l0-3ks"/>
+                                    <constraint firstItem="ILW-Pf-hVe" firstAttribute="centerX" secondItem="Mba-5b-idL" secondAttribute="centerX" id="6Yh-Ji-WTw"/>
+                                    <constraint firstItem="ILW-Pf-hVe" firstAttribute="leading" secondItem="Mba-5b-idL" secondAttribute="leading" constant="20" id="7OC-uJ-buR"/>
+                                    <constraint firstItem="qZS-n1-5Rg" firstAttribute="top" secondItem="ILW-Pf-hVe" secondAttribute="bottom" constant="9.9999999999997726" id="Fgx-yU-yQQ"/>
+                                    <constraint firstItem="ILW-Pf-hVe" firstAttribute="centerY" secondItem="Mba-5b-idL" secondAttribute="centerY" id="KKi-SF-Hdt"/>
+                                    <constraint firstItem="rl4-YR-52C" firstAttribute="top" secondItem="Mba-5b-idL" secondAttribute="top" id="cki-O3-qMA"/>
+                                    <constraint firstAttribute="bottom" secondItem="qZS-n1-5Rg" secondAttribute="bottom" constant="30" id="clK-3M-iGw"/>
+                                    <constraint firstItem="qZS-n1-5Rg" firstAttribute="centerX" secondItem="ILW-Pf-hVe" secondAttribute="centerX" id="euj-iA-ppr"/>
+                                    <constraint firstAttribute="trailing" secondItem="qZS-n1-5Rg" secondAttribute="trailing" constant="25" id="gJQ-xe-lv3"/>
+                                    <constraint firstItem="rl4-YR-52C" firstAttribute="leading" secondItem="Mba-5b-idL" secondAttribute="leading" id="huR-YK-Qge"/>
+                                    <constraint firstAttribute="trailing" secondItem="rl4-YR-52C" secondAttribute="trailing" id="iHp-5Q-Klo"/>
+                                    <constraint firstAttribute="bottom" secondItem="rl4-YR-52C" secondAttribute="bottom" id="kpf-E2-moh"/>
+                                    <constraint firstAttribute="trailing" secondItem="ILW-Pf-hVe" secondAttribute="trailing" constant="20" id="mkM-mK-Jz6"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Rih-xl-4z9"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Rih-xl-4z9" firstAttribute="trailing" secondItem="Mba-5b-idL" secondAttribute="trailing" id="KeM-cd-7B6"/>
+                            <constraint firstItem="Mba-5b-idL" firstAttribute="top" secondItem="Rih-xl-4z9" secondAttribute="top" id="m7Z-Al-7nn"/>
+                            <constraint firstItem="Mba-5b-idL" firstAttribute="leading" secondItem="Rih-xl-4z9" secondAttribute="leading" id="tdC-xp-XN6"/>
+                            <constraint firstItem="Rih-xl-4z9" firstAttribute="bottom" secondItem="Mba-5b-idL" secondAttribute="bottom" id="vPb-TY-HgZ"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="T4Z-2D-XCo"/>
+                    <connections>
+                        <outlet property="errorImage" destination="ILW-Pf-hVe" id="EBE-e9-m1U"/>
+                        <outlet property="errorLabel" destination="h46-4v-gJI" id="JHY-U1-88f"/>
+                        <outlet property="errorView" destination="Mba-5b-idL" id="kka-Cu-qTq"/>
+                        <outlet property="labelContainer" destination="qZS-n1-5Rg" id="8aC-r6-FrF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q8Q-dU-83k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -682,6 +749,7 @@
     <resources>
         <image name="NASA_logo.svg" width="306" height="256"/>
         <image name="chevron.backward" catalog="system" width="96" height="128"/>
+        <image name="errorBackground" width="748" height="1330"/>
         <image name="folder" catalog="system" width="128" height="97"/>
         <image name="gobackward.10" catalog="system" width="121" height="128"/>
         <image name="goforward.10" catalog="system" width="121" height="128"/>
