@@ -121,15 +121,6 @@ struct CellDetailView: View {
     }
 }
 
-
-
-//struct CellDetailView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CellDetailView().previewDevice(PreviewDevice.init(rawValue: "iPad8,1"))
-//        CellDetailView().previewDevice(PreviewDevice.init(rawValue: "iPhone 11"))
-//    }
-//}
-
 struct VideoControllerView: UIViewControllerRepresentable {
     var videoUrl: String
     func makeUIViewController(context: Context) -> some UIViewController {

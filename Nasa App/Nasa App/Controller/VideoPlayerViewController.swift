@@ -89,7 +89,7 @@ class VideoPlayerViewController: UIViewController {
         } else if isVideoPlaying {
             pauseVideo(sender: sender)
         } else {
-            ///vide is paused
+            ///video is paused
             playVideo(sender: sender)
         }
     }
