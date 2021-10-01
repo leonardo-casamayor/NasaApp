@@ -44,12 +44,6 @@ class PopularViewController: UIViewController, UISearchControllerDelegate, UISea
         populateMedia(queryDictionary: MediaApiConstants.defaultPopularSearch)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        RotationHelper.lockOrientation(.portrait)
-        let value = UIInterfaceOrientation.portrait.rawValue
-        UIDevice.current.setValue(value, forKey: "orientation")
-    }
-    
     private func setupCollectionViewController() {
         view.addSubview(collectionView)
         view.backgroundColor = GeneralConstants.nasaBlue

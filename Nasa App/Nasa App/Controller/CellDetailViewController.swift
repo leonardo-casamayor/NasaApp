@@ -33,6 +33,8 @@ class CellDetailViewController: UIViewController {
         super.viewWillDisappear(animated)
         showBars()
         RotationHelper.lockOrientation(.portrait)
+        let value = UIInterfaceOrientation.portrait.rawValue
+        UIDevice.current.setValue(value, forKey: "orientation")
     }
     
     private func addSwiftUIView() {
