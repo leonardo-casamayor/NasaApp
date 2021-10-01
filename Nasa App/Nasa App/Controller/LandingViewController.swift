@@ -95,8 +95,10 @@ extension LandingViewController {
         let date = data.date.replacingOccurrences(of: "/", with: "-")
         let subtitle = copyright != "" ? "\(copyright.trunc(length: 25))  / \(date)" : date
         let url = data.mediaType == ApodMediaType.image ? data.url : data.thumbnailUrl
-        guard let imageUrl = url else { return}
-        self.dataImage = imageUrl
+        if !isMockData {
+            guard let imageUrl = url else { return}
+            self.dataImage = imageUrl
+        }
         DispatchQueue.main.async { [weak self] in
             guard let strongSelf = self else { return }
             strongSelf.titleLabel.text = data.title
