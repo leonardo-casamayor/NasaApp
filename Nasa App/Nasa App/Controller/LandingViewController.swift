@@ -11,7 +11,7 @@ import NVActivityIndicatorView
 class LandingViewController: UIViewController {
     
     @IBOutlet weak var gradientView: UIView!
-    @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak var image: MyImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subtitleLabel: UILabel!
     @IBOutlet weak var explanationLabel: UILabel!
@@ -22,28 +22,34 @@ class LandingViewController: UIViewController {
     var activtyIndicator: NVActivityIndicatorView?
     var networkManager = NetworkManager()
     var animate = true
-    
+    var dataImage: String? {
+        didSet {
+            DispatchQueue.main.async {
+                self.image.setImageFrom(self.dataImage!)
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViewController()
-        networkManager.retrieveApodData { [weak self] result in
-            guard let strongSelf = self else { return }
-            switch result {
-            case .success(let data):
-                DispatchQueue.main.async {
-                    guard let activtyIndicator = strongSelf.activtyIndicator else { return }
-                    activtyIndicator.startAnimating()
+        DispatchQueue.global().async {
+            self.networkManager.retrieveApodData { [weak self] result in
+                guard let strongSelf = self else { return }
+                switch result {
+                case .success(let data):
                     strongSelf.loadData(data: data)
-                }
-            case .failure(_):
-                DispatchQueue.main.async {
-                    strongSelf.loadData(data: LandingConstants.apodMock, isMockData: true)
-
+                    print(data.url)
+                case .failure(_):
+                    DispatchQueue.main.async {
+                        strongSelf.loadData(data: LandingConstants.apodMock, isMockData: true)
+                        
+                    }
                 }
             }
         }
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         if animate{
             animations()
@@ -85,38 +91,15 @@ class LandingViewController: UIViewController {
 
 extension LandingViewController {
     private func loadData(data: APODElement, isMockData: Bool = false) {
+        let copyright = data.copyright ?? ""
+        let date = data.date.replacingOccurrences(of: "/", with: "-")
+        let subtitle = copyright != "" ? "\(copyright.trunc(length: 25))  / \(date)" : date
         let url = data.mediaType == ApodMediaType.image ? data.url : data.thumbnailUrl
-        guard let imageUrl = url else {
-            return
-        }
-        guard let urlRequest = URL(string: imageUrl) else { return }
-        let request = URLRequest(url: urlRequest)
-        let dataTask = URLSession.shared.dataTask(with: request) {(data, _, _) in
-            guard let data = data else {
-                return
-            }
-            
-            let image = UIImage(data: data)
-            DispatchQueue.main.async { [weak self] in
-                guard let strongSelf = self else { return }
-                strongSelf.image.image = image
-                guard let activtyIndicator = strongSelf.activtyIndicator else { return }
-                activtyIndicator.stopAnimating()
-            
-            }
-        }
-        dataTask.resume()
+        guard let imageUrl = url else { return}
+        self.dataImage = imageUrl
         DispatchQueue.main.async { [weak self] in
             guard let strongSelf = self else { return }
             strongSelf.titleLabel.text = data.title
-        }
-        guard let copyright = data.copyright else {
-            return
-        }
-        let date = data.date.replacingOccurrences(of: "/", with: "-")
-        let subtitle = copyright != "" ? "\(copyright.trunc(length: 25))  / \(date)" : date
-        DispatchQueue.main.async { [weak self] in
-            guard let strongSelf = self else { return }
             strongSelf.subtitleLabel.text = subtitle
             strongSelf.explanationLabel.text = data.explanation
             if isMockData {
