@@ -78,12 +78,6 @@ class PopularViewController: UIViewController, UISearchControllerDelegate, UISea
         guard let indexPath = collectionView.indexPathsForSelectedItems, let index = indexPath.last?.last else { return }
         destinationVC.href = dataLoader.media?.collection.items[index].href
         destinationVC.nasaData = dataLoader.media?.collection.items[index].data[safe: 0]
-//        if let firstOrderItem = indexPath[safe: 0] {
-//            destinationVC.nasaData = dataLoader.media?.collection.items[firstOrderItem[1]].data[0]
-//            destinationVC.href = dataLoader.media?.collection.items[index].href
-//        }
-//           let secondOrderItem =
-//        let index = indexPath[0][1] ?? 1 : 2
     }
     
     func populateMedia(queryDictionary: [String:String]) {
