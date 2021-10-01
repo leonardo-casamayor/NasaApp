@@ -16,8 +16,6 @@ class RoverCollectionViewCell: UICollectionViewCell {
     // MARK: Subviews
     var imageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
-        imageView.clipsToBounds = true
         return imageView
     }()
     

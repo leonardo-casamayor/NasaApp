@@ -10,7 +10,12 @@ import UIKit
 
 class RoverViewController: UIViewController {
     
-    var roverPhotos: NasaRover? = nil
+    // var roverPhotos: NasaRover? = nil
+    var roverPhotos = [LatestPhoto]() {
+        didSet {
+            print("Total amount of pics loaded: ", roverPhotos.count)
+        }
+    }
     
     private let collectionView = UICollectionView(
         frame: .zero,
@@ -77,20 +82,17 @@ extension RoverViewController: UICollectionViewDelegate {
 extension RoverViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return roverPhotos?.photos.count ?? 0
+        return roverPhotos.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RoverCollectionViewCell.identifier, for: indexPath) as! RoverCollectionViewCell
         
-        cell.roverName.text = roverPhotos?.photos[indexPath.row].rover.name
-        cell.dateLabel.text = roverPhotos?.photos[indexPath.row].earthDate
+        cell.roverName.text = roverPhotos[indexPath.row].rover.name
+        cell.dateLabel.text = roverPhotos[indexPath.row].earthDate
         
-        let link = roverPhotos?.photos[indexPath.row].imgSrc
-        guard var validLink = link else { return cell }
-        // Turning the links from the response into 'https' instead of 'http'
-        validLink.insert(contentsOf: "s", at: validLink.index(validLink.startIndex, offsetBy: 4))
-        cell.imageView.downloadedFrom(from: validLink)
+        let link = roverPhotos[indexPath.row].imgSrc
+        cell.imageView.downloadedFrom(from: link)
         
         return cell
     }

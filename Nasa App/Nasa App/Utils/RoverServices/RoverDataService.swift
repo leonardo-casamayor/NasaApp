@@ -10,22 +10,22 @@ import Foundation
 // MARK: Get JSON Data
 extension RoverViewController {
     func getPhotos(completed: @escaping () -> ()) {
-        let url = URL(string: DetailPlaceholderInfo.roverUrl)
-        guard let validURL = url else { return }
-        let task = URLSession.shared.dataTask(with: validURL, completionHandler: { (data, response, error) in
-            guard let fetchedData = data else { return }
-            if error == nil {
-                do {
-                    self.roverPhotos = try JSONDecoder().decode(NasaRover.self, from: fetchedData)
-                    guard let roverPhotos = self.roverPhotos else { return }
-                    print("pics:", roverPhotos)
-                    self.roverPhotos = roverPhotos
-                } catch {
-                    print("Parse Error", error)
+        for rover in RoverUrls.allCases {
+            let url = URL(string: rover.rawValue)
+            guard let validURL = url else { return }
+            let task = URLSession.shared.dataTask(with: validURL, completionHandler: { (data, response, error) in
+                guard let fetchedData = data else { return }
+                if error == nil {
+                    do {
+                        let fetchedData = try JSONDecoder().decode(NasaRover.self, from: fetchedData)
+                        self.roverPhotos.append(contentsOf: fetchedData.latestPhotos)
+                    } catch {
+                        print("Parse Error", error)
+                    }
+                    completed()
                 }
-                completed()
-            }
-        })
-        task.resume()
+            })
+            task.resume()
+        }
     }
 }
