@@ -10,7 +10,7 @@ import UIKit
 class LandingViewController: UIViewController {
     
     @IBOutlet weak var gradientView: UIView!
-    @IBOutlet weak var image: MyImageView!
+    @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subtitleLabel: UILabel!
     @IBOutlet weak var explanationLabel: UILabel!
