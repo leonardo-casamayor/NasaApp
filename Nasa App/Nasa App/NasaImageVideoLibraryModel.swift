@@ -19,15 +19,17 @@ struct Collection: Decodable {
 struct Item: Decodable {
     var data: [NasaData]
     var links: [Links]
+    var href: String
     
     enum CodingKeys: CodingKey {
-        case data, links
+        case data, links, href
     }
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         links = try container.decodeIfPresent([Links].self, forKey: .links) ?? [Links]()
         data = try container.decode([NasaData].self, forKey: .data)
+        href = try container.decodeIfPresent(String.self, forKey: .href) ?? ""
     }
 }
 
@@ -57,7 +59,7 @@ struct NasaData: Decodable {
     }
 }
 
-enum MediaType: Decodable {
+enum MediaType: Decodable, Equatable {
     case video, image
     case unknown(value: String)
     init(from decoder: Decoder) throws {

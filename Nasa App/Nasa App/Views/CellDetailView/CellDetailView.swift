@@ -12,6 +12,8 @@ import AVKit
 struct CellDetailView: View {
     
     @Environment(\.horizontalSizeClass) var sizeClass
+    var nasaData: NasaData
+    var assetUrl: String
     
     var body: some View {
         GeometryReader { geometry in
@@ -26,12 +28,19 @@ struct CellDetailView: View {
                         .ignoresSafeArea()
                     
                     VStack{
-                        VideoControllerView()
+                        if nasaData.mediaType == MediaType.image {
+                            Image(uiImage: loadImage())
+                                .frame(width: screenWidth,
+                                       height: screenHeight * CellDetailConstants.imageHeightModifier,
+                                       alignment: .center)
+                        }
+                        else {
+                        VideoControllerView(videoUrl: assetUrl)
                             .cornerRadius(10)
                             .frame(width: screenWidth,
                                    height: screenHeight * CellDetailConstants.imageHeightModifier,
                                    alignment: .center)
-                        
+                        }
                         Rectangle()
                             .fill(LinearGradient(gradient: Gradient(colors: [Color(CellDetailConstants.topGradientColor), Color(CellDetailConstants.bottomGradientColor)]),
                                                  startPoint: .top,
@@ -47,13 +56,13 @@ struct CellDetailView: View {
                             VStack{
                                 
                                 ScrollView {
-                                    Text(CellDetailConstants.title)
+                                    Text(nasaData.title)
                                         .foregroundColor(.white)
                                         
                                         .frame(maxWidth: screenWidth * CellDetailConstants.widthConstraint, alignment: .leading)
                                         .font(Font(CellDetailConstants.fontCompactTitle as CTFont))
                                     
-                                    Text(CellDetailConstants.mockText)
+                                    Text(nasaData.description)
                                         .font(Font(CellDetailConstants.fontCompactText as CTFont))
                                         .padding(.top, CellDetailConstants.textTopPadding)
                                         .foregroundColor(.white)
@@ -64,11 +73,11 @@ struct CellDetailView: View {
                             //MARK: - Text setup for regular
                             VStack{
                                 ScrollView {
-                                    Text(CellDetailConstants.title)
+                                    Text(nasaData.title)
                                         .foregroundColor(.white)
                                         .frame(maxWidth: screenWidth * CellDetailConstants.widthConstraint, alignment: .leading)
                                         .font(Font(CellDetailConstants.fontRegularTitle as CTFont))
-                                    Text(CellDetailConstants.mockText)
+                                    Text(nasaData.description)
                                         .font(Font(CellDetailConstants.fontRegularText as CTFont))
                                         .padding(.top, CellDetailConstants.textTopPadding)
                                         .foregroundColor(.white) }
@@ -83,28 +92,41 @@ struct CellDetailView: View {
                 ZStack{
                     Color(CellDetailConstants.backgroundColor)
                         .ignoresSafeArea()
-                    VideoControllerView()
-                        .ignoresSafeArea()
+                    if nasaData.mediaType == MediaType.image {
+                        Image(uiImage: loadImage())
+                            .frame(width: screenWidth,
+                                   height: screenHeight * CellDetailConstants.imageHeightModifier,
+                                   alignment: .center)
+                    }
+                    else {
+                    VideoControllerView(videoUrl: assetUrl)
+                        .cornerRadius(10)
                         .frame(width: screenWidth,
-                               height: screenHeight,
+                               height: screenHeight * CellDetailConstants.imageHeightModifier,
                                alignment: .center)
+                    }
                 }
             }
         }
     }
-}
-
-struct CellDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        CellDetailView().previewDevice(PreviewDevice.init(rawValue: "iPad8,1"))
-        CellDetailView().previewDevice(PreviewDevice.init(rawValue: "iPhone 11"))
+    func loadImage() -> UIImage {
+        guard let urlRequest = URL(string: assetUrl) else { return UIImage() }
+        do {
+        let data: Data = try Data(contentsOf: urlRequest)
+            return UIImage(data: data) ?? UIImage()
+        }
+        catch {
+            return UIImage()
+        }
     }
 }
 
 struct VideoControllerView: UIViewControllerRepresentable {
+    var videoUrl: String
     func makeUIViewController(context: Context) -> some UIViewController {
         let storyboard = UIStoryboard(name: CellDetailConstants.storyboardID, bundle: Bundle.main)
-        let controller = storyboard.instantiateViewController(identifier: CellDetailConstants.videoPlayerID)
+        let controller = storyboard.instantiateViewController(identifier: CellDetailConstants.videoPlayerID) as! VideoPlayerViewController
+        controller.videoUrl = videoUrl
         return controller
     }
     

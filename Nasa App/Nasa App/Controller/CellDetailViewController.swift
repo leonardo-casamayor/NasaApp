@@ -11,12 +11,66 @@ import SwiftUI
 
 class CellDetailViewController: UIViewController {
     var addFavButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(systemName: CellDetailConstants.favHeart), style: .done, target: self, action: #selector(addFavorite))
-        
+    var href: String?
+    var nasaData: NasaData?
+    var assetUrl: String?
+    let networkManager = NetworkManager()
+    private lazy var swiftView = makeSwiftUIView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        addSwiftUIView()
-        setupNavButtons()
-        hideBars(size: UIScreen.main.bounds.size)
+        setUp()
+    }
+    
+    private func setUp() {
+        guard let href = href else { return }
+        networkManager.retrieveAssets(assetsUrl: href) { [weak self] result in
+            guard let strongSelf = self else { return }
+            switch result {
+            case .success(let urls):
+                guard let data = strongSelf.nasaData else { return }
+                guard let url = strongSelf.findUrl(array: urls, mediaType: data.mediaType) else {
+                    return
+                }
+                strongSelf.assetUrl = url
+                DispatchQueue.main.async { [weak self] in
+                    guard let strongSelf = self else { return }
+                    strongSelf.addSwiftUIView()
+                    strongSelf.setupNavButtons()
+                    strongSelf.hideBars(size: UIScreen.main.bounds.size)
+                            }
+            case .failure(_):
+                return
+            }
+        }
+    }
+    
+    private func findUrl (array: [String], mediaType: MediaType) -> String? {
+        let targetSubstring = mediaType == MediaType.image ? "small.jpg" : "mobile.mp4"
+        guard let index = array.firstIndex(where: {$0.contains(targetSubstring)}) else { return nil }
+        return array[index].replacingOccurrences(of: "http:", with: "https:")
+    }
+    
+    private func addSwiftUIView() {
+        addChild(swiftView)
+        view.addSubview(swiftView.view)
+        swiftView.didMove(toParent: self)
+        let constraints = [
+            swiftView.view.topAnchor.constraint(equalTo: view.topAnchor),
+            swiftView.view.leftAnchor.constraint(equalTo: view.leftAnchor),
+            swiftView.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            swiftView.view.rightAnchor.constraint(equalTo: view.rightAnchor)
+        ]
+
+        NSLayoutConstraint.activate(constraints)
+    }
+    
+    func makeSwiftUIView() -> UIHostingController<CellDetailView> {
+        guard let data = nasaData, let url = assetUrl else { return UIHostingController() }
+        let swiftDetailView = CellDetailView(nasaData: data, assetUrl: url)
+        let headerVC = UIHostingController(rootView: swiftDetailView)
+        headerVC.view.translatesAutoresizingMaskIntoConstraints = false
+        return headerVC
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -37,13 +91,8 @@ class CellDetailViewController: UIViewController {
         UIDevice.current.setValue(value, forKey: "orientation")
     }
     
-    private func addSwiftUIView() {
-        let swiftUIView = CellDetailView()
-        addSubSwiftUIView(swiftUIView, to: view)
-    }
-    
     private func setupNavButtons() {
-        self.navigationItem.title = CellDetailConstants.navTitle
+        self.navigationItem.title = nasaData?.nasaID
         self.navigationItem.rightBarButtonItem = self.addFavButton
         self.navigationController?.navigationBar.prefersLargeTitles = false
         self.navigationItem.rightBarButtonItem?.isEnabled = true
@@ -69,8 +118,6 @@ class CellDetailViewController: UIViewController {
 }
 
 extension UIViewController {
-
-    
     func addSubSwiftUIView<Content>(_ swiftUIView: Content, to view: UIView) where Content : View {
         let hostingController = UIHostingController(rootView: swiftUIView)
 

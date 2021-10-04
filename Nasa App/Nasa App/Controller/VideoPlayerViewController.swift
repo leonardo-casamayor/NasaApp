@@ -31,7 +31,7 @@ class VideoPlayerViewController: UIViewController {
     var playerLayer: AVPlayerLayer!
     var isVideoPlaying: Bool = false
     var didFinishVideo: Bool = false
-    
+    var videoUrl: String?
     var controlsTimer: Timer?
     var isShowingViews: Bool = false {
         didSet {
@@ -85,11 +85,11 @@ class VideoPlayerViewController: UIViewController {
         ///video finished playing
         if didFinishVideo {
             replayVideo(sender: sender)
-        ///video is playing
+            ///video is playing
         } else if isVideoPlaying {
             pauseVideo(sender: sender)
         } else {
-        ///vide is paused
+            ///video is paused
             playVideo(sender: sender)
         }
     }
@@ -141,7 +141,7 @@ class VideoPlayerViewController: UIViewController {
 }
 
 //MARK: - timers
- extension VideoPlayerViewController {
+extension VideoPlayerViewController {
     func startControlsTimer() {
         controlsTimer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(timerAction), userInfo: nil, repeats: false)
     }
@@ -158,11 +158,12 @@ class VideoPlayerViewController: UIViewController {
     }
 }
 
- extension VideoPlayerViewController {
+extension VideoPlayerViewController {
     
     //MARK: - VideoPlayerSetup
     func setUpVideoPlayer() {
-        guard let url = URL(string: VideoPlayerConstants.videoUrl) else { return }
+        guard let stringUrl = videoUrl,
+              let url = URL(string: stringUrl) else { return }
         player = AVPlayer(url: url)
         player.currentItem?.addObserver(self, forKeyPath: VideoPlayerConstants.duration, options: [.new, .initial], context: nil)
         addTimeObserver()
