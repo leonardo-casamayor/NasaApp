@@ -31,26 +31,29 @@ class LoginViewController: UIViewController {
         if informationComplete {
             let loginController = LoginController(username: username, password: password)
             if loginController.login() {
-                performSegue(withIdentifier: "loginIdentifier", sender: nil)
-                UserDefaults.standard.set(true, forKey: "isLogin")
+                performSegue(withIdentifier: LoginConstants.segueIdentifier, sender: nil)
+                UserDefaults.standard.set(true, forKey: LoginConstants.userDefaultKey)
             } else {
-                displayLoginError(error: "Login information does not match")
+                displayLoginError(error: LoginConstants.errorLoginNoUserFound)
             }
         } else {
-            displayLoginError(error: "Please input your login data")
+            displayLoginError(error: LoginConstants.errorLoginEmptyField)
         }
     }
     // Register button
     @IBAction func registerAction(_ sender: UIButton) {
         guard let username = userField.text, let password = passwordField.text else { return }
-        if userField.text != "" && passwordField.text != "" {
+        let informationComplete: Bool = userField.text != "" && passwordField.text != ""
+        if informationComplete {
          let loginController = LoginController(username: username, password: password)
             if loginController.register() {
-                performSegue(withIdentifier: "loginIdentifier", sender: nil)
-                UserDefaults.standard.set(true, forKey: "isLogin")
+                performSegue(withIdentifier: LoginConstants.segueIdentifier, sender: nil)
+                UserDefaults.standard.set(true, forKey: LoginConstants.userDefaultKey)
             } else {
-                displayLoginError(error: "User is already registered")
+                displayLoginError(error: LoginConstants.errorRegisterUserExists)
             }
+        } else {
+            displayLoginError(error: LoginConstants.errorRegisterEmptyField)
         }
     }
     //MARK: Formatting
