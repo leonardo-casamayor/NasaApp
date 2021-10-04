@@ -8,7 +8,8 @@
 import UIKit
 
 class RoverCollectionViewCell: UICollectionViewCell {
-        
+    
+    var onReuse: () -> Void = {}
     static let identifier = "RoverCollectionViewCell"
     private var views:[UIView] = []
     let padding: CGFloat = 20
@@ -57,7 +58,11 @@ class RoverCollectionViewCell: UICollectionViewCell {
         super.layoutSubviews()
         imageView.frame = contentView.bounds
     }
-
+    
+    override func prepareForReuse() {
+        imageView.image = nil
+        imageView.cancelImageLoad()
+    }
 }
 
 //MARK: Constraints

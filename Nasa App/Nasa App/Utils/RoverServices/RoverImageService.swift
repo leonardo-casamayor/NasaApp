@@ -10,34 +10,96 @@ import UIKit
 
 // MARK: Get Images
 extension UIImageView {
-    func downloadedFrom(from url: URL, contentMode mode: ContentMode = .scaleToFill) {
-        contentMode = mode
-        let safeURL = safeURL(url: url)
-        URLSession.shared.dataTask(with: safeURL) { data, response, error in
-            guard
-                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
-                let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
-                let data = data, error == nil,
-                let image = UIImage(data: data)
-            else { return }
-            DispatchQueue.main.async() { [weak self] in
-                self?.image = image
+    class ImageLoader {
+        private var loadedImages = [URL: UIImage]()
+        private var runningRequests = [UUID: URLSessionDataTask]()
+        
+        func loadImage(_ url: URL, _ completion: @escaping (Result<UIImage, Error>) -> Void) -> UUID? {
+            if let image = loadedImages[url] {
+                completion(.success(image))
+                return nil
             }
-        }.resume()
-    }
-    
-    func downloadedFrom(from link: String, contentMode mode: ContentMode = .scaleToFill) {
-        guard let url = URL(string: link) else { return }
-        downloadedFrom(from: url, contentMode: mode)
-    }
-    
-    func safeURL(url: URL) -> URL {
-        var safeURL:String = url.absoluteString
-        if safeURL.contains("http://") {
-            safeURL.insert("s", at: safeURL.index(safeURL.startIndex, offsetBy: 4))
+            
+            let uuid = UUID()
+            
+            let task = URLSession.shared.dataTask(with: url) { data, response, error in
+                defer {self.runningRequests.removeValue(forKey: uuid) }
+                if let data = data, let image = UIImage(data: data) {
+                    self.loadedImages[url] = image
+                    completion(.success(image))
+                    return
+                }
+                
+                guard let error = error else { return }
+                
+                guard (error as NSError).code == NSURLErrorCancelled else {
+                    completion(.failure(error))
+                    return
+                }
+                
+            }
+            task.resume()
+            
+            runningRequests[uuid] = task
+            return uuid
         }
-        return URL(string: safeURL)!
+        
+        func cancelLoad(_ uuid: UUID) {
+            runningRequests[uuid]?.cancel()
+            runningRequests.removeValue(forKey: uuid)
+        }
     }
     
+    class UIImageLoader {
+        static let loader = UIImageLoader()
+        
+        private let imageLoader = ImageLoader()
+        private var uuidMap = [UIImageView: UUID]()
+        
+        private init() {}
+        
+        func load(_ url: URL, for imageView: UIImageView) {
+            let validURL = safeURL(url: url)
+            let image = imageLoader.loadImage(validURL) { result in
+                defer { self.uuidMap.removeValue(forKey: imageView) }
+                do {
+                    let image = try result.get()
+                    DispatchQueue.main.async {
+                        imageView.image = image
+                    }
+                } catch {
+                    print(error)
+                }
+            }
+            
+            if let image = image {
+                uuidMap[imageView] = image
+            }
+        }
+        
+        func safeURL(url: URL) -> URL {
+            var safeURL:String = url.absoluteString
+            if safeURL.contains("http://") {
+                safeURL.insert("s", at: safeURL.index(safeURL.startIndex, offsetBy: 4))
+            }
+            return URL(string: safeURL)!
+        }
+        
+        func cancel(for imageView: UIImageView) {
+            if let uuid = uuidMap[imageView] {
+                imageLoader.cancelLoad(uuid)
+                uuidMap.removeValue(forKey: imageView)
+            }
+        }
+    }
 }
 
+extension UIImageView {
+    func loadImage(at url: URL) {
+        UIImageLoader.loader.load(url, for: self)
+    }
+    
+    func cancelImageLoad() {
+        UIImageLoader.loader.cancel(for: self)
+    }
+}

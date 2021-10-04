@@ -10,7 +10,6 @@ import UIKit
 
 class RoverViewController: UIViewController {
     
-    // var roverPhotos: NasaRover? = nil
     var roverPhotos = [LatestPhoto]() {
         didSet {
             print("Total amount of pics loaded: ", roverPhotos.count)
@@ -92,7 +91,8 @@ extension RoverViewController: UICollectionViewDataSource {
         cell.dateLabel.text = roverPhotos[indexPath.row].earthDate
         
         let link = roverPhotos[indexPath.row].imgSrc
-        cell.imageView.downloadedFrom(from: link)
+        guard let link = URL.init(string: link) else { return cell }
+        cell.imageView.loadImage(at: link)
         
         return cell
     }
