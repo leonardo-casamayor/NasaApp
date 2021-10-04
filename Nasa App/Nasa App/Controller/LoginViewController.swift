@@ -15,6 +15,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var registerButton: CustomButton!
     @IBOutlet weak var buttonsView: UIStackView!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var errorLabel: UILabel!
     
     
     override func viewDidLoad() {
@@ -25,12 +26,18 @@ class LoginViewController: UIViewController {
     // Login button
     @IBAction func loginAction(_ sender: UIButton) {
         guard let username = userField.text, let password = passwordField.text else { return }
-        if userField.text != "" && passwordField.text != "" {
+        let informationComplete: Bool = username != "" && password != ""
+        
+        if informationComplete {
             let loginController = LoginController(username: username, password: password)
             if loginController.login() {
                 performSegue(withIdentifier: "loginIdentifier", sender: nil)
                 UserDefaults.standard.set(true, forKey: "isLogin")
+            } else {
+                displayLoginError(error: "Login information does not match")
             }
+        } else {
+            displayLoginError(error: "Please input your login data")
         }
     }
     // Register button
@@ -41,6 +48,8 @@ class LoginViewController: UIViewController {
             if loginController.register() {
                 performSegue(withIdentifier: "loginIdentifier", sender: nil)
                 UserDefaults.standard.set(true, forKey: "isLogin")
+            } else {
+                displayLoginError(error: "User is already registered")
             }
         }
     }
@@ -123,5 +132,25 @@ extension LoginViewController: UITextFieldDelegate {
         default:
             self.passwordField.resignFirstResponder()
       }
+    }
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        hideLoginError()
+    }
+}
+
+extension LoginViewController {
+    func displayLoginError(error: String) {
+        errorLabel.isHidden = false
+        errorLabel.text = error
+        UIView.animate(withDuration: 0.5) {
+            self.errorLabel.alpha = 1
+        }
+    }
+    func hideLoginError() {
+        UIView.animate(withDuration: 0.5) {
+            self.errorLabel.alpha = 0
+            self.errorLabel.isHidden = true
+        }
+        self.errorLabel.text = ""
     }
 }
