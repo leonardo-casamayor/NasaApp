@@ -23,6 +23,7 @@ struct LoginController: LoginProtocol {
         self.username = username
         self.password = password
         self.userLoader = userLoader
+        userLoader.copyUsersFromBundle()
     }
 }
 

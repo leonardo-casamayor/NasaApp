@@ -21,6 +21,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         viewControllerSetUp()
     }
+    
     // Login button
     @IBAction func loginAction(_ sender: UIButton) {
         guard let username = userField.text, let password = passwordField.text else { return }
