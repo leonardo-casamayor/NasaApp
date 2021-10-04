@@ -18,7 +18,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
         self.window = UIWindow(windowScene: windowScene)
-        let storyBoard = UIStoryboard(name: "MyStoryBoardName")
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let isLogin: Bool = UserDefaults.standard.bool(forKey: "isLogin")
+        var rootVC: UIViewController?
+        if isLogin {
+            
+            guard let root = storyBoard.instantiateViewController(identifier: "TabBarController") as? UIViewController else {return}
+            rootVC = root
+
+        } else {
+            guard let root = storyBoard.instantiateViewController(identifier: "LoginVC") as? UIViewController else {return}
+            rootVC = root
+        }
+       
+        self.window?.rootViewController = rootVC
+        self.window?.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
