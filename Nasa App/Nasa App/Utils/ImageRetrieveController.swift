@@ -15,6 +15,7 @@ extension UIImageView {
         let activityIndicator = UIActivityIndicatorView()
         activityIndicator.hidesWhenStopped = true
         activityIndicator.color = UIColor.white
+        activityIndicator.style = .large
         self.addSubview(activityIndicator)
         
         
@@ -42,7 +43,7 @@ extension UIImageView {
     func setImageFrom(_ urlString: String, completion: (() -> Void)? = nil) {
         guard let url = URL(string: urlString) else { return }
         
-        let session = URLSession(configuration: .default)
+        let session = URLSession(configuration: .ephemeral)
         let activityIndicator = self.activityIndicator
         
         DispatchQueue.main.async {
@@ -55,9 +56,9 @@ extension UIImageView {
             } else {
                 if let imageData = data {
                     DispatchQueue.main.async {[weak self] in
+                        guard let strongSelf = self else { return }
                         var image = UIImage(data: imageData)
-                        self?.image = nil
-                        self?.image = image
+                        strongSelf.image = image
                         image = nil
                         completion?()
                     }
