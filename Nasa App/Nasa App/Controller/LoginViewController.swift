@@ -21,22 +21,25 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         viewControllerSetUp()
     }
-    
+    // Login button
     @IBAction func loginAction(_ sender: UIButton) {
         guard let username = userField.text, let password = passwordField.text else { return }
         if userField.text != "" && passwordField.text != "" {
             let loginController = LoginController(username: username, password: password)
             if loginController.login() {
                 performSegue(withIdentifier: "loginIdentifier", sender: nil)
+                UserDefaults.standard.set(true, forKey: "isLogin")
             }
         }
     }
+    // Register button
     @IBAction func registerAction(_ sender: UIButton) {
         guard let username = userField.text, let password = passwordField.text else { return }
         if userField.text != "" && passwordField.text != "" {
          let loginController = LoginController(username: username, password: password)
             if loginController.register() {
                 performSegue(withIdentifier: "loginIdentifier", sender: nil)
+                UserDefaults.standard.set(true, forKey: "isLogin")
             }
         }
     }

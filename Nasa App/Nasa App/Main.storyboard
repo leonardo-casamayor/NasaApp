@@ -11,7 +11,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="LoginViewController" customModule="Nasa_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginVC" modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="LoginViewController" customModule="Nasa_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -306,7 +306,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="nnb-I8-8KL">
             <objects>
-                <tabBarController id="mTJ-I1-JEj" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarController" id="mTJ-I1-JEj" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="jqa-r2-l9A"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="VKM-Tg-1U7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
