@@ -39,6 +39,7 @@ class LandingViewController: UIViewController {
             }
         }
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         if animate{
             animations()

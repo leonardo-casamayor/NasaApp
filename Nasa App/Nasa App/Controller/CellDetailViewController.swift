@@ -23,10 +23,18 @@ class CellDetailViewController: UIViewController {
         super.viewWillTransition(to: size, with: coordinator)
         hideBars(size: size)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        RotationHelper.lockOrientation(.allButUpsideDown)
+    }
    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         showBars()
+        RotationHelper.lockOrientation(.portrait)
+        let value = UIInterfaceOrientation.portrait.rawValue
+        UIDevice.current.setValue(value, forKey: "orientation")
     }
     
     private func addSwiftUIView() {
