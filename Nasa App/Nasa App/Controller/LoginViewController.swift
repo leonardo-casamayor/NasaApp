@@ -22,6 +22,24 @@ class LoginViewController: UIViewController {
         viewControllerSetUp()
     }
     
+    @IBAction func loginAction(_ sender: UIButton) {
+        guard let username = userField.text, let password = passwordField.text else { return }
+        if userField.text != "" && passwordField.text != "" {
+            let loginController = LoginController(username: username, password: password)
+            if loginController.login() {
+                performSegue(withIdentifier: "loginIdentifier", sender: nil)
+            }
+        }
+    }
+    @IBAction func registerAction(_ sender: UIButton) {
+        guard let username = userField.text, let password = passwordField.text else { return }
+        if userField.text != "" && passwordField.text != "" {
+         let loginController = LoginController(username: username, password: password)
+            if loginController.register() {
+                performSegue(withIdentifier: "loginIdentifier", sender: nil)
+            }
+        }
+    }
     //MARK: Formatting
     private func viewControllerSetUp() {
         //gesture setup
@@ -102,5 +120,4 @@ extension LoginViewController: UITextFieldDelegate {
             self.passwordField.resignFirstResponder()
       }
     }
-    
 }

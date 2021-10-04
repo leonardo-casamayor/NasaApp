@@ -11,7 +11,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="Nasa_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="LoginViewController" customModule="Nasa_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -120,7 +120,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <segue destination="mTJ-I1-JEj" kind="presentation" modalPresentationStyle="fullScreen" id="Uge-Pb-Nb0"/>
+                                                    <action selector="loginAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="j4H-lN-aCr"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ba-Um-oXI" userLabel="register" customClass="CustomButton" customModule="Nasa_App" customModuleProvider="target">
@@ -139,7 +139,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <segue destination="mTJ-I1-JEj" kind="presentation" modalPresentationStyle="fullScreen" id="ZMO-Qb-6bb"/>
+                                                    <action selector="registerAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="heT-0p-n64"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -213,6 +213,7 @@
                         <outlet property="registerButton" destination="5ba-Um-oXI" id="ODY-vA-wB6"/>
                         <outlet property="scrollView" destination="1gI-vT-eSB" id="KIq-P8-es1"/>
                         <outlet property="userField" destination="KyG-Cn-SwF" id="IcW-T3-7Ob"/>
+                        <segue destination="mTJ-I1-JEj" kind="presentation" identifier="loginIdentifier" modalPresentationStyle="fullScreen" id="B3P-0D-2HN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -676,9 +677,6 @@
             <size key="intrinsicContentSize" width="54" height="36"/>
         </designable>
     </designables>
-    <inferredMetricsTieBreakers>
-        <segue reference="Uge-Pb-Nb0"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="NASA_logo.svg" width="306" height="256"/>
         <image name="chevron.backward" catalog="system" width="96" height="128"/>
