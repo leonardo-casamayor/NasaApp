@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import NVActivityIndicatorView
 
 class LandingViewController: UIViewController {
     
@@ -19,23 +18,36 @@ class LandingViewController: UIViewController {
     
     private var gradientLayer: CAGradientLayer?
     let nasaBlue = UIColor(red:0.02, green:0.24, blue:0.58, alpha:1)
-    var activtyIndicator: NVActivityIndicatorView?
     var networkManager = NetworkManager()
     var animate = true
-    
+    var apod: APODElement? {
+        didSet {
+            guard let apodData = apod else { return }
+            loadData(data: apodData)
+            prepareImage(data: apodData)
+        }
+    }
+    var apodImageString: String? {
+        didSet {
+            DispatchQueue.main.async {
+                guard let imageUrl = self.apodImageString else { return }
+                self.image.setImageFrom(imageUrl)
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViewController()
-        networkManager.retrieveApodData { [weak self] result in
-            switch result {
-            case .success(let data):
-                DispatchQueue.main.async {
-                    guard let strongSelf = self else { return }
-                    strongSelf.loadData(data: data)
+        DispatchQueue.global(qos: .userInteractive).async {
+            self.networkManager.retrieveApodData { [weak self] result in
+                guard let strongSelf = self else { return }
+                switch result {
+                case .success(let data):
+                    strongSelf.apod = data
+                case .failure(_):
+                    strongSelf.loadData(data: LandingConstants.apodMock, isMockData: true)
                 }
-            case .failure(_):
-                return
             }
         }
     }
@@ -51,10 +63,6 @@ class LandingViewController: UIViewController {
         titleLabel.fadeIn(1, delay: 0)
         subtitleLabel.fadeIn(1, delay: 0.5)
         explanationLabel.fadeIn(1, delay: 1)
-        activtyIndicator = NVActivityIndicatorView(frame: image.frame, type: .orbit, color: .white, padding: 200)
-        guard let activityIndicatorU = self.activtyIndicator else { return }
-        gradientView.addSubview(activityIndicatorU)
-        activityIndicatorU.startAnimating()
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -81,40 +89,27 @@ class LandingViewController: UIViewController {
 }
 
 extension LandingViewController {
-    private func loadData(data: APODElement) {
-        let url = data.mediaType == ApodMediaType.image ? data.url : data.thumbnailUrl
-        guard let imageUrl = url else {
-            return
-        }
-        guard let urlRequest = URL(string: imageUrl) else { return }
-        let request = URLRequest(url: urlRequest)
-        let dataTask = URLSession.shared.dataTask(with: request) {(data, _, _) in
-            guard let data = data else {
-                return
-            }
-            let image = UIImage(data: data)
-            DispatchQueue.main.async { [weak self] in
-                guard let strongSelf = self else { return }
-                strongSelf.image.image = image
-                guard let activtyIndicator = strongSelf.activtyIndicator else { return }
-                activtyIndicator.stopAnimating()
-            }
-        }
-        dataTask.resume()
+    private func loadData(data: APODElement, isMockData: Bool = false) {
+        let copyright = data.copyright ?? ""
+        let date = data.date.replacingOccurrences(of: "/", with: "-")
+        let subtitle = copyright != "" ? "\(copyright.trunc(length: 25))  / \(date)" : date
+        
         DispatchQueue.main.async { [weak self] in
             guard let strongSelf = self else { return }
             strongSelf.titleLabel.text = data.title
-        }
-        guard let copyright = data.copyright else {
-            return
-        }
-        let date = data.date.replacingOccurrences(of: "/", with: "-")
-        let subtitle = copyright != "" ? "\(copyright.trunc(length: 25))  / \(date)" : date
-        DispatchQueue.main.async { [weak self] in
-            guard let strongSelf = self else { return }
             strongSelf.subtitleLabel.text = subtitle
             strongSelf.explanationLabel.text = data.explanation
+            /// use a generic image if it's mockdata
+            if isMockData {
+                strongSelf.image.image = #imageLiteral(resourceName: "apod-example")
+            }
         }
+    }
+    
+    private func prepareImage(data: APODElement) {
+        let url = data.mediaType == ApodMediaType.image ? data.url : data.thumbnailUrl
+        guard let imageUrl = url else { return}
+        self.apodImageString = imageUrl
     }
 }
 
