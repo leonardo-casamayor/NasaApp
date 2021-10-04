@@ -20,19 +20,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window = UIWindow(windowScene: windowScene)
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let isLogin: Bool = UserDefaults.standard.bool(forKey: "isLogin")
-        var rootVC: UIViewController?
-        if isLogin {
-            
-            guard let root = storyBoard.instantiateViewController(identifier: "TabBarController") as? UIViewController else {return}
-            rootVC = root
-
-        } else {
-            guard let root = storyBoard.instantiateViewController(identifier: "LoginVC") as? UIViewController else {return}
-            rootVC = root
+        var rootVC: UIViewController? {
+            didSet {
+                self.window?.rootViewController = rootVC
+                self.window?.makeKeyAndVisible()
+            }
         }
-       
-        self.window?.rootViewController = rootVC
-        self.window?.makeKeyAndVisible()
+        guard let rootTabBar = storyBoard.instantiateViewController(identifier: "TabBarController") as? UITabBarController else {return}
+        guard let rootLogin = storyBoard.instantiateViewController(identifier: "LoginVC") as? LoginViewController else {return}
+
+        rootVC = isLogin ? rootTabBar : rootLogin
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
