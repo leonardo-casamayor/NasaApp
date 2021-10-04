@@ -6,58 +6,84 @@
 //
 import Foundation
 
+enum MediaNetworkError: Error {
+    case urlError
+    case redirectionError
+    case clientError
+    case serverError
+    case parsingError
+    case unknown
+}
+
+enum ApplicationError: Error {
+    case connectionLost
+    case applicationForceQuit
+    case other
+}
+
 protocol NetworkingFacade {
-    func request(endpoint: URL?)
+    typealias result<T> = (Result<T, Error>) -> Void
+    func request<T: Decodable>(of type: T.Type, endpoint: URL?, completion: @escaping result<T>)
 }
 
 class DataLoader: NetworkingFacade {
-    func request(endpoint: URL?) {
+    /// Request data from endpoint
+    /// - Parameters:
+    ///   - type: Select the model that will be used
+    ///   - endpoint: URL defining the endpoint to access
+    ///   - completion: On success: return the Data in 'type' format. On failure: return an error describing what went wrong
+    func request<T>(of type: T.Type, endpoint: URL?, completion: @escaping result<T>) where T : Decodable {
         guard let url = endpoint else {
-            print("url error:\(String(describing: endpoint))")
+            // Triggers if url was faulty
+            completion(.failure(MediaNetworkError.urlError))
             return
         }
         let session = URLSession.shared
         let request = URLRequest(url: url)
         let task = session.dataTask(with: request) { (data, response, error) in
-            print("data: \(data.debugDescription)")
-            print("response: \(response.debugDescription)")
-            print("error: \(error.debugDescription)")
             if let error = error {
                 switch (error as NSError).code {
+                // Possible aplication errors
                 case NSURLErrorNetworkConnectionLost:
-                    print("Connection Lost")
+                    completion(.failure(ApplicationError.connectionLost))
                     return
                 case NSURLErrorCancelledReasonUserForceQuitApplication:
-                    print("user quit the aplication")
+                    completion(.failure(ApplicationError.applicationForceQuit))
                     return
                 default:
-                    print("other")
+                    completion(.failure(ApplicationError.other))
                     return
                 }
             }
             if let response = response as? HTTPURLResponse {
                 switch response.statusCode {
                 case 200...299:
-                    print("should be okay")
+                    print("Success contacting API")
+                //Possible conection errors
                 case 300...399:
-                    print("serverside error")
+                    completion(.failure(MediaNetworkError.redirectionError))
                 case 400...499:
-                    print("bad request")
+                    completion(.failure(MediaNetworkError.clientError))
                 case 500...599:
-                    print("server internal error")
+                    completion(.failure(MediaNetworkError.serverError))
                 default:
-                    print("something else \(response)")
+                    completion(.failure(MediaNetworkError.unknown))
                 }
             }
-            if let data = data {
-                let JSON = handle(data: data)
-                print("stuff happened")
-                print("Json:\(JSON.debugDescription)")
+            if let myData = data {
+                do {
+                    // Decode data if possible else, return a ParsingError
+                    let decoder = JSONDecoder()
+                    decoder.dateDecodingStrategy = .iso8601
+                    let decodedObject = try decoder.decode(T.self, from: myData)
+                    completion(.success(decodedObject))
+                } catch {
+                    completion(.failure(MediaNetworkError.parsingError))
+                }
             }
         }
         task.resume()
     }
 }
-func handle(data: Data) -> [String: Any]? {
-    try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
-}
+
+

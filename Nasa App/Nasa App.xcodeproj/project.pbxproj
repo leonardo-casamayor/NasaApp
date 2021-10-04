@@ -27,6 +27,9 @@
 		300EF35F270ABB2500F2BDDD /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300EF35E270ABB2500F2BDDD /* LoginController.swift */; };
 		302B6D0226FA1A3600CDC4CA /* Users.plist in Resources */ = {isa = PBXBuildFile; fileRef = 302B6D0126FA1A3600CDC4CA /* Users.plist */; };
 		302B6D0526FA20E300CDC4CA /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302B6D0426FA20E300CDC4CA /* Users.swift */; };
+		302B6CFF26F9380C00CDC4CA /* SearchingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302B6CFE26F9380C00CDC4CA /* SearchingController.swift */; };
+		302B6D0026F9381E00CDC4CA /* NasaImageVideoLibraryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051F801E26F4D10A009A0811 /* NasaImageVideoLibraryModel.swift */; };
+		302B6D0726FA606500CDC4CA /* MyImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302B6D0626FA606500CDC4CA /* MyImageView.swift */; };
 		309C145C26DD91140063BD2F /* ImageRetrieveController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309C145B26DD91140063BD2F /* ImageRetrieveController.swift */; };
 		30A5773826F38B9600E94C28 /* ApodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A5773726F38B9600E94C28 /* ApodModel.swift */; };
 		30C902DA26E9144800CBDCB0 /* CellDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C902D826E9144800CBDCB0 /* CellDetailViewController.swift */; };
@@ -81,6 +84,8 @@
 		300EF35E270ABB2500F2BDDD /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		302B6D0126FA1A3600CDC4CA /* Users.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Users.plist; sourceTree = "<group>"; };
 		302B6D0426FA20E300CDC4CA /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
+		302B6CFE26F9380C00CDC4CA /* SearchingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingController.swift; sourceTree = "<group>"; };
+		302B6D0626FA606500CDC4CA /* MyImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyImageView.swift; sourceTree = "<group>"; };
 		309C145B26DD91140063BD2F /* ImageRetrieveController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRetrieveController.swift; sourceTree = "<group>"; };
 		30A5773726F38B9600E94C28 /* ApodModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApodModel.swift; sourceTree = "<group>"; };
 		30C902D826E9144800CBDCB0 /* CellDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellDetailViewController.swift; sourceTree = "<group>"; };
@@ -123,6 +128,7 @@
 				30C902D726E9144800CBDCB0 /* CellDetailView */,
 				05FAA15C26DD1CED00460507 /* CollectionCell.swift */,
 				05CE26FC26D04C8B000FF7CA /* CustomButton.swift */,
+				302B6D0626FA606500CDC4CA /* MyImageView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -178,6 +184,7 @@
 				0FF8F65926C31FFF001F228E /* LaunchScreen.storyboard */,
 				0FF8F65C26C31FFF001F228E /* Info.plist */,
 				051F801E26F4D10A009A0811 /* NasaImageVideoLibraryModel.swift */,
+				302B6CFE26F9380C00CDC4CA /* SearchingController.swift */,
 			);
 			path = "Nasa App";
 			sourceTree = "<group>";
@@ -383,6 +390,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				302B6D0026F9381E00CDC4CA /* NasaImageVideoLibraryModel.swift in Sources */,
 				051C930B26EA4DFB005D5D25 /* NetworkManager.swift in Sources */,
 				059C5F0126DAEBA7006B7C46 /* LoginViewController.swift in Sources */,
 				0521590326DAE77A00B266A9 /* LandingViewController.swift in Sources */,
@@ -392,10 +400,12 @@
 				302B6D0526FA20E300CDC4CA /* Users.swift in Sources */,
 				05CE26FD26D04C8B000FF7CA /* CustomButton.swift in Sources */,
 				30D039E626F1228700AD7CE8 /* Dataloader.swift in Sources */,
+				302B6D0726FA606500CDC4CA /* MyImageView.swift in Sources */,
 				30D039E426F1227600AD7CE8 /* ApiQueryGenerator.swift in Sources */,
 				0FF8F64F26C31FFB001F228E /* AppDelegate.swift in Sources */,
 				05FAA15F26DD1F2300460507 /* PopularViewController.swift in Sources */,
 				309C145C26DD91140063BD2F /* ImageRetrieveController.swift in Sources */,
+				302B6CFF26F9380C00CDC4CA /* SearchingController.swift in Sources */,
 				300EF35F270ABB2500F2BDDD /* LoginController.swift in Sources */,
 				05200AF826E2917100295A04 /* FavoriteViewController.swift in Sources */,
 				0FF8F65126C31FFB001F228E /* SceneDelegate.swift in Sources */,
