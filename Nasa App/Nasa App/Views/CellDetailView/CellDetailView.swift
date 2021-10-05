@@ -14,6 +14,7 @@ struct CellDetailView: View {
     @Environment(\.horizontalSizeClass) var sizeClass
     var nasaData: NasaData
     var assetUrl: String
+    var nasaDateString: String
     
     var body: some View {
         GeometryReader { geometry in
@@ -26,6 +27,7 @@ struct CellDetailView: View {
                 ZStack{
                     Color(CellDetailConstants.backgroundColor)
                         .ignoresSafeArea()
+                    
                     if nasaData.mediaType == MediaType.image {
                         VStack{
                             Image(uiImage: loadImage())
@@ -51,7 +53,7 @@ struct CellDetailView: View {
                                 VStack{
                                     
                                     ScrollView {
-                                        Text(nasaData.title)
+                                        Text("\(nasaData.title) / \(nasaDateString)")
                                             .foregroundColor(.white)
                                             
                                             .frame(maxWidth: screenWidth * CellDetailConstants.widthConstraint, alignment: .leading)
@@ -69,7 +71,7 @@ struct CellDetailView: View {
                                 //MARK: - Text setup for regular
                                 VStack{
                                     ScrollView {
-                                        Text(nasaData.title)
+                                        Text("\(nasaData.title) / \(nasaDateString)")
                                             .foregroundColor(.white)
                                             .frame(maxWidth: screenWidth * CellDetailConstants.widthConstraint, alignment: .leading)
                                             .font(Font(CellDetailConstants.fontRegularTitle as CTFont))
@@ -104,7 +106,7 @@ struct CellDetailView: View {
                                 VStack{
                                     
                                     ScrollView {
-                                        Text(nasaData.title)
+                                        Text("\(nasaData.title) / \(nasaDateString)")
                                             .foregroundColor(.white)
                                             
                                             .frame(maxWidth: screenWidth * CellDetailConstants.widthConstraint, alignment: .leading)
@@ -121,7 +123,7 @@ struct CellDetailView: View {
                                 //MARK: - Text setup for regular
                                 VStack{
                                     ScrollView {
-                                        Text(nasaData.title)
+                                        Text("\(nasaData.title) / \(nasaDateString)")
                                             .foregroundColor(.white)
                                             .frame(maxWidth: screenWidth * CellDetailConstants.widthConstraint, alignment: .leading)
                                             .font(Font(CellDetailConstants.fontRegularTitle as CTFont))

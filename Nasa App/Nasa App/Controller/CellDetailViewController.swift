@@ -67,7 +67,8 @@ class CellDetailViewController: UIViewController {
     
     func makeSwiftUIView() -> UIHostingController<CellDetailView> {
         guard let data = nasaData, let url = assetUrl else { return UIHostingController() }
-        let swiftDetailView = CellDetailView(nasaData: data, assetUrl: url)
+        let nasaDate = convertDate(data: data)
+        let swiftDetailView = CellDetailView(nasaData: data, assetUrl: url, nasaDateString: nasaDate)
         let headerVC = UIHostingController(rootView: swiftDetailView)
         headerVC.view.translatesAutoresizingMaskIntoConstraints = false
         return headerVC
@@ -84,6 +85,11 @@ class CellDetailViewController: UIViewController {
         nasaType == .video ? RotationHelper.lockOrientation(.allButUpsideDown) : RotationHelper.lockOrientation(.portrait)
         
         
+    }
+    func convertDate(data: NasaData) -> String {
+        let dateString: String = DateFormat.formatDate(dateString: data.dateCreated)
+        return dateString
+
     }
    
     override func viewWillDisappear(_ animated: Bool) {
