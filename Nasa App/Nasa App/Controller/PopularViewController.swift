@@ -47,6 +47,7 @@ class PopularViewController: UIViewController, UISearchControllerDelegate, UISea
     
     @IBAction func logOut(_ sender: UITapGestureRecognizer) {
         UserDefaults.standard.set(false, forKey: LoginConstants.userDefaultKey)
+        let _ = LoginViewController()
         self.performSegue(withIdentifier: "unwindToLoginVC", sender: self)
     }
 

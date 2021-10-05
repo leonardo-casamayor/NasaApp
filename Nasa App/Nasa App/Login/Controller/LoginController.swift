@@ -43,11 +43,11 @@ extension LoginController {
     func register() -> Bool {
         guard let user = self.username, let password = self.password else { return false }
         let databaseUser = userLoader.load()
-        if databaseUser.username == user {
+        if databaseUser.username != user {
             userLoader.write(user: Users(username: user, password: password))
-            return false
-        } else {
             return true
+        } else {
+            return false
         }
     }
 }

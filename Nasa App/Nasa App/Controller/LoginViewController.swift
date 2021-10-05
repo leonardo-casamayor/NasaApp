@@ -21,6 +21,13 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewControllerSetUp()
+        print(UsersLoader().plistURL)
+
+    }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        verifyUserAuthenticated()
+
     }
     
     // Login button
@@ -61,7 +68,14 @@ class LoginViewController: UIViewController {
         }
     }
     @IBAction func prepareForUnwind(segue: UIStoryboardSegue) {
+        
+    }
+    func verifyUserAuthenticated() {
+        let isLogin: Bool = UserDefaults.standard.bool(forKey: "isLogin")
+        if isLogin {
+            performSegue(withIdentifier: LoginConstants.segueIdentifier, sender: nil)
 
+        }
     }
     //MARK: Formatting
     private func viewControllerSetUp() {

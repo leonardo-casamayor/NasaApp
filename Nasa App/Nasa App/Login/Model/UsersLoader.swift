@@ -54,10 +54,7 @@ extension UsersLoader {
     func write(user: Users) {
         let fileUser = load()
         ///check for user existance
-        guard verifyUserExists(user: user, fileUser: fileUser) else {
-            print("user already exists")
-            return
-        }
+        guard verifyUserExists(user: user, fileUser: fileUser) else { return }
         /// setup the encoder
         let encoder = PropertyListEncoder()
         if let data = try? encoder.encode(user) {
