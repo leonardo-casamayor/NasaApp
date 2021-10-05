@@ -45,15 +45,11 @@ class PopularViewController: UIViewController, UISearchControllerDelegate, UISea
         
     }
     
-   
     @IBAction func logOut(_ sender: UITapGestureRecognizer) {
         UserDefaults.standard.set(false, forKey: LoginConstants.userDefaultKey)
         self.performSegue(withIdentifier: "unwindToLoginVC", sender: self)
     }
-    
-   
-    
-  
+
     private func setupCollectionViewController() {
         view.addSubview(collectionView)
         view.backgroundColor = GeneralConstants.nasaBlue
