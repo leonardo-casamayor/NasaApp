@@ -21,7 +21,7 @@ struct CellDetailView: View {
             let screenHeight = geometry.size.height
             let isPortrait = screenHeight > screenWidth
             
-            if isPortrait {
+            if isPortrait || nasaData.mediaType == MediaType.image {
                 //MARK: - Portrait Mode
                 ZStack{
                     Color(CellDetailConstants.backgroundColor)
@@ -145,18 +145,8 @@ struct CellDetailView: View {
                 ZStack{
                     Color.black
                         .ignoresSafeArea()
-                    if nasaData.mediaType == MediaType.image {
+                    if nasaData.mediaType == MediaType.video {
 
-                        Image(uiImage: loadImage())
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .ignoresSafeArea()
-                            .frame(width: screenWidth,
-                                   height: screenHeight,
-                                   alignment: .center)
-                        
-                    }
-                    else {
                         VideoControllerView(videoUrl: assetUrl)
                             .cornerRadius(10)
                             .ignoresSafeArea()

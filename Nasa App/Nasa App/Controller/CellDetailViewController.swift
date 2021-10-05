@@ -80,7 +80,9 @@ class CellDetailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        RotationHelper.lockOrientation(.allButUpsideDown)
+        nasaData?.mediaType == .video ? RotationHelper.lockOrientation(.allButUpsideDown) : RotationHelper.lockOrientation(.portrait)
+        
+        
     }
    
     override func viewWillDisappear(_ animated: Bool) {
