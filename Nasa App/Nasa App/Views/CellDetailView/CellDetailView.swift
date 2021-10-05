@@ -30,8 +30,7 @@ struct CellDetailView: View {
                         VStack{
                             Image(uiImage: loadImage())
                                 .resizable()
-                                .cornerRadius(10)
-                                .aspectRatio(contentMode: .fill)
+                                .scaledToFill()
                                 .frame(width: screenWidth,
                                        height: screenHeight,
                                        alignment: .top)
@@ -144,15 +143,18 @@ struct CellDetailView: View {
                 //MARK: - Landscape Mode
             } else {
                 ZStack{
-                    Color(CellDetailConstants.backgroundColor)
+                    Color.black
                         .ignoresSafeArea()
                     if nasaData.mediaType == MediaType.image {
+
                         Image(uiImage: loadImage())
                             .resizable()
+                            .aspectRatio(contentMode: .fit)
                             .ignoresSafeArea()
                             .frame(width: screenWidth,
                                    height: screenHeight,
                                    alignment: .center)
+                        
                     }
                     else {
                         VideoControllerView(videoUrl: assetUrl)
