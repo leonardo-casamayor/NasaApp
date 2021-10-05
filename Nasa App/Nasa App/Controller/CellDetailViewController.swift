@@ -32,7 +32,7 @@ class CellDetailViewController: UIViewController {
                 guard let url = strongSelf.findUrl(array: urls, mediaType: data.mediaType) else {
                     return
                 }
-                strongSelf.assetUrl = url
+                strongSelf.assetUrl = NetworkManager.encodeURL(urlString: url)
                 DispatchQueue.main.async { [weak self] in
                     guard let strongSelf = self else { return }
                     strongSelf.addSwiftUIView()

@@ -87,7 +87,8 @@ extension NetworkManager: ApodClient {
 
 extension NetworkManager: AssetRetriever {
     func retrieveAssets(assetsUrl: String, completion: @escaping (Result<[String], Error>) -> Void) {
-        guard let url = URL(string: assetsUrl) else {
+        guard let encodedURL = NetworkManager.encodeURL(urlString: assetsUrl) else { return }
+        guard let url = URL(string: encodedURL) else {
             completion(.failure(NetworkError.BadURL))
             return
         }
