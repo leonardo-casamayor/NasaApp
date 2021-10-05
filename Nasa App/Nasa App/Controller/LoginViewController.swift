@@ -31,6 +31,8 @@ class LoginViewController: UIViewController {
         if informationComplete {
             let loginController = LoginController(username: username, password: password)
             if loginController.login() {
+                userField.text = ""
+                passwordField.text = ""
                 performSegue(withIdentifier: LoginConstants.segueIdentifier, sender: nil)
                 UserDefaults.standard.set(true, forKey: LoginConstants.userDefaultKey)
             } else {
@@ -47,6 +49,8 @@ class LoginViewController: UIViewController {
         if informationComplete {
          let loginController = LoginController(username: username, password: password)
             if loginController.register() {
+                userField.text = ""
+                passwordField.text = ""
                 performSegue(withIdentifier: LoginConstants.segueIdentifier, sender: nil)
                 UserDefaults.standard.set(true, forKey: LoginConstants.userDefaultKey)
             } else {
@@ -55,6 +59,9 @@ class LoginViewController: UIViewController {
         } else {
             displayLoginError(error: LoginConstants.errorRegisterEmptyField)
         }
+    }
+    @IBAction func prepareForUnwind(segue: UIStoryboardSegue) {
+
     }
     //MARK: Formatting
     private func viewControllerSetUp() {

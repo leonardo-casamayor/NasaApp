@@ -309,15 +309,31 @@
                             <constraint firstItem="Rih-xl-4z9" firstAttribute="bottom" secondItem="Mba-5b-idL" secondAttribute="bottom" id="vPb-TY-HgZ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="T4Z-2D-XCo"/>
+                    <navigationItem key="navigationItem" id="T4Z-2D-XCo">
+                        <barButtonItem key="leftBarButtonItem" title="LogOut" image="power" catalog="system" landscapeImage="power" largeContentSizeImage="power" style="plain" id="t9S-0A-eKr">
+                            <color key="tintColor" systemColor="systemBlueColor"/>
+                            <connections>
+                                <action selector="logOut:" destination="CP5-LJ-ynp" id="Ahw-8E-diD"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="errorImage" destination="ILW-Pf-hVe" id="EBE-e9-m1U"/>
                         <outlet property="errorLabel" destination="h46-4v-gJI" id="JHY-U1-88f"/>
                         <outlet property="errorView" destination="Mba-5b-idL" id="kka-Cu-qTq"/>
                         <outlet property="labelContainer" destination="qZS-n1-5Rg" id="8aC-r6-FrF"/>
+                        <outlet property="logOutButton" destination="t9S-0A-eKr" id="87U-Ue-Ga5"/>
+                        <segue destination="9fD-xM-9iZ" kind="unwind" identifier="unwindToLoginVC" unwindAction="prepareForUnwindWithSegue:" id="ALG-zr-PFi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q8Q-dU-83k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="jf9-I9-hVc">
+                    <connections>
+                        <action selector="logOut:" destination="CP5-LJ-ynp" id="DxH-0C-FvR"/>
+                        <outlet property="delegate" destination="t9S-0A-eKr" id="pJr-hI-ul6"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <exit id="9fD-xM-9iZ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2809" y="33"/>
         </scene>
@@ -772,9 +788,13 @@
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="network" catalog="system" width="128" height="121"/>
         <image name="play.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="power" catalog="system" width="128" height="124"/>
         <image name="speaker.fill" catalog="system" width="128" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
