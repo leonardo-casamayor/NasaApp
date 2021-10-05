@@ -51,3 +51,13 @@ extension LoginController {
         }
     }
 }
+
+extension LoginController {
+    static func verifyUserAuthenticated() -> Bool {
+        let isLogin: Bool = UserDefaults.standard.bool(forKey: "isLogin")
+        if isLogin {
+            return true
+        }
+        return false
+    }
+}
