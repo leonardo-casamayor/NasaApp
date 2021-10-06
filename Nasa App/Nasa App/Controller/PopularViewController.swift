@@ -219,10 +219,18 @@ extension PopularViewController {
             self.spinner.hidesWhenStopped = true
             self.spinner.frame = CGRect(x: 0.0, y: 0.0, width: 200.0, height: 200.0)
             self.spinner.center = CGPoint(x:self.loadingView.bounds.size.width / 2, y:self.loadingView.bounds.size.height / 2)
-            
+            let nasaLogo = UIImageView()
+            nasaLogo.image = UIImage(named: "NASA_logo.svg")
             self.loadingView.addSubview(self.loadingBackground)
             self.loadingView.addSubview(self.spinner)
+            self.loadingView.addSubview(nasaLogo)
             self.view.addSubview(self.loadingView)
+            
+            nasaLogo.translatesAutoresizingMaskIntoConstraints = false
+            nasaLogo.topAnchor.constraint(equalTo: self.loadingView.topAnchor, constant: 50.0).isActive = true
+            nasaLogo.centerXAnchor.constraint(equalTo: self.loadingView.centerXAnchor).isActive = true
+            nasaLogo.widthAnchor.constraint(equalTo: self.loadingView.widthAnchor, multiplier: 0.5).isActive = true
+            nasaLogo.heightAnchor.constraint(equalTo: nasaLogo.widthAnchor, multiplier: 0.7).isActive = true
             self.spinner.startAnimating()
         }
         

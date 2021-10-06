@@ -33,6 +33,10 @@ struct CellDetailView: View {
                         VStack{
                             WebImage(url: URL(string: assetUrl))
                                 .resizable()
+                                .placeholder {
+                                        Rectangle().foregroundColor(.black)
+                                    }
+                                .indicator(.activity)
                                 .scaledToFill()
                                 .transition(.fade(duration: 0.5))
                                 .frame(width: screenWidth,
@@ -148,7 +152,7 @@ struct CellDetailView: View {
                     Color.black
                         .ignoresSafeArea()
                     if nasaData.mediaType == MediaType.video {
-
+                        
                         VideoControllerView(videoUrl: assetUrl)
                             .cornerRadius(10)
                             .ignoresSafeArea()
