@@ -15,10 +15,7 @@ class RoverCollectionViewCell: UICollectionViewCell {
     let padding: CGFloat = 20
     
     // MARK: Subviews
-    var imageView: UIImageView = {
-        let imageView = UIImageView()
-        return imageView
-    }()
+    var imageView = UIImageView()
     
     var roverName: UILabel! = {
         let label = UILabel()
