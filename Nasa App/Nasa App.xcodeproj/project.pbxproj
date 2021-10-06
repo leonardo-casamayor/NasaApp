@@ -24,6 +24,8 @@
 		0FF8F65B26C31FFF001F228E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FF8F65926C31FFF001F228E /* LaunchScreen.storyboard */; };
 		0FF8F66626C32000001F228E /* Nasa_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF8F66526C32000001F228E /* Nasa_AppTests.swift */; };
 		0FF8F67126C32000001F228E /* Nasa_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF8F67026C32000001F228E /* Nasa_AppUITests.swift */; };
+		300EF353270AB55800F2BDDD /* UsersLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300EF352270AB55800F2BDDD /* UsersLoader.swift */; };
+		300EF35F270ABB2500F2BDDD /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300EF35E270ABB2500F2BDDD /* LoginController.swift */; };
 		302B6D0226FA1A3600CDC4CA /* Users.plist in Resources */ = {isa = PBXBuildFile; fileRef = 302B6D0126FA1A3600CDC4CA /* Users.plist */; };
 		302B6D0526FA20E300CDC4CA /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302B6D0426FA20E300CDC4CA /* Users.swift */; };
 		302B6CFF26F9380C00CDC4CA /* SearchingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302B6CFE26F9380C00CDC4CA /* SearchingController.swift */; };
@@ -80,6 +82,8 @@
 		0FF8F66C26C32000001F228E /* Nasa AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Nasa AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FF8F67026C32000001F228E /* Nasa_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nasa_AppUITests.swift; sourceTree = "<group>"; };
 		0FF8F67226C32000001F228E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		300EF352270AB55800F2BDDD /* UsersLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersLoader.swift; sourceTree = "<group>"; };
+		300EF35E270ABB2500F2BDDD /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		302B6D0126FA1A3600CDC4CA /* Users.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Users.plist; sourceTree = "<group>"; };
 		302B6D0426FA20E300CDC4CA /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		302B6CFE26F9380C00CDC4CA /* SearchingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingController.swift; sourceTree = "<group>"; };
@@ -205,11 +209,29 @@
 			path = "Nasa AppUITests";
 			sourceTree = "<group>";
 		};
+		300EF356270AB8DD00F2BDDD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				302B6D0426FA20E300CDC4CA /* Users.swift */,
+				302B6D0126FA1A3600CDC4CA /* Users.plist */,
+				300EF352270AB55800F2BDDD /* UsersLoader.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		300EF357270AB8E000F2BDDD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				300EF35E270ABB2500F2BDDD /* LoginController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		302B6D0326FA20C700CDC4CA /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				302B6D0126FA1A3600CDC4CA /* Users.plist */,
-				302B6D0426FA20E300CDC4CA /* Users.swift */,
+				300EF356270AB8DD00F2BDDD /* Model */,
+				300EF357270AB8E000F2BDDD /* Controller */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -377,6 +399,7 @@
 				0521590326DAE77A00B266A9 /* LandingViewController.swift in Sources */,
 				30C902DA26E9144800CBDCB0 /* CellDetailViewController.swift in Sources */,
 				30A5773826F38B9600E94C28 /* ApodModel.swift in Sources */,
+				300EF353270AB55800F2BDDD /* UsersLoader.swift in Sources */,
 				302B6D0526FA20E300CDC4CA /* Users.swift in Sources */,
 				05CE26FD26D04C8B000FF7CA /* CustomButton.swift in Sources */,
 				052E2D8B26FE76060080B990 /* RotationHelper.swift in Sources */,
@@ -387,6 +410,7 @@
 				05FAA15F26DD1F2300460507 /* PopularViewController.swift in Sources */,
 				309C145C26DD91140063BD2F /* ImageRetrieveController.swift in Sources */,
 				302B6CFF26F9380C00CDC4CA /* SearchingController.swift in Sources */,
+				300EF35F270ABB2500F2BDDD /* LoginController.swift in Sources */,
 				05200AF826E2917100295A04 /* FavoriteViewController.swift in Sources */,
 				0FF8F65126C31FFB001F228E /* SceneDelegate.swift in Sources */,
 				30C902E026EA5C8A00CBDCB0 /* VideoPlayerViewController.swift in Sources */,

@@ -12,6 +12,7 @@ class PopularViewController: UIViewController, UISearchControllerDelegate, UISea
     @IBOutlet weak var errorView: UIView!
     @IBOutlet weak var errorImage: UIImageView!
     @IBOutlet weak var errorLabel: UILabel!
+    @IBOutlet weak var logOutButton: UIBarButtonItem!
     var spinner = UIActivityIndicatorView()
     var loadingView: UIView = UIView()
     var loadingBackground: UIImageView = UIImageView()
@@ -31,7 +32,6 @@ class PopularViewController: UIViewController, UISearchControllerDelegate, UISea
             showErrorView(image: CollectionViewConstants.wifi!,
                           text: CollectionViewConstants.conectionError,
                           isConectionErrorShowing)
-
         }
     }
     
@@ -42,8 +42,15 @@ class PopularViewController: UIViewController, UISearchControllerDelegate, UISea
         showActivityIndicator()
         searchController.searchBar.delegate = self
         populateMedia(queryDictionary: MediaApiConstants.defaultPopularSearch)
+        
     }
     
+    @IBAction func logOut(_ sender: UITapGestureRecognizer) {
+        UserDefaults.standard.set(false, forKey: LoginConstants.userDefaultKey)
+        let _ = LoginViewController()
+        self.performSegue(withIdentifier: "unwindToLoginVC", sender: self)
+    }
+
     private func setupCollectionViewController() {
         view.addSubview(collectionView)
         view.backgroundColor = GeneralConstants.nasaBlue
