@@ -80,9 +80,10 @@ class PopularViewController: UIViewController, UISearchControllerDelegate, UISea
     private func sendToCellDetails() {
         // setup here any data we will pass to the next viewcontroller
         guard let destinationVC = self.storyboard?.instantiateViewController(withIdentifier: "CellDetailViewController") as? CellDetailViewController else { return }
-        self.navigationController?.pushViewController(destinationVC, animated: true)
+        self.navigationController?.pushViewController(destinationVC, animated: false)
         guard let indexPath = collectionView.indexPathsForSelectedItems, let index = indexPath.last?.last else { return }
         destinationVC.href = dataLoader.media?.collection.items[index].href
+        destinationVC.thumbnailUrl = dataLoader.media?.collection.items[index].links[0].href
         destinationVC.nasaData = dataLoader.media?.collection.items[index].data[safe: 0]
     }
     
