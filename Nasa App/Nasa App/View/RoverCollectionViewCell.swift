@@ -8,18 +8,14 @@
 import UIKit
 
 class RoverCollectionViewCell: UICollectionViewCell {
-        
+    
+    var onReuse: () -> Void = {}
     static let identifier = "RoverCollectionViewCell"
     private var views:[UIView] = []
     let padding: CGFloat = 20
     
     // MARK: Subviews
-    var imageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
-        imageView.clipsToBounds = true
-        return imageView
-    }()
+    var imageView = UIImageView()
     
     var roverName: UILabel! = {
         let label = UILabel()
@@ -59,10 +55,10 @@ class RoverCollectionViewCell: UICollectionViewCell {
         super.layoutSubviews()
         imageView.frame = contentView.bounds
     }
-
+    
     override func prepareForReuse() {
-        super.prepareForReuse()
         imageView.image = nil
+        imageView.cancelImageLoad()
     }
 }
 

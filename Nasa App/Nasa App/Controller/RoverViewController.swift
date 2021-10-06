@@ -7,11 +7,14 @@
 
 import Foundation
 import UIKit
-import SwiftUI
 
-class RoverViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class RoverViewController: UIViewController {
     
-    var roverPhotos: NasaRover? = nil
+    var roverPhotos = [LatestPhoto]() {
+        didSet {
+            print("Total amount of pics loaded: ", roverPhotos.count)
+        }
+    }
     
     private let collectionView = UICollectionView(
         frame: .zero,
@@ -40,6 +43,7 @@ class RoverViewController: UIViewController, UICollectionViewDataSource, UIColle
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         collectionView.frame = view.bounds
+        view.backgroundColor = GeneralConstants.nasaBlue
     }
     
     private func sendToCellDetails(index :Int) {
@@ -49,8 +53,14 @@ class RoverViewController: UIViewController, UICollectionViewDataSource, UIColle
     }
 }
 
-// MARK: CollectionView Setup
-extension RoverViewController {
+// MARK: Action on selected Cell
+
+extension RoverViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 1, left: 1, bottom: 1, right: 1)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(
             width: (view.frame.size.width / 2)-2,
@@ -65,44 +75,31 @@ extension RoverViewController {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt: Int) -> CGFloat {
         return 1
     }
+}
+
+extension RoverViewController: UICollectionViewDelegate {
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 1, left: 1, bottom: 1, right: 1)
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("selected", indexPath.row)
     }
+}
+
+extension RoverViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return roverPhotos?.photos.count ?? 0
+        return roverPhotos.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RoverCollectionViewCell.identifier, for: indexPath) as! RoverCollectionViewCell
         
-        cell.roverName.text = roverPhotos?.photos[indexPath.row].rover.name
-        cell.dateLabel.text = roverPhotos?.photos[indexPath.row].earthDate
+        cell.roverName.text = roverPhotos[indexPath.row].rover.name
+        cell.dateLabel.text = roverPhotos[indexPath.row].earthDate
         
-        let link = roverPhotos?.photos[indexPath.row].imgSrc
-        guard var validLink = link else { return cell }
-        
-        validLink = validURL(urlString: validLink)
-        cell.imageView.downloadedFrom(from: validLink)
+        let link = roverPhotos[indexPath.row].imgSrc
+        guard let link = URL.init(string: link) else { return cell }
+        cell.imageView.loadImage(at: link)
         
         return cell
     }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        sendToCellDetails(index: indexPath.row)
-    }
 }
-
-// MARK: Parse URL from the response turn it into HTTPS
-extension RoverViewController {
-    func validURL(urlString: String) -> String {
-        var validURL = urlString
-        validURL.insert(contentsOf: "s", at: urlString.index(urlString.startIndex, offsetBy: 4))
-        return validURL
-    }
-}
-
-
-
-
