@@ -21,6 +21,7 @@
 		0FF8F65B26C31FFF001F228E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FF8F65926C31FFF001F228E /* LaunchScreen.storyboard */; };
 		0FF8F66626C32000001F228E /* Nasa_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF8F66526C32000001F228E /* Nasa_AppTests.swift */; };
 		0FF8F67126C32000001F228E /* Nasa_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF8F67026C32000001F228E /* Nasa_AppUITests.swift */; };
+		300EF369270BA19900F2BDDD /* FavoriteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300EF368270BA19900F2BDDD /* FavoriteModel.swift */; };
 		309C145C26DD91140063BD2F /* ImageRetrieveController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309C145B26DD91140063BD2F /* ImageRetrieveController.swift */; };
 		30C902DA26E9144800CBDCB0 /* CellDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C902D826E9144800CBDCB0 /* CellDetailViewController.swift */; };
 		30C902DB26E9144800CBDCB0 /* CellDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C902D926E9144800CBDCB0 /* CellDetailView.swift */; };
@@ -66,6 +67,7 @@
 		0FF8F66C26C32000001F228E /* Nasa AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Nasa AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FF8F67026C32000001F228E /* Nasa_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nasa_AppUITests.swift; sourceTree = "<group>"; };
 		0FF8F67226C32000001F228E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		300EF368270BA19900F2BDDD /* FavoriteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteModel.swift; sourceTree = "<group>"; };
 		309C145B26DD91140063BD2F /* ImageRetrieveController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRetrieveController.swift; sourceTree = "<group>"; };
 		30C902D826E9144800CBDCB0 /* CellDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellDetailViewController.swift; sourceTree = "<group>"; };
 		30C902D926E9144800CBDCB0 /* CellDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellDetailView.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 				05200AFD26E2A4D200295A04 /* Main.storyboard */,
 				0FF8F65926C31FFF001F228E /* LaunchScreen.storyboard */,
 				0FF8F65C26C31FFF001F228E /* Info.plist */,
+				300EF368270BA19900F2BDDD /* FavoriteModel.swift */,
 			);
 			path = "Nasa App";
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 				05CE26FD26D04C8B000FF7CA /* CustomButton.swift in Sources */,
 				0FF8F64F26C31FFB001F228E /* AppDelegate.swift in Sources */,
 				05FAA15F26DD1F2300460507 /* PopularViewController.swift in Sources */,
+				300EF369270BA19900F2BDDD /* FavoriteModel.swift in Sources */,
 				309C145C26DD91140063BD2F /* ImageRetrieveController.swift in Sources */,
 				05200AF826E2917100295A04 /* FavoriteViewController.swift in Sources */,
 				0FF8F65126C31FFB001F228E /* SceneDelegate.swift in Sources */,
