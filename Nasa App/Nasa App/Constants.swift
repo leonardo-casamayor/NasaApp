@@ -15,7 +15,7 @@ struct LoginConstants {
     static let buttonColor = UIColor(red:0.95, green:0.56, blue:0.55, alpha:1)
     static let buttonBorderColor = UIColor(red:0.59, green:0.59, blue:0.59, alpha:1)
 }
-    
+
 struct VideoPlayerConstants {
     static let videoUrl = "https://images-assets.nasa.gov/video/NHQ_2014_1010_TWAN/NHQ_2014_1010_TWAN~mobile.mp4"
     static let duration = "duration"
@@ -94,5 +94,11 @@ struct DetailPlaceholderInfo {
     static let textContent = "Shi Huan / 2021-07-16 \nVenus, named for the Roman goddess of love, and Mars, the war god's namesake, come together by moonlight in this serene skyview, recorded on July 11 from Lualaba province, Democratic Republic of Congo, planet Earth. Taken in the western twilight sky shortly after sunset the exposure also records earthshine illuminating the otherwise dark surface of the young crescent Moon. Of course the Moon has moved on. Venus still shines in the west though as the evening star, third brightest object in Earth's sky, after the Sun and the Moon itself. Seen here above a brilliant Venus, Mars moved even closer to the brighter planet and by July 13 could be seen only about a Moon's width away. Mars has since slowly wandered away from much brighter Venus in the twilight, but both are sliding toward bright star Regulus. Alpha star of the constellation Leo, Regulus lies off the top of this frame and anticipates a visit from Venus and then Mars in twilight skies of the coming days."
     static let videoPlaceholder = "https://images-assets.nasa.gov/video/JPL-20190701-WHATSUf-0001-Whats_Up_July_2019/JPL-20190701-WHATSUf-0001-Whats_Up_July_2019~medium.mp4"
     static let errorVideo = "https://temp.media/video/?height=400&width=500&length=10&text=error"
-    static let roverUrl = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2015-6-3&api_key=ezs9fJo4LZbTb4mHX9qdcclsfLNmxxsqJ6dAX2e5"
+}
+
+enum RoverUrls: String, CaseIterable {
+    case curiosity = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/latest_photos?api_key=ezs9fJo4LZbTb4mHX9qdcclsfLNmxxsqJ6dAX2e5"
+    case opportunity = "https://api.nasa.gov/mars-photos/api/v1/rovers/opportunity/latest_photos?api_key=ezs9fJo4LZbTb4mHX9qdcclsfLNmxxsqJ6dAX2e5"
+    case perseverance = "https://api.nasa.gov/mars-photos/api/v1/rovers/perseverance/latest_photos?api_key=ezs9fJo4LZbTb4mHX9qdcclsfLNmxxsqJ6dAX2e5"
+    case spirit = "https://api.nasa.gov/mars-photos/api/v1/rovers/spirit/latest_photos?api_key=ezs9fJo4LZbTb4mHX9qdcclsfLNmxxsqJ6dAX2e5"
 }

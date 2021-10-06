@@ -10,27 +10,36 @@ import UIKit
 
 class RoverViewController: UIViewController {
     
+    var roverPhotos = [LatestPhoto]() {
+        didSet {
+            print("Total amount of pics loaded: ", roverPhotos.count)
+        }
+    }
+    
     private let collectionView = UICollectionView(
         frame: .zero,
         collectionViewLayout: UICollectionViewFlowLayout()
     )
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.register(RoverCollectionViewCell.self, forCellWithReuseIdentifier: RoverCollectionViewCell.identifier)
-        collectionView.backgroundColor = GeneralConstants.nasaBlue
+        getPhotos(completed: {
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        })
         collectionView.delegate = self
         collectionView.dataSource = self
         setupCollectionViewController()
-        FetchRover().getRoverData()
     }
-
+    
     private func setupCollectionViewController() {
         view.addSubview(collectionView)
-        view.backgroundColor = GeneralConstants.nasaBlue
         configureNavigationBar(largeTitleColor: .black, backgroundColor: .white, tintColor: .white, title: "Rover", preferredLargeTitle: true)
+        collectionView.backgroundColor = GeneralConstants.nasaBlue
+        collectionView.register(RoverCollectionViewCell.self, forCellWithReuseIdentifier: RoverCollectionViewCell.identifier)
     }
-
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         collectionView.frame = view.bounds
@@ -56,7 +65,7 @@ extension RoverViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 1
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt: Int) -> CGFloat {
         return 1
     }
@@ -72,11 +81,19 @@ extension RoverViewController: UICollectionViewDelegate {
 extension RoverViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 30
+        return roverPhotos.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RoverCollectionViewCell.identifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RoverCollectionViewCell.identifier, for: indexPath) as! RoverCollectionViewCell
+        
+        cell.roverName.text = roverPhotos[indexPath.row].rover.name
+        cell.dateLabel.text = roverPhotos[indexPath.row].earthDate
+        
+        let link = roverPhotos[indexPath.row].imgSrc
+        guard let link = URL.init(string: link) else { return cell }
+        cell.imageView.loadImage(at: link)
+        
         return cell
     }
 }

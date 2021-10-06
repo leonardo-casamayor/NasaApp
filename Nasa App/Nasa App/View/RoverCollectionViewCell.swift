@@ -8,28 +8,26 @@
 import UIKit
 
 class RoverCollectionViewCell: UICollectionViewCell {
+    
+    var onReuse: () -> Void = {}
     static let identifier = "RoverCollectionViewCell"
     private var views:[UIView] = []
     let padding: CGFloat = 20
-
-    private let imageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
-        imageView.clipsToBounds = true
-        return imageView
-    }()
     
-    private let roverName: UILabel = {
+    // MARK: Subviews
+    var imageView = UIImageView()
+    
+    var roverName: UILabel! = {
         let label = UILabel()
-        label.text = "Curiosity"
+        label.text = ""
         label.textColor = UIColor.white
         label.font = UIFont.systemFont(ofSize: 14, weight: .medium)
         return label
     }()
     
-    private let dateLabel: UILabel = {
+    var dateLabel: UILabel! = {
         let label = UILabel()
-        label.text = "10/04/1991 08:54 CST"
+        label.text = ""
         label.textColor = UIColor.white
         label.font = UIFont.systemFont(ofSize: 10, weight: .medium)
         return label
@@ -40,22 +38,13 @@ class RoverCollectionViewCell: UICollectionViewCell {
         view.backgroundColor = UIColor(red:0.07, green:0.07, blue:0.07, alpha:0.5)
         return view
     }()
-
+    
+    // MARK: Setup
     override init(frame: CGRect) {
         super.init(frame: frame)
-        views = [imageView, transparentView, roverName, dateLabel ]
+        views = [imageView, transparentView, roverName, dateLabel]
         views.forEach { contentView.addSubview($0) }
         setupConstraints()
-
-        let images = [
-            UIImage(named: "popular-example"),
-            UIImage(named: "popular-example"),
-            UIImage(named: "popular-example"),
-            UIImage(named: "popular-example"),
-            UIImage(named: "popular-example"),
-            UIImage(named: "popular-example")
-        ].compactMap({ $0 })
-        imageView.image = images.randomElement()
     }
 
     required init?(coder: NSCoder) {
@@ -66,7 +55,11 @@ class RoverCollectionViewCell: UICollectionViewCell {
         super.layoutSubviews()
         imageView.frame = contentView.bounds
     }
-
+    
+    override func prepareForReuse() {
+        imageView.image = nil
+        imageView.cancelImageLoad()
+    }
 }
 
 //MARK: Constraints
