@@ -46,10 +46,10 @@ class RoverViewController: UIViewController {
         view.backgroundColor = GeneralConstants.nasaBlue
     }
     
-    private func sendToCellDetails(index :Int) {
+    private func sendToCellDetails(index: Int) {
         let destinationVC = RoverDetailView()
         self.navigationController?.pushViewController(destinationVC, animated: true)
-        destinationVC.receivedData = roverPhotos?.photos[index]
+        destinationVC.receivedData = roverPhotos[index]
     }
 }
 
@@ -80,7 +80,7 @@ extension RoverViewController: UICollectionViewDelegateFlowLayout {
 extension RoverViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("selected", indexPath.row)
+        sendToCellDetails(index: indexPath.row)
     }
 }
 
