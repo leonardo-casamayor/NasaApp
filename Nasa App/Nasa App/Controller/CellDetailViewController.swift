@@ -32,7 +32,7 @@ class CellDetailViewController: UIViewController {
                 guard let url = strongSelf.findUrl(array: urls, mediaType: data.mediaType) else {
                     return
                 }
-                strongSelf.assetUrl = url
+                strongSelf.assetUrl = NetworkManager.encodeURL(urlString: url)
                 DispatchQueue.main.async { [weak self] in
                     guard let strongSelf = self else { return }
                     strongSelf.addSwiftUIView()
@@ -67,7 +67,8 @@ class CellDetailViewController: UIViewController {
     
     func makeSwiftUIView() -> UIHostingController<CellDetailView> {
         guard let data = nasaData, let url = assetUrl else { return UIHostingController() }
-        let swiftDetailView = CellDetailView(nasaData: data, assetUrl: url)
+        let nasaDate = convertDate(data: data)
+        let swiftDetailView = CellDetailView(nasaData: data, assetUrl: url, nasaDateString: nasaDate)
         let headerVC = UIHostingController(rootView: swiftDetailView)
         headerVC.view.translatesAutoresizingMaskIntoConstraints = false
         return headerVC
@@ -80,7 +81,15 @@ class CellDetailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        RotationHelper.lockOrientation(.allButUpsideDown)
+        guard let nasaType = nasaData?.mediaType else { return }
+        nasaType == .video ? RotationHelper.lockOrientation(.allButUpsideDown) : RotationHelper.lockOrientation(.portrait)
+        
+        
+    }
+    func convertDate(data: NasaData) -> String {
+        let dateString: String = DateFormat.formatDate(dateString: data.dateCreated)
+        return dateString
+
     }
    
     override func viewWillDisappear(_ animated: Bool) {

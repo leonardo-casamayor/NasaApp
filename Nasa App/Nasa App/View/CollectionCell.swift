@@ -43,6 +43,15 @@ class CollectionCell: UICollectionViewCell {
         imageView.image = UIImage(named: "popular-example")
         return imageView
     }()
+    private var playView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.clipsToBounds = true
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = #imageLiteral(resourceName: "PlayButton")
+        imageView.isHidden = true
+        return imageView
+    }()
+    
     //MARK: Initialization and setup
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -66,7 +75,7 @@ class CollectionCell: UICollectionViewCell {
     }
     
     private func setupCell() {
-        views = [imageView, transparentView, titleLabel, dateLabel]
+        views = [imageView, transparentView, titleLabel, dateLabel, playView]
         views.forEach { contentView.addSubview($0) }
         contentView.clipsToBounds = true
         contentView.layer.cornerRadius = 15
@@ -80,6 +89,14 @@ class CollectionCell: UICollectionViewCell {
         view.frame = contentView.bounds
     }
     func configureCellWith(data: [NasaData]) {
+        switch data[0].mediaType {
+        case .image:
+            self.playView.isHidden = true
+        case .video:
+            self.playView.isHidden = false
+        default:
+            self.playView.isHidden = true
+        }
         self.dateLabel.text = DateFormat.formatDate(dateString: data[0].dateCreated)
         self.titleLabel.text = data[0].title.lowercased().trunc(length: 100).capitalized
     }
@@ -92,6 +109,7 @@ extension CollectionCell {
         transparentViewConstraints()
         titleLabelConstraints()
         dateLabelConstraints()
+        playViewConstraints()
     }
     
     private func titleLabelConstraints() {
@@ -106,6 +124,14 @@ extension CollectionCell {
         dateLabel.translatesAutoresizingMaskIntoConstraints = false
         dateLabel.leftAnchor.constraint(equalTo: transparentView.leftAnchor, constant: 10).isActive = true
         dateLabel.topAnchor.constraint(equalTo: transparentView.centerYAnchor, constant: 10).isActive = true
+    }
+    private func playViewConstraints() {
+        playView.translatesAutoresizingMaskIntoConstraints = false
+        playView.heightAnchor.constraint(equalTo: imageView.heightAnchor, multiplier: 0.3).isActive = true
+        playView.heightAnchor.constraint(equalTo: playView.heightAnchor).isActive = true
+        playView.centerXAnchor.constraint(equalTo: imageView.centerXAnchor).isActive = true
+        playView.centerYAnchor.constraint(equalTo: imageView.centerYAnchor).isActive = true
+
     }
     
     private func transparentViewConstraints() {
