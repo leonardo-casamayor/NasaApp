@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class LandingViewController: UIViewController {
     
@@ -21,18 +22,26 @@ class LandingViewController: UIViewController {
     var networkManager = NetworkManager()
     var animate = true
     var apod: APODElement? {
-        didSet {
-            guard let apodData = apod else { return }
-            loadData(data: apodData)
-            prepareImage(data: apodData)
-        }
-    }
-    var apodImageString: String? {
-        didSet {
-            DispatchQueue.main.async {
-                guard let imageUrl = self.apodImageString else { return }
-                self.image.setImageFrom(imageUrl)
+            didSet {
+                guard let apodData = apod else { return }
+                loadData(data: apodData)
+                prepareImage(data: apodData)
             }
+        }
+    var apodImageString: String? {
+            didSet {
+                DispatchQueue.main.async {
+                    let scale = UIScreen.main.scale
+                    let imageSize = self.image.bounds.size
+                    let thumbnailSize = CGSize(width: imageSize.width * scale, height: imageSize.height * scale)
+                    guard let imageUrl = self.apodImageString else { return }
+                    self.image.sd_imageIndicator = SDWebImageActivityIndicator.whiteLarge
+                    self.image.sd_setImage(with: URL(string: imageUrl),
+                                           placeholderImage: nil,
+                                           options: .highPriority,
+                                           context: [.imageThumbnailPixelSize : thumbnailSize,
+                                                     .imageTransformer : UIBlurEffect()])
+                }
         }
     }
     

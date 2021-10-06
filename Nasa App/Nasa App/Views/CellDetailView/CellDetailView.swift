@@ -7,6 +7,7 @@
 
 import SwiftUI
 import AVKit
+import SDWebImageSwiftUI
 
 
 struct CellDetailView: View {
@@ -30,14 +31,13 @@ struct CellDetailView: View {
                     
                     if nasaData.mediaType == MediaType.image {
                         VStack{
-                            Image(uiImage: loadImage())
+                            WebImage(url: URL(string: assetUrl))
                                 .resizable()
                                 .scaledToFill()
+                                .transition(.fade(duration: 0.5))
                                 .frame(width: screenWidth,
                                        height: screenHeight,
-                                       alignment: .top)
-                            
-                            
+                                       alignment: .center)
                             Rectangle()
                                 .fill(LinearGradient(gradient: Gradient(colors: [Color(CellDetailConstants.topGradientColor), Color(CellDetailConstants.bottomGradientColor)]),
                                                      startPoint: .top,

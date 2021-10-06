@@ -34,7 +34,7 @@ class SearchingController: SearchingFacade {
                                                            queryDictionary: queryDictionary).url) {
             [weak self] result in
             guard let strongSelf = self else { return }
-            DispatchQueue.global().async {
+            DispatchQueue.global(qos: .userInteractive).async {
                 switch result {
                 case.success(let media):
                     strongSelf.media = media

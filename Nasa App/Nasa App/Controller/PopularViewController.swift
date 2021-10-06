@@ -42,7 +42,6 @@ class PopularViewController: UIViewController, UISearchControllerDelegate, UISea
         showActivityIndicator()
         searchController.searchBar.delegate = self
         populateMedia(queryDictionary: MediaApiConstants.defaultPopularSearch)
-        
     }
     
     @IBAction func logOut(_ sender: UITapGestureRecognizer) {
@@ -50,7 +49,7 @@ class PopularViewController: UIViewController, UISearchControllerDelegate, UISea
         let _ = LoginViewController()
         self.performSegue(withIdentifier: "unwindToLoginVC", sender: self)
     }
-
+    
     private func setupCollectionViewController() {
         view.addSubview(collectionView)
         view.backgroundColor = GeneralConstants.nasaBlue
@@ -113,7 +112,7 @@ class PopularViewController: UIViewController, UISearchControllerDelegate, UISea
                 DispatchQueue.main.async {
                     strongSelf.hideActivityIndicator()
                     if !strongSelf.isConectionErrorShowing {
-                    strongSelf.isConectionErrorShowing.toggle()
+                        strongSelf.isConectionErrorShowing.toggle()
                     }
                 }
             }
@@ -132,16 +131,22 @@ extension PopularViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionCell.PopularIdentifier, for: indexPath) as? CollectionCell else { return UICollectionViewCell() }
         
         let path = indexPath.row
-        if let image = dataLoader.media?.collection.items[path].links[0].href {
-            DispatchQueue.main.async {
-                cell.imageView.loadImages(from: image)
+        if let imageUrl = dataLoader.media?.collection.items[path].links[0].href {
+            
+            if let content = dataLoader.media?.collection.items[path].data {
+                let title = content[0].title
+            let date = DateFormat.formatDate(dateString: content[0].dateCreated)
+                var mediaType: String = ""
+                switch content[0].mediaType {
+                case .video:
+                    mediaType = "video"
+                default:
+                    mediaType = "image"
+                }
+                
+                cell.configureCellWith(title: title, date: date, url: imageUrl, mediaType: mediaType)
             }
         }
-        
-        if let content = dataLoader.media?.collection.items[path].data {
-            cell.configureCellWith(data: content)
-        }
-        
         return cell
     }
     
@@ -222,7 +227,7 @@ extension PopularViewController {
         }
         
     }
-
+    
     func hideActivityIndicator() {
         DispatchQueue.main.async {
             self.spinner.stopAnimating()
