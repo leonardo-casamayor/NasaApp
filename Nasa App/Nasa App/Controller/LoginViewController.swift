@@ -15,6 +15,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var registerButton: CustomButton!
     @IBOutlet weak var buttonsView: UIStackView!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var errorLabel: UILabel!
     
     
     override func viewDidLoad() {
@@ -22,6 +23,57 @@ class LoginViewController: UIViewController {
         viewControllerSetUp()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        verifyUserAuthenticated()
+
+    }
+    
+    // Login button
+    @IBAction func loginAction(_ sender: UIButton) {
+        guard let username = userField.text, let password = passwordField.text else { return }
+        let informationComplete: Bool = username != "" && password != ""
+        
+        if informationComplete {
+            let loginController = LoginController(username: username, password: password)
+            if loginController.login() {
+                userField.text = ""
+                passwordField.text = ""
+                performSegue(withIdentifier: LoginConstants.segueIdentifier, sender: nil)
+                UserDefaults.standard.set(true, forKey: LoginConstants.userDefaultKey)
+            } else {
+                displayLoginError(error: LoginConstants.errorLoginNoUserFound)
+            }
+        } else {
+            displayLoginError(error: LoginConstants.errorLoginEmptyField)
+        }
+    }
+    // Register button
+    @IBAction func registerAction(_ sender: UIButton) {
+        guard let username = userField.text, let password = passwordField.text else { return }
+        let informationComplete: Bool = userField.text != "" && passwordField.text != ""
+        if informationComplete {
+         let loginController = LoginController(username: username, password: password)
+            if loginController.register() {
+                userField.text = ""
+                passwordField.text = ""
+                performSegue(withIdentifier: LoginConstants.segueIdentifier, sender: nil)
+                UserDefaults.standard.set(true, forKey: LoginConstants.userDefaultKey)
+            } else {
+                displayLoginError(error: LoginConstants.errorRegisterUserExists)
+            }
+        } else {
+            displayLoginError(error: LoginConstants.errorRegisterEmptyField)
+        }
+    }
+    @IBAction func prepareForUnwind(segue: UIStoryboardSegue) {
+        
+    }
+    private func verifyUserAuthenticated() {
+        if LoginController.verifyUserAuthenticated() {
+            performSegue(withIdentifier: LoginConstants.segueIdentifier, sender: nil)
+        }
+    }
     //MARK: Formatting
     private func viewControllerSetUp() {
         //gesture setup
@@ -102,5 +154,24 @@ extension LoginViewController: UITextFieldDelegate {
             self.passwordField.resignFirstResponder()
       }
     }
-    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        hideLoginError()
+    }
+}
+
+extension LoginViewController {
+    func displayLoginError(error: String) {
+        errorLabel.isHidden = false
+        errorLabel.text = error
+        UIView.animate(withDuration: 0.5) {
+            self.errorLabel.alpha = 1
+        }
+    }
+    func hideLoginError() {
+        UIView.animate(withDuration: 0.5) {
+            self.errorLabel.alpha = 0
+            self.errorLabel.isHidden = true
+        }
+        self.errorLabel.text = ""
+    }
 }
