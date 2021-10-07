@@ -230,8 +230,12 @@ extension PopularViewController {
             nasaLogo.translatesAutoresizingMaskIntoConstraints = false
             nasaLogo.topAnchor.constraint(equalTo: self.loadingView.topAnchor, constant: 50.0).isActive = true
             nasaLogo.centerXAnchor.constraint(equalTo: self.loadingView.centerXAnchor).isActive = true
-            nasaLogo.widthAnchor.constraint(equalTo: self.loadingView.widthAnchor, multiplier: 0.5).isActive = true
-            nasaLogo.heightAnchor.constraint(equalTo: nasaLogo.widthAnchor, multiplier: 0.9).isActive = true
+            if self.traitCollection.verticalSizeClass == .regular {
+                nasaLogo.widthAnchor.constraint(equalTo: self.loadingView.widthAnchor, multiplier: 0.3).isActive = true
+            } else {
+                nasaLogo.widthAnchor.constraint(equalTo: self.loadingView.widthAnchor, multiplier: 0.5).isActive = true
+            }
+            nasaLogo.heightAnchor.constraint(equalTo: nasaLogo.widthAnchor, multiplier: 0.8).isActive = true
             self.spinner.startAnimating()
         }
         

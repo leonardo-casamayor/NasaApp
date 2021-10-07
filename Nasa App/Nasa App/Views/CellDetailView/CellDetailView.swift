@@ -42,6 +42,8 @@ struct CellDetailView: View {
                                 .frame(width: screenWidth,
                                        height: screenHeight,
                                        alignment: .center)
+                                .clipped()
+                                .cornerRadius(10)
                             Rectangle()
                                 .fill(LinearGradient(gradient: Gradient(colors: [Color(CellDetailConstants.topGradientColor), Color(CellDetailConstants.bottomGradientColor)]),
                                                      startPoint: .top,
