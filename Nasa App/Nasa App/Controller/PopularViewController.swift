@@ -221,7 +221,7 @@ extension PopularViewController {
             self.spinner.frame = CGRect(x: 0.0, y: 0.0, width: 200.0, height: 200.0)
             self.spinner.center = CGPoint(x:self.loadingView.bounds.size.width / 2, y:self.loadingView.bounds.size.height / 2)
             let nasaLogo = UIImageView()
-            nasaLogo.image = UIImage(named: "NASA_logo.svg")
+            nasaLogo.image = #imageLiteral(resourceName: "NASA_logo.svg")
             self.loadingView.addSubview(self.loadingBackground)
             self.loadingView.addSubview(self.spinner)
             self.loadingView.addSubview(nasaLogo)
