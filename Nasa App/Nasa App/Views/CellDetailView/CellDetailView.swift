@@ -69,7 +69,9 @@ struct CellDetailView: View {
                                             .font(Font(CellDetailConstants.fontCompactText as CTFont))
                                             .padding(.top, CellDetailConstants.textTopPadding)
                                             .foregroundColor(.white)
-                                            .frame(width: screenWidth * CellDetailConstants.widthConstraint)
+                                            .multilineTextAlignment(.leading)
+                                            .fixedSize(horizontal: false, vertical: true)
+                                            .frame(width: screenWidth * CellDetailConstants.widthConstraint, alignment: .leading)
                                     }
                                 }.padding(.top, screenHeight * 0.5)
                                 
@@ -85,7 +87,10 @@ struct CellDetailView: View {
                                             .font(Font(CellDetailConstants.fontRegularText as CTFont))
                                             .padding(.top, CellDetailConstants.textTopPadding)
                                             .foregroundColor(.white) }
-                                        .frame(width: screenWidth * CellDetailConstants.widthConstraint)
+                                        .multilineTextAlignment(.leading)
+                                        .fixedSize(horizontal: false, vertical: true)
+
+                                        .frame(width: screenWidth * CellDetailConstants.widthConstraint, alignment: .leading)
                                 }
                                 .padding(.top, screenHeight * 0.5)
                             }
@@ -114,7 +119,6 @@ struct CellDetailView: View {
                                     ScrollView {
                                         Text("\(nasaData.title) / \(nasaDateString)")
                                             .foregroundColor(.white)
-                                            
                                             .frame(maxWidth: screenWidth * CellDetailConstants.widthConstraint, alignment: .leading)
                                             .font(Font(CellDetailConstants.fontCompactTitle as CTFont))
                                         
@@ -122,8 +126,11 @@ struct CellDetailView: View {
                                             .font(Font(CellDetailConstants.fontCompactText as CTFont))
                                             .padding(.top, CellDetailConstants.textTopPadding)
                                             .foregroundColor(.white)
-                                            .frame(width: screenWidth * CellDetailConstants.widthConstraint)
+                                            .multilineTextAlignment(.leading)
+                                            .fixedSize(horizontal: false, vertical: true)
                                     }
+                                    .frame(width: screenWidth * CellDetailConstants.widthConstraint)
+
                                 }.padding(.top, screenHeight * CellDetailConstants.imageHeightModifier)
                             } else {
                                 //MARK: - Text setup for regular
@@ -136,7 +143,11 @@ struct CellDetailView: View {
                                         Text(nasaData.description)
                                             .font(Font(CellDetailConstants.fontRegularText as CTFont))
                                             .padding(.top, CellDetailConstants.textTopPadding)
-                                            .foregroundColor(.white) }
+                                            .foregroundColor(.white)
+                                            .multilineTextAlignment(.leading)
+                                            .fixedSize(horizontal: false, vertical: true)
+
+                                    }
                                         .frame(width: screenWidth * CellDetailConstants.widthConstraint)
                                 }
                                 .padding(.top, screenHeight * CellDetailConstants.imageHeightModifier)
