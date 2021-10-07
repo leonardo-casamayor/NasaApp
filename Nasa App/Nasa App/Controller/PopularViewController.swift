@@ -235,7 +235,7 @@ extension PopularViewController {
             } else {
                 nasaLogo.widthAnchor.constraint(equalTo: self.loadingView.widthAnchor, multiplier: 0.5).isActive = true
             }
-            nasaLogo.heightAnchor.constraint(equalTo: nasaLogo.widthAnchor, multiplier: 0.8).isActive = true
+            nasaLogo.heightAnchor.constraint(equalTo: nasaLogo.widthAnchor, multiplier: 0.85).isActive = true
             self.spinner.startAnimating()
         }
         
