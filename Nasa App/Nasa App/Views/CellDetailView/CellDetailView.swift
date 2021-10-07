@@ -99,6 +99,7 @@ struct CellDetailView: View {
                     }
                     else {
                         VStack {
+                            if sizeClass == .compact {
                             VideoControllerView(videoUrl: assetUrl)
                                 .cornerRadius(10)
                                 .frame(width: screenWidth,
@@ -109,6 +110,18 @@ struct CellDetailView: View {
                                                      startPoint: .top,
                                                      endPoint: .bottom))
                                 .ignoresSafeArea()
+                            } else {
+                                VideoControllerView(videoUrl: assetUrl)
+                                    .cornerRadius(10)
+                                    .frame(width: screenWidth,
+                                           height: screenHeight * 0.5,
+                                           alignment: .center)
+                                Rectangle()
+                                    .fill(LinearGradient(gradient: Gradient(colors: [Color(CellDetailConstants.topGradientColor), Color(CellDetailConstants.bottomGradientColor)]),
+                                                         startPoint: .top,
+                                                         endPoint: .bottom))
+                                    .ignoresSafeArea()
+                            }
                         }
                         VStack{
                             Spacer()
@@ -150,7 +163,7 @@ struct CellDetailView: View {
                                     }
                                         .frame(width: screenWidth * CellDetailConstants.widthConstraint)
                                 }
-                                .padding(.top, screenHeight * CellDetailConstants.imageHeightModifier)
+                                .padding(.top, screenHeight * 0.5)
                             }
                         }
                         
