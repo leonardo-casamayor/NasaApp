@@ -60,6 +60,7 @@ struct NasaData: Decodable {
 }
 
 enum MediaType: Decodable, Equatable {
+
     case video, image
     case unknown(value: String)
     init(from decoder: Decoder) throws {
