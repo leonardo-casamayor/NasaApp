@@ -12,6 +12,7 @@ import SwiftUI
 class CellDetailViewController: UIViewController {
     var addFavButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(systemName: CellDetailConstants.favHeart), style: .done, target: self, action: #selector(addFavorite))
     var href: String?
+    var thumbnailUrl: String?
     var nasaData: NasaData?
     var assetUrl: String?
     let networkManager = NetworkManager()
@@ -47,7 +48,7 @@ class CellDetailViewController: UIViewController {
     
     private func findUrl (array: [String], mediaType: MediaType) -> String? {
         let targetSubstring = mediaType == MediaType.image ? "small.jpg" : "mobile.mp4"
-        guard let index = array.firstIndex(where: {$0.contains(targetSubstring)}) else { return nil }
+        guard let index = array.firstIndex(where: {$0.contains(targetSubstring)}) else { return thumbnailUrl }
         return array[index].replacingOccurrences(of: "http:", with: "https:")
     }
     

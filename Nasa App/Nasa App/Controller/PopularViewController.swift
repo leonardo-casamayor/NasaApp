@@ -42,7 +42,6 @@ class PopularViewController: UIViewController, UISearchControllerDelegate, UISea
         showActivityIndicator()
         searchController.searchBar.delegate = self
         populateMedia(queryDictionary: MediaApiConstants.defaultPopularSearch)
-        
     }
     
     @IBAction func logOut(_ sender: UITapGestureRecognizer) {
@@ -50,7 +49,7 @@ class PopularViewController: UIViewController, UISearchControllerDelegate, UISea
         let _ = LoginViewController()
         self.performSegue(withIdentifier: "unwindToLoginVC", sender: self)
     }
-
+    
     private func setupCollectionViewController() {
         view.addSubview(collectionView)
         view.backgroundColor = GeneralConstants.nasaBlue
@@ -81,9 +80,10 @@ class PopularViewController: UIViewController, UISearchControllerDelegate, UISea
     private func sendToCellDetails() {
         // setup here any data we will pass to the next viewcontroller
         guard let destinationVC = self.storyboard?.instantiateViewController(withIdentifier: "CellDetailViewController") as? CellDetailViewController else { return }
-        self.navigationController?.pushViewController(destinationVC, animated: true)
+        self.navigationController?.pushViewController(destinationVC, animated: false)
         guard let indexPath = collectionView.indexPathsForSelectedItems, let index = indexPath.last?.last else { return }
         destinationVC.href = dataLoader.media?.collection.items[index].href
+        destinationVC.thumbnailUrl = dataLoader.media?.collection.items[index].links[0].href
         destinationVC.nasaData = dataLoader.media?.collection.items[index].data[safe: 0]
     }
     
@@ -113,7 +113,7 @@ class PopularViewController: UIViewController, UISearchControllerDelegate, UISea
                 DispatchQueue.main.async {
                     strongSelf.hideActivityIndicator()
                     if !strongSelf.isConectionErrorShowing {
-                    strongSelf.isConectionErrorShowing.toggle()
+                        strongSelf.isConectionErrorShowing.toggle()
                     }
                 }
             }
@@ -132,16 +132,22 @@ extension PopularViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionCell.PopularIdentifier, for: indexPath) as? CollectionCell else { return UICollectionViewCell() }
         
         let path = indexPath.row
-        if let image = dataLoader.media?.collection.items[path].links[0].href {
-            DispatchQueue.main.async {
-                cell.imageView.loadImages(from: image)
+        if let imageUrl = dataLoader.media?.collection.items[path].links[0].href {
+            
+            if let content = dataLoader.media?.collection.items[path].data {
+                let title = content[0].title
+            let date = DateFormat.formatDate(dateString: content[0].dateCreated)
+                var mediaType: String = ""
+                switch content[0].mediaType {
+                case .video:
+                    mediaType = "video"
+                default:
+                    mediaType = "image"
+                }
+                
+                cell.configureCellWith(title: title, date: date, url: imageUrl, mediaType: mediaType)
             }
         }
-        
-        if let content = dataLoader.media?.collection.items[path].data {
-            cell.configureCellWith(data: content)
-        }
-        
         return cell
     }
     
@@ -214,15 +220,27 @@ extension PopularViewController {
             self.spinner.hidesWhenStopped = true
             self.spinner.frame = CGRect(x: 0.0, y: 0.0, width: 200.0, height: 200.0)
             self.spinner.center = CGPoint(x:self.loadingView.bounds.size.width / 2, y:self.loadingView.bounds.size.height / 2)
-            
+            let nasaLogo = UIImageView()
+            nasaLogo.image = #imageLiteral(resourceName: "NASA_logo.svg")
             self.loadingView.addSubview(self.loadingBackground)
             self.loadingView.addSubview(self.spinner)
+            self.loadingView.addSubview(nasaLogo)
             self.view.addSubview(self.loadingView)
+            
+            nasaLogo.translatesAutoresizingMaskIntoConstraints = false
+            nasaLogo.topAnchor.constraint(equalTo: self.loadingView.topAnchor, constant: 50.0).isActive = true
+            nasaLogo.centerXAnchor.constraint(equalTo: self.loadingView.centerXAnchor).isActive = true
+            if self.traitCollection.verticalSizeClass == .regular {
+                nasaLogo.widthAnchor.constraint(equalTo: self.loadingView.widthAnchor, multiplier: 0.3).isActive = true
+            } else {
+                nasaLogo.widthAnchor.constraint(equalTo: self.loadingView.widthAnchor, multiplier: 0.5).isActive = true
+            }
+            nasaLogo.heightAnchor.constraint(equalTo: nasaLogo.widthAnchor, multiplier: 0.85).isActive = true
             self.spinner.startAnimating()
         }
         
     }
-
+    
     func hideActivityIndicator() {
         DispatchQueue.main.async {
             self.spinner.stopAnimating()

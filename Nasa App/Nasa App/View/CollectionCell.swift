@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class CollectionCell: UICollectionViewCell {
     static let PopularIdentifier = "PopularCell"
@@ -88,17 +89,20 @@ class CollectionCell: UICollectionViewCell {
     private func setViewFrameToBounds(view: UIView) {
         view.frame = contentView.bounds
     }
-    func configureCellWith(data: [NasaData]) {
-        switch data[0].mediaType {
-        case .image:
-            self.playView.isHidden = true
-        case .video:
+    func configureCellWith(title: String, date: String, url: String, mediaType: String) {
+        guard let encodedUrl = NetworkManager.encodeURL(urlString: url) else { return }
+        if mediaType == "video" {
             self.playView.isHidden = false
-        default:
+        } else if mediaType == "image" {
             self.playView.isHidden = true
         }
-        self.dateLabel.text = DateFormat.formatDate(dateString: data[0].dateCreated)
-        self.titleLabel.text = data[0].title.lowercased().trunc(length: 100).capitalized
+        self.dateLabel.text = date
+        self.titleLabel.text = title.lowercased().trunc(length: 100).capitalized
+        self.imageView.sd_imageIndicator = SDWebImageActivityIndicator.whiteLarge
+        
+        self.imageView.sd_setImage(with: URL(string: encodedUrl),
+                                   placeholderImage: nil,
+                                   options: .highPriority)
     }
 }
 

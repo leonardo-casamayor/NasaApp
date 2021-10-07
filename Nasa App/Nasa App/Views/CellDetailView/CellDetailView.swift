@@ -7,6 +7,7 @@
 
 import SwiftUI
 import AVKit
+import SDWebImageSwiftUI
 
 
 struct CellDetailView: View {
@@ -30,14 +31,19 @@ struct CellDetailView: View {
                     
                     if nasaData.mediaType == MediaType.image {
                         VStack{
-                            Image(uiImage: loadImage())
+                            WebImage(url: URL(string: assetUrl))
                                 .resizable()
+                                .placeholder {
+                                        Rectangle().foregroundColor(.black)
+                                    }
+                                .indicator(.activity)
                                 .scaledToFill()
+                                .transition(.fade(duration: 0.5))
                                 .frame(width: screenWidth,
                                        height: screenHeight,
-                                       alignment: .top)
-                            
-                            
+                                       alignment: .center)
+                                .clipped()
+                                .cornerRadius(10)
                             Rectangle()
                                 .fill(LinearGradient(gradient: Gradient(colors: [Color(CellDetailConstants.topGradientColor), Color(CellDetailConstants.bottomGradientColor)]),
                                                      startPoint: .top,
@@ -63,7 +69,9 @@ struct CellDetailView: View {
                                             .font(Font(CellDetailConstants.fontCompactText as CTFont))
                                             .padding(.top, CellDetailConstants.textTopPadding)
                                             .foregroundColor(.white)
-                                            .frame(width: screenWidth * CellDetailConstants.widthConstraint)
+                                            .multilineTextAlignment(.leading)
+                                            .fixedSize(horizontal: false, vertical: true)
+                                            .frame(width: screenWidth * CellDetailConstants.widthConstraint, alignment: .leading)
                                     }
                                 }.padding(.top, screenHeight * 0.5)
                                 
@@ -79,7 +87,10 @@ struct CellDetailView: View {
                                             .font(Font(CellDetailConstants.fontRegularText as CTFont))
                                             .padding(.top, CellDetailConstants.textTopPadding)
                                             .foregroundColor(.white) }
-                                        .frame(width: screenWidth * CellDetailConstants.widthConstraint)
+                                        .multilineTextAlignment(.leading)
+                                        .fixedSize(horizontal: false, vertical: true)
+
+                                        .frame(width: screenWidth * CellDetailConstants.widthConstraint, alignment: .leading)
                                 }
                                 .padding(.top, screenHeight * 0.5)
                             }
@@ -88,6 +99,7 @@ struct CellDetailView: View {
                     }
                     else {
                         VStack {
+                            if sizeClass == .compact {
                             VideoControllerView(videoUrl: assetUrl)
                                 .cornerRadius(10)
                                 .frame(width: screenWidth,
@@ -98,6 +110,18 @@ struct CellDetailView: View {
                                                      startPoint: .top,
                                                      endPoint: .bottom))
                                 .ignoresSafeArea()
+                            } else {
+                                VideoControllerView(videoUrl: assetUrl)
+                                    .cornerRadius(10)
+                                    .frame(width: screenWidth,
+                                           height: screenHeight * 0.5,
+                                           alignment: .center)
+                                Rectangle()
+                                    .fill(LinearGradient(gradient: Gradient(colors: [Color(CellDetailConstants.topGradientColor), Color(CellDetailConstants.bottomGradientColor)]),
+                                                         startPoint: .top,
+                                                         endPoint: .bottom))
+                                    .ignoresSafeArea()
+                            }
                         }
                         VStack{
                             Spacer()
@@ -108,7 +132,6 @@ struct CellDetailView: View {
                                     ScrollView {
                                         Text("\(nasaData.title) / \(nasaDateString)")
                                             .foregroundColor(.white)
-                                            
                                             .frame(maxWidth: screenWidth * CellDetailConstants.widthConstraint, alignment: .leading)
                                             .font(Font(CellDetailConstants.fontCompactTitle as CTFont))
                                         
@@ -116,8 +139,11 @@ struct CellDetailView: View {
                                             .font(Font(CellDetailConstants.fontCompactText as CTFont))
                                             .padding(.top, CellDetailConstants.textTopPadding)
                                             .foregroundColor(.white)
-                                            .frame(width: screenWidth * CellDetailConstants.widthConstraint)
+                                            .multilineTextAlignment(.leading)
+                                            .fixedSize(horizontal: false, vertical: true)
                                     }
+                                    .frame(width: screenWidth * CellDetailConstants.widthConstraint)
+
                                 }.padding(.top, screenHeight * CellDetailConstants.imageHeightModifier)
                             } else {
                                 //MARK: - Text setup for regular
@@ -130,10 +156,14 @@ struct CellDetailView: View {
                                         Text(nasaData.description)
                                             .font(Font(CellDetailConstants.fontRegularText as CTFont))
                                             .padding(.top, CellDetailConstants.textTopPadding)
-                                            .foregroundColor(.white) }
+                                            .foregroundColor(.white)
+                                            .multilineTextAlignment(.leading)
+                                            .fixedSize(horizontal: false, vertical: true)
+
+                                    }
                                         .frame(width: screenWidth * CellDetailConstants.widthConstraint)
                                 }
-                                .padding(.top, screenHeight * CellDetailConstants.imageHeightModifier)
+                                .padding(.top, screenHeight * 0.5)
                             }
                         }
                         
@@ -148,7 +178,7 @@ struct CellDetailView: View {
                     Color.black
                         .ignoresSafeArea()
                     if nasaData.mediaType == MediaType.video {
-
+                        
                         VideoControllerView(videoUrl: assetUrl)
                             .cornerRadius(10)
                             .ignoresSafeArea()
