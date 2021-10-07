@@ -22,35 +22,35 @@ class RoverDetailView: UIViewController {
     
     private let transparentView: UIView = {
         let transparentView = UIView()
-        transparentView.backgroundColor = UIColor(red:0.07, green:0.07, blue:0.07, alpha:0.5)
+        transparentView.backgroundColor = UIColor(red:0.07, green:0.07, blue:0.07, alpha:0.7)
         return transparentView
     }()
     
     var roverName: UILabel! = {
         let label = UILabel()
         label.textColor = UIColor.white
-        label.font = UIFont.systemFont(ofSize: 14, weight: .medium)
+        label.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
         return label
     }()
     
     var cameraName: UILabel! = {
         let label = UILabel()
         label.textColor = UIColor.white
-        label.font = UIFont.systemFont(ofSize: 10, weight: .medium)
+        label.font = UIFont.systemFont(ofSize: 12, weight: .medium)
         return label
     }()
     
     var dateLabel: UILabel! = {
         let label = UILabel()
         label.textColor = UIColor.white
-        label.font = UIFont.systemFont(ofSize: 10, weight: .medium)
+        label.font = UIFont.systemFont(ofSize: 12, weight: .medium)
         return label
     }()
     
     var roverStatus: UILabel! = {
         let label = UILabel()
         label.textColor = UIColor.white
-        label.font = UIFont.systemFont(ofSize: 10, weight: .medium)
+        label.font = UIFont.systemFont(ofSize: 12, weight: .medium)
         return label
     }()
     
@@ -68,7 +68,7 @@ class RoverDetailView: UIViewController {
     }
     
     private func setupView() {
-        views = [transparentView, imageView, roverName, cameraName, roverStatus, dateLabel]
+        views = [imageView, transparentView, roverName, cameraName, roverStatus, dateLabel]
         views.forEach { view.addSubview($0) }
         setupConstraints()
     }
@@ -93,7 +93,7 @@ extension RoverDetailView {
         roverName.text = photo.rover.name
         cameraName.text = photo.camera.fullName
         dateLabel.text = photo.earthDate
-        roverStatus.text = "status: \(photo.rover.status)"
+        roverStatus.text = "Status: \(photo.rover.status)"
     }
 }
 
@@ -119,16 +119,16 @@ extension RoverDetailView {
     
     private func transparentViewConstraints() {
         transparentView.translatesAutoresizingMaskIntoConstraints = false
-        transparentView.leftAnchor.constraint(equalTo: imageView.leftAnchor, constant: 0).isActive = true
-        transparentView.rightAnchor.constraint(equalTo: imageView.rightAnchor, constant: 0).isActive = true
-        transparentView.bottomAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 0).isActive = true
-        transparentView.heightAnchor.constraint(equalTo: imageView.heightAnchor, multiplier: 1).isActive = true
+        transparentView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 0).isActive = true
+        transparentView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0).isActive = true
+        transparentView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
+        transparentView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.2).isActive = true
     }
     
     private func roverNameConstraints() {
         roverName.translatesAutoresizingMaskIntoConstraints = false
         roverName.leftAnchor.constraint(equalTo: transparentView.leftAnchor, constant: 10).isActive = true
-        roverName.topAnchor.constraint(equalTo: transparentView.topAnchor, constant: 15).isActive = true
+        roverName.topAnchor.constraint(equalTo: transparentView.topAnchor, constant: 10).isActive = true
     }
     
     private func cameraNameConstraints() {
