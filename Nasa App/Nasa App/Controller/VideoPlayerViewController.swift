@@ -77,6 +77,8 @@ class VideoPlayerViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         player.pause()
+        guard let currentItem = player.currentItem else {return}
+        currentItem.removeObserver(self, forKeyPath: VideoPlayerConstants.duration)
     }
     
     //MARK: - IBActions
