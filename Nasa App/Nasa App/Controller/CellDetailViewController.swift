@@ -128,31 +128,53 @@ class CellDetailViewController: UIViewController {
     
     @objc func favoriteToggle() {
         let user = UsersLoader().load()
-        guard let data = self.nasaData else { return }
-        let key = "\(user.username)\(data.nasaID)"
-        let valueExists = UserDefaults.standard.object(forKey: key) != nil
+        guard let data = nasaData else { return }
+        let favorites = getFavorites(forUser: user.username)
+        let valueExists = favorites.contains { $0.nasaId == data.nasaID }
         if valueExists {
-            removeFavorite(forKey: key)
+            removeFavorite(forNasaId: data.nasaID, andUser: user.username, in: favorites)
         }
         else {
-            addFavorite(forKey: key)
+            addFavorite(forUser: user.username, withFavorites: favorites)
         }
     }
     
-    private func removeFavorite(forKey key: String){
-        UserDefaults.standard.removeObject(forKey: key)
+    private func getFavorites(forUser user: String) -> [FavoriteModel] {
+        guard let data = UserDefaults.standard.data(forKey: "Favorites/\(user)") else { return [] }
+        do {
+            let decoder = JSONDecoder()
+            return try decoder.decode([FavoriteModel].self, from: data)
+        }
+        catch {
+            return []
+        }
     }
     
-    private func addFavorite(forKey key: String){
+    private func removeFavorite(forNasaId id: String, andUser user: String, in favorites: [FavoriteModel]){
+        let filteredFavorites = favorites.filter { $0.nasaId == id }
+        rewriteFavorites(filteredFavorites, forUser: user)
+    }
+    
+    private func addFavorite(forUser user: String, withFavorites favorites: [FavoriteModel]){
+        guard let favorite = createFavoriteItem() else { return }
+        var newFavorites = favorites
+        newFavorites.insert(favorite, at: 0)
+        rewriteFavorites(newFavorites, forUser: user)
+    }
+    
+    private func createFavoriteItem() -> FavoriteModel? {
         guard let data = nasaData,
               let url = assetUrl,
-              let thumbUrl = thumbnailUrl else { return }
+              let thumbUrl = thumbnailUrl else { return nil }
         let type = data.mediaType == MediaType.video ? FavoriteType.video : FavoriteType.image
-        let favorite = FavoriteModel(nasaId: data.nasaID, assetLink: url, thumbnailLink: thumbUrl, mediaType: type, title: data.title, date: data.dateCreated, description: data.description)
+        return FavoriteModel(nasaId: data.nasaID, assetLink: url, thumbnailLink: thumbUrl, mediaType: type, title: data.title, date: data.dateCreated, description: data.description)
+    }
+    
+    private func rewriteFavorites( _ favorites: [FavoriteModel], forUser user: String){
         do {
             let encoder = JSONEncoder()
-            let ecodedFavorite = try encoder.encode(favorite)
-            UserDefaults.standard.set(ecodedFavorite, forKey: key)
+            let ecodedFavorite = try encoder.encode(favorites)
+            UserDefaults.standard.set(ecodedFavorite, forKey: "Favorites/\(user)")
         }
         catch {
             showAlert()
