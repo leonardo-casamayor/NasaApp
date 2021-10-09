@@ -132,7 +132,7 @@ class CellDetailViewController: UIViewController {
         let favorites = getFavorites(forUser: user.username)
         let valueExists = favorites.contains { $0.nasaId == data.nasaID }
         if valueExists {
-            removeFavorite(forNasaId: data.nasaID, andUser: user.username, in: favorites)
+            removeFavorite(favorites, forUser: user.username)
         }
         else {
             addFavorite(forUser: user.username, withFavorites: favorites)
@@ -150,8 +150,9 @@ class CellDetailViewController: UIViewController {
         }
     }
     
-    private func removeFavorite(forNasaId id: String, andUser user: String, in favorites: [FavoriteModel]){
-        let filteredFavorites = favorites.filter { $0.nasaId == id }
+    private func removeFavorite(_ favorites: [FavoriteModel], forUser user: String){
+        guard let data = nasaData else { return }
+        let filteredFavorites = favorites.filter { $0.nasaId == data.nasaID }
         rewriteFavorites(filteredFavorites, forUser: user)
     }
     
@@ -182,7 +183,7 @@ class CellDetailViewController: UIViewController {
     }
     
     private func showAlert() {
-        let alert = UIAlertController(title: "Favorite could not be saved", message: "There was an error saving the data", preferredStyle: .alert)
+        let alert = UIAlertController(title: AlertConstants.favoritesAlertTitle, message: AlertConstants.favoritesAlertMessage, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
