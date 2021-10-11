@@ -115,7 +115,7 @@ class CellDetailViewController: UIViewController {
         hideBars(size: size)
     }
     
-    override func viewWillAppear(_ animated: Bool) { //set this up
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         guard let nasaType = nasaData?.mediaType else { return }
         nasaType == .video ? RotationHelper.lockOrientation(.allButUpsideDown) : RotationHelper.lockOrientation(.portrait)
