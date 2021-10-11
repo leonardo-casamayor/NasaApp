@@ -85,6 +85,7 @@ class PopularViewController: UIViewController, UISearchControllerDelegate, UISea
         destinationVC.href = dataLoader.media?.collection.items[index].href
         destinationVC.thumbnailUrl = dataLoader.media?.collection.items[index].links[0].href
         destinationVC.nasaData = dataLoader.media?.collection.items[index].data[safe: 0]
+        destinationVC.detailType = DetailType.popularDetail
     }
     
     func populateMedia(queryDictionary: [String:String]) {

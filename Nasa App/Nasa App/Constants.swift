@@ -6,6 +6,12 @@
 //
 
 import UIKit
+
+enum DetailType {
+    case popularDetail
+    case favoriteDetail
+}
+
 struct DateFormat {
     static func formatDate(dateString: String) -> String {
         let longDateFormatter = DateFormatter()
@@ -54,6 +60,8 @@ struct VideoPlayerConstants {
 }
 
 struct FavoritesTabConstants {
+    static let addFavTitle = "⭐️ Welcome to Favorites! ⭐️"
+    static let addFavDescription = "Please add items to your collection by visiting the popular tab, then favorite a selected item by tapping the ♡ icon"
     static let url = "https://apod.nasa.gov/apod/image/2108/Abell3827Lens_Hubble_960.jpg"
     static let description = "NASA"
     static let date = "2018-05-14T00:00:00Z"
@@ -111,7 +119,9 @@ struct CellDetailConstants {
     static let playPadMod: CGFloat = 0.12
     static let widthConstraint: CGFloat = 0.93
     static let textTopPadding: CGFloat = 0.12
-    
+    static let halfScreen: CGFloat = 0.5
+    static let cornerRadius: CGFloat = 10
+
     //MARK: - Fonts
     static let fontCompactTitle: UIFont = UIFont (name: "HelveticaNeue-Medium", size: 20)!
     static let fontCompactText: UIFont = UIFont (name: "HelveticaNeue-Medium", size: 17)!
