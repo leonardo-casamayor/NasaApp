@@ -10,7 +10,6 @@ import UIKit
 import SwiftUI
 
 class CellDetailViewController: UIViewController {
-    var addFavButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(systemName: CellDetailConstants.favHeart), style: .done, target: self, action: #selector(addFavorite))
     var href: String?
     var thumbnailUrl: String?
     var nasaData: NasaData?
@@ -103,7 +102,8 @@ class CellDetailViewController: UIViewController {
     
     private func setupNavButtons() {
         self.navigationItem.title = nasaData?.nasaID
-        self.navigationItem.rightBarButtonItem = self.addFavButton
+        let addFavButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(systemName: CellDetailConstants.favHeart), style: .done, target: self, action: #selector(self.favoriteToggle))
+        self.navigationItem.rightBarButtonItem = addFavButton
         self.navigationController?.navigationBar.prefersLargeTitles = false
         self.navigationItem.rightBarButtonItem?.isEnabled = true
         let backButton = UIBarButtonItem()
@@ -124,6 +124,68 @@ class CellDetailViewController: UIViewController {
         tabBarController?.tabBar.isHidden = false
         extendedLayoutIncludesOpaqueBars = false
         navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
+    @objc func favoriteToggle() {
+        let user = UsersLoader().load()
+        guard let data = nasaData else { return }
+        guard let favorites = getFavorites(forUser: user.username) else { return }
+        let valueExists = favorites.contains { $0.nasaId == data.nasaID }
+        if valueExists {
+            removeFavorite(favorites, forUser: user.username)
+        }
+        else {
+            addFavorite(forUser: user.username, withFavorites: favorites)
+        }
+    }
+    
+    private func getFavorites(forUser user: String) -> [FavoriteModel]? {
+        guard let data = UserDefaults.standard.data(forKey: "Favorites/\(user)") else { return nil }
+        do {
+            let decoder = JSONDecoder()
+            return try decoder.decode([FavoriteModel].self, from: data)
+        }
+        catch {
+            return nil
+        }
+    }
+    
+    private func removeFavorite(_ favorites: [FavoriteModel], forUser user: String){
+        guard let data = nasaData else { return }
+        let filteredFavorites = favorites.filter { $0.nasaId == data.nasaID }
+        rewriteFavorites(filteredFavorites, forUser: user)
+    }
+    
+    private func addFavorite(forUser user: String, withFavorites favorites: [FavoriteModel]){
+        guard let favorite = createFavoriteItem() else { return }
+        var newFavorites = favorites
+        newFavorites.insert(favorite, at: 0)
+        rewriteFavorites(newFavorites, forUser: user)
+    }
+    
+    private func createFavoriteItem() -> FavoriteModel? {
+        guard let data = nasaData,
+              let url = assetUrl,
+              let thumbUrl = thumbnailUrl else { return nil }
+        let type = data.mediaType == MediaType.video ? FavoriteType.video : FavoriteType.image
+        return FavoriteModel(nasaId: data.nasaID, assetLink: url, thumbnailLink: thumbUrl, mediaType: type, title: data.title, date: data.dateCreated, description: data.description)
+    }
+    
+    private func rewriteFavorites( _ favorites: [FavoriteModel], forUser user: String){
+        do {
+            let encoder = JSONEncoder()
+            let ecodedFavorite = try encoder.encode(favorites)
+            UserDefaults.standard.set(ecodedFavorite, forKey: "Favorites/\(user)")
+        }
+        catch {
+            showAlert()
+        }
+    }
+    
+    private func showAlert() {
+        let alert = UIAlertController(title: AlertConstants.favoritesAlertTitle, message: AlertConstants.favoritesAlertMessage, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
 }
 
