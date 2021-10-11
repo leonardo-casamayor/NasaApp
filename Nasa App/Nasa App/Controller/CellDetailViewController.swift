@@ -117,8 +117,8 @@ class CellDetailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        guard let nasaType = nasaData?.mediaType else { return }
-        nasaType == .video ? RotationHelper.lockOrientation(.allButUpsideDown) : RotationHelper.lockOrientation(.portrait)
+        guard let mediaType = self.mediaType else { return }
+        mediaType == .video ? RotationHelper.lockOrientation(.allButUpsideDown) : RotationHelper.lockOrientation(.portrait)
     }
     
     func convertDate(data: String?) -> String {
