@@ -129,7 +129,7 @@ class CellDetailViewController: UIViewController {
     @objc func favoriteToggle() {
         let user = UsersLoader().load()
         guard let data = nasaData else { return }
-        let favorites = getFavorites(forUser: user.username)
+        guard let favorites = getFavorites(forUser: user.username) else { return }
         let valueExists = favorites.contains { $0.nasaId == data.nasaID }
         if valueExists {
             removeFavorite(favorites, forUser: user.username)
@@ -139,14 +139,14 @@ class CellDetailViewController: UIViewController {
         }
     }
     
-    private func getFavorites(forUser user: String) -> [FavoriteModel] {
-        guard let data = UserDefaults.standard.data(forKey: "Favorites/\(user)") else { return [] }
+    private func getFavorites(forUser user: String) -> [FavoriteModel]? {
+        guard let data = UserDefaults.standard.data(forKey: "Favorites/\(user)") else { return nil }
         do {
             let decoder = JSONDecoder()
             return try decoder.decode([FavoriteModel].self, from: data)
         }
         catch {
-            return []
+            return nil
         }
     }
     
