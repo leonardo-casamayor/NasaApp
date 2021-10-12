@@ -146,26 +146,18 @@ class CellDetailViewController: UIViewController {
         let backButton = UIBarButtonItem()
         backButton.title = ""
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
-        setFavoriteButton()
+        toggleFavoriteButton()
     }
     
     private func isFavoriteStatus() -> Bool {
         guard let data = nasaData else { return false }
         let user = UsersLoader().load()
-        
-        if let favorites = getFavorites(forUser: user.username) {
-            let valueExists = favorites.contains { $0.nasaId == data.nasaID }
-            if valueExists {
-                return true
-            } else {
-                return false
-            }
-        }
-        return false
+        guard let favorites = getFavorites(forUser: user.username) else { return false }
+        let valueExists = favorites.contains { $0.nasaId == data.nasaID }
+        return valueExists ? true : false
     }
     
-    private func setFavoriteButton() {
-        print("isFavorite?: " , self.isFavorite)
+    private func toggleFavoriteButton() {
         guard let isFavorite = self.isFavorite else { return }
         let addFavButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(systemName: isFavorite ? CellDetailConstants.favHeartFill : CellDetailConstants.favHeartOutline), style: .done, target: self, action: #selector(self.favoriteToggle))
         self.navigationItem.rightBarButtonItem = addFavButton
@@ -192,7 +184,7 @@ class CellDetailViewController: UIViewController {
     }
     
     @objc func favoriteToggle() {
-        setFavoriteButton()
+        toggleFavoriteButton()
         let user = UsersLoader().load()
         switch self.detailType {
         case .popularDetail:
