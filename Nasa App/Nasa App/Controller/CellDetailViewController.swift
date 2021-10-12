@@ -38,11 +38,12 @@ class CellDetailViewController: UIViewController {
     var nasaTitle: String?
     var mediaType: MediaType?
     var nasaDate : String?
-    @State private var isFavorite: Bool?
+    var isFavorite: Bool?
     
     private lazy var swiftView = makeSwiftUIView()
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.isFavorite = isFavoriteStatus()
         self.detailType == DetailType.popularDetail ? setUpPopular() : setUpFavorite()
     }
     
@@ -70,6 +71,7 @@ class CellDetailViewController: UIViewController {
     }
     
     private func setUpFavorite() {
+        isFavorite = true
         DispatchQueue.main.async {
             self.addSwiftUIView()
             self.setupNavButtons()
@@ -106,6 +108,7 @@ class CellDetailViewController: UIViewController {
         else { return UIHostingController() }
         
         let swiftDetailView = CellDetailView(assetUrl: assetUrl, nasaDateString: nasaDate, nasaTitle: nasaTitle, nasaDescription: nasaDescription, mediaType: mediaType)
+        print(nasaDescription)
         let headerVC = UIHostingController(rootView: swiftDetailView)
         headerVC.view.translatesAutoresizingMaskIntoConstraints = false
         return headerVC
@@ -146,13 +149,29 @@ class CellDetailViewController: UIViewController {
         setFavoriteButton()
     }
     
+    private func isFavoriteStatus() -> Bool {
+        guard let data = nasaData else { return false }
+        let user = UsersLoader().load()
+        
+        if let favorites = getFavorites(forUser: user.username) {
+            let valueExists = favorites.contains { $0.nasaId == data.nasaID }
+            if valueExists {
+                return true
+            } else {
+                return false
+            }
+        }
+        return false
+    }
+    
     private func setFavoriteButton() {
+        print("isFavorite?: " , self.isFavorite)
         guard let isFavorite = self.isFavorite else { return }
         let addFavButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(systemName: isFavorite ? CellDetailConstants.favHeartFill : CellDetailConstants.favHeartOutline), style: .done, target: self, action: #selector(self.favoriteToggle))
         self.navigationItem.rightBarButtonItem = addFavButton
         self.isFavorite = !isFavorite
     }
-    
+
     private func hideBars(size: CGSize){
         let verticalIpod = self.traitCollection.verticalSizeClass == .regular
         let horizontalIpod = self.traitCollection.horizontalSizeClass == .regular
@@ -256,7 +275,7 @@ class CellDetailViewController: UIViewController {
               let url = assetUrl,
               let thumbUrl = thumbnailUrl else { return nil }
         let type = data.mediaType == MediaType.video ? FavoriteType.video : FavoriteType.image
-        return FavoriteModel(nasaId: data.nasaID, assetLink: url, thumbnailLink: thumbUrl, mediaType: type, title: data.title, date: data.dateCreated, description: data.description)
+        return FavoriteModel(nasaId: data.nasaID, assetLink: url, thumbnailLink: thumbUrl, mediaType: type, title: data.title, date: data.dateCreated, description: data.description, isFavorite: true)
     }
     
     private func rewriteFavorites( _ favorites: [FavoriteModel], forUser user: String){
