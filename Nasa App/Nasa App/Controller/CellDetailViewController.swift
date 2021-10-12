@@ -38,6 +38,7 @@ class CellDetailViewController: UIViewController {
     var nasaTitle: String?
     var mediaType: MediaType?
     var nasaDate : String?
+    @State private var isFavorite: Bool?
     
     private lazy var swiftView = makeSwiftUIView()
     override func viewDidLoad() {
@@ -137,13 +138,19 @@ class CellDetailViewController: UIViewController {
     
     private func setupNavButtons() {
         self.navigationItem.title = self.detailType == DetailType.popularDetail ? nasaData?.nasaID : favoriteData?.nasaId
-        let addFavButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(systemName: CellDetailConstants.favHeart), style: .done, target: self, action: #selector(self.favoriteToggle))
-        self.navigationItem.rightBarButtonItem = addFavButton
         self.navigationController?.navigationBar.prefersLargeTitles = false
         self.navigationItem.rightBarButtonItem?.isEnabled = true
         let backButton = UIBarButtonItem()
         backButton.title = ""
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
+        setFavoriteButton()
+    }
+    
+    private func setFavoriteButton() {
+        guard let isFavorite = self.isFavorite else { return }
+        let addFavButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(systemName: isFavorite ? CellDetailConstants.favHeartFill : CellDetailConstants.favHeartOutline), style: .done, target: self, action: #selector(self.favoriteToggle))
+        self.navigationItem.rightBarButtonItem = addFavButton
+        self.isFavorite = !isFavorite
     }
     
     private func hideBars(size: CGSize){
@@ -166,6 +173,7 @@ class CellDetailViewController: UIViewController {
     }
     
     @objc func favoriteToggle() {
+        setFavoriteButton()
         let user = UsersLoader().load()
         switch self.detailType {
         case .popularDetail:

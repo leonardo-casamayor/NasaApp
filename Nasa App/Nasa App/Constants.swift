@@ -107,7 +107,8 @@ struct CellDetailConstants {
     static let placeHolderImage = #imageLiteral(resourceName: "PlaceholderCellDetails")
     static let playButton = #imageLiteral(resourceName: "PlayButton")
     static let crossMark = "xmark"
-    static let favHeart = "suit.heart.fill"
+    static let favHeartOutline = "suit.heart"
+    static let favHeartFill = "suit.heart.fill"
     
     //MARK: - Size Modifiers
     static let rectPaddingMod: CGFloat = 0.1
