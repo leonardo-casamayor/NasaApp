@@ -108,7 +108,6 @@ class CellDetailViewController: UIViewController {
         else { return UIHostingController() }
         
         let swiftDetailView = CellDetailView(assetUrl: assetUrl, nasaDateString: nasaDate, nasaTitle: nasaTitle, nasaDescription: nasaDescription, mediaType: mediaType)
-        print(nasaDescription)
         let headerVC = UIHostingController(rootView: swiftDetailView)
         headerVC.view.translatesAutoresizingMaskIntoConstraints = false
         return headerVC
@@ -267,7 +266,7 @@ class CellDetailViewController: UIViewController {
               let url = assetUrl,
               let thumbUrl = thumbnailUrl else { return nil }
         let type = data.mediaType == MediaType.video ? FavoriteType.video : FavoriteType.image
-        return FavoriteModel(nasaId: data.nasaID, assetLink: url, thumbnailLink: thumbUrl, mediaType: type, title: data.title, date: data.dateCreated, description: data.description, isFavorite: true)
+        return FavoriteModel(nasaId: data.nasaID, assetLink: url, thumbnailLink: thumbUrl, mediaType: type, title: data.title, date: data.dateCreated, description: data.description)
     }
     
     private func rewriteFavorites( _ favorites: [FavoriteModel], forUser user: String){

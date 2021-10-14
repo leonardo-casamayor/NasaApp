@@ -31,7 +31,7 @@ struct FavoriteModel: Codable {
         thumbnailLink = try container.decode(String.self, forKey: .thumbnailLink)
     }
     
-    init(nasaId: String, assetLink: String, thumbnailLink: String, mediaType: FavoriteType, title: String, date: String, description: String, isFavorite: Bool) {
+    init(nasaId: String, assetLink: String, thumbnailLink: String, mediaType: FavoriteType, title: String, date: String, description: String) {
         self.nasaId = nasaId
         self.assetLink = assetLink
         self.thumbnailLink = thumbnailLink
