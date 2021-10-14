@@ -12,17 +12,40 @@ import SwiftUI
 class CellDetailViewController: UIViewController {
     var href: String?
     var thumbnailUrl: String?
-    var nasaData: NasaData?
+    var nasaData: NasaData? {
+        didSet {
+            nasaDescription = nasaData?.description
+            nasaTitle = nasaData?.title
+            mediaType = nasaData?.mediaType
+            nasaDate = convertDate(data: nasaData?.dateCreated)
+        }
+    }
+    var favoriteData: FavoriteModel? {
+        didSet {
+            thumbnailUrl = favoriteData?.thumbnailLink
+            assetUrl = favoriteData?.assetLink
+            nasaDescription = favoriteData?.description
+            nasaTitle = favoriteData?.title
+            mediaType = favoriteData?.mediaType == FavoriteType.image ? MediaType.image : MediaType.video
+            nasaDate = convertDate(data: favoriteData?.date)
+        }
+    }
     var assetUrl: String?
+    var detailType: DetailType?
     let networkManager = NetworkManager()
-    private lazy var swiftView = makeSwiftUIView()
     
+    var nasaDescription: String?
+    var nasaTitle: String?
+    var mediaType: MediaType?
+    var nasaDate : String?
+    
+    private lazy var swiftView = makeSwiftUIView()
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUp()
+        self.detailType == DetailType.popularDetail ? setUpPopular() : setUpFavorite()
     }
     
-    private func setUp() {
+    private func setUpPopular() {
         guard let href = href else { return }
         networkManager.retrieveAssets(assetsUrl: href) { [weak self] result in
             guard let strongSelf = self else { return }
@@ -38,10 +61,18 @@ class CellDetailViewController: UIViewController {
                     strongSelf.addSwiftUIView()
                     strongSelf.setupNavButtons()
                     strongSelf.hideBars(size: UIScreen.main.bounds.size)
-                            }
+                }
             case .failure(_):
                 return
             }
+        }
+    }
+    
+    private func setUpFavorite() {
+        DispatchQueue.main.async {
+            self.addSwiftUIView()
+            self.setupNavButtons()
+            self.hideBars(size: UIScreen.main.bounds.size)
         }
     }
     
@@ -61,14 +92,19 @@ class CellDetailViewController: UIViewController {
             swiftView.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             swiftView.view.rightAnchor.constraint(equalTo: view.rightAnchor)
         ]
-
+        
         NSLayoutConstraint.activate(constraints)
     }
     
     func makeSwiftUIView() -> UIHostingController<CellDetailView> {
-        guard let data = nasaData, let url = assetUrl else { return UIHostingController() }
-        let nasaDate = convertDate(data: data)
-        let swiftDetailView = CellDetailView(nasaData: data, assetUrl: url, nasaDateString: nasaDate)
+        guard let nasaDescription = self.nasaDescription,
+              let nasaTitle = self.nasaTitle,
+              let mediaType = self.mediaType,
+              let nasaDate = self.nasaDate,
+              let assetUrl = self.assetUrl
+        else { return UIHostingController() }
+        
+        let swiftDetailView = CellDetailView(assetUrl: assetUrl, nasaDateString: nasaDate, nasaTitle: nasaTitle, nasaDescription: nasaDescription, mediaType: mediaType)
         let headerVC = UIHostingController(rootView: swiftDetailView)
         headerVC.view.translatesAutoresizingMaskIntoConstraints = false
         return headerVC
@@ -81,17 +117,16 @@ class CellDetailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        guard let nasaType = nasaData?.mediaType else { return }
-        nasaType == .video ? RotationHelper.lockOrientation(.allButUpsideDown) : RotationHelper.lockOrientation(.portrait)
-        
-        
+        guard let mediaType = self.mediaType else { return }
+        mediaType == .video ? RotationHelper.lockOrientation(.allButUpsideDown) : RotationHelper.lockOrientation(.portrait)
     }
-    func convertDate(data: NasaData) -> String {
-        let dateString: String = DateFormat.formatDate(dateString: data.dateCreated)
+    
+    func convertDate(data: String?) -> String {
+        guard let data = data else { return "" }
+        let dateString: String = DateFormat.formatDate(dateString: data)
         return dateString
-
     }
-   
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         showBars()
@@ -101,7 +136,7 @@ class CellDetailViewController: UIViewController {
     }
     
     private func setupNavButtons() {
-        self.navigationItem.title = nasaData?.nasaID
+        self.navigationItem.title = self.detailType == DetailType.popularDetail ? nasaData?.nasaID : favoriteData?.nasaId
         let addFavButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(systemName: CellDetailConstants.favHeart), style: .done, target: self, action: #selector(self.favoriteToggle))
         self.navigationItem.rightBarButtonItem = addFavButton
         self.navigationController?.navigationBar.prefersLargeTitles = false
@@ -112,12 +147,16 @@ class CellDetailViewController: UIViewController {
     }
     
     private func hideBars(size: CGSize){
-        let isLandscape = size.width > size.height
-        navigationController?.hidesBarsWhenVerticallyCompact = false
-        tabBarController?.tabBar.isHidden = isLandscape ? true : false
-        extendedLayoutIncludesOpaqueBars = isLandscape ? true : false
-        navigationController?.setNavigationBarHidden(isLandscape ? true : false, animated: true)
+        let verticalIpod = self.traitCollection.verticalSizeClass == .regular
+        let horizontalIpod = self.traitCollection.horizontalSizeClass == .regular
+        if !((verticalIpod && horizontalIpod) && self.mediaType == MediaType.image ) {
+            let isLandscape = size.width > size.height
+            navigationController?.hidesBarsWhenVerticallyCompact = false
+            tabBarController?.tabBar.isHidden = isLandscape ? true : false
+            extendedLayoutIncludesOpaqueBars = isLandscape ? true : false
+            navigationController?.setNavigationBarHidden(isLandscape ? true : false, animated: true)
         }
+    }
     
     private func showBars() {
         navigationController?.hidesBarsWhenVerticallyCompact = true
@@ -128,14 +167,35 @@ class CellDetailViewController: UIViewController {
     
     @objc func favoriteToggle() {
         let user = UsersLoader().load()
-        guard let data = nasaData else { return }
-        guard let favorites = getFavorites(forUser: user.username) else { return }
-        let valueExists = favorites.contains { $0.nasaId == data.nasaID }
-        if valueExists {
-            removeFavorite(favorites, forUser: user.username)
-        }
-        else {
-            addFavorite(forUser: user.username, withFavorites: favorites)
+        switch self.detailType {
+        case .popularDetail:
+            guard let data = nasaData else { return }
+            if let favorites = getFavorites(forUser: user.username) {
+                let valueExists = favorites.contains { $0.nasaId == data.nasaID }
+                if valueExists {
+                    removeFavorite(favorites, forUser: user.username)
+                }
+                else {
+                    addFavorite(forUser: user.username, withFavorites: favorites)
+                }
+            } else {
+                guard let favorite = createFavoriteItem() else { return }
+                addFavorite(forUser: user.username, withFavorites: [favorite])
+            }
+            
+        case .favoriteDetail:
+            guard let data = favoriteData else { return }
+            guard let favorites = getFavorites(forUser: user.username) else { return }
+            let valueExists = favorites.contains { $0.nasaId == data.nasaId }
+            if valueExists {
+                removeFavorite(favorites, forUser: user.username)
+            }
+            else {
+                addFavorite(forUser: user.username, withFavorites: favorites)
+            }
+        case .none:
+            return
+            
         }
     }
     
@@ -151,16 +211,36 @@ class CellDetailViewController: UIViewController {
     }
     
     private func removeFavorite(_ favorites: [FavoriteModel], forUser user: String){
-        guard let data = nasaData else { return }
-        let filteredFavorites = favorites.filter { $0.nasaId == data.nasaID }
-        rewriteFavorites(filteredFavorites, forUser: user)
+        switch self.detailType {
+        case .popularDetail:
+            guard let data = nasaData else { return }
+            let filteredFavorites = favorites.filter { !($0.nasaId == data.nasaID) }
+            rewriteFavorites(filteredFavorites, forUser: user)
+        case .favoriteDetail:
+            guard let data = favoriteData else { return }
+            let filteredFavorites = favorites.filter { !($0.nasaId == data.nasaId) }
+            rewriteFavorites(filteredFavorites, forUser: user)
+        case .none:
+            return
+        }
     }
     
     private func addFavorite(forUser user: String, withFavorites favorites: [FavoriteModel]){
-        guard let favorite = createFavoriteItem() else { return }
-        var newFavorites = favorites
-        newFavorites.insert(favorite, at: 0)
-        rewriteFavorites(newFavorites, forUser: user)
+        switch self.detailType {
+        case .popularDetail:
+            guard let favorite = createFavoriteItem() else { return }
+            var newFavorites = favorites
+            newFavorites.insert(favorite, at: 0)
+            rewriteFavorites(newFavorites, forUser: user)
+        case .favoriteDetail:
+            guard let favorite = self.favoriteData else { return }
+            var newFavorites = favorites
+            newFavorites.insert(favorite, at: 0)
+            rewriteFavorites(newFavorites, forUser: user)
+        case .none:
+            return
+        }
+        
     }
     
     private func createFavoriteItem() -> FavoriteModel? {
@@ -192,13 +272,13 @@ class CellDetailViewController: UIViewController {
 extension UIViewController {
     func addSubSwiftUIView<Content>(_ swiftUIView: Content, to view: UIView) where Content : View {
         let hostingController = UIHostingController(rootView: swiftUIView)
-
+        
         // Add as a child of the current view controller.
         addChild(hostingController)
-
+        
         // Add the SwiftUI view to the view controller view hierarchy.
         view.addSubview(hostingController.view)
-
+        
         // Setup the contraints to update the SwiftUI view boundaries.
         hostingController.view.translatesAutoresizingMaskIntoConstraints = false
         let constraints = [
@@ -207,14 +287,10 @@ extension UIViewController {
             view.bottomAnchor.constraint(equalTo: hostingController.view.bottomAnchor),
             view.rightAnchor.constraint(equalTo: hostingController.view.rightAnchor)
         ]
-
+        
         NSLayoutConstraint.activate(constraints)
-
+        
         // Notify the hosting controller that it has been moved to the current view controller.
         hostingController.didMove(toParent: self)
-    }
-    
-    @objc func addFavorite(sender: AnyObject) {
-        print(CellDetailConstants.implementMe)
     }
 }

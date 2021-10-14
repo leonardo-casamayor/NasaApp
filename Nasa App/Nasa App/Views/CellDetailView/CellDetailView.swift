@@ -13,9 +13,11 @@ import SDWebImageSwiftUI
 struct CellDetailView: View {
     
     @Environment(\.horizontalSizeClass) var sizeClass
-    var nasaData: NasaData
     var assetUrl: String
     var nasaDateString: String
+    var nasaTitle: String
+    var nasaDescription: String
+    var mediaType: MediaType
     
     var body: some View {
         GeometryReader { geometry in
@@ -23,19 +25,19 @@ struct CellDetailView: View {
             let screenHeight = geometry.size.height
             let isPortrait = screenHeight > screenWidth
             
-            if isPortrait || nasaData.mediaType == MediaType.image {
+            if isPortrait || mediaType == MediaType.image {
                 //MARK: - Portrait Mode
                 ZStack{
                     Color(CellDetailConstants.backgroundColor)
                         .ignoresSafeArea()
                     
-                    if nasaData.mediaType == MediaType.image {
+                    if mediaType == MediaType.image {
                         VStack{
                             WebImage(url: URL(string: assetUrl))
                                 .resizable()
                                 .placeholder {
-                                        Rectangle().foregroundColor(.black)
-                                    }
+                                    Rectangle().foregroundColor(.black)
+                                }
                                 .indicator(.activity)
                                 .scaledToFill()
                                 .transition(.fade(duration: 0.5))
@@ -59,13 +61,13 @@ struct CellDetailView: View {
                                 VStack{
                                     
                                     ScrollView {
-                                        Text("\(nasaData.title) / \(nasaDateString)")
+                                        Text("\(nasaTitle) / \(nasaDateString)")
                                             .foregroundColor(.white)
                                             
                                             .frame(maxWidth: screenWidth * CellDetailConstants.widthConstraint, alignment: .leading)
                                             .font(Font(CellDetailConstants.fontCompactTitle as CTFont))
                                         
-                                        Text(nasaData.description)
+                                        Text(nasaDescription)
                                             .font(Font(CellDetailConstants.fontCompactText as CTFont))
                                             .padding(.top, CellDetailConstants.textTopPadding)
                                             .foregroundColor(.white)
@@ -79,20 +81,18 @@ struct CellDetailView: View {
                                 //MARK: - Text setup for regular
                                 VStack{
                                     ScrollView {
-                                        Text("\(nasaData.title) / \(nasaDateString)")
+                                        Text("\(nasaTitle) / \(nasaDateString)")
                                             .foregroundColor(.white)
                                             .frame(maxWidth: screenWidth * CellDetailConstants.widthConstraint, alignment: .leading)
                                             .font(Font(CellDetailConstants.fontRegularTitle as CTFont))
-                                        Text(nasaData.description)
+                                        Text(nasaDescription)
+                                            .padding(.top)
+                                            .foregroundColor(.white)
+                                            .frame(maxWidth: screenWidth * CellDetailConstants.widthConstraint, alignment: .leading)
                                             .font(Font(CellDetailConstants.fontRegularText as CTFont))
-                                            .padding(.top, CellDetailConstants.textTopPadding)
-                                            .foregroundColor(.white) }
-                                        .multilineTextAlignment(.leading)
-                                        .fixedSize(horizontal: false, vertical: true)
-
-                                        .frame(width: screenWidth * CellDetailConstants.widthConstraint, alignment: .leading)
-                                }
-                                .padding(.top, screenHeight * 0.5)
+                                        
+                                    }.padding()
+                                }.padding(.top, screenHeight * 0.5)
                             }
                         }
                         
@@ -100,16 +100,16 @@ struct CellDetailView: View {
                     else {
                         VStack {
                             if sizeClass == .compact {
-                            VideoControllerView(videoUrl: assetUrl)
-                                .cornerRadius(10)
-                                .frame(width: screenWidth,
-                                       height: screenHeight * CellDetailConstants.imageHeightModifier,
-                                       alignment: .center)
-                            Rectangle()
-                                .fill(LinearGradient(gradient: Gradient(colors: [Color(CellDetailConstants.topGradientColor), Color(CellDetailConstants.bottomGradientColor)]),
-                                                     startPoint: .top,
-                                                     endPoint: .bottom))
-                                .ignoresSafeArea()
+                                VideoControllerView(videoUrl: assetUrl)
+                                    .cornerRadius(10)
+                                    .frame(width: screenWidth,
+                                           height: screenHeight * CellDetailConstants.imageHeightModifier,
+                                           alignment: .center)
+                                Rectangle()
+                                    .fill(LinearGradient(gradient: Gradient(colors: [Color(CellDetailConstants.topGradientColor), Color(CellDetailConstants.bottomGradientColor)]),
+                                                         startPoint: .top,
+                                                         endPoint: .bottom))
+                                    .ignoresSafeArea()
                             } else {
                                 VideoControllerView(videoUrl: assetUrl)
                                     .cornerRadius(10)
@@ -130,12 +130,12 @@ struct CellDetailView: View {
                                 VStack{
                                     
                                     ScrollView {
-                                        Text("\(nasaData.title) / \(nasaDateString)")
+                                        Text("\(nasaTitle) / \(nasaDateString)")
                                             .foregroundColor(.white)
                                             .frame(maxWidth: screenWidth * CellDetailConstants.widthConstraint, alignment: .leading)
                                             .font(Font(CellDetailConstants.fontCompactTitle as CTFont))
                                         
-                                        Text(nasaData.description)
+                                        Text(nasaDescription)
                                             .font(Font(CellDetailConstants.fontCompactText as CTFont))
                                             .padding(.top, CellDetailConstants.textTopPadding)
                                             .foregroundColor(.white)
@@ -143,41 +143,34 @@ struct CellDetailView: View {
                                             .fixedSize(horizontal: false, vertical: true)
                                     }
                                     .frame(width: screenWidth * CellDetailConstants.widthConstraint)
-
+                                    
                                 }.padding(.top, screenHeight * CellDetailConstants.imageHeightModifier)
                             } else {
                                 //MARK: - Text setup for regular
                                 VStack{
                                     ScrollView {
-                                        Text("\(nasaData.title) / \(nasaDateString)")
+                                        Text("\(nasaTitle) / \(nasaDateString)")
                                             .foregroundColor(.white)
                                             .frame(maxWidth: screenWidth * CellDetailConstants.widthConstraint, alignment: .leading)
                                             .font(Font(CellDetailConstants.fontRegularTitle as CTFont))
-                                        Text(nasaData.description)
-                                            .font(Font(CellDetailConstants.fontRegularText as CTFont))
-                                            .padding(.top, CellDetailConstants.textTopPadding)
+                                        Text(nasaDescription)
+                                            .padding(.top)
                                             .foregroundColor(.white)
-                                            .multilineTextAlignment(.leading)
-                                            .fixedSize(horizontal: false, vertical: true)
-
-                                    }
-                                        .frame(width: screenWidth * CellDetailConstants.widthConstraint)
-                                }
-                                .padding(.top, screenHeight * 0.5)
+                                            .frame(maxWidth: screenWidth * CellDetailConstants.widthConstraint, alignment: .leading)
+                                            .font(Font(CellDetailConstants.fontRegularText as CTFont))
+                                        
+                                    }.padding()
+                                }.padding(.top, screenHeight * 0.5)
                             }
                         }
-                        
-                        
-                        
                     }
-                    
                 }
                 //MARK: - Landscape Mode
             } else {
                 ZStack{
                     Color.black
                         .ignoresSafeArea()
-                    if nasaData.mediaType == MediaType.video {
+                    if mediaType == MediaType.video {
                         
                         VideoControllerView(videoUrl: assetUrl)
                             .cornerRadius(10)
