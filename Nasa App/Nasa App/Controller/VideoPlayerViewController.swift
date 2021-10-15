@@ -54,8 +54,10 @@ class VideoPlayerViewController: UIViewController {
         updateConstraints(size: size)
         adjustVideoView(size: size)
         if isObserverSet {
-            player.currentItem?.addObserver(self, forKeyPath: VideoPlayerConstants.duration, options: [.new, .initial], context: nil)
+            guard let currentItem = player.currentItem else {return}
+            currentItem.addObserver(self, forKeyPath: VideoPlayerConstants.duration, options: [.new, .initial], context: nil)
                 isObserverSet.toggle()
+            isObserverSet = true
         }
     }
     
@@ -86,6 +88,7 @@ class VideoPlayerViewController: UIViewController {
         guard let currentItem = player.currentItem else {return}
         if isObserverSet {
         currentItem.removeObserver(self, forKeyPath: VideoPlayerConstants.duration)
+            isObserverSet = false
         }
     }
     
@@ -175,8 +178,9 @@ extension VideoPlayerViewController {
         guard let stringUrl = videoUrl,
               let url = URL(string: stringUrl) else { return }
         player = AVPlayer(url: url)
+        guard let currentItem = player.currentItem else {return}
         if !isObserverSet {
-        player.currentItem?.addObserver(self, forKeyPath: VideoPlayerConstants.duration, options: [.new, .initial], context: nil)
+        currentItem.addObserver(self, forKeyPath: VideoPlayerConstants.duration, options: [.new, .initial], context: nil)
             isObserverSet.toggle()
         }
         addTimeObserver()
@@ -202,12 +206,14 @@ extension VideoPlayerViewController {
         let interval = CMTime(seconds: 0.5, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
         let mainQueue = DispatchQueue.main
         _ = player.addPeriodicTimeObserver(forInterval: interval, queue: mainQueue, using: { [weak self] time in
-            guard let currentItem = self?.player.currentItem else { return }
-            self?.timeSlider.maximumValue = Float(currentItem.duration.seconds)
-            self?.timeSlider.minimumValue = 0
-            self?.timeSlider.value = Float(currentItem.currentTime().seconds)
-            self?.currentTimeLabel.text = self?.getTimeString(from: currentItem.currentTime())
-        })
+            guard let strongSelf = self else { return }
+            guard let currentItem = strongSelf.player.currentItem else { return }
+            strongSelf.timeSlider.maximumValue = Float(currentItem.duration.seconds)
+            strongSelf.timeSlider.minimumValue = 0
+            strongSelf.timeSlider.value = Float(currentItem.currentTime().seconds)
+            strongSelf.currentTimeLabel.text = strongSelf.getTimeString(from: currentItem.currentTime())
+        }
+        )
     }
     
     @objc private func videoDidEnd() {
@@ -264,8 +270,10 @@ extension VideoPlayerViewController {
     
     //MARK: - Observer
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        if keyPath == VideoPlayerConstants.duration, let duration = player.currentItem?.duration.seconds, duration > 0.0 {
-            self.durationLabel.text = getTimeString(from: player.currentItem?.duration ?? CMTime(seconds: 0, preferredTimescale: 1000))
+        guard let currentItem = player.currentItem else { return }
+        let duration = currentItem.duration.seconds
+        if keyPath == VideoPlayerConstants.duration, duration > 0.0 {
+            self.durationLabel.text = getTimeString(from: currentItem.duration)
         }
     }
     
