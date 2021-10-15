@@ -38,10 +38,12 @@ class CellDetailViewController: UIViewController {
     var nasaTitle: String?
     var mediaType: MediaType?
     var nasaDate : String?
+    var isFavorite: Bool?
     
     private lazy var swiftView = makeSwiftUIView()
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.isFavorite = isFavoriteStatus()
         self.detailType == DetailType.popularDetail ? setUpPopular() : setUpFavorite()
     }
     
@@ -69,6 +71,7 @@ class CellDetailViewController: UIViewController {
     }
     
     private func setUpFavorite() {
+        isFavorite = true
         DispatchQueue.main.async {
             self.addSwiftUIView()
             self.setupNavButtons()
@@ -137,15 +140,29 @@ class CellDetailViewController: UIViewController {
     
     private func setupNavButtons() {
         self.navigationItem.title = self.detailType == DetailType.popularDetail ? nasaData?.nasaID : favoriteData?.nasaId
-        let addFavButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(systemName: CellDetailConstants.favHeart), style: .done, target: self, action: #selector(self.favoriteToggle))
-        self.navigationItem.rightBarButtonItem = addFavButton
         self.navigationController?.navigationBar.prefersLargeTitles = false
         self.navigationItem.rightBarButtonItem?.isEnabled = true
         let backButton = UIBarButtonItem()
         backButton.title = ""
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
+        toggleFavoriteButton()
     }
     
+    private func isFavoriteStatus() -> Bool {
+        guard let data = nasaData else { return false }
+        let user = UsersLoader().load()
+        guard let favorites = getFavorites(forUser: user.username) else { return false }
+        let valueExists = favorites.contains { $0.nasaId == data.nasaID }
+        return valueExists ? true : false
+    }
+    
+    private func toggleFavoriteButton() {
+        guard let isFavorite = self.isFavorite else { return }
+        let addFavButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(systemName: isFavorite ? CellDetailConstants.favHeartFill : CellDetailConstants.favHeartOutline), style: .done, target: self, action: #selector(self.favoriteToggle))
+        self.navigationItem.rightBarButtonItem = addFavButton
+        self.isFavorite = !isFavorite
+    }
+
     private func hideBars(size: CGSize){
         let verticalIpod = self.traitCollection.verticalSizeClass == .regular
         let horizontalIpod = self.traitCollection.horizontalSizeClass == .regular
@@ -166,6 +183,7 @@ class CellDetailViewController: UIViewController {
     }
     
     @objc func favoriteToggle() {
+        toggleFavoriteButton()
         let user = UsersLoader().load()
         switch self.detailType {
         case .popularDetail:
