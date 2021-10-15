@@ -45,7 +45,17 @@ class VideoPlayerViewController: UIViewController {
             muteUnmuteButton(isMuted)
         }
     }
-    var isObserverSet: Bool = false
+    var isFirstLoad: Bool = true
+    var isObserverSet: Bool = false {
+        didSet {
+            guard let currentItem = player.currentItem else {return}
+            if isObserverSet {
+                currentItem.removeObserver(self, forKeyPath: VideoPlayerConstants.duration)
+            } else {
+                currentItem.addObserver(self, forKeyPath: VideoPlayerConstants.duration, options: [.new, .initial], context: nil)
+            }
+        }
+    }
     
     //MARK: - viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
@@ -53,11 +63,8 @@ class VideoPlayerViewController: UIViewController {
         let size = UIScreen.main.bounds.size
         updateConstraints(size: size)
         adjustVideoView(size: size)
-        if isObserverSet {
-            guard let currentItem = player.currentItem else {return}
-            currentItem.addObserver(self, forKeyPath: VideoPlayerConstants.duration, options: [.new, .initial], context: nil)
-                isObserverSet.toggle()
-            isObserverSet = true
+        if isObserverSet && !isFirstLoad {
+            isObserverSet = false
         }
     }
     
@@ -85,11 +92,7 @@ class VideoPlayerViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         player.pause()
-        guard let currentItem = player.currentItem else {return}
-        if isObserverSet {
-        currentItem.removeObserver(self, forKeyPath: VideoPlayerConstants.duration)
-            isObserverSet = false
-        }
+        isObserverSet = true
     }
     
     //MARK: - IBActions
@@ -178,15 +181,12 @@ extension VideoPlayerViewController {
         guard let stringUrl = videoUrl,
               let url = URL(string: stringUrl) else { return }
         player = AVPlayer(url: url)
-        guard let currentItem = player.currentItem else {return}
-        if !isObserverSet {
-        currentItem.addObserver(self, forKeyPath: VideoPlayerConstants.duration, options: [.new, .initial], context: nil)
-            isObserverSet.toggle()
-        }
+        isObserverSet = false
         addTimeObserver()
         playerLayer = AVPlayerLayer(player: player)
         playerLayer.videoGravity = .resizeAspectFill
         videoView.layer.addSublayer(playerLayer)
+        isFirstLoad = false
     }
     
     //MARK: - Video Helper Methods
