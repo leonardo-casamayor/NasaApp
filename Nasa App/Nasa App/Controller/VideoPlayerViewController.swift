@@ -45,6 +45,7 @@ class VideoPlayerViewController: UIViewController {
             muteUnmuteButton(isMuted)
         }
     }
+    var isObserverSet: Bool = false
     
     //MARK: - viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
@@ -52,7 +53,12 @@ class VideoPlayerViewController: UIViewController {
         let size = UIScreen.main.bounds.size
         updateConstraints(size: size)
         adjustVideoView(size: size)
+        if isObserverSet {
+            player.currentItem?.addObserver(self, forKeyPath: VideoPlayerConstants.duration, options: [.new, .initial], context: nil)
+                isObserverSet.toggle()
+        }
     }
+    
     //MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,7 +84,9 @@ class VideoPlayerViewController: UIViewController {
         super.viewWillDisappear(animated)
         player.pause()
         guard let currentItem = player.currentItem else {return}
+        if isObserverSet {
         currentItem.removeObserver(self, forKeyPath: VideoPlayerConstants.duration)
+        }
     }
     
     //MARK: - IBActions
@@ -167,7 +175,10 @@ extension VideoPlayerViewController {
         guard let stringUrl = videoUrl,
               let url = URL(string: stringUrl) else { return }
         player = AVPlayer(url: url)
+        if !isObserverSet {
         player.currentItem?.addObserver(self, forKeyPath: VideoPlayerConstants.duration, options: [.new, .initial], context: nil)
+            isObserverSet.toggle()
+        }
         addTimeObserver()
         playerLayer = AVPlayerLayer(player: player)
         playerLayer.videoGravity = .resizeAspectFill
