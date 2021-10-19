@@ -43,10 +43,12 @@
 		30C902E226EA5CE300CBDCB0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C902E126EA5CE300CBDCB0 /* Constants.swift */; };
 		30D039E426F1227600AD7CE8 /* ApiQueryGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D039E326F1227600AD7CE8 /* ApiQueryGenerator.swift */; };
 		30D039E626F1228700AD7CE8 /* Dataloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D039E526F1228700AD7CE8 /* Dataloader.swift */; };
+		9C02444F271E22CF00786D1F /* CellDetailViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C02444E271E22CF00786D1F /* CellDetailViewTests.swift */; };
 		9C0C2D7D26FA500A00CA40BF /* RoverCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0C2D7C26FA500A00CA40BF /* RoverCollectionViewCell.swift */; };
 		9C132E91270387D700309539 /* RoverModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C132E90270387D700309539 /* RoverModel.swift */; };
 		9C7CD60026F3CD090059AAE4 /* RoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7CD5FF26F3CD090059AAE4 /* RoverViewController.swift */; };
 		9C7CD60226F535BC0059AAE4 /* NavigationControllerConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7CD60126F535BC0059AAE4 /* NavigationControllerConfiguration.swift */; };
+		9CBBCEC2271F294300A7FBFC /* PopularViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBBCEC1271F294300A7FBFC /* PopularViewControllerTests.swift */; };
 		9CE0478F26FD01620076D191 /* RoverImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE0478E26FD01620076D191 /* RoverImageService.swift */; };
 		9CE0479226FD01D50076D191 /* RoverDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE0479126FD01D50076D191 /* RoverDataService.swift */; };
 		9CE0479526FE6DD70076D191 /* RoverDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE0479426FE6DD70076D191 /* RoverDetailView.swift */; };
@@ -109,10 +111,12 @@
 		30C902E126EA5CE300CBDCB0 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		30D039E326F1227600AD7CE8 /* ApiQueryGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiQueryGenerator.swift; sourceTree = "<group>"; };
 		30D039E526F1228700AD7CE8 /* Dataloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dataloader.swift; sourceTree = "<group>"; };
+		9C02444E271E22CF00786D1F /* CellDetailViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellDetailViewTests.swift; sourceTree = "<group>"; };
 		9C0C2D7C26FA500A00CA40BF /* RoverCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoverCollectionViewCell.swift; sourceTree = "<group>"; };
 		9C132E90270387D700309539 /* RoverModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoverModel.swift; sourceTree = "<group>"; };
 		9C7CD5FF26F3CD090059AAE4 /* RoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoverViewController.swift; sourceTree = "<group>"; };
 		9C7CD60126F535BC0059AAE4 /* NavigationControllerConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationControllerConfiguration.swift; sourceTree = "<group>"; };
+		9CBBCEC1271F294300A7FBFC /* PopularViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularViewControllerTests.swift; sourceTree = "<group>"; };
 		9CE0478E26FD01620076D191 /* RoverImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoverImageService.swift; sourceTree = "<group>"; };
 		9CE0479126FD01D50076D191 /* RoverDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoverDataService.swift; sourceTree = "<group>"; };
 		9CE0479426FE6DD70076D191 /* RoverDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoverDetailView.swift; sourceTree = "<group>"; };
@@ -222,6 +226,8 @@
 		0FF8F66426C32000001F228E /* Nasa AppTests */ = {
 			isa = PBXGroup;
 			children = (
+				9CBBCEC1271F294300A7FBFC /* PopularViewControllerTests.swift */,
+				9C02444E271E22CF00786D1F /* CellDetailViewTests.swift */,
 				0FF8F66526C32000001F228E /* Nasa_AppTests.swift */,
 				0FF8F66726C32000001F228E /* Info.plist */,
 			);
@@ -494,6 +500,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0FF8F66626C32000001F228E /* Nasa_AppTests.swift in Sources */,
+				9CBBCEC2271F294300A7FBFC /* PopularViewControllerTests.swift in Sources */,
+				9C02444F271E22CF00786D1F /* CellDetailViewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
