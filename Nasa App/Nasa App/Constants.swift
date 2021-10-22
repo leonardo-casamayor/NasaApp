@@ -6,6 +6,12 @@
 //
 
 import UIKit
+
+enum DetailType {
+    case popularDetail
+    case favoriteDetail
+}
+
 struct DateFormat {
     static func formatDate(dateString: String) -> String {
         let longDateFormatter = DateFormatter()
@@ -21,6 +27,11 @@ struct DateFormat {
 }
 struct GeneralConstants {
     static let nasaBlue = UIColor(red:0.02, green:0.24, blue:0.58, alpha:1)
+}
+
+struct AlertConstants {
+    static let favoritesAlertTitle = "Favorite could not be saved"
+    static let favoritesAlertMessage = "There was an error saving the data"
 }
 
 struct LoginConstants {
@@ -49,6 +60,8 @@ struct VideoPlayerConstants {
 }
 
 struct FavoritesTabConstants {
+    static let addFavTitle = "⭐️ Welcome to Favorites! ⭐️"
+    static let addFavDescription = "Please add items to your collection by visiting the popular tab, then favorite a selected item by tapping the ♡ icon"
     static let url = "https://apod.nasa.gov/apod/image/2108/Abell3827Lens_Hubble_960.jpg"
     static let description = "NASA"
     static let date = "2018-05-14T00:00:00Z"
@@ -94,7 +107,8 @@ struct CellDetailConstants {
     static let placeHolderImage = #imageLiteral(resourceName: "PlaceholderCellDetails")
     static let playButton = #imageLiteral(resourceName: "PlayButton")
     static let crossMark = "xmark"
-    static let favHeart = "suit.heart.fill"
+    static let favHeartOutline = "suit.heart"
+    static let favHeartFill = "suit.heart.fill"
     
     //MARK: - Size Modifiers
     static let rectPaddingMod: CGFloat = 0.1
@@ -106,7 +120,9 @@ struct CellDetailConstants {
     static let playPadMod: CGFloat = 0.12
     static let widthConstraint: CGFloat = 0.93
     static let textTopPadding: CGFloat = 0.12
-    
+    static let halfScreen: CGFloat = 0.5
+    static let cornerRadius: CGFloat = 10
+
     //MARK: - Fonts
     static let fontCompactTitle: UIFont = UIFont (name: "HelveticaNeue-Medium", size: 20)!
     static let fontCompactText: UIFont = UIFont (name: "HelveticaNeue-Medium", size: 17)!

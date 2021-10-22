@@ -26,11 +26,13 @@
 		0FF8F67126C32000001F228E /* Nasa_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF8F67026C32000001F228E /* Nasa_AppUITests.swift */; };
 		300EF353270AB55800F2BDDD /* UsersLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300EF352270AB55800F2BDDD /* UsersLoader.swift */; };
 		300EF35F270ABB2500F2BDDD /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300EF35E270ABB2500F2BDDD /* LoginController.swift */; };
+		300EF369270BA19900F2BDDD /* FavoriteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300EF368270BA19900F2BDDD /* FavoriteModel.swift */; };
 		302B6CFF26F9380C00CDC4CA /* SearchingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302B6CFE26F9380C00CDC4CA /* SearchingController.swift */; };
 		302B6D0026F9381E00CDC4CA /* NasaImageVideoLibraryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051F801E26F4D10A009A0811 /* NasaImageVideoLibraryModel.swift */; };
 		302B6D0226FA1A3600CDC4CA /* Users.plist in Resources */ = {isa = PBXBuildFile; fileRef = 302B6D0126FA1A3600CDC4CA /* Users.plist */; };
 		302B6D0526FA20E300CDC4CA /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302B6D0426FA20E300CDC4CA /* Users.swift */; };
 		302B6D0726FA606500CDC4CA /* MyImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302B6D0626FA606500CDC4CA /* MyImageView.swift */; };
+		304078842714EB6900D082CA /* FavoriteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304078832714EB6900D082CA /* FavoriteController.swift */; };
 		30902342270E213400072F72 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 30902341270E213400072F72 /* SDWebImage */; };
 		30902345270E2D0700072F72 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 30902344270E2D0700072F72 /* SDWebImageSwiftUI */; };
 		309C145C26DD91140063BD2F /* ImageRetrieveController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309C145B26DD91140063BD2F /* ImageRetrieveController.swift */; };
@@ -39,15 +41,17 @@
 		30C902DB26E9144800CBDCB0 /* CellDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C902D926E9144800CBDCB0 /* CellDetailView.swift */; };
 		30C902E026EA5C8A00CBDCB0 /* VideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C902DF26EA5C8A00CBDCB0 /* VideoPlayerViewController.swift */; };
 		30C902E226EA5CE300CBDCB0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C902E126EA5CE300CBDCB0 /* Constants.swift */; };
+		30D039E426F1227600AD7CE8 /* ApiQueryGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D039E326F1227600AD7CE8 /* ApiQueryGenerator.swift */; };
+		30D039E626F1228700AD7CE8 /* Dataloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D039E526F1228700AD7CE8 /* Dataloader.swift */; };
+		9C02444F271E22CF00786D1F /* CellDetailViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C02444E271E22CF00786D1F /* CellDetailViewTests.swift */; };
 		9C0C2D7D26FA500A00CA40BF /* RoverCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0C2D7C26FA500A00CA40BF /* RoverCollectionViewCell.swift */; };
 		9C132E91270387D700309539 /* RoverModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C132E90270387D700309539 /* RoverModel.swift */; };
 		9C7CD60026F3CD090059AAE4 /* RoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7CD5FF26F3CD090059AAE4 /* RoverViewController.swift */; };
 		9C7CD60226F535BC0059AAE4 /* NavigationControllerConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7CD60126F535BC0059AAE4 /* NavigationControllerConfiguration.swift */; };
+		9CBBCEC2271F294300A7FBFC /* PopularViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBBCEC1271F294300A7FBFC /* PopularViewControllerTests.swift */; };
 		9CE0478F26FD01620076D191 /* RoverImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE0478E26FD01620076D191 /* RoverImageService.swift */; };
 		9CE0479226FD01D50076D191 /* RoverDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE0479126FD01D50076D191 /* RoverDataService.swift */; };
 		9CE0479526FE6DD70076D191 /* RoverDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE0479426FE6DD70076D191 /* RoverDetailView.swift */; };
-		30D039E426F1227600AD7CE8 /* ApiQueryGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D039E326F1227600AD7CE8 /* ApiQueryGenerator.swift */; };
-		30D039E626F1228700AD7CE8 /* Dataloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D039E526F1228700AD7CE8 /* Dataloader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,25 +97,29 @@
 		0FF8F67226C32000001F228E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		300EF352270AB55800F2BDDD /* UsersLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersLoader.swift; sourceTree = "<group>"; };
 		300EF35E270ABB2500F2BDDD /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		300EF368270BA19900F2BDDD /* FavoriteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteModel.swift; sourceTree = "<group>"; };
 		302B6CFE26F9380C00CDC4CA /* SearchingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingController.swift; sourceTree = "<group>"; };
 		302B6D0126FA1A3600CDC4CA /* Users.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Users.plist; sourceTree = "<group>"; };
 		302B6D0426FA20E300CDC4CA /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		302B6D0626FA606500CDC4CA /* MyImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyImageView.swift; sourceTree = "<group>"; };
+		304078832714EB6900D082CA /* FavoriteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteController.swift; sourceTree = "<group>"; };
 		309C145B26DD91140063BD2F /* ImageRetrieveController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRetrieveController.swift; sourceTree = "<group>"; };
 		30A5773726F38B9600E94C28 /* ApodModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApodModel.swift; sourceTree = "<group>"; };
 		30C902D826E9144800CBDCB0 /* CellDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellDetailViewController.swift; sourceTree = "<group>"; };
 		30C902D926E9144800CBDCB0 /* CellDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellDetailView.swift; sourceTree = "<group>"; };
 		30C902DF26EA5C8A00CBDCB0 /* VideoPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewController.swift; sourceTree = "<group>"; };
 		30C902E126EA5CE300CBDCB0 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		30D039E326F1227600AD7CE8 /* ApiQueryGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiQueryGenerator.swift; sourceTree = "<group>"; };
+		30D039E526F1228700AD7CE8 /* Dataloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dataloader.swift; sourceTree = "<group>"; };
+		9C02444E271E22CF00786D1F /* CellDetailViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellDetailViewTests.swift; sourceTree = "<group>"; };
 		9C0C2D7C26FA500A00CA40BF /* RoverCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoverCollectionViewCell.swift; sourceTree = "<group>"; };
 		9C132E90270387D700309539 /* RoverModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoverModel.swift; sourceTree = "<group>"; };
 		9C7CD5FF26F3CD090059AAE4 /* RoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoverViewController.swift; sourceTree = "<group>"; };
 		9C7CD60126F535BC0059AAE4 /* NavigationControllerConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationControllerConfiguration.swift; sourceTree = "<group>"; };
+		9CBBCEC1271F294300A7FBFC /* PopularViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularViewControllerTests.swift; sourceTree = "<group>"; };
 		9CE0478E26FD01620076D191 /* RoverImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoverImageService.swift; sourceTree = "<group>"; };
 		9CE0479126FD01D50076D191 /* RoverDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoverDataService.swift; sourceTree = "<group>"; };
 		9CE0479426FE6DD70076D191 /* RoverDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoverDetailView.swift; sourceTree = "<group>"; };
-		30D039E326F1227600AD7CE8 /* ApiQueryGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiQueryGenerator.swift; sourceTree = "<group>"; };
-		30D039E526F1228700AD7CE8 /* Dataloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dataloader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,8 +215,10 @@
 				05200AFD26E2A4D200295A04 /* Main.storyboard */,
 				0FF8F65926C31FFF001F228E /* LaunchScreen.storyboard */,
 				0FF8F65C26C31FFF001F228E /* Info.plist */,
+				300EF368270BA19900F2BDDD /* FavoriteModel.swift */,
 				051F801E26F4D10A009A0811 /* NasaImageVideoLibraryModel.swift */,
 				302B6CFE26F9380C00CDC4CA /* SearchingController.swift */,
+				304078832714EB6900D082CA /* FavoriteController.swift */,
 			);
 			path = "Nasa App";
 			sourceTree = "<group>";
@@ -216,6 +226,8 @@
 		0FF8F66426C32000001F228E /* Nasa AppTests */ = {
 			isa = PBXGroup;
 			children = (
+				9CBBCEC1271F294300A7FBFC /* PopularViewControllerTests.swift */,
+				9C02444E271E22CF00786D1F /* CellDetailViewTests.swift */,
 				0FF8F66526C32000001F228E /* Nasa_AppTests.swift */,
 				0FF8F66726C32000001F228E /* Info.plist */,
 			);
@@ -464,6 +476,7 @@
 				30D039E426F1227600AD7CE8 /* ApiQueryGenerator.swift in Sources */,
 				0FF8F64F26C31FFB001F228E /* AppDelegate.swift in Sources */,
 				05FAA15F26DD1F2300460507 /* PopularViewController.swift in Sources */,
+				300EF369270BA19900F2BDDD /* FavoriteModel.swift in Sources */,
 				9C132E91270387D700309539 /* RoverModel.swift in Sources */,
 				309C145C26DD91140063BD2F /* ImageRetrieveController.swift in Sources */,
 				9C0C2D7D26FA500A00CA40BF /* RoverCollectionViewCell.swift in Sources */,
@@ -478,6 +491,7 @@
 				30C902DB26E9144800CBDCB0 /* CellDetailView.swift in Sources */,
 				9C7CD60226F535BC0059AAE4 /* NavigationControllerConfiguration.swift in Sources */,
 				30C902E226EA5CE300CBDCB0 /* Constants.swift in Sources */,
+				304078842714EB6900D082CA /* FavoriteController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -486,6 +500,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0FF8F66626C32000001F228E /* Nasa_AppTests.swift in Sources */,
+				9CBBCEC2271F294300A7FBFC /* PopularViewControllerTests.swift in Sources */,
+				9C02444F271E22CF00786D1F /* CellDetailViewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
